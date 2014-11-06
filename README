@@ -1,0 +1,20 @@
+Internet Filtering and Censorship_ Cites.gdoc* 
+-- Presumably the Google Doc Michael was initially working from
+
+RFC_parser.py* -- The python parser that takes in parsable and outputs
+	       	  cites in xml
+
+censorship_cites.xml* -- (not sure)
+
+censorship_rfc-jlh.txt -- the version of the RFC as submitted in txt
+
+censorship_rfc-jlh.xml -- the version of the RFC as submitted in xml
+
+censorship_rfc.xml* -- the original version from Michael. This version
+                       resulted in a number of errors when uploading
+                       to the IETF RFC editor, those are fixed in
+                       -jlh.txt,xml
+
+parsable_cites.txt* -- presumably the input to RFC_parser.py
+
+rfc_cites.xml* -- (not sure)
