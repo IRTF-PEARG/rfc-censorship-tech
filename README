@@ -4,7 +4,6 @@ Internet Filtering and Censorship_ Cites.gdoc*
 RFC_parser.py* -- The python parser that takes in parsable and outputs
 	       	  cites in xml
 
-censorship_cites.xml* -- (not sure)
 
 censorship_rfc-jlh.txt -- the version of the RFC as submitted in txt
 
@@ -17,4 +16,4 @@ censorship_rfc.xml* -- the original version from Michael. This version
 
 parsable_cites.txt* -- presumably the input to RFC_parser.py
 
-rfc_cites.xml* -- (not sure)
+rfc_cites.xml* -- output of RFC_Parser 
