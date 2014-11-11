@@ -103,3 +103,21 @@ I'm in Honolulu for IETF 91, if you want to talk AFK (I'll try to be
 at the SAAG meeting).
 
 Editorial: ref-33 and ref-34 are identical.
+
+----
+
+Another comment from Stephane, sent separately:
+
+Do note also these good documents on DNS filtering (I do not think
+they are mentioned in your draft):
+
+"Report of the AFNIC Scientific Council: Consquences of DNS-based
+Internet filtering"
+<http://www.afnic.fr/en/about-afnic/news/general-news/6584/show/the-afnic-scientific-council-shares-its-report-on-dns-based-internet-filtering.html>
+[Disclaimer: I work for AFNIC but I was not involved in this report]
+
+<https://tools.ietf.org/html/draft-iab-filtering-considerations>
+[Expired after IAB consensus and launch to "Community Review"]
+
+SSAC's SAC056
+<https://www.icann.org/en/system/files/files/sac-056-en.pdf>
