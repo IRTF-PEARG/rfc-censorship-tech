@@ -63,6 +63,18 @@ Internet-Draft A Survey of Worldwide Censorship Techniques  October 2014
 
 1.  Introduction
 
+   This document describes the technical mechanisms used by censorship
+   regimes around the world to block or degrade internet traffic. To
+   that end, we describe three elements of Internet censorship:
+   aggregation, identification, and prevention. Aggregation is the
+   process by which censors determine what they should block,
+   i.e. they decide to block a list of pornographic
+   websites. Identification is the process by which censors determine
+   whether content is blocked, i.e. the censor blocks all webpages
+   containing "sex" in the title. Prevention is the process by which
+   the censor intercedes in communication and prevents access to
+   censored materials.
+
 2.  Technical Aggregation
 
    Aggregation is the process of figuring out what censors would like to
@@ -147,10 +159,10 @@ Internet-Draft A Survey of Worldwide Censorship Techniques  October 2014
 
 3.2.1.  HTTP Request Header Identification
 
-   A HTTP header contains a lot of useful information for traffic
-   identification; although host is the only required field in a HTTP
-   request header, a HTTP method field is necessary to do anything
-   useful.  As such, the method and host fields are the two fields used
+   An HTTP header contains a lot of useful information for traffic
+   identification; although host is the only required field in an HTTP
+   request header, an HTTP method field is necessary to do anything
+   useful. As such, the method and host fields are the two fields used
    most often for ubiquitous censorship.  As a censor, I can sniff
    traffic and identify a specific domain name (host) and usually a page
    name (GET /page) as well.  This identification technique is usually
@@ -161,7 +173,7 @@ Internet-Draft A Survey of Worldwide Censorship Techniques  October 2014
    cheap and easy-to-acquire, making it desirable when budget and scope
    are a concern.  HTTPS will encrypt the relevant request and response
    fields, so pairing with TCP/IP identification is necessary for
-   filtering of HTTPS.  Empirical Examples: Empirical examples of pure
+   filtering of HTTPS.  
 
 
 
@@ -169,55 +181,157 @@ Hall & Aaron             Expires April 30, 2015                 [Page 3]
 
 Internet-Draft A Survey of Worldwide Censorship Techniques  October 2014
 
-
-   HTTP Request Identification are unusually hard to identify due to the
-   lack of distinguishing charistics.  Commercial technologies such as
-   the McAfee SmartFilter and NetSweeper are often purchased by censors
-   [ref-2].  These commercial technologies use a combination of HTTP
-   Request Identification and TCP/IP Header Identification to filter
-   specific URLs.  There has not been research conducted to try and
-   identify if only one of these two techniques is being used.
+   Empirical Examples: Studies exploring censorship mechanisms have
+   found evidence of HTTP header/ URL filtering in many countries,
+   including Bangladesh, Bahrain, China, India, Iran, Malaysia,
+   Pakistan, Russia, Saudi Arabia, South Korea, Thailand, and Turkey
+   [ref-62, ref-63, ref-64]. Commercial
+   technologies such as the McAfee SmartFilter and NetSweeper are
+   often purchased by censors [ref-2].  These commercial technologies
+   use a combination of HTTP Request Identification and TCP/IP Header
+   Identification to filter specific URLs. Dalek et al. and Jones et
+   al. identified the use of these products in the wild [ref-2, ref-65]
 
 3.2.2.  HTTP Response Header Identification
+
+   Note: I have never heard of this type of filtering being used and
+   the reference you provide contradicts your claim- China stopped
+   using this form of censorship during the period of their study. I
+   don't see a big difference between this and keyword filtering over
+   TCP streams, so you may want to consider cutting this section.
 
    While HTTP Request Header Identification relies on the information
    contained in the HTTP request from client to server, response
    identification uses information sent in response by the server to
-   client to identify undesirable content.  Usually implemented at the
-   Backbone or ISP level, the technique normally relies on mirroring, or
-   duplicating the packets such that one can provide uninterrupted
-   service while inspecting the duplicates for undesirable content, to
-   prevent QoS degradation [ref-3] - the mirrored traffic is identified
-   by relevant response fields (such as Server or Via).  Tradeoffs: As
-   with HTTP Request Header Identification, the techniques used to
-   identify HTTP traffic are well-known, cheap, and relatively easy to
-   implement, but is made useless by HTTPS, because the response in
-   HTTPS is encrypted, including headers.  The response fields are also
-   less helpful for identifying content than request fields, as Server
-   could easily be identified using HTTP Request Header identification,
-   and Via is rarely relevant.  HTTP Response censorship mechanisms
-   normally let the first n packets through while the mirrored traffic
-   is being processed; this can let a page momentarily load before
-   blocking mechanisms kick in; giving the user a very clear indication
+   client to identify undesirable content. 
+
+
+   Note: I'm cutting this portion because many forms of censorship are
+   performed by a cluster IDS (this is how almost all of China's
+   censorship (TCP RST and DNS response injection) works). A cluster
+   IDS is a cluster that receives a copy of traffic and performs
+   analysis over the traffic. The content is correct, but I think it
+   gives the reader the incorrect impression that cluster IDSs are
+   only used for HTTP response filtering.
+
+   cut[ Usually implemented at the Backbone or ISP level, the technique
+   normally relies on mirroring, or duplicating the packets such that
+   one can provide uninterrupted service while inspecting the
+   duplicates for undesirable content, to prevent QoS degradation
+   [ref-3] - the mirrored traffic is identified by relevant response
+   fields (such as Server or Via).]
+
+
+   Tradeoffs: As with HTTP Request Header Identification, the
+   techniques used to identify HTTP traffic are well-known, cheap, and
+   relatively easy to implement, but is made useless by HTTPS, because
+   the response in HTTPS is encrypted, including headers. 
+
+
+   Note: Talking about censorship is always a tradeoff in utility for
+   researchers vs the censor, so this may not be worth
+   publishing. While the censor cannot use HTTP header fields, they
+   can use the SNI header to identify some connections over HTTPS. The
+   SNI header is often filled with the Host: field from the HTTP
+   header, so depending on the connection, the censor may still be
+   able to censor content depending on the SNI field. This is not my
+   area of expertise though, so I would need to look into this more to
+   write something up.
+
+
+   The response fields are also less helpful for identifying content
+   than request fields, as Server could easily be identified using
+   HTTP Request Header identification, and Via is rarely relevant.
+   HTTP Response censorship mechanisms normally let the first n
+   packets through while the mirrored traffic is being processed; this
+   may allow some content through and the user may be able to detect
    that the censor is actively interfering with undesirable content.
+
+   Note: I modified the wording here because a) something could happen
+   at the network layer without the browswer processing the data
+   (loading implies that the browser processed the data) and b) the
+   user would not be able to detect the censorship if the censor
+   proxied all connections or if there was high latency to the target
+   server (the censor could RST both ends before the user received a
+   packet from the target server). (Note that we could detect these
+   cases with measurements, but it gets more complicated)
+
+
    Empirical Examples: pointing to the "smoking-gun" examples in
    response header identification is difficult for the same reasons
-   identifying requests is difficult.  The best targeted evidence comes
-   from a 2010 study conducted by Jong Park at the University of New
-   Mexico.  The study strongly indicates HTTP Response Header
-   Identification was being used as a censorship identification
-   technique in China from August 2008-January 2009 [ref-4].
+   identifying requests is difficult. 
 
-3.2.3.  Search Engine Keyword Identification
+   Note: I disagree with this statement- if you copy everything from
+   an uncensored page and only switch out one element,
+   i.e. destination or a single header, you can determine why the
+   content was censored. (This assumes that features are independent,
+   i.e. that the censor does not require a match on multiple features
+   at the same time)
 
-   While technically similar to a HTTP request filter, the pervasiveness
-   of search engines blacklisting search terms warrants its own
-   attention.  Search Engine Keyword Identification differentiates
-   itself from other keyword identification techniques by being
-   controlled by the company managing the search engine.  Identification
-   can be regional or worldwide.  Implementation is occasionally
-   voluntary, but normally is based on laws and regulations of the
-   country a search engine is operating in.  The keyword blacklists are
+   In 2009, Jong Park et al. at the University of New Mexico
+   demonstrated that the Great Firewall of China (GFW) used this
+   technique [ref-4]. However, Jong Park et al. found that the GFW
+   discontinued this practice during the course of the study. Due to
+   the overlap in HTTP response filtering and keyword filtering, it is
+   likely that most censors rely on keyword filtering over TCP streams
+   instead of HTTP response filtering.
+
+3.2.3.  Instrumenting Content Providers
+
+   Note: I am changing this to generic filtering by an application
+   because this is more pervasive that just search engines.
+
+   In addition to censorship by the state, many governments pressure
+   content providers to censor themselves. Due to the extensive reach
+   of government censorship, we need to define content provider as any
+   service that provides utility to users, including everything from
+   web sites to locally installed programs. The defining factor of
+   keyword identification by content providers is the choice of
+   content providers to detect restricted terms on their platform. The
+   terms to look for may be provided by the government or the content
+   provider may be expected to come up with their own list.
+
+   Tradeoffs: By instrumenting content providers to identify
+   restricted content, the censor can gain new information at the cost
+   of political capital with the companies it forces or encourages to
+   participate in censorship. For example, the censor can gain insight
+   about the content of encrypted traffic by coercing web sites to
+   identify restricted content, but this may drive away potential
+   investment. Coercing content providers may encourage self
+   censorship, an additional advantage for censors. The tradeoffs for
+   instrumenting content providers are highly dependent on the content
+   provider and the requested assistance.
+
+   cut [Tradeoffs: Search Engine Keyword Identification is an inconvenience
+   as opposed to a hard block.  As around half of all web traffic
+   comes from search [ref-5], disrupting the flow of users to
+   undesirable content is an effective method to redirect
+   non-dedicated, curious users to less subversive content.  It is
+   also likely an effective method at encouraging self-censorship (see
+   below) around the blocked content.]
+
+
+   Empirical Examples: Researchers have discovered keyword
+   identification by content providers on platforms ranging from
+   instant messaging applications [ref-67] to search engines [ref-66,
+   reg-6, ref-8, ref-9, ref-10]. To demonstrate the prevalence of this
+   type of keyword identification, we look to search engine
+   censorship.
+
+   Search engine censorship demonstrates keyword identification by
+   content providers and can be regional or worldwide.  Implementation
+   is occasionally voluntary, but normally is based on laws and
+   regulations of the country a search engine is operating in. The
+   keyword blacklists are most likely maintained by the search engine
+   provider. China requires search engine providers to "voluntarily"
+   maintain search term blacklists to acquire/keep an ICP license
+   [ref-6].  It is clear these blacklists are maintained by each
+   search engine provider based on the slight variations in the
+   intercepted searches [ref-7][ref-8]. The United Kingdom has been
+   pushing search engines to self censor with the threat of litigation
+   if they don't do it themselves: Google and Microsoft have agreed to
+   block more than 100,00 queries in U.K. to help combat abuse
+   [ref-9][ref-10].
 
 
 
@@ -225,55 +339,64 @@ Hall & Aaron             Expires April 30, 2015                 [Page 4]
 
 Internet-Draft A Survey of Worldwide Censorship Techniques  October 2014
 
+   Depending on the output, search engine keyword identification may
+   be difficult or easy to detect. In some cases specialized or blank
+   results provide a trivial enumeration mechanism, but more subtle
+   censorship can be difficult to detect. In February, Microsoft's
+   search engine, Bing, was accussed of censoring Chinese content
+   outside of China [ref-66] because Bing returned different results
+   for censored terms in Chinese and English. However, it is possible
+   that censorship of the largest base of Chinese search users, China,
+   biased Bing's results so that the more popular results in China
+   (the uncensored results) were also more popular for Chinese
+   speakers outside of China.
 
-   most likely maintained by the search engine provider.  Tradeoffs:
-   Search Engine Keyword Identification is an inconvenience as opposed
-   to a hard block.  As around half of all web traffic comes from search
-   [ref-5], disrupting the flow of users to undesirable content is an
-   effective method to redirect non-dedicated, curious users to less
-   subversive content.  It is also likely an effective method at
-   encouraging self-censorship (see below) around the blocked content.
-   Empirical Examples: Search Engine Keyword Identification is one of
-   the easiest mechanisms to detect given the clear indicators, such as
-   a specialized or blank results, paired with a trivial enumeration
-   mechanism.  China requires search engine providers to "voluntarily"
-   maintain search term blacklists to acquire/keep an ICP license
-   [ref-6].  It is clear these blacklists are maintained by each search
-   engine provider based on the slight variations in the intercepted
-   searches [ref-7][ref-8].  The United Kingdom has been pushing search
-   engines to self censor with the threat of litigation if they don't do
-   it themselves: Google and Microsoft have agreed to block more than
-   100,00 queries in U.K. to help combat abuse [ref-9][ref-10].
+
+
 
 3.2.4.  Deep Packet Inspection (DPI) Identification
 
    Deep Packet Inspection has become computationally feasible as a
-   censorship mechanism in the past 5 years [ref-11].  DPI differs from
-   other filtration techniques in that it examine the application "data"
-   section of traversing packets as opposed to only the header.  To
-   prevent substantial QoS impacts, DPI normally works by splitting the
-   traffic, using either a mirror switch or fiber splitter, and
-   analyzing a copy of the traffic.  Keyword identification is often
-   times used to flag undesirable content.  Tradeoffs: While DPI can be
-   employed across entire networks, it is one of the most expensive
-   technical filtration mechanisms to implement and avoiding a large
-   impact to QoS is difficult [ref-12].  Often times a targeted approach
-   proves itself more feasible.  Any encryption on the application
-   level, such as HTTPS, also makes DPI useless as a censorship
-   technique as the content typically analyzed is encrypted in this
-   case.  DPI, when paired with a keyword filter, can cause major
-   overblocking problems if used indiscriminately.  Empirical Evidence:
-   Identifying deep packet inspection censorship is non-trivial; one
-   must be sure that the undesirable content being filtered isn't being
-   caught by simpler mechanisms before claiming more advanced DPI
-   techniques are being used.  The Tor project claims that China, Iran,
-   Ethiopia, and others must being using DPI to block the obsf2 protocol
-   [ref-13].  Malaysia has been accused of using target DPI, paired with
-   DDoS, to identify and subsequently knockout pro-opposition material
-   [ref-14].  It also seems likely that organizations not so worried
-   about blocking content in real-time could use DPI to sort and
-   categorically search gathered traffic using technologies such as
-   NarusInsight [ref-15].
+   censorship mechanism in the past 5 years [ref-11]. Unlike other
+   techniques, DPI reassembles network flows to examine the
+   application "data" section, as opposed to only the header, and is
+   therefore often used for keyword identification. DPI also differs
+   from other identification technologies because it can leverage
+   additional packet and flow characteristics, i.e. packet sizes and
+   timings, to identify content. To prevent substantial QoS impacts,
+   DPI normally analyzes a copy of data while the original packets
+   continue to be routed. Typically, the traffic is split using either
+   a mirror switch or fiber splitter, and analyzed on a cluster of
+   machines running Intrusion Detection Systems (IDS) configured for
+   censorship.
+
+
+   Tradeoffs: DPI is one of the most expensive identification
+   mechanisms and can have a large QoS impact [ref-12].  When used as
+   a keyword filter for TCP flows, DPI systems can cause also major
+   overblocking problems. Like other techniques, DPI is less useful
+   against encrypted data, though DPI can leverage
+
+   Despite these problems, DPI is the most powerful identification
+   method and is widely used in practice. The Great Firewall of China
+   (GFW), the largest censorship system in the world, uses DPI to
+   identify restricted content over HTTP and DNS and inject TCP RSTs
+   and bad DNS responses, respectively, into connections
+   [ref-4][ref-68][ref-69].
+
+   Empirical Evidence: Several studies have found evidence of DPI
+   being used to censor content and tools. Clayton et al. Crandal et
+   al., Anonymous, and Khattak et al., all explored the GFW and
+   Khattak et al. even probed the firewall to discover implementation
+   details like how much state it stores
+   [ref-4][ref-68][ref-69][ref-70]. The Tor project claims that China,
+   Iran, Ethiopia, and others must being using DPI to block the obsf2
+   protocol [ref-13].  Malaysia has been accused of using target DPI,
+   paired with DDoS, to identify and subsequently knockout
+   pro-opposition material [ref-14].  It also seems likely that
+   organizations not so worried about blocking content in real-time
+   could use DPI to sort and categorically search gathered traffic
+   using technologies such as NarusInsight [ref-15].
 
 
 
@@ -291,45 +414,78 @@ Internet-Draft A Survey of Worldwide Censorship Techniques  October 2014
    invaluable pieces of information that must be transparent for traffic
    to be successfully routed: destination and source IP address and
    port.  Destination and Source IP are doubly useful, as not only does
-   it allow a cto block undesirable content via IP blacklisting, but
+   it allow a censor to block undesirable content via IP blacklisting, but
    also allows a censor to identify the IP of the user making the
-   request.  Port is useful for whitelisting certain applications or
-   forcing an HTTP proxy for non-technical users.  Trade-offs: This
-   method of filtration is popular due to its simplicity, relative
-   cheapness, and wide availability.  It is trivial to implement a
-   filtration mechanism at the Backbone, ISP, or Institutional level
-   that compares the IP address of a packet with a blacklist of IP
-   addresses.  IP blocking is relatively crude, often leading to
-   overblocking, and one of the simplest to circumvent via VPN or proxy
-   as those either mask transport protocol within a tunnel or reroute
-   data that might have been blocked otherwise.  Port blocking is semi-
-   effective at best.  A censor can block communication on the default
-   port of an undesirable application (for example uTorrent defaults to
-   32459), but almost all applications allow the user to change ports.
-   Port whitelisting, where a censor only allow communication on
-   approved ports, such as 80 for HTTP traffic, is more often used.
-   This identification mechanism is often used in conjunction with HTTP
-   Identification.  Empirical Examples: TCP/IP Header Identification is
-   pervasive.  Some form of TCP/IP Header Identification is used by
-   most, if not all, ISP and backbone censors.  Any time an IP blacklist
-   is being used, TCP/IP Header Identification is probably the technique
-   being used to match the request against the blacklist.  The examples
-   of TCP/IP Header Identification are too numerous to enumerate in any
-   meaningful way.
+   request. Port is useful for whitelisting certain applications.
+
+
+   Note: I disagree with the statement that port is useful for forcing
+   users to use a proxy-> they can force you to go through a
+   transparent proxy (at the network or application layer) whether you
+   are technical or not and these are difficult to detect. I am adding
+   proxy as a prevention in the next section, so I will provide more
+   info there.
+
+
+   Trade-offs: TCP/IP identification is popular due to its simplicity,
+   availability, and robustness. 
+
+
+   TCP/IP identification is trivial to implement, but is difficult to
+   implement in backbone or ISP routers at scale, and is therefore
+   typically implemented with DPI. Blacklisting an IP is equivalent to
+   installing a /32 route on a router and due to limited flow table
+   space, this cannot scale beyond a few thousand IPs at most. IP
+   blocking is also relatively crude, leading to overblocking, and
+   cannot deal with some services like Content Distribution Networks
+   (CDN), that host content at hundreds or thousands of IP
+   addresses. Despite these limitations, IP blocking is extremely
+   effective because the user needs to proxy their traffic through
+   another destination to circumvent this type of identification.
+
+   Port-blocking is generally not useful because many types of content
+   share the same port and it is possible for censored applications to
+   change their port. For example, most HTTP traffic goes over port
+   80, so the censor cannot differentiate between restricted and
+   allowed content solely on the basis of port. Port whitelisting is
+   occasionally used, where a censor limits communication to approved
+   ports, such as 80 for HTTP traffic and is most effective when used
+   in conjuction with other identification mechanisms. For example, a
+   censor could block the default HTTPS port, port 443, thereby
+   forcing most users to fall back to HTTP.
+
 
 3.3.2.  Protocol Identification
 
-   Protocol identification is a network analysis technique where one
-   attempts to identify the protocols being used based on a variety of
-   traffic characteristics.  There have been a number well documented
-   cases where traffic identification has been used to filter
-   undesirable protocols.  A very simple example of traffic
-   identification would be to recognize all TCP traffic over port 80 as
-   HTTP, but much more sophisticated methods, such as analyzing
-   statistical properties of payload data and flow behavior, have been
-   used [ref-16][ref-17].  Trade-offs: Protocol Identification
-   necessarily only provides insight into the way information is
-   traveling, and not the information itself.  This can lead to massive
+   Censors sometimes identify entire protocols to be blocked using a
+   variety of traffic characteristics.  For example, Iran degrades the
+   performance of HTTPS traffic, a procotol that prevents further
+   analysis, to encourage users to switch to HTTP, a protocol that
+   they can analyze [ref-64]. A simple protocol identification would
+   be to recognize all TCP traffic over port 443 as HTTPS, but more
+   sophisticated analysis of the statistical properties of payload
+   data and flow behavior, would be more effective, even when port 443
+   is not used [ref-16][ref-17].
+
+   If censors can detect circumvention tools, they can block them, so
+   censors like China are extremely interested in identifying the
+   protocols for censorship circumvention tools. In recent years, this
+   has devolved into an arms race between censors and circumvention
+   tool developers. As part of this arms race, China developed an
+   extremely effective protocol identification technique that
+   researchers call active probing or active scanning. 
+
+   In active probing, the censor determines whether hosts are running
+   a circumvention protocol by trying to initiate communication using
+   the circumvention protocol. If the host and the censor successfully
+   negotiate a connection, then the censor conclusively knows that
+   host is running a circumvention tool. China has used active
+   scanning to great effect to block Tor [ref-20].
+
+
+   Trade-offs: Protocol Identification necessarily only provides
+   insight into the way information is traveling, and not the
+   information itself. 
 
 
 
@@ -338,25 +494,25 @@ Hall & Aaron             Expires April 30, 2015                 [Page 6]
 Internet-Draft A Survey of Worldwide Censorship Techniques  October 2014
 
 
-   overblocking problems if used with popular protocols.  Most often
-   undesirable protocols are those which can be used to transmit
-   information that is otherwise hard to analyze or considered to likely
-   cary undesirable information; VoIP, P2P, SSL, and Tor have all been
-   targets of protocol identification in the past.  As statistical
-   analysis is used, the methods tend to be expensive, both
-   computationally and financially, and are occasionally imprecise and
-   under-filter obfuscated protocols.  Empirical Examples: Protocol
-   Identification is easy to prove given the ubiquitous nature of the
-   throttling/interruption; If only a specific protocol(s) are being
-   prevented, then Protocol Identification is the most likely culprit.
-   Iran censors have used Protocol Identification to identify and
-   throttle SSH traffic by such a large amount as to make it unusable
-   [ref-18].  The method used by censors in China to identify Tor
-   connections could also be viewed as a type of Protocol
-   Identification[ref-19].  Protocol Identification has also been used
-   by industry from traffic management, such as the 2007 case where
-   Comcast in the United States was using RST injection to interrupt
-   BitTorrent Traffic [ref-20].
+   Protocol identification is useful for detecting and blocking
+   circumvention tools, like Tor, or traffic that is difficult to
+   analyze, like VoIP or SSL, because the censor can assume that this
+   traffic should be blocked. However, this can lead to overblocking
+   problems when used with popular protocols.  These methods are
+   expensive, both computationally and financially, due to the use of
+   statistical analysis, and can be ineffective due to its imprecise
+   nature.
+
+   Empirical Examples: Protocol identification can be easy to detect
+   if it is conducted in real time and only a particular protocol is
+   blocked, but some types of protocol identification, like active
+   scanning, are much more difficult to detect. Protocol
+   identification has been used by Iran to identify and throttle SSH
+   traffic to make it unusable [ref-18] and by China to identify and
+   block Tor relays [ref-20]. Protocol Identification has also been
+   used for traffic management, such as the 2007 case where Comcast in
+   the United States used RST injection to interrupt BitTorrent
+   Traffic [ref-20].
 
 4.  Technical Prevention
 
@@ -570,22 +726,23 @@ Internet-Draft A Survey of Worldwide Censorship Techniques  October 2014
 
 5.  Non-Technical Aggregation
 
-   As the name implies, sometimes manpower is the easiest way to figure
-   out which content to block.  Manual Filtering differs from the common
-   tactic of building up blacklists in that is doesn't necessarily
-   target a specific IP or DNS, but instead removes or flags content.
-   Given the imprecise nature of automatic filtering, manually sorting
-   through content and flagging dissenting websites, blogs, articles and
-   other media for filtration can be an effective technique.  This
-   filtration can occur on the Backbone/ISP level, China's army of
-   monitors is a good example [ref-50]; more commonly manual filtering
-   occurs on an institutional level.  ICP's, such as Google or Weibo,
-   require a business license to operate in China.  One of the
-   prerequisites for a business license is an agreement to sign a
-   "voluntary pledge" known as the "Public Pledge on Self-discipline for
-   the Chinese Internet Industry".  The failure to " energetically
-   uphold" the pledged values can lead to the ICP's being held liable
-   for the offending content by the Chinese government [ref-51].
+   As the name implies, sometimes manpower is the easiest way to
+   figure out which content to block.  Manual Filtering differs from
+   the common tactic of building up blacklists in that is doesn't
+   necessarily target a specific IP or DNS, but instead removes or
+   flags content.  Given the imprecise nature of automatic filtering,
+   manually sorting through content and flagging dissenting websites,
+   blogs, articles and other media for filtration can be an effective
+   technique.  This filtration can occur on the Backbone/ISP level,
+   China's army of monitors is a good example [ref-50]; more commonly
+   manual filtering occurs on an institutional level.  (Internet
+   Content Provider?) ICP's, such as Google or Weibo, require a
+   business license to operate in China.  One of the prerequisites for
+   a business license is an agreement to sign a "voluntary pledge"
+   known as the "Public Pledge on Self-discipline for the Chinese
+   Internet Industry".  The failure to " energetically uphold" the
+   pledged values can lead to the ICP's being held liable for the
+   offending content by the Chinese government [ref-51].
 
 6.  Non-Technical Prevention
 
@@ -948,7 +1105,6 @@ Internet-Draft A Survey of Worldwide Censorship Techniques  October 2014
 
 
 
-
 Hall & Aaron             Expires April 30, 2015                [Page 17]
 
 Internet-Draft A Survey of Worldwide Censorship Techniques  October 2014
@@ -967,6 +1123,47 @@ Internet-Draft A Survey of Worldwide Censorship Techniques  October 2014
               Internet Filtering"", December 2011 ,
               <http://access.opennet.net/wp-content/uploads/2011/12/
               accessdenied-chapter-3.pdf#page=8>.
+
+
+
+   This is the start of the references that I added:
+
+   [ref-62] Verkamp, M. ""Inferring Mechanics of Web Censorship
+   Around the World"", August 2012,
+   <https://www.usenix.org/system/files/conference/foci12/foci12-final1.pdf>.
+	 
+   [ref-63] Nabi, Z. ""The Anatomy of Web Censorship in Pakistan"",
+   August 2013,
+   <http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/12387-foci13-nabi.pdf>.
+
+   [ref-64] Aryan, S. ""Internet Censorship in Iran: A First Look"",
+   August 2013,
+   <http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/12388-foci13-aryan.pdf>
+
+
+   [ref-65] Jones, B. ""Automated Detection and Fingerprinting of
+            Censorship Block Pages"" November 2014,
+            <http://conferences2.sigcomm.org/imc/2014/papers/p299.pdf>
+
+   [ref-66] Rushe, D. ""Bing censoring Chinese language search results
+            for users in the US"", Feburary 2014,
+            <http://www.theguardian.com/technology/2014/feb/11/bing-censors-chinese-language-search-results>
+
+   [ref-67] Senfte, A. ""Asia Chats: Analyzing Information Controls
+   and Privacy in Asian Messaging Applications"", November 2014,
+   <https://citizenlab.org/2013/11/asia-chats-analyzing-information-controls-privacy-asian-messaging-applications/>.
+
+   [ref-68] Clayton, R. ""Ignoring the Great Firewall of China"",
+   January 2006, <http://link.springer.com/chapter/10.1007/11957454_2>
+
+   [ref-69] Anonymous. ""Towards a Comprehensive Picture of the Great
+   Firewall’s DNS Censorship"", August 2014,
+   <https://www.usenix.org/system/files/conference/foci14/foci14-anonymous.pdf>
+
+   [ref-70] Khattak, S. ""Towards Illuminating a Censorship Monitor's
+   Model to Facilitate Evasion"", August 2013,
+   <http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/12389-foci13-khattak.pdf>
+
 
 Authors' Addresses
 
