@@ -1,4 +1,4 @@
-<reference anchor="ref-1" target="http://www.theguardian.com/commentisfree/2008/nov/17/censorship-internet">
+<reference anchor="ref-1" target="http://www.theguardian.com/commentisfree/2008/nov/17/censorship-internet">
 <front>
 <title>
 “The Big Business of Net Censorship”
@@ -9,7 +9,7 @@
 " day="N/A" />
 </front>
 </reference>
-<reference anchor="ref-2" target="http://www.cs.stonybrook.edu/~phillipa/papers/imc112s-dalek.pdf">
+<reference anchor="ref-2" target="http://www.cs.stonybrook.edu/~phillipa/papers/imc112s-dalek.pdf">
 <front>
 <title>
 “A Method for Identifying and Confirming the Use of URL Filtering Products for Censorship”
@@ -20,7 +20,7 @@
 " day="N/A" />
 </front>
 </reference>
-<reference anchor="ref-3" target="https://www.efa.org.au/main/wp-content/uploads/2009/05/efa-filtering-fact-sheets.pdf">
+<reference anchor="ref-3" target="https://www.efa.org.au/main/wp-content/uploads/2009/05/efa-filtering-fact-sheets.pdf">
 <front>
 <title>
 “EFA Filtering Overview”
@@ -31,18 +31,18 @@
 " day="N/A" />
 </front>
 </reference>
-<reference anchor="ref-4" target="http://www.cs.unm.edu/~crandall/icdcs2010.pdf ">
+<reference anchor="ref-4" target="http://www.cs.unm.edu/~crandall/icdcs2010.pdf ">
 <front>
 <title>
 “Empirical Study of a National-Scale Distributed Intrusion Detection System: Backbone-Level Filtering of HTML Responses in China”
 </title>
-<author initials="J.C." surname="Crandall" fullname="Jedediah
- Crandall"></author>
+<author initials="J.&." surname="&Crandall" fullname="Jedediah
+ &Crandall"></author>
 <date month="June" year="2010
 " day="N/A" />
 </front>
 </reference>
-<reference anchor="ref-5" target="http://news.bbc.co.uk/2/hi/asia-pacific/7016238.stm">
+<reference anchor="ref-5" target="http://news.bbc.co.uk/2/hi/asia-pacific/7016238.stm">
 <front>
 <title>
 “Junta Tightens Military Screws”
@@ -53,7 +53,7 @@
 " day="N/A" />
 </front>
 </reference>
-<reference anchor="ref-6" target="http://arstechnica.com/tech-policy/2010/06/google-tweaks-china-to-hong-kong-redirect-same-results/">
+<reference anchor="ref-6" target="http://arstechnica.com/tech-policy/2010/06/google-tweaks-china-to-hong-kong-redirect-same-results/">
 <front>
 <title>
 “Google stops Hong Kong auto-redirect as China plays hardball”
@@ -64,7 +64,7 @@
 " />
 </front>
 </reference>
-<reference anchor="ref-7" target="http://arxiv.org/ftp/arxiv/papers/1107/1107.3794.pdf#page=10">
+<reference anchor="ref-7" target="http://arxiv.org/ftp/arxiv/papers/1107/1107.3794.pdf#page=10">
 <front>
 <title>
 “An Analysis of Chinese Search Engine Filtering”
@@ -75,7 +75,7 @@
 " day="N/A" />
 </front>
 </reference>
-<reference anchor="ref-8" target="http://www.zdnet.com/1168-keywords-skype-uses-to-censor-monitor-its-chinese-users-7000012328/">
+<reference anchor="ref-8" target="http://www.zdnet.com/1168-keywords-skype-uses-to-censor-monitor-its-chinese-users-7000012328/">
 <front>
 <title>
 “1,168 keywords Skype uses to censor, monitor its Chinese users”
@@ -86,7 +86,7 @@
 " day="N/A" />
 </front>
 </reference>
-<reference anchor="ref-9" target="http://www.bbc.com/news/uk-24980765">
+<reference anchor="ref-9" target="http://www.bbc.com/news/uk-24980765">
 <front>
 <title>
 “Google and Microsoft agree steps to block abuse images”
@@ -97,7 +97,7 @@
 " day="N/A" />
 </front>
 </reference>
-<reference anchor="ref-10" target="http://gizmodo.com/google-announces-massive-new-restrictions-on-child-abus-1466539163">
+<reference anchor="ref-10" target="http://gizmodo.com/google-announces-massive-new-restrictions-on-child-abus-1466539163">
 <front>
 <title>
 “Google Announces Massive New Restrictions on Child Abuse Search Terms”
@@ -108,7 +108,7 @@
 " day="N/A" />
 </front>
 </reference>
-<reference anchor="ref-11" target="http://advocacy.globalvoicesonline.org/wp-content/uploads/2009/06/deeppacketinspectionandinternet-censorship2.pdf">
+<reference anchor="ref-11" target="http://advocacy.globalvoicesonline.org/wp-content/uploads/2009/06/deeppacketinspectionandinternet-censorship2.pdf">
 <front>
 <title>
 “Deep Packet Inspection and Internet Censorship: International Convergence on an ‘Integrated Technology of Control’”
@@ -119,7 +119,7 @@
 " day="N/A" />
 </front>
 </reference>
-<reference anchor="ref-12" target="http://www.symantec.com/connect/articles/perils-deep-packet-inspection">
+<reference anchor="ref-12" target="http://www.symantec.com/connect/articles/perils-deep-packet-inspection">
 <front>
 <title>
 “The Perils of Deep Packet Inspection”
@@ -130,7 +130,7 @@
 " />
 </front>
 </reference>
-<reference anchor="ref-13" target="https://blog.torproject.org/blog/knock-knock-knockin-bridges-doors">
+<reference anchor="ref-13" target="https://blog.torproject.org/blog/knock-knock-knockin-bridges-doors">
 <front>
 <title>
 “Knock Knock Knockin’ on Bridges Doors”
@@ -141,7 +141,7 @@
 " />
 </front>
 </reference>
-<reference anchor="ref-14" target="http://www.reuters.com/article/2013/05/04/uk-malaysia-election-online-idUKBRE94309G20130504">
+<reference anchor="ref-14" target="http://www.reuters.com/article/2013/05/04/uk-malaysia-election-online-idUKBRE94309G20130504">
 <front>
 <title>
 “In Malaysia, online election battles take a nasty turn”
@@ -152,7 +152,7 @@
 " />
 </front>
 </reference>
-<reference anchor="ref-15" target="https://www.eff.org/cases/hepting">
+<reference anchor="ref-15" target="https://www.eff.org/cases/hepting">
 <front>
 <title>
 “Hepting vs. ATand T”
@@ -162,7 +162,7 @@
 <date month="Updated" year="December" day="2011" />
 </front>
 </reference>
-<reference anchor="ref-16" target="https://www.iis.se/docs/hjelmvik_breaking.pdf">
+<reference anchor="ref-16" target="https://www.iis.se/docs/hjelmvik_breaking.pdf">
 <front>
 <title>
 July 2010 7
@@ -172,7 +172,7 @@ July 2010 7
 <date month="“Breaking" year="and" day="Improving" />
 </front>
 </reference>
-<reference anchor="ref-17" target="https://www.sandvine.com/downloads/general/technology/sandvine-technology-showcases/sandvine-technology-showcase-traffic-classification.pdf#page=3 ">
+<reference anchor="ref-17" target="https://www.sandvine.com/downloads/general/technology/sandvine-technology-showcases/sandvine-technology-showcase-traffic-classification.pdf#page=3 ">
 <front>
 <title>
 “Technology Showcase on Traffic Classification: Why Measurements and Freeform Policy Matter”
@@ -183,7 +183,7 @@ July 2010 7
 " />
 </front>
 </reference>
-<reference anchor="ref-18" target="https://torrentfreak.com/how-to-bypass-comcast-bittorrent-throttling-071021">
+<reference anchor="ref-18" target="https://torrentfreak.com/how-to-bypass-comcast-bittorrent-throttling-071021">
 <front>
 <title>
 “How to Bypass Comcast’s Bittorrent Throttling”
@@ -194,7 +194,7 @@ July 2010 7
 " />
 </front>
 </reference>
-<reference anchor="ref-19" target="http://www.washingtonpost.com/blogs/the-switch/wp/2013/08/15/heres-how-iran-censors-the-internet/">
+<reference anchor="ref-19" target="http://www.washingtonpost.com/blogs/the-switch/wp/2013/08/15/heres-how-iran-censors-the-internet/">
 <front>
 <title>
 “Here’s how Iran censors the Internet”
@@ -205,7 +205,7 @@ July 2010 7
 " />
 </front>
 </reference>
-<reference anchor="ref-20" target="http://arxiv.org/pdf/1204.0447v1.pdf21">
+<reference anchor="ref-20" target="http://arxiv.org/pdf/1204.0447v1.pdf21">
 <front>
 <title>
 “How China is Blocking Tor”
@@ -216,7 +216,7 @@ July 2010 7
 " />
 </front>
 </reference>
-<reference anchor="ref-21" target="https://en.greatfire.org/blog/2013/jan/github-blocked-china-how-it-happened-how-get-around-it-and-where-it-will-take-us">
+<reference anchor="ref-21" target="https://en.greatfire.org/blog/2013/jan/github-blocked-china-how-it-happened-how-get-around-it-and-where-it-will-take-us">
 <front>
 <title>
 “GitHub blocked in China - how it happened, how to get around it, and where it will take us”
@@ -227,7 +227,7 @@ July 2010 7
 " />
 </front>
 </reference>
-<reference anchor="ref-22" target="http://arxiv.org/pdf/1312.5739v1.pdf">
+<reference anchor="ref-22" target="http://arxiv.org/pdf/1312.5739v1.pdf">
 <front>
 <title>
 “Detecting Intentional Packet Drops on the Internet via TCP/IP Side Channels“
@@ -238,7 +238,7 @@ July 2010 7
 " />
 </front>
 </reference>
-<reference anchor="ref-23" target="https://jhalderm.com/pub/papers/iran-foci13.pdf">
+<reference anchor="ref-23" target="https://jhalderm.com/pub/papers/iran-foci13.pdf">
 <front>
 <title>
 “Internet Censorship in Iran: A First Look”
@@ -249,7 +249,7 @@ July 2010 7
 " day="N/A" />
 </front>
 </reference>
-<reference anchor="ref-24" target="http://www.icir.org/vern/papers/reset-injection.ndss09.pdf">
+<reference anchor="ref-24" target="http://www.icir.org/vern/papers/reset-injection.ndss09.pdf">
 <front>
 <title>
 “Detecting Forged TCP Packets”
@@ -260,7 +260,7 @@ July 2010 7
 " day="N/A" />
 </front>
 </reference>
-<reference anchor="ref-25" target="http://www.icir.org/vern/papers/reset-injection.ndss09.pdf">
+<reference anchor="ref-25" target="http://www.icir.org/vern/papers/reset-injection.ndss09.pdf">
 <front>
 <title>
 “Detecting Forged TCP Packets”
@@ -271,7 +271,7 @@ July 2010 7
 " day="N/A" />
 </front>
 </reference>
-<reference anchor="ref-26" target="http://www.icir.org/vern/papers/reset-injection.ndss09.pdf">
+<reference anchor="ref-26" target="http://www.icir.org/vern/papers/reset-injection.ndss09.pdf">
 <front>
 <title>
 “Detecting Forged TCP Packets”
@@ -282,7 +282,7 @@ July 2010 7
 " day="N/A" />
 </front>
 </reference>
-<reference anchor="ref-27" target="http://www.blackhatlibrary.net/TCP-RST_Injection ">
+<reference anchor="ref-27" target="http://www.blackhatlibrary.net/TCP-RST_Injection ">
 <front>
 <title>
 “TCP-RST Injection”
@@ -293,7 +293,7 @@ July 2010 7
 " day="N/A" />
 </front>
 </reference>
-<reference anchor="ref-28" target="https://www.eff.org/deeplinks/2007/10/eff-tests-agree-ap-comcast-forging-packets-to-interfere">
+<reference anchor="ref-28" target="https://www.eff.org/deeplinks/2007/10/eff-tests-agree-ap-comcast-forging-packets-to-interfere">
 <front>
 <title>
 “EFF tests agree with AP: Comcast is forging packets to interfere with user traffic”
@@ -304,7 +304,7 @@ July 2010 7
 " />
 </front>
 </reference>
-<reference anchor="ref-29" target="https://www.eff.org/deeplinks/2008/08/fcc-rules-against-comcast-bit-torrent-blocking">
+<reference anchor="ref-29" target="https://www.eff.org/deeplinks/2008/08/fcc-rules-against-comcast-bit-torrent-blocking">
 <front>
 <title>
 “FCC Rules Against Comcast for BitTorrent Blocking”
@@ -315,7 +315,7 @@ July 2010 7
 " />
 </front>
 </reference>
-<reference anchor="ref-30" target="http://arxiv.org/pdf/1204.0447v1.pdf#page=5">
+<reference anchor="ref-30" target="http://arxiv.org/pdf/1204.0447v1.pdf#page=5">
 <front>
 <title>
 “How China Is Blocking Tor”
@@ -326,7 +326,7 @@ July 2010 7
 " />
 </front>
 </reference>
-<reference anchor="ref-31" target="http://viewdns.info/research/dns-cache-poisoning-in-the-peoples-republic-of-china/">
+<reference anchor="ref-31" target="http://viewdns.info/research/dns-cache-poisoning-in-the-peoples-republic-of-china/">
 <front>
 <title>
 “DNS Cache Poisoning in the People's Republic of China”
@@ -337,7 +337,7 @@ July 2010 7
 " />
 </front>
 </reference>
-<reference anchor="ref-32" target="https://jhalderm.com/pub/papers/iran-foci13.pdf#page=5">
+<reference anchor="ref-32" target="https://jhalderm.com/pub/papers/iran-foci13.pdf#page=5">
 <front>
 <title>
 “Internet Censorship in Iran: A First Look”
@@ -348,7 +348,7 @@ July 2010 7
 " day="N/A" />
 </front>
 </reference>
-<reference anchor="ref-33" target="http://www.renesys.com/2014/03/turkish-internet-censorship/">
+<reference anchor="ref-33" target="http://www.renesys.com/2014/03/turkish-internet-censorship/">
 <front>
 <title>
 “Turkish Internet Censorship Takes a New Turn”
@@ -359,7 +359,7 @@ July 2010 7
 " />
 </front>
 </reference>
-<reference anchor="ref-34" target="http://www.renesys.com/2014/03/turkish-internet-censorship/">
+<reference anchor="ref-34" target="http://www.renesys.com/2014/03/turkish-internet-censorship/">
 <front>
 <title>
 “Turkish Internet Censorship Takes a New Turn”
@@ -370,19 +370,18 @@ July 2010 7
 " />
 </front>
 </reference>
-<reference anchor="ref-35" target="http://www.businessinsider.com/chinas-internet-breakdown-reportedly-caused-by-censoring-tools-2014-1">
+<reference anchor="ref-35" target="http://www.businessinsider.com/chinas-internet-breakdown-reportedly-caused-by-censoring-tools-2014-1">
 <front>
 <title>
 “China Has Massive Internet Breakdown Reportedly Caused By Their Own Censoring Tools”
 </title>
-<author initials="
-.A." surname="AFP" fullname="
+<author initials=".A." surname="AFP" fullname="
  AFP"></author>
 <date month="January" year="2014" day="23
 " />
 </front>
 </reference>
-<reference anchor="ref-36" target="http://www.sigcomm.org/sites/default/files/ccr/papers/2012/July/2317307-2317311.pdf">
+<reference anchor="ref-36" target="http://www.sigcomm.org/sites/default/files/ccr/papers/2012/July/2317307-2317311.pdf">
 <front>
 <title>
 “The Collateral Damage of Internet Censorship by DNS Injection”
@@ -393,7 +392,7 @@ July 2010 7
 " day="N/A" />
 </front>
 </reference>
-<reference anchor="ref-37" target="https://opennet.net/blog/2011/06/dns-tampering-and-new-icann-gtld-rules">
+<reference anchor="ref-37" target="https://opennet.net/blog/2011/06/dns-tampering-and-new-icann-gtld-rules">
 <front>
 <title>
 “DNS Tampering and the new ICANN gTLD Rules”
@@ -404,7 +403,7 @@ July 2010 7
 " />
 </front>
 </reference>
-<reference anchor="ref-38" target="http://en.wikipedia.org/wiki/Denial-of-service_attack#Methods_of_attack">
+<reference anchor="ref-38" target="http://en.wikipedia.org/wiki/Denial-of-service_attack#Methods_of_attack">
 <front>
 <title>
 “Denial of Service Attacks (Wikipedia)"
@@ -415,7 +414,7 @@ July 2010 7
 " year="N/A" day="N/A" />
 </front>
 </reference>
-<reference anchor="ref-39" target="http://www.nbcnews.com/feature/edward-snowden-interview/exclusive-snowden-docs-show-uk-spies-attacked-anonymous-hackers-n21361">
+<reference anchor="ref-39" target="http://www.nbcnews.com/feature/edward-snowden-interview/exclusive-snowden-docs-show-uk-spies-attacked-anonymous-hackers-n21361">
 <front>
 <title>
 “Snowden Docs Show UK Spies Attacked Anonymous, Hackers”
@@ -426,19 +425,18 @@ July 2010 7
 " />
 </front>
 </reference>
-<reference anchor="ref-40" target="http://www.cert.org/historical/advisories/CA-1996-21.cfm">
+<reference anchor="ref-40" target="http://www.cert.org/historical/advisories/CA-1996-21.cfm">
 <front>
 <title>
 “TCP SYN Flooding and IP Spoofing Attacks”
 </title>
-<author initials="
-.C." surname="CMU" fullname="
+<author initials=".C." surname="CMU" fullname="
  CMU"></author>
 <date month="November" year="2000" day="29
 " />
 </front>
 </reference>
-<reference anchor="ref-41" target="http://access.opennet.net/wp-content/uploads/2011/12/accesscontested-chapter-08.pdf">
+<reference anchor="ref-41" target="http://access.opennet.net/wp-content/uploads/2011/12/accesscontested-chapter-08.pdf">
 <front>
 <title>
 “Open Access: Chapter 8, Control and Resistance, Attacks on Burmese Opposition Media”
@@ -449,7 +447,7 @@ July 2010 7
 " day="N/A" />
 </front>
 </reference>
-<reference anchor="ref-42" target="http://www.themoscowtimes.com/news/article/cyberattacks-disrupt-oppositions-election/470119.html">
+<reference anchor="ref-42" target="http://www.themoscowtimes.com/news/article/cyberattacks-disrupt-oppositions-election/470119.html">
 <front>
 <title>
 “Cyberattacks Disrupt Opposition's Election”
@@ -460,7 +458,7 @@ July 2010 7
 " />
 </front>
 </reference>
-<reference anchor="ref-43" target="http://www.theinquirer.net/inquirer/news/2287433/zimbabwe-election-hit-by-hacking-and-ddos-attacks">
+<reference anchor="ref-43" target="http://www.theinquirer.net/inquirer/news/2287433/zimbabwe-election-hit-by-hacking-and-ddos-attacks">
 <front>
 <title>
 “Zimbabwe election hit by hacking and DDoS attacks”
@@ -471,7 +469,7 @@ July 2010 7
 " />
 </front>
 </reference>
-<reference anchor="ref-44" target="http://www.theregister.co.uk/2013/05/09/malaysia_fraud_elections_ddos_web_blocking/">
+<reference anchor="ref-44" target="http://www.theregister.co.uk/2013/05/09/malaysia_fraud_elections_ddos_web_blocking/">
 <front>
 <title>
 “Malaysian election sparks web blocking/DDoS claims”
@@ -482,7 +480,7 @@ July 2010 7
 " />
 </front>
 </reference>
-<reference anchor="ref-45" target="http://news.bbc.co.uk/2/hi/asia-pacific/7016238.stm">
+<reference anchor="ref-45" target="http://news.bbc.co.uk/2/hi/asia-pacific/7016238.stm">
 <front>
 <title>
 “Junta tightens media screw”
@@ -493,7 +491,7 @@ July 2010 7
 " />
 </front>
 </reference>
-<reference anchor="ref-46" target="https://opennet.net/blog/2009/07/china-shuts-down-internet-xinjiang-region-after-riots">
+<reference anchor="ref-46" target="https://opennet.net/blog/2009/07/china-shuts-down-internet-xinjiang-region-after-riots">
 <front>
 <title>
 “China Shuts Down Internet in Xinjiang Region After Riots”
@@ -504,7 +502,7 @@ July 2010 7
 " />
 </front>
 </reference>
-<reference anchor="ref-47" target="http://www.renesys.com/2011/01/egypt-leaves-the-internet/">
+<reference anchor="ref-47" target="http://www.renesys.com/2011/01/egypt-leaves-the-internet/">
 <front>
 <title>
 “Egypt Leaves the Internet”
@@ -515,7 +513,7 @@ July 2010 7
 " />
 </front>
 </reference>
-<reference anchor="ref-48" target="http://www.renesys.com/2011/02/libyan-disconnect-1/">
+<reference anchor="ref-48" target="http://www.renesys.com/2011/02/libyan-disconnect-1/">
 <front>
 <title>
 “Libyan Disconnect”
@@ -526,7 +524,7 @@ July 2010 7
 " />
 </front>
 </reference>
-<reference anchor="ref-49" target="http://www.theregister.co.uk/2012/11/29/syria_internet_blackout/">
+<reference anchor="ref-49" target="http://www.theregister.co.uk/2012/11/29/syria_internet_blackout/">
 <front>
 <title>
 “Syria Cuts off Internet and Mobile Communication”
@@ -537,7 +535,7 @@ July 2010 7
 " />
 </front>
 </reference>
-<reference anchor="ref-50" target="http://www.bbc.com/news/world-asia-china-24396957">
+<reference anchor="ref-50" target="http://www.bbc.com/news/world-asia-china-24396957">
 <front>
 <title>
 “China employs two million microblog monitors state media say”
@@ -548,7 +546,7 @@ July 2010 7
 " />
 </front>
 </reference>
-<reference anchor="ref-51" target="http://www.hrw.org/reports/2006/china0806/china0806web.pdf">
+<reference anchor="ref-51" target="http://www.hrw.org/reports/2006/china0806/china0806web.pdf">
 <front>
 <title>
 “‘Race to the Bottom’ Corporate Complicity in Chinese Internet Censorship”
@@ -559,7 +557,7 @@ July 2010 7
 " day="N/A" />
 </front>
 </reference>
-<reference anchor="ref-52" target="http://www.npr.org/blogs/thetwo-way/2013/11/29/247820503/prominent-egyptian-blogger-arrested">
+<reference anchor="ref-52" target="http://www.npr.org/blogs/thetwo-way/2013/11/29/247820503/prominent-egyptian-blogger-arrested">
 <front>
 <title>
 “Prominent Egyptian Blogger Arrested”
@@ -570,7 +568,7 @@ July 2010 7
 " />
 </front>
 </reference>
-<reference anchor="ref-53" target="http://www.huffingtonpost.com/2012/12/03/sattar-beheshit-iran_n_2233125.html">
+<reference anchor="ref-53" target="http://www.huffingtonpost.com/2012/12/03/sattar-beheshit-iran_n_2233125.html">
 <front>
 <title>
 “Sattar Beheshit, Iranian Blogger, Was Beaten In Prison According To Prosecutor”
@@ -581,7 +579,7 @@ July 2010 7
 " />
 </front>
 </reference>
-<reference anchor="ref-54" target="http://readwrite.com/2011/03/03/communications_blocked_in_libya_this_week_in_onlin">
+<reference anchor="ref-54" target="http://readwrite.com/2011/03/03/communications_blocked_in_libya_this_week_in_onlin">
 <front>
 <title>
 “Communications Blocked in Libya, Qatari Blogger Arrested: This Week in Online Tyranny”
@@ -592,7 +590,7 @@ July 2010 7
 " />
 </front>
 </reference>
-<reference anchor="ref-55" target="http://www.theguardian.com/world/2014/apr/17/chinese-blogger-jailed-crackdown-internet-rumours-qin-zhihui">
+<reference anchor="ref-55" target="http://www.theguardian.com/world/2014/apr/17/chinese-blogger-jailed-crackdown-internet-rumours-qin-zhihui">
 <front>
 <title>
 “Chinese blogger jailed under crackdown on 'internet rumours'”
@@ -603,7 +601,7 @@ July 2010 7
 " />
 </front>
 </reference>
-<reference anchor="ref-56" target="http://seattlepostglobe.org/2010/02/05/torture-feared-in-arrest-of-iraqi-blogger/">
+<reference anchor="ref-56" target="http://seattlepostglobe.org/2010/02/05/torture-feared-in-arrest-of-iraqi-blogger/">
 <front>
 <title>
 “Torture feared in arrest of Iraqi blogger”
@@ -614,7 +612,7 @@ July 2010 7
 " />
 </front>
 </reference>
-<reference anchor="ref-57" target="http://news.bbc.co.uk/2/hi/asia-pacific/7783640.stm">
+<reference anchor="ref-57" target="http://news.bbc.co.uk/2/hi/asia-pacific/7783640.stm">
 <front>
 <title>
 “China's internet 'spin doctors‘“
@@ -625,7 +623,7 @@ July 2010 7
 " />
 </front>
 </reference>
-<reference anchor="ref-58" target="http://www.theguardian.com/media/2008/sep/22/chinathemedia.marketingandpr">
+<reference anchor="ref-58" target="http://www.theguardian.com/media/2008/sep/22/chinathemedia.marketingandpr">
 <front>
 <title>
 “China joins a turf war”
@@ -636,7 +634,7 @@ July 2010 7
 " />
 </front>
 </reference>
-<reference anchor="ref-59" target="http://www.nytimes.com/2014/06/04/opinion/tiananmen-forgotten.html">
+<reference anchor="ref-59" target="http://www.nytimes.com/2014/06/04/opinion/tiananmen-forgotten.html">
 <front>
 <title>
 “Tiananmen, Forgotten”
@@ -647,18 +645,18 @@ July 2010 7
 " />
 </front>
 </reference>
-<reference anchor="ref-60" target="http://access.opennet.net/wp-content/uploads/2011/12/accessdenied-chapter-3.pdf#page=8">
+<reference anchor="ref-60" target="http://access.opennet.net/wp-content/uploads/2011/12/accessdenied-chapter-3.pdf#page=8">
 <front>
 <title>
 “Access Denied: Tools and Technology of Internet Filtering”
 </title>
-<author initials="R.A." surname="Anderson" fullname="Ross.
- Anderson"></author>
+<author initials="R.&." surname="&Anderson" fullname="Ross.
+ &Anderson"></author>
 <date month="December" year="2011
 " day="N/A" />
 </front>
 </reference>
-<reference anchor="ref-61" target="http://access.opennet.net/wp-content/uploads/2011/12/accessdenied-chapter-3.pdf#page=8">
+<reference anchor="ref-61" target="http://access.opennet.net/wp-content/uploads/2011/12/accessdenied-chapter-3.pdf#page=8">
 <front>
 <title>
 “Access Denied: Tools and Technology of Internet Filtering”
@@ -666,6 +664,17 @@ July 2010 7
 <author initials="S.M." surname="Murdoch" fullname="Steven
  Murdoch"></author>
 <date month="December" year="2011
+" day="N/A" />
+</front>
+</reference>
+<reference anchor="ref-62" target="https://www.usenix.org/system/files/conference/foci12/foci12-final1.pdf">
+<front>
+<title>
+“Inferring Mechanics of Web Censorship Around the World”
+</title>
+<author initials="J.V." surname="Verkamp" fullname="John-Paul
+ Verkamp"></author>
+<date month="August" year="2012
 " day="N/A" />
 </front>
 </reference>

@@ -310,3 +310,9 @@ Murdoch, Steven
 “Access Denied: Tools and Technology of Internet Filtering”
 December 2011
 http://access.opennet.net/wp-content/uploads/2011/12/accessdenied-chapter-3.pdf#page=8
+62:
+Verkamp, John-Paul
+&Gupta, Minaxi.
+“Inferring Mechanics of Web Censorship Around the World”
+August 2012
+https://www.usenix.org/system/files/conference/foci12/foci12-final1.pdf

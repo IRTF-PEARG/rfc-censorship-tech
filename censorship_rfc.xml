@@ -49,7 +49,7 @@
     </section>
     <section title="Technical Aggregation">
       <t>
-        Aggregation is the process of figuring out what censors would like to block. Generally, censors aggregate “to block” information in three possible sorts of blacklists: Keyword, Domain Name, or IP. Keyword and Domain Name blocking take place at the application level (e.g. HTTP), whereas IP blocking tends to take place in the TCP/IP header. The mechanisms for building up these blacklists are varied. Many times private industries that sell “content control” software, such as SmartFilter, provide their services to nations which can then pick from broad categories, such as gambling or pornography, that they would like to block <xref target="ref-1"></xref>. In these cases, the private services embark on an attempt to label every semi-questionable website as to allow for this metatag blocking. Countries that are more interested in retaining specific political control, a desire which requires swift and decisive action, often have ministries or organizations, such as the Ministry of Industry and Information Technology in China or the Ministry of Culture and Islamic Guidance in Iran, which maintain their own blacklists.
+        Aggregation is the process of figuring out what censors would like to block. Generally, censors aggregate "to block" information in three possible sorts of blacklists: Keyword, Domain Name, or IP. Keyword and Domain Name blocking take place at the application level (e.g. HTTP), whereas IP blocking tends to take place in the TCP/IP header. The mechanisms for building up these blacklists are varied. Many times private industries that sell "content control" software, such as SmartFilter, provide their services to nations which can then pick from broad categories, such as gambling or pornography, that they would like to block <xref target="ref-1"></xref>. In these cases, the private services embark on an attempt to label every semi-questionable website as to allow for this metatag blocking. Countries that are more interested in retaining specific political control, a desire which requires swift and decisive action, often have ministries or organizations, such as the Ministry of Industry and Information Technology in China or the Ministry of Culture and Islamic Guidance in Iran, which maintain their own blacklists.
       </t>
     </section>
 
@@ -70,70 +70,272 @@ At all levels of the network hierarchy, the filtration mechanisms used to detect
       <section title="Application Layer">
         <section title="HTTP Request Header Identification">
 <t>
-A HTTP header contains a lot of useful information for traffic identification; although host is the only required field in a HTTP request header, a HTTP method field is necessary to do anything useful.  As such, the method and host fields are the two fields used most often for ubiquitous censorship. As a censor, I can sniff traffic and identify a specific domain name (host) and usually a page name (GET /page) as well. This identification technique is usually paired with TCP/IP header identification for a more robust method.
+  An HTTP header contains a lot of useful information for traffic identification; although host is the only required field in an HTTP request header, an HTTP method field is necessary to do anything useful. As such, the method and host fields are the two fields used most often for ubiquitous censorship. As a censor, I can sniff traffic and identify a specific domain name (host) and usually a page name (GET /page) as well. This identification technique is usually paired with TCP/IP header identification for a more robust method.
+</t>
 
-Tradeoffs:  Request Identification is a technically straight-forward identification method that can be easily implemented at the Backbone or ISP level. The hardware needed for this sort of identification is cheap and easy-to-acquire, making it desirable when budget and scope are a concern. HTTPS will encrypt the relevant request and response fields, so pairing with TCP/IP identification is necessary for filtering of HTTPS.
+<t>Tradeoffs:  Request Identification is a technically straight-forward identification method that can be easily implemented at the Backbone or ISP level. The hardware needed for this sort of identification is cheap and easy-to-acquire, making it desirable when budget and scope are a concern. HTTPS will encrypt the relevant request and response fields, so pairing with TCP/IP identification is necessary for filtering of HTTPS.</t>
 
-Empirical Examples:
-Empirical examples of pure HTTP Request Identification are unusually hard to identify due to the lack of distinguishing charistics. Commercial technologies such as the McAfee SmartFilter and NetSweeper are often purchased by censors <xref target="ref-2"></xref>. These commercial technologies use a combination of HTTP Request Identification and TCP/IP Header Identification to filter specific URLs. There has not been research conducted to try and identify if only one of these two techniques is being used. 
+<t>
+  Empirical Examples: Studies exploring censorship mechanisms have found evidence of HTTP header/ URL filtering in many countries, including Bangladesh, Bahrain, China, India, Iran, Malaysia, Pakistan, Russia, Saudi Arabia, South Korea, Thailand, and Turkey <xref target="ref-62" /><xref target="ref-63" /><xref target="ref-64" />. Commercial technologies such as the McAfee SmartFilter and NetSweeper are often purchased by censors <xref target="ref-2" />.  These commercial technologies use a combination of HTTP Request Identification and TCP/IP Header Identification to filter specific URLs. Dalek et al. and Jones et al. identified the use of these products in the wild <xref target="ref-2" /><xref target="ref-65" />.
 </t>
         </section>
         <section title="HTTP Response Header Identification">
 <t>
-While HTTP Request Header Identification relies on the information contained in the HTTP request from client to server, response identification uses information sent in response by the server to client to identify undesirable content. Usually implemented at the Backbone or ISP level, the technique normally relies on mirroring, or duplicating the packets such that one can provide uninterrupted service while inspecting the duplicates for undesirable content, to prevent  QoS degradation <xref target="ref-3"></xref> – the mirrored traffic is identified by relevant response fields (such as Server or Via).
+While HTTP Request Header Identification relies on the information
+contained in the HTTP request from client to server, response
+identification uses information sent in response by the server to
+client to identify undesirable content.
+</t>
 
-Tradeoffs: 
-As with HTTP Request Header Identification, the techniques used to identify HTTP traffic are well-known, cheap, and relatively easy to implement, but is made useless by HTTPS, because the response in HTTPS is encrypted, including headers.  The response fields are also less helpful for identifying content than request fields, as Server could easily be identified using HTTP Request Header identification, and Via is rarely relevant.  HTTP Response censorship mechanisms normally let the first n packets through while the mirrored traffic is being processed; this can let a page momentarily load before blocking mechanisms kick in; giving the user a very clear indication that the censor is actively interfering with undesirable content. 
+<t>
+Tradeoffs: As with HTTP Request Header Identification, the techniques
+used to identify HTTP traffic are well-known, cheap, and relatively
+easy to implement, but is made useless by HTTPS, because the response
+in HTTPS is encrypted, including headers.
+</t>
 
+<t>
+The response fields are also less helpful for identifying content than
+request fields, as Server could easily be identified using HTTP
+Request Header identification, and Via is rarely relevant.  HTTP
+Response censorship mechanisms normally let the first n packets
+through while the mirrored traffic is being processed; this may allow
+some content through and the user may be able to detect that the
+censor is actively interfering with undesirable content.
+</t>
 
-Empirical Examples: 
-pointing to the “smoking-gun” examples in response header identification is difficult for the same reasons identifying requests is difficult. The best targeted evidence comes from a 2010 study conducted by Jong Park at the University of New Mexico. The study strongly indicates HTTP Response Header Identification was being used as a censorship identification technique in China from August 2008-January 2009 <xref target="ref-4"></xref>.
+<t>
+Empirical Examples: pointing to the "smoking-gun" examples in response
+header identification is difficult for the same reasons identifying
+requests is difficult.
+</t>
+
+<t>
+[Note from B. Jones, to be resolved]: I disagree with this statement-
+if you copy everything from an uncensored page and only switch out one
+element, i.e. destination or a single header, you can determine why
+the content was censored. (This assumes that features are independent,
+i.e. that the censor does not require a match on multiple features at
+the same time)
+</t>
+
+<t>
+In 2009, Jong Park et al. at the University of New Mexico demonstrated
+that the Great Firewall of China (GFW) used this technique <xref
+target="ref-4"></xref>. However, Jong Park et al. found that the GFW
+discontinued this practice during the course of the study. Due to the
+overlap in HTTP response filtering and keyword filtering, it is likely
+that most censors rely on keyword filtering over TCP streams instead
+of HTTP response filtering.
 </t>
         </section>
-        <section title="Search Engine Keyword Identification">
+        <section title="Instrumenting Content Providers">
 <t>
-While technically similar to a HTTP request filter, the pervasiveness of search engines blacklisting search terms warrants its own attention. Search Engine Keyword Identification  differentiates itself from other keyword identification techniques by being controlled by the company managing the search engine. Identification can be regional or worldwide.  Implementation is occasionally voluntary, but normally is based on laws and regulations of the country a search engine is operating in. The keyword blacklists are most likely maintained by the search engine provider.
-
-Tradeoffs: 
-Search Engine Keyword Identification is an inconvenience as opposed to a hard block. As around half of all web traffic comes from search <xref target="ref-5"></xref>, disrupting the flow of users to undesirable content is an effective method to redirect non-dedicated, curious users to less subversive content. It is also likely an effective method at encouraging self-censorship (see below) around the blocked content. 
-
-Empirical Examples:
-Search Engine Keyword Identification is one of the easiest mechanisms to detect given the clear indicators, such as a specialized or blank results, paired with a trivial enumeration mechanism. China requires search engine providers to “voluntarily” maintain search term blacklists to acquire/keep an ICP license <xref target="ref-6"></xref>. It is clear these blacklists are maintained by each search engine provider based on the slight variations in the intercepted searches <xref target="ref-7"></xref><xref target="ref-8"></xref>.  The United Kingdom has been pushing search engines to self censor with the threat of litigation if they don’t do it themselves: Google and Microsoft have agreed to block more than 100,00 queries in U.K. to help combat abuse <xref target="ref-9"></xref><xref target="ref-10"></xref>.
+In addition to censorship by the state, many governments pressure
+content providers to censor themselves. Due to the extensive reach of
+government censorship, we need to define content provider as any
+service that provides utility to users, including everything from web
+sites to locally installed programs. The defining factor of keyword
+identification by content providers is the choice of content providers
+to detect restricted terms on their platform. The terms to look for
+may be provided by the government or the content provider may be
+expected to come up with their own list.
+</t>
+<t>
+Tradeoffs: By instrumenting content providers to identify restricted
+content, the censor can gain new information at the cost of political
+capital with the companies it forces or encourages to participate in
+censorship. For example, the censor can gain insight about the content
+of encrypted traffic by coercing web sites to identify restricted
+content, but this may drive away potential investment. Coercing
+content providers may encourage self censorship, an additional
+advantage for censors. The tradeoffs for instrumenting content
+providers are highly dependent on the content provider and the
+requested assistance.
+</t>
+<t>
+Empirical Examples: Researchers have discovered keyword identification
+by content providers on platforms ranging from instant messaging
+applications <xref target="ref-67" /> to search engines <xref
+target="ref-66" /><xref target="ref-6" /><xref target="ref-8" /><xref
+target="ref-9" /><xref target="ref-10" />. To demonstrate the
+prevalence of this type of keyword identification, we look to search
+engine censorship.
+</t>
+<t>
+Search engine censorship demonstrates keyword identification by
+content providers and can be regional or worldwide.  Implementation is
+occasionally voluntary, but normally is based on laws and regulations
+of the country a search engine is operating in. The keyword blacklists
+are most likely maintained by the search engine provider. China
+requires search engine providers to "voluntarily" maintain search term
+blacklists to acquire/keep an ICP license <xref target="ref-6" />.  It
+is clear these blacklists are maintained by each search engine
+provider based on the slight variations in the intercepted searches
+<xref target="ref-7" /><xref target="ref-8" />. The United Kingdom has
+been pushing search engines to self censor with the threat of
+litigation if they don't do it themselves: Google and Microsoft have
+agreed to block more than 100,00 queries in U.K. to help combat abuse
+<xref target="ref-9" /><xref target="ref-10" />.
+</t>
+<t>
+Depending on the output, search engine keyword identification may be
+difficult or easy to detect. In some cases specialized or blank
+results provide a trivial enumeration mechanism, but more subtle
+censorship can be difficult to detect. In February, Microsoft's search
+engine, Bing, was accussed of censoring Chinese content outside of
+China <xref target="ref-66" /> because Bing returned different results
+for censored terms in Chinese and English. However, it is possible
+that censorship of the largest base of Chinese search users, China,
+biased Bing's results so that the more popular results in China (the
+uncensored results) were also more popular for Chinese speakers
+outside of China.
 </t>
         </section>
         <section title="Deep Packet Inspection (DPI) Identification">
 <t>
-Deep Packet Inspection has become computationally feasible as a censorship mechanism in the past 5 years <xref target="ref-11"></xref>. DPI differs from other filtration techniques in that it examine the application “data” section of traversing packets as opposed to only the header. To prevent substantial QoS impacts, DPI normally works by splitting the traffic, using either a mirror switch or fiber splitter, and analyzing a copy of the traffic. Keyword identification is often times used to flag undesirable content.
-
-Tradeoffs: 
-While DPI can be employed across entire networks, it is one of the most expensive technical filtration mechanisms to implement and avoiding a large impact to QoS is difficult <xref target="ref-12"></xref>. Often times a  targeted approach proves itself more feasible. Any encryption on the application level, such as HTTPS, also makes DPI useless as a censorship technique as the content typically analyzed is encrypted in this case. DPI, when paired with a keyword filter, can cause major overblocking problems if used indiscriminately.
-
-Empirical Evidence: 
-Identifying deep packet inspection censorship is non-trivial; one must be sure that the undesirable content being filtered isn’t being caught by simpler mechanisms before claiming more advanced DPI techniques are being used. The Tor project claims that China, Iran, Ethiopia, and others must being using DPI to block the obsf2 protocol <xref target="ref-13"></xref>. 
-Malaysia has been accused of using target DPI, paired with DDoS, to identify and subsequently knockout pro-opposition material <xref target="ref-14"></xref>. It also seems likely that organizations not so worried about blocking content in real-time could use DPI to sort and categorically search gathered traffic using technologies such as NarusInsight <xref target="ref-15"></xref>.
+Deep Packet Inspection has become computationally feasible as a
+censorship mechanism in the past 5 years <xref target="ref-11"
+/>. Unlike other techniques, DPI reassembles network flows to examine
+the application "data" section, as opposed to only the header, and is
+therefore often used for keyword identification. DPI also differs from
+other identification technologies because it can leverage additional
+packet and flow characteristics, i.e. packet sizes and timings, to
+identify content. To prevent substantial QoS impacts, DPI normally
+analyzes a copy of data while the original packets continue to be
+routed. Typically, the traffic is split using either a mirror switch
+or fiber splitter, and analyzed on a cluster of machines running
+Intrusion Detection Systems (IDS) configured for censorship.
+</t>
+<t>
+Tradeoffs: DPI is one of the most expensive identification mechanisms
+and can have a large QoS impact <xref target="ref-12" />.  When used
+as a keyword filter for TCP flows, DPI systems can cause also major
+overblocking problems. Like other techniques, DPI is less useful
+against encrypted data, though DPI can leverage
+</t>
+<t>
+Despite these problems, DPI is the most powerful identification method
+and is widely used in practice. The Great Firewall of China (GFW), the
+largest censorship system in the world, uses DPI to identify
+restricted content over HTTP and DNS and inject TCP RSTs and bad DNS
+responses, respectively, into connections <xref target="ref-4" /><xref
+target="ref-68" /><xref target="ref-69" />.
+</t>
+<t>
+Empirical Evidence: Several studies have found evidence of DPI being
+used to censor content and tools. Clayton et al. Crandal et al.,
+Anonymous, and Khattak et al., all explored the GFW and Khattak et
+al. even probed the firewall to discover implementation details like
+how much state it stores <xref target="ref-4" /><xref target="ref-68"
+/><xref target="ref-69" /><xref target="ref-70" />. The Tor project
+claims that China, Iran, Ethiopia, and others must being using DPI to
+block the obsf2 protocol <xref target="ref-13" />.  Malaysia has been
+accused of using target DPI, paired with DDoS, to identify and
+subsequently knockout pro-opposition material <xref target="ref-14"
+/>.  It also seems likely that organizations not so worried about
+blocking content in real-time could use DPI to sort and categorically
+search gathered traffic using technologies such as NarusInsight <xref
+target="ref-15" />.
 </t>
         </section>
       </section>
       <section title="Transport Layer">
         <section title="TCP/IP Header Identification">
 <t>
-TCP/IP Header Identification is the most pervasive, reliable, and predictable type of identification. TCP/IP headers contain a few invaluable pieces of information that must be transparent for traffic to be successfully routed: destination and source IP address and port. Destination and Source IP are doubly useful, as not only does it allow a cto block undesirable content via IP blacklisting, but also allows a censor to identify the IP of the user making the request. Port is useful for whitelisting certain applications or forcing an HTTP proxy for non-technical users. 
-
-Trade-offs: This method of filtration is popular due to its simplicity, relative cheapness, and wide availability. It is trivial to implement a filtration mechanism at the Backbone, ISP, or Institutional level that compares the IP address of a packet with a blacklist of IP addresses. IP blocking is relatively crude, often leading to overblocking, and one of the simplest to circumvent via VPN or proxy as those either mask transport protocol within a tunnel or reroute data that might have been blocked otherwise. Port blocking is semi-effective at best. A censor can block communication on the default port of an undesirable application (for example uTorrent defaults to 32459), but almost all applications allow the user to change ports. Port whitelisting, where a censor only allow communication on approved ports, such as 80 for HTTP traffic, is more often used. This identification mechanism is often used in conjunction with HTTP Identification. 
-
-Empirical Examples:
-TCP/IP Header Identification is pervasive. Some form of TCP/IP Header Identification is used by most, if not all, ISP and backbone censors. Any time an IP blacklist is being used, TCP/IP Header Identification is probably the technique being used to match the request against the blacklist. The examples of TCP/IP Header Identification are too numerous to enumerate in any meaningful way. 
+TCP/IP Header Identification is the most pervasive, reliable, and
+predictable type of identification.  TCP/IP headers contain a few
+invaluable pieces of information that must be transparent for traffic
+to be successfully routed: destination and source IP address and port.
+Destination and Source IP are doubly useful, as not only does it allow
+a censor to block undesirable content via IP blacklisting, but also
+allows a censor to identify the IP of the user making the
+request. Port is useful for whitelisting certain applications.
+</t>
+<t>
+Trade-offs: TCP/IP identification is popular due to its simplicity,
+availability, and robustness.
+</t>
+<t>
+TCP/IP identification is trivial to implement, but is difficult to
+implement in backbone or ISP routers at scale, and is therefore
+typically implemented with DPI. Blacklisting an IP is equivalent to
+installing a /32 route on a router and due to limited flow table
+space, this cannot scale beyond a few thousand IPs at most. IP
+blocking is also relatively crude, leading to overblocking, and cannot
+deal with some services like Content Distribution Networks (CDN), that
+host content at hundreds or thousands of IP addresses. Despite these
+limitations, IP blocking is extremely effective because the user needs
+to proxy their traffic through another destination to circumvent this
+type of identification.
+</t>
+<t>
+Port-blocking is generally not useful because many types of content
+share the same port and it is possible for censored applications to
+change their port. For example, most HTTP traffic goes over port 80,
+so the censor cannot differentiate between restricted and allowed
+content solely on the basis of port. Port whitelisting is occasionally
+used, where a censor limits communication to approved ports, such as
+80 for HTTP traffic and is most effective when used in conjuction with
+other identification mechanisms. For example, a censor could block the
+default HTTPS port, port 443, thereby forcing most users to fall back
+to HTTP.
 </t>
         </section>
         <section title="Protocol Identification">
 <t>
-Protocol identification is a network analysis technique where one attempts to identify the protocols being used based on a variety of traffic characteristics. There have been a number well documented cases where traffic identification has been used to filter undesirable protocols. A very simple example of traffic identification would be to recognize all TCP traffic over port 80 as HTTP, but much more sophisticated methods, such as analyzing statistical properties of payload data and flow behavior, have been used <xref target="ref-16"></xref><xref target="ref-17"></xref>. 
-
-Trade-offs: Protocol Identification necessarily only provides insight into the way information is traveling, and not the information itself. This can lead to massive overblocking problems if used with popular protocols. Most often undesirable protocols are those which can be used to transmit information that is otherwise hard to analyze or considered to likely cary undesirable information; VoIP, P2P, SSL, and Tor have all been targets of  protocol identification in the past. As statistical analysis is used, the methods tend to be expensive, both computationally and financially, and are occasionally imprecise and under-filter obfuscated protocols. 
-
-Empirical Examples:
-
-Protocol Identification is easy to prove given the ubiquitous nature of the throttling/interruption; If only a specific protocol(s) are being prevented, then Protocol Identification is the most likely culprit. Iran censors have used Protocol Identification to identify and throttle SSH traffic by such a large amount as to make it unusable <xref target="ref-18"></xref>. The method used by censors in China to identify Tor connections could also be viewed as a type of Protocol Identification<xref target="ref-19"></xref>. Protocol Identification has also been used by industry from traffic management, such as the 2007 case where Comcast in the United States was using RST injection to interrupt BitTorrent Traffic <xref target="ref-20"></xref>. 
+Censors sometimes identify entire protocols to be blocked using a
+variety of traffic characteristics.  For example, Iran degrades the
+performance of HTTPS traffic, a procotol that prevents further
+analysis, to encourage users to switch to HTTP, a protocol that they
+can analyze <xref target="ref-64" />. A simple protocol identification
+would be to recognize all TCP traffic over port 443 as HTTPS, but more
+sophisticated analysis of the statistical properties of payload data
+and flow behavior, would be more effective, even when port 443 is not
+used <xref target="ref-16" /><xref target="ref-17" />.
+</t>
+<t>
+If censors can detect circumvention tools, they can block them, so
+censors like China are extremely interested in identifying the
+protocols for censorship circumvention tools. In recent years, this
+has devolved into an arms race between censors and circumvention tool
+developers. As part of this arms race, China developed an extremely
+effective protocol identification technique that researchers call
+active probing or active scanning.
+</t>
+<t>
+In active probing, the censor determines whether hosts are running a
+circumvention protocol by trying to initiate communication using the
+circumvention protocol. If the host and the censor successfully
+negotiate a connection, then the censor conclusively knows that host
+is running a circumvention tool. China has used active scanning to
+great effect to block Tor <xref target="ref-20" />.
+</t>
+<t>
+Trade-offs: Protocol Identification necessarily only provides insight
+into the way information is traveling, and not the information itself.
+</t>
+<t>
+Protocol identification is useful for detecting and blocking
+circumvention tools, like Tor, or traffic that is difficult to
+analyze, like VoIP or SSL, because the censor can assume that this
+traffic should be blocked. However, this can lead to overblocking
+problems when used with popular protocols.  These methods are
+expensive, both computationally and financially, due to the use of
+statistical analysis, and can be ineffective due to its imprecise
+nature.
+</t>
+<t>
+Empirical Examples: Protocol identification can be easy to detect if
+it is conducted in real time and only a particular protocol is
+blocked, but some types of protocol identification, like active
+scanning, are much more difficult to detect. Protocol identification
+has been used by Iran to identify and throttle SSH traffic to make it
+unusable <xref target="ref-18" /> and by China to identify and block
+Tor relays <xref target="ref-20" />. Protocol Identification has also
+been used for traffic management, such as the 2007 case where Comcast
+in the United States used RST injection to interrupt BitTorrent
+Traffic <xref target="ref-20" />.
 </t>
         </section>
       </section>
@@ -143,9 +345,11 @@ Protocol Identification is easy to prove given the ubiquitous nature of the thro
       <section title="Packet Dropping">
 <t>
 Packet dropping is a simple mechanism to prevent undesirable traffic. The censor identifies undesirable traffic and chooses to not properly forward any packets it sees associated with the traversing undesirable traffic instead of following a normal routing protocol. This can be paired with any of the previously described mechanisms so long as the censor knows the user must route traffic through a controlled router. 
-
+</t>
+<t>
 Trade offs: Packet Dropping is most successful when every traversing packet has transparent information linked to undesirable content, such as a Destination IP. One downside Packet Dropping suffers from is the necessity of overblocking all content from otherwise allowable IP’s based on a single subversive sub-domain; blogging services and github repositories are good examples. China famously dropped all github packets for three days based on a single repository hosting undesirable content <xref target='ref-21'></xref>.  The need to inspect every traversing packet in close to real time also makes Packet Dropping somewhat challenging from a QoS perspective.
-
+</t>
+<t>
 Empirical Examples:
 Packet Dropping is a very common form of technical prevention and lends itself to accurate detection given the unique nature of the time-out requests it leaves in its wake. The Great Firewall of China uses packet dropping as one of its primary mechanisms of technical censorship <xref target='ref-22'></xref>. Iran also uses Packet Dropping as the mechanisms for throttling SSH <xref target='ref-23'></xref>. These are but two examples of a ubiquitous censorship practice. 
 </t>
@@ -153,9 +357,11 @@ Packet Dropping is a very common form of technical prevention and lends itself t
       <section title="RST Packet Injection">
 <t>
 Packet injection, generally, refers to a MITM network interference technique that spoofs packets in an established traffic stream. RST packets are normally used to let one side of TCP connection know the other side has stopped sending information, and thus the receiver should close the connection. RST Packet Injection is a specific type of packet injection attack that is used to interrupt an established stream by sending RST packets to both sides of a TCP connection; as each receiver thinks the other has dropped the connection, the session is terminated. 
-
-Trade-offs: RST Packet Injection has a few advantages that make it extremely popular is a censorship technique. RST Packet Injection is an out-of-band prevention mechanism, allowing the avoidance of the the QoS bottleneck one can encounter with inline techniques such as Packet Dropping. This out-of-band property allows a censor to inspect a copy of the information, usually mirrored by an optical splitter, making it an ideal pairing for DPI and Protocol Identification<xref target="ref-24"></xref>. RST Packet Injection also has the advantage of only requiring one of the two endpoints to accept the spoofed packet for the connection to be interrupted<xref target="ref-25"></xref>.  The difficult part of RST Packet Injection is spoofing “enough” correct information to ensure one end-point accepts a RST packet as legitimate; this generally implies a correct IP, port, and sequence number. Sequence number is the hardest to get correct, as RFC 793 specifies an RST Packet should be in-sequence to be accepted, although the RFC also recommends allowing in-window packets as “good enough”<xref target="ref-26"></xref>. This in-window recommendation is important, as if it is implement it allows for successful Blind RST Injection attacks<xref target="ref-27"></xref>.  When in-window sequencing is allowed, It is trivial to conduct a Blind RST Injection, a blind injection implies the censor doesn’t know any sensitive (encrypted) sequencing information about the TCP stream they are injecting into, they can simply enumerate the ~70000 possible windows; this is particularly useful for interrupting encrypted/obfuscated protocols such as SSH or Tor. RST Packet Injection relies on a stateful network, making it useless against UDP connections. RST Packet Injection is among the most popular censorship techniques used today given its versatile nature and effectiveness against all types of TCP traffic.  
-
+</t>
+<t>
+Trade-offs: RST Packet Injection has a few advantages that make it extremely popular is a censorship technique. RST Packet Injection is an out-of-band prevention mechanism, allowing the avoidance of the the QoS bottleneck one can encounter with inline techniques such as Packet Dropping. This out-of-band property allows a censor to inspect a copy of the information, usually mirrored by an optical splitter, making it an ideal pairing for DPI and Protocol Identification<xref target="ref-24"></xref>. RST Packet Injection also has the advantage of only requiring one of the two endpoints to accept the spoofed packet for the connection to be interrupted<xref target="ref-25"></xref>.  The difficult part of RST Packet Injection is spoofing "enough" correct information to ensure one end-point accepts a RST packet as legitimate; this generally implies a correct IP, port, and sequence number. Sequence number is the hardest to get correct, as RFC 793 specifies an RST Packet should be in-sequence to be accepted, although the RFC also recommends allowing in-window packets as "good enough"<xref target="ref-26"></xref>. This in-window recommendation is important, as if it is implement it allows for successful Blind RST Injection attacks<xref target="ref-27"></xref>.  When in-window sequencing is allowed, It is trivial to conduct a Blind RST Injection, a blind injection implies the censor doesn’t know any sensitive (encrypted) sequencing information about the TCP stream they are injecting into, they can simply enumerate the ~70000 possible windows; this is particularly useful for interrupting encrypted/obfuscated protocols such as SSH or Tor. RST Packet Injection relies on a stateful network, making it useless against UDP connections. RST Packet Injection is among the most popular censorship techniques used today given its versatile nature and effectiveness against all types of TCP traffic.  
+</t>
+<t>
 Empirical Examples:
 RST Packet Injection, as mentioned above, is most often paired with identification techniques that require splitting, such as DPI or Protocol Identification. In 2007 Comcast was accused of using RST Packet Injection to interrupt traffic it identified as BitTorrent <xref target="ref-28"></xref>, this later led to a FCC ruling against Comcast <xref target="ref-29"></xref>. China has also been known to use RST Packet Injection for censorship purposes. This prevention is especially evident in the interruption of encrypted/obfuscated protocols, such as those used by Tor <xref target="ref-30"></xref>. 
 </t>
@@ -163,21 +369,24 @@ RST Packet Injection, as mentioned above, is most often paired with identificati
       <section title="DNS Cache Poisoning">
 <t>
   DNS Cache Poisoning refers to a mechanism where a censor interferes with the response sent by a DNS resolver to the requesting device by injecting an alternative IP address on the return path. Cache poisoning occurs after the requested site’s name servers resolve the request and attempt to forward the IP back to the requesting device; on the return route the resolved IP is recursively cached by each  DNS servers that initially forwarded the request. During this caching process if an undesirable keyword is recognized, the resolved IP is poisoned and an alternative IP is returned. These alternative IP’s usually direct to a nonsense domain or a warning page<xref target="ref-31"></xref>. Alternatively, Iranian censorship appears to prevent the communication en-route, preventing a response from ever being sent<xref target="ref-32"></xref>.
-
+</t>
+<t>
 Trade-offs: DNS Cache Poisoning is one of the rarer forms of prevention due to a number of shortcomings. DNS Cache Poisoning requires the censor to force a user to traverse a controlled DNS resolver for the mechanism to be effective, it is easily circumvented by a technical savvy user that opts to use alternative DNS resolvers, such as the  8.8.8.8/8.8.4.4 public DNS resolvers provided by Google. DNS Cache Poisoning also implies returning an incorrect IP to those attempting to resolve a domain name, but the site is still technically unblocked if the user has another method to acquire the IP address of the desired site.  Blocking overflow has also been a problem, as occasionally users outside of the censors region will be directed through a DNS server controlled by a censor, causing the request to fail. The ease of circumvention paired with the large risk of overblocking and blocking overflow make DNS Cache Poisoning a partial, difficult, and less than ideal censorship mechanism. 
-
+</t>
+<t>
 Empirical Evidence:
-
-DNS Cache Poisoning, when properly implemented, is easy to identify based on the shortcomings identified above. Turkey relied on DNS Cache Poisoning for its country-wide block of websites such Twitter and Youtube for almost week in March of 2014 but the ease of circumvention resulted in an increase in the popularity of Twitter until Turkish ISP’s implementing an IP blacklist to achieve the governmental mandate<xref target="ref-33"></xref>. To drive proverbial “nail in the coffin” Turkish ISPs started hijacking all requests to Google and Level 3’s international DNS resolvers <xref target="ref-34"></xref>. DNS Cache Poisoning, when incorrectly implemented, has  as has resulted in some of the largest “censorship disasters”.  In January 2014 China started directing all requests passing through the Great Fire Wall to a single domain, dongtaiwang.com, due to an improperly configured DNS Cache Poisoning attempt; this incident is thought to be the largest internet-service outage in history <xref target="ref-35"></xref><xref target="ref-36"></xref>. Countries such as China, Iran, Turkey, and the United States have discussed blocking entire TLDs as well, but only Iran has acted by blocking all Israeli (.il) domains <xref target="ref-37"></xref>.
+DNS Cache Poisoning, when properly implemented, is easy to identify based on the shortcomings identified above. Turkey relied on DNS Cache Poisoning for its country-wide block of websites such Twitter and Youtube for almost week in March of 2014 but the ease of circumvention resulted in an increase in the popularity of Twitter until Turkish ISP’s implementing an IP blacklist to achieve the governmental mandate<xref target="ref-33"></xref>. To drive proverbial "nail in the coffin" Turkish ISPs started hijacking all requests to Google and Level 3’s international DNS resolvers <xref target="ref-34"></xref>. DNS Cache Poisoning, when incorrectly implemented, has  as has resulted in some of the largest "censorship disasters".  In January 2014 China started directing all requests passing through the Great Fire Wall to a single domain, dongtaiwang.com, due to an improperly configured DNS Cache Poisoning attempt; this incident is thought to be the largest internet-service outage in history <xref target="ref-35"></xref><xref target="ref-36"></xref>. Countries such as China, Iran, Turkey, and the United States have discussed blocking entire TLDs as well, but only Iran has acted by blocking all Israeli (.il) domains <xref target="ref-37"></xref>.
 </t>
       </section>
       <section title="Distributed Denial of Service (DDoS)">
 <t>
-Distributed Denial of Service attacks are a common attack mechanism used by “hacktivists” and black-hat hackers, but censors have used DDoS in the past for a variety of reasons. There is a huge variety of DDoS attacks<xref target='ref-38'></xref>, but on a high level two possible impacts tend to occur; a flood attack results in the service being unusable while resources are being spent to flood the service, a crash attack aims to crash the service so resources can be reallocated elsewhere without “releasing” the service. 
-
+Distributed Denial of Service attacks are a common attack mechanism used by "hacktivists" and black-hat hackers, but censors have used DDoS in the past for a variety of reasons. There is a huge variety of DDoS attacks<xref target='ref-38'></xref>, but on a high level two possible impacts tend to occur; a flood attack results in the service being unusable while resources are being spent to flood the service, a crash attack aims to crash the service so resources can be reallocated elsewhere without "releasing" the service. 
+</t>
+<t>
 Trade-offs:
 DDoS is an appealing mechanism when a censor would like to prevent all access to undesirable content, instead of only access in their region for a limited period of time, but this is really the only uniquely beneficial feature for  DDoS as a censorship technique. The resources required to carry out a successful DDoS against major targets are computationally expensive, usually requiring renting or owning a malicious distributed platform such as a botnet, and imprecise. DDoS is an incredibly crude censorship technique, and appears to largely be used as a timely, easy-to-access mechanism for blocking undesirable content for a limited period of time. 
-
+</t>
+<t>
 Empirical Examples: 
 In 2012 the U.K.’s GCHQ used DDoS to temporarily shutdown IRC chat rooms frequented by members of Anonymous using the Syn Flood DDoS method; Syn Flood exploits the handshake used by TCP to overload the victim server with so many requests that legitimate traffic becomes slow or impossible <xref target='ref-39'></xref><xref target='ref-40'></xref>. Dissenting opinion websites are frequently victims of DDoS around politically sensitive events in Burma <xref target='ref-41'></xref>. Controlling parties in Russia<xref target='ref-42'></xref>, Zimbabwe<xref target='ref-43'></xref>, and Malaysia<xref target='ref-44'></xref> have been accused of using DDoS to interrupt opposition support and access during elections.
 </t>
@@ -186,9 +395,11 @@ In 2012 the U.K.’s GCHQ used DDoS to temporarily shutdown IRC chat rooms frequ
 <t>
 Network Disconnection or Adversarial Route Announcement
 The crudest of all censorship techniques, there is no more effective way of making sure undesirable information isn’t allowed to propagate on the web than by shutting off the network. The network can be cut off in a region when a censoring body withdraws all of the BGP prefixes routing through the censor’s country.
-
+</t>
+<t>
 Trade-offs: The impact to a network disconnection in a region is huge and absolute; the censor pays for absolute control over digital information with all the benefits the internet brings; this is never a long-term solution for any rational censor and is normally only used as a last resort in times of substantial unrest.
-
+</t>
+<t>
 Empirical Examples:
 Network Disconnections tend to only happen in times of substantial unrest, largely due to the huge social, political, and economic impact such a move has. One of the first, highly covered occurrences was with the Junta in Myanmar employing Network Disconnection to help Junta forces quash a rebellion in 2007 <xref target='ref-45'></xref>. China disconnected the network in the Xinjiang region during unrest in 2009 in an effort to prevent the protests from spreading to other regions <xref target='ref-46'></xref>. The Arab Spring saw the the most frequent usage of Network Disconnection, with events in Egypt and Libya in 2011 <xref target='ref-47'></xref><xref target='ref-48'></xref>, and Syria in 2012 <xref target='ref-49'></xref>.
 </t>
@@ -196,13 +407,29 @@ Network Disconnections tend to only happen in times of substantial unrest, large
     </section>
     <section title="Non-Technical Aggregation">
 <t>
-As the name implies, sometimes manpower is the easiest way to figure out which content to block. Manual Filtering differs from the common tactic of building up blacklists in that is doesn’t  necessarily target a specific IP or DNS, but instead removes or flags content. Given the imprecise nature of automatic filtering, manually sorting through content and flagging dissenting websites, blogs, articles and other media for filtration can be an effective technique. This filtration can occur on the Backbone/ISP level, China’s army of monitors is a good example <xref target='ref-50'></xref>; more commonly manual filtering occurs on an institutional level. ICP’s, such as Google or Weibo, require a business license to operate in China. One of the prerequisites for a business license is an agreement to sign a “voluntary pledge” known as the “Public Pledge on Self-discipline for the Chinese Internet Industry”. The failure to “ energetically uphold” the pledged values can lead to the ICP’s being held liable for the offending content by the Chinese government <xref target='ref-51'></xref>.
+As the name implies, sometimes manpower is the easiest way to figure
+out which content to block.  Manual Filtering differs from the common
+tactic of building up blacklists in that is doesn't necessarily target
+a specific IP or DNS, but instead removes or flags content.  Given the
+imprecise nature of automatic filtering, manually sorting through
+content and flagging dissenting websites, blogs, articles and other
+media for filtration can be an effective technique.  This filtration
+can occur on the Backbone/ISP level, China's army of monitors is a
+good example <xref target="ref-50" />; more commonly manual filtering
+occurs on an institutional level.  (Internet Content Provider?) ICP's,
+such as Google or Weibo, require a business license to operate in
+China.  One of the prerequisites for a business license is an
+agreement to sign a "voluntary pledge" known as the "Public Pledge on
+Self-discipline for the Chinese Internet Industry".  The failure to "
+energetically uphold" the pledged values can lead to the ICP's being
+held liable for the offending content by the Chinese government <xref
+target="ref-50" />.
 </t>
     </section>
       <section title="Non-Technical Prevention">
         <section title="Self Censorship">
 <t>
-Self censorship is one of the most interesting and effective types of censorship; a mix of Bentham's Panopticon, cultural manipulation, intelligence gathering, and meatspace enforcement. Simply put, self censorship is when a censor creates an atmosphere where users censor themselves. This can be achieved through controlling information, intimidating would-be dissidents, swaying public thought, and creating apathy. Self censorship is difficult to document, as when it is implemented effectively the only noticeable tracing is a lack of undesirable content; instead one must look at the tools and techniques used by censors to encourage self-censorship. Controlling Information relies on traditional censorship techniques, or by forcing all users to connect through an intranet, such as in North Korea.  Intimidation is often achieved through allowing internet users to post “whatever they want”, but arresting those who post about dissenting views, this technique is incredibly common<xref target='ref-52'></xref><xref target='ref-53'></xref><xref target='ref-54'></xref><xref target='ref-55'></xref><xref target='ref-56'></xref>. A good example of swaying public thought is China’s “50-Cent Party”, composed of somewhere between 20,000<xref target='ref-57'></xref> and 300,000<xref target='ref-58'></xref> contributors who are paid to “guide public thought” on local and regional issues as directed by the Ministry of Culture. Creating apathy can be a side-effect of successfully controlling information over time and is ideal for a censorship regime <xref target='ref-59'></xref>.  
+Self censorship is one of the most interesting and effective types of censorship; a mix of Bentham's Panopticon, cultural manipulation, intelligence gathering, and meatspace enforcement. Simply put, self censorship is when a censor creates an atmosphere where users censor themselves. This can be achieved through controlling information, intimidating would-be dissidents, swaying public thought, and creating apathy. Self censorship is difficult to document, as when it is implemented effectively the only noticeable tracing is a lack of undesirable content; instead one must look at the tools and techniques used by censors to encourage self-censorship. Controlling Information relies on traditional censorship techniques, or by forcing all users to connect through an intranet, such as in North Korea.  Intimidation is often achieved through allowing internet users to post "whatever they want", but arresting those who post about dissenting views, this technique is incredibly common<xref target='ref-52'></xref><xref target='ref-53'></xref><xref target='ref-54'></xref><xref target='ref-55'></xref><xref target='ref-56'></xref>. A good example of swaying public thought is China’s "50-Cent Party", composed of somewhere between 20,000<xref target='ref-57'></xref> and 300,000<xref target='ref-58'></xref> contributors who are paid to "guide public thought" on local and regional issues as directed by the Ministry of Culture. Creating apathy can be a side-effect of successfully controlling information over time and is ideal for a censorship regime <xref target='ref-59'></xref>.  
 </t>
         </section>
         <section title="Domain Name Reallocation">
@@ -220,21 +447,21 @@ Servers must have a physical location somewhere in the world. If undesirable con
    </middle>
    <back>
 <references>
+
 <reference anchor="ref-1" target="http://www.theguardian.com/commentisfree/2008/nov/17/censorship-internet">
 <front>
 <title>
-“The Big Business of Net Censorship”
+The Big Business of Net Censorship
 </title>
 <author initials="J.G." surname="Glanville" fullname="Jo 
  Glanville"></author>
-<date month="November" year="2008
-" day="N/A" />
+<date month="November" year="2008" day="N/A" />
 </front>
 </reference>
 <reference anchor="ref-2" target="http://www.cs.stonybrook.edu/~phillipa/papers/imc112s-dalek.pdf">
 <front>
 <title>
-“A Method for Identifying and Confirming the Use of URL Filtering Products for Censorship”
+A Method for Identifying and Confirming the Use of URL Filtering Products for Censorship
 </title>
 <author initials="J.D." surname="Dalek" fullname="Jakub
  Dalek"></author>
@@ -245,7 +472,7 @@ Servers must have a physical location somewhere in the world. If undesirable con
 <reference anchor="ref-3" target="https://www.efa.org.au/main/wp-content/uploads/2009/05/efa-filtering-fact-sheets.pdf">
 <front>
 <title>
-“EFA Filtering Overview”
+EFA Filtering Overview
 </title>
 <author initials="A.E." surname="EF" fullname="Australia
  EF"></author>
@@ -256,7 +483,7 @@ Servers must have a physical location somewhere in the world. If undesirable con
 <reference anchor="ref-4" target="http://www.cs.unm.edu/~crandall/icdcs2010.pdf ">
 <front>
 <title>
-“Empirical Study of a National-Scale Distributed Intrusion Detection System: Backbone-Level Filtering of HTML Responses in China”
+Empirical Study of a National-Scale Distributed Intrusion Detection System: Backbone-Level Filtering of HTML Responses in China"
 </title>
 <author initials="J.C." surname="Crandall" fullname="Jedediah
  Crandall"></author>
@@ -267,7 +494,7 @@ Servers must have a physical location somewhere in the world. If undesirable con
 <reference anchor="ref-5" target="http://news.bbc.co.uk/2/hi/asia-pacific/7016238.stm">
 <front>
 <title>
-“Junta Tightens Military Screws”
+Junta Tightens Military Screws
 </title>
 <author initials="M.D." surname="Dobie" fullname="Michael
  Dobie"></author>
@@ -278,7 +505,7 @@ Servers must have a physical location somewhere in the world. If undesirable con
 <reference anchor="ref-6" target="http://arstechnica.com/tech-policy/2010/06/google-tweaks-china-to-hong-kong-redirect-same-results/">
 <front>
 <title>
-“Google stops Hong Kong auto-redirect as China plays hardball”
+Google stops Hong Kong auto-redirect as China plays hardball"
 </title>
 <author initials="J.C." surname="Cheng" fullname="Jacqui
  Cheng"></author>
@@ -289,7 +516,7 @@ Servers must have a physical location somewhere in the world. If undesirable con
 <reference anchor="ref-7" target="http://arxiv.org/ftp/arxiv/papers/1107/1107.3794.pdf#page=10">
 <front>
 <title>
-“An Analysis of Chinese Search Engine Filtering”
+An Analysis of Chinese Search Engine Filtering"
 </title>
 <author initials="T.Z." surname="Zhu" fullname="Tao
  Zhu"></author>
@@ -300,7 +527,7 @@ Servers must have a physical location somewhere in the world. If undesirable con
 <reference anchor="ref-8" target="http://www.zdnet.com/1168-keywords-skype-uses-to-censor-monitor-its-chinese-users-7000012328/">
 <front>
 <title>
-“1,168 keywords Skype uses to censor, monitor its Chinese users”
+1,168 keywords Skype uses to censor, monitor its Chinese users
 </title>
 <author initials="Z.W." surname="Whittaker" fullname="Zach
  Whittaker"></author>
@@ -311,7 +538,7 @@ Servers must have a physical location somewhere in the world. If undesirable con
 <reference anchor="ref-9" target="http://www.bbc.com/news/uk-24980765">
 <front>
 <title>
-“Google and Microsoft agree steps to block abuse images”
+Google and Microsoft agree steps to block abuse images
 </title>
 <author initials="B.N." surname="News" fullname="BBC
  News"></author>
@@ -322,7 +549,7 @@ Servers must have a physical location somewhere in the world. If undesirable con
 <reference anchor="ref-10" target="http://gizmodo.com/google-announces-massive-new-restrictions-on-child-abus-1466539163">
 <front>
 <title>
-“Google Announces Massive New Restrictions on Child Abuse Search Terms”
+Google Announces Massive New Restrictions on Child Abuse Search Terms
 </title>
 <author initials="J.C." surname="Condliffe" fullname="Jamie
  Condliffe"></author>
@@ -333,7 +560,7 @@ Servers must have a physical location somewhere in the world. If undesirable con
 <reference anchor="ref-11" target="http://advocacy.globalvoicesonline.org/wp-content/uploads/2009/06/deeppacketinspectionandinternet-censorship2.pdf">
 <front>
 <title>
-“Deep Packet Inspection and Internet Censorship: International Convergence on an ‘Integrated Technology of Control’”
+Deep Packet Inspection and Internet Censorship: International Convergence on an ‘Integrated Technology of Control’
 </title>
 <author initials="B.W." surname="Wagner" fullname="Ben
  Wagner"></author>
@@ -344,7 +571,7 @@ Servers must have a physical location somewhere in the world. If undesirable con
 <reference anchor="ref-12" target="http://www.symantec.com/connect/articles/perils-deep-packet-inspection">
 <front>
 <title>
-“The Perils of Deep Packet Inspection”
+The Perils of Deep Packet Inspection
 </title>
 <author initials="T.P." surname="Porter" fullname="Thomas
  Porter"></author>
@@ -355,7 +582,7 @@ Servers must have a physical location somewhere in the world. If undesirable con
 <reference anchor="ref-13" target="https://blog.torproject.org/blog/knock-knock-knockin-bridges-doors">
 <front>
 <title>
-“Knock Knock Knockin’ on Bridges Doors”
+Knock Knock Knockin’ on Bridges Doors
 </title>
 <author initials="T.W." surname="Wilde" fullname="Tim
  Wilde"></author>
@@ -366,7 +593,7 @@ Servers must have a physical location somewhere in the world. If undesirable con
 <reference anchor="ref-14" target="http://www.reuters.com/article/2013/05/04/uk-malaysia-election-online-idUKBRE94309G20130504">
 <front>
 <title>
-“In Malaysia, online election battles take a nasty turn”
+In Malaysia, online election battles take a nasty turn
 </title>
 <author initials="J.W." surname="Wagstaff" fullname="Jeremy
  Wagstaff"></author>
@@ -377,7 +604,7 @@ Servers must have a physical location somewhere in the world. If undesirable con
 <reference anchor="ref-15" target="https://www.eff.org/cases/hepting">
 <front>
 <title>
-“Hepting vs. ATand T”
+Hepting vs. ATand T
 </title>
 <author initials="T.E." surname="EFF" fullname="The
  EFF"></author>
@@ -391,13 +618,13 @@ July 2010 7
 </title>
 <author initials="E.H." surname="Hjelmvik" fullname="Erik
  Hjelmvik"></author>
-<date month="“Breaking" year="and" day="Improving" />
+<date month="Breaking" year="and" day="Improving" />
 </front>
 </reference>
 <reference anchor="ref-17" target="https://www.sandvine.com/downloads/general/technology/sandvine-technology-showcases/sandvine-technology-showcase-traffic-classification.pdf#page=3 ">
 <front>
 <title>
-“Technology Showcase on Traffic Classification: Why Measurements and Freeform Policy Matter”
+Technology Showcase on Traffic Classification: Why Measurements and Freeform Policy Matter
 </title>
 <author initials="S.V." surname="Vine" fullname="Sand
  Vine"></author>
@@ -408,7 +635,7 @@ July 2010 7
 <reference anchor="ref-18" target="https://torrentfreak.com/how-to-bypass-comcast-bittorrent-throttling-071021">
 <front>
 <title>
-“How to Bypass Comcast’s Bittorrent Throttling”
+How to Bypass Comcast’s Bittorrent Throttling
 </title>
 <author initials="A.A." surname="Anonymous" fullname="Anonymous
  Anonymous"></author>
@@ -419,7 +646,7 @@ July 2010 7
 <reference anchor="ref-19" target="http://www.washingtonpost.com/blogs/the-switch/wp/2013/08/15/heres-how-iran-censors-the-internet/">
 <front>
 <title>
-“Here’s how Iran censors the Internet”
+Here’s how Iran censors the Internet
 </title>
 <author initials="T.L." surname="Lee" fullname="Timothy
  Lee"></author>
@@ -430,7 +657,7 @@ July 2010 7
 <reference anchor="ref-20" target="http://arxiv.org/pdf/1204.0447v1.pdf21">
 <front>
 <title>
-“How China is Blocking Tor”
+How China is Blocking Tor
 </title>
 <author initials="P.W." surname="Winter" fullname="Phillip 
  Winter"></author>
@@ -441,7 +668,7 @@ July 2010 7
 <reference anchor="ref-21" target="https://en.greatfire.org/blog/2013/jan/github-blocked-china-how-it-happened-how-get-around-it-and-where-it-will-take-us">
 <front>
 <title>
-“GitHub blocked in China - how it happened, how to get around it, and where it will take us”
+GitHub blocked in China - how it happened, how to get around it, and where it will take us
 </title>
 <author initials="A.A." surname="Anonymous" fullname="Anonymous
  Anonymous"></author>
@@ -452,7 +679,7 @@ July 2010 7
 <reference anchor="ref-22" target="http://arxiv.org/pdf/1312.5739v1.pdf">
 <front>
 <title>
-“Detecting Intentional Packet Drops on the Internet via TCP/IP Side Channels“
+Detecting Intentional Packet Drops on the Internet via TCP/IP Side Channels
 </title>
 <author initials="R.E." surname="Ensafi" fullname="Roya
  Ensafi"></author>
@@ -463,7 +690,7 @@ July 2010 7
 <reference anchor="ref-23" target="https://jhalderm.com/pub/papers/iran-foci13.pdf">
 <front>
 <title>
-“Internet Censorship in Iran: A First Look”
+Internet Censorship in Iran: A First Look
 </title>
 <author initials="A.A." surname="Aryan*" fullname="Aryan* and  Halderman
  Aryan*"></author>
@@ -474,7 +701,7 @@ July 2010 7
 <reference anchor="ref-24" target="http://www.icir.org/vern/papers/reset-injection.ndss09.pdf">
 <front>
 <title>
-“Detecting Forged TCP Packets”
+Detecting Forged TCP Packets
 </title>
 <author initials="S.W." surname="Weaver" fullname="Sommer and  Paxton
  Weaver"></author>
@@ -485,7 +712,7 @@ July 2010 7
 <reference anchor="ref-25" target="http://www.icir.org/vern/papers/reset-injection.ndss09.pdf">
 <front>
 <title>
-“Detecting Forged TCP Packets”
+Detecting Forged TCP Packets
 </title>
 <author initials="S.W." surname="Weaver" fullname="Sommer and  Paxton
  Weaver"></author>
@@ -496,7 +723,7 @@ July 2010 7
 <reference anchor="ref-26" target="http://www.icir.org/vern/papers/reset-injection.ndss09.pdf">
 <front>
 <title>
-“Detecting Forged TCP Packets”
+Detecting Forged TCP Packets
 </title>
 <author initials="S.W." surname="Weaver" fullname="Sommer and  Paxton
  Weaver"></author>
@@ -507,7 +734,7 @@ July 2010 7
 <reference anchor="ref-27" target="http://www.blackhatlibrary.net/TCP-RST_Injection ">
 <front>
 <title>
-“TCP-RST Injection”
+TCP-RST Injection
 </title>
 <author initials="A.A." surname="Anonymous" fullname="Anonymous
  Anonymous"></author>
@@ -518,7 +745,7 @@ July 2010 7
 <reference anchor="ref-28" target="https://www.eff.org/deeplinks/2007/10/eff-tests-agree-ap-comcast-forging-packets-to-interfere">
 <front>
 <title>
-“EFF tests agree with AP: Comcast is forging packets to interfere with user traffic”
+EFF tests agree with AP: Comcast is forging packets to interfere with user traffic
 </title>
 <author initials="S.S." surname="Schoen" fullname="Seth
  Schoen"></author>
@@ -529,7 +756,7 @@ July 2010 7
 <reference anchor="ref-29" target="https://www.eff.org/deeplinks/2008/08/fcc-rules-against-comcast-bit-torrent-blocking">
 <front>
 <title>
-“FCC Rules Against Comcast for BitTorrent Blocking”
+FCC Rules Against Comcast for BitTorrent Blocking
 </title>
 <author initials="F.V." surname="VonLohmann" fullname="Fred
  VonLohmann"></author>
@@ -540,7 +767,7 @@ July 2010 7
 <reference anchor="ref-30" target="http://arxiv.org/pdf/1204.0447v1.pdf#page=5">
 <front>
 <title>
-“How China Is Blocking Tor”
+How China Is Blocking Tor
 </title>
 <author initials="S.P." surname="Phillip Winter" fullname="Stephan Lindskog
  Phillip Winter"></author>
@@ -551,7 +778,7 @@ July 2010 7
 <reference anchor="ref-31" target="http://viewdns.info/research/dns-cache-poisoning-in-the-peoples-republic-of-china/">
 <front>
 <title>
-“DNS Cache Poisoning in the People's Republic of China”
+DNS Cache Poisoning in the People's Republic of China
 </title>
 <author initials="V.D." surname="DNS" fullname="View 
  DNS"></author>
@@ -562,7 +789,7 @@ July 2010 7
 <reference anchor="ref-32" target="https://jhalderm.com/pub/papers/iran-foci13.pdf#page=5">
 <front>
 <title>
-“Internet Censorship in Iran: A First Look”
+Internet Censorship in Iran: A First Look
 </title>
 <author initials="A.A." surname="Aryan*" fullname="Aryan* and  Halderman
  Aryan*"></author>
@@ -573,7 +800,7 @@ July 2010 7
 <reference anchor="ref-33" target="http://www.renesys.com/2014/03/turkish-internet-censorship/">
 <front>
 <title>
-“Turkish Internet Censorship Takes a New Turn”
+Turkish Internet Censorship Takes a New Turn
 </title>
 <author initials="E.Z." surname="Zmijewki" fullname="Earl
  Zmijewki"></author>
@@ -584,7 +811,7 @@ July 2010 7
 <reference anchor="ref-34" target="http://www.renesys.com/2014/03/turkish-internet-censorship/">
 <front>
 <title>
-“Turkish Internet Censorship Takes a New Turn”
+Turkish Internet Censorship Takes a New Turn
 </title>
 <author initials="E.Z." surname="Zmijewki" fullname="Earl
  Zmijewki"></author>
@@ -595,7 +822,7 @@ July 2010 7
 <reference anchor="ref-35" target="http://www.businessinsider.com/chinas-internet-breakdown-reportedly-caused-by-censoring-tools-2014-1">
 <front>
 <title>
-“China Has Massive Internet Breakdown Reportedly Caused By Their Own Censoring Tools”
+China Has Massive Internet Breakdown Reportedly Caused By Their Own Censoring Tools
 </title>
 <author initials="
 .A." surname="AFP" fullname="
@@ -607,7 +834,7 @@ July 2010 7
 <reference anchor="ref-36" target="http://www.sigcomm.org/sites/default/files/ccr/papers/2012/July/2317307-2317311.pdf">
 <front>
 <title>
-“The Collateral Damage of Internet Censorship by DNS Injection”
+The Collateral Damage of Internet Censorship by DNS Injection
 </title>
 <author initials="A.A." surname="Anonymous" fullname="Anynomous
  Anonymous"></author>
@@ -618,7 +845,7 @@ July 2010 7
 <reference anchor="ref-37" target="https://opennet.net/blog/2011/06/dns-tampering-and-new-icann-gtld-rules">
 <front>
 <title>
-“DNS Tampering and the new ICANN gTLD Rules”
+DNS Tampering and the new ICANN gTLD Rules
 </title>
 <author initials="K.A." surname="Albert" fullname="Kendra
  Albert"></author>
@@ -629,7 +856,7 @@ July 2010 7
 <reference anchor="ref-38" target="http://en.wikipedia.org/wiki/Denial-of-service_attack#Methods_of_attack">
 <front>
 <title>
-“Denial of Service Attacks (Wikipedia)"
+Denial of Service Attacks (Wikipedia)"
 </title>
 <author initials="A.A." surname="Anonymous" fullname="Anonymous
  Anonymous"></author>
@@ -640,7 +867,7 @@ July 2010 7
 <reference anchor="ref-39" target="http://www.nbcnews.com/feature/edward-snowden-interview/exclusive-snowden-docs-show-uk-spies-attacked-anonymous-hackers-n21361">
 <front>
 <title>
-“Snowden Docs Show UK Spies Attacked Anonymous, Hackers”
+Snowden Docs Show UK Spies Attacked Anonymous, Hackers
 </title>
 <author initials="S.E." surname="Esposito" fullname="Schone and  Cole
  Esposito"></author>
@@ -651,7 +878,7 @@ July 2010 7
 <reference anchor="ref-40" target="http://www.cert.org/historical/advisories/CA-1996-21.cfm">
 <front>
 <title>
-“TCP SYN Flooding and IP Spoofing Attacks”
+TCP SYN Flooding and IP Spoofing Attacks
 </title>
 <author initials="
 .C." surname="CMU" fullname="
@@ -663,7 +890,7 @@ July 2010 7
 <reference anchor="ref-41" target="http://access.opennet.net/wp-content/uploads/2011/12/accesscontested-chapter-08.pdf">
 <front>
 <title>
-“Open Access: Chapter 8, Control and Resistance, Attacks on Burmese Opposition Media”
+Open Access: Chapter 8, Control and Resistance, Attacks on Burmese Opposition Media
 </title>
 <author initials="N.V." surname="Villeneuve" fullname="Nart
  Villeneuve"></author>
@@ -674,7 +901,7 @@ July 2010 7
 <reference anchor="ref-42" target="http://www.themoscowtimes.com/news/article/cyberattacks-disrupt-oppositions-election/470119.html">
 <front>
 <title>
-“Cyberattacks Disrupt Opposition's Election”
+Cyberattacks Disrupt Opposition's Election
 </title>
 <author initials="Y.K." surname="Kravtsova" fullname="Yekaterina
  Kravtsova"></author>
@@ -685,7 +912,7 @@ July 2010 7
 <reference anchor="ref-43" target="http://www.theinquirer.net/inquirer/news/2287433/zimbabwe-election-hit-by-hacking-and-ddos-attacks">
 <front>
 <title>
-“Zimbabwe election hit by hacking and DDoS attacks”
+Zimbabwe election hit by hacking and DDoS attacks
 </title>
 <author initials="E.O." surname="Orion" fullname="Egan
  Orion"></author>
@@ -696,7 +923,7 @@ July 2010 7
 <reference anchor="ref-44" target="http://www.theregister.co.uk/2013/05/09/malaysia_fraud_elections_ddos_web_blocking/">
 <front>
 <title>
-“Malaysian election sparks web blocking/DDoS claims”
+Malaysian election sparks web blocking/DDoS claims
 </title>
 <author initials="P.M." surname="Muncaster" fullname="Phil
  Muncaster"></author>
@@ -707,7 +934,7 @@ July 2010 7
 <reference anchor="ref-45" target="http://news.bbc.co.uk/2/hi/asia-pacific/7016238.stm">
 <front>
 <title>
-“Junta tightens media screw”
+Junta tightens media screw
 </title>
 <author initials="M.D." surname="Dobie" fullname="Michael
  Dobie"></author>
@@ -718,7 +945,7 @@ July 2010 7
 <reference anchor="ref-46" target="https://opennet.net/blog/2009/07/china-shuts-down-internet-xinjiang-region-after-riots">
 <front>
 <title>
-“China Shuts Down Internet in Xinjiang Region After Riots”
+China Shuts Down Internet in Xinjiang Region After Riots
 </title>
 <author initials="R.H." surname="Heacock" fullname="Rebekah
  Heacock"></author>
@@ -729,7 +956,7 @@ July 2010 7
 <reference anchor="ref-47" target="http://www.renesys.com/2011/01/egypt-leaves-the-internet/">
 <front>
 <title>
-“Egypt Leaves the Internet”
+Egypt Leaves the Internet
 </title>
 <author initials="J.C." surname="Cowie" fullname="Jim
  Cowie"></author>
@@ -740,7 +967,7 @@ July 2010 7
 <reference anchor="ref-48" target="http://www.renesys.com/2011/02/libyan-disconnect-1/">
 <front>
 <title>
-“Libyan Disconnect”
+Libyan Disconnect
 </title>
 <author initials="J.C." surname="Cowie" fullname="Jim
  Cowie"></author>
@@ -751,7 +978,7 @@ July 2010 7
 <reference anchor="ref-49" target="http://www.theregister.co.uk/2012/11/29/syria_internet_blackout/">
 <front>
 <title>
-“Syria Cuts off Internet and Mobile Communication”
+Syria Cuts off Internet and Mobile Communication
 </title>
 <author initials="I.T." surname="Thomson" fullname="Iain
  Thomson"></author>
@@ -762,7 +989,7 @@ July 2010 7
 <reference anchor="ref-50" target="http://www.bbc.com/news/world-asia-china-24396957">
 <front>
 <title>
-“China employs two million microblog monitors state media say”
+China employs two million microblog monitors state media say
 </title>
 <author initials="B.N." surname="News" fullname="BBC
  News"></author>
@@ -773,7 +1000,7 @@ July 2010 7
 <reference anchor="ref-51" target="http://www.hrw.org/reports/2006/china0806/china0806web.pdf">
 <front>
 <title>
-“‘Race to the Bottom’ Corporate Complicity in Chinese Internet Censorship”
+‘Race to the Bottom’ Corporate Complicity in Chinese Internet Censorship
 </title>
 <author initials="R.M." surname="MacKinnon" fullname="Rebecca
  MacKinnon"></author>
@@ -784,7 +1011,7 @@ July 2010 7
 <reference anchor="ref-52" target="http://www.npr.org/blogs/thetwo-way/2013/11/29/247820503/prominent-egyptian-blogger-arrested">
 <front>
 <title>
-“Prominent Egyptian Blogger Arrested”
+Prominent Egyptian Blogger Arrested
 </title>
 <author initials="K.C." surname="Calamur" fullname="Krishnadev
  Calamur"></author>
@@ -795,7 +1022,7 @@ July 2010 7
 <reference anchor="ref-53" target="http://www.huffingtonpost.com/2012/12/03/sattar-beheshit-iran_n_2233125.html">
 <front>
 <title>
-“Sattar Beheshit, Iranian Blogger, Was Beaten In Prison According To Prosecutor”
+Sattar Beheshit, Iranian Blogger, Was Beaten In Prison According To Prosecutor
 </title>
 <author initials="A.P." surname="Press" fullname="Associated
  Press"></author>
@@ -806,7 +1033,7 @@ July 2010 7
 <reference anchor="ref-54" target="http://readwrite.com/2011/03/03/communications_blocked_in_libya_this_week_in_onlin">
 <front>
 <title>
-“Communications Blocked in Libya, Qatari Blogger Arrested: This Week in Online Tyranny”
+Communications Blocked in Libya, Qatari Blogger Arrested: This Week in Online Tyranny
 </title>
 <author initials="C.H." surname="Hopkins" fullname="Curt
  Hopkins"></author>
@@ -817,7 +1044,7 @@ July 2010 7
 <reference anchor="ref-55" target="http://www.theguardian.com/world/2014/apr/17/chinese-blogger-jailed-crackdown-internet-rumours-qin-zhihui">
 <front>
 <title>
-“Chinese blogger jailed under crackdown on 'internet rumours'”
+Chinese blogger jailed under crackdown on 'internet rumours'
 </title>
 <author initials="T.G." surname="Gaurdian" fullname="The
  Gaurdian"></author>
@@ -828,7 +1055,7 @@ July 2010 7
 <reference anchor="ref-56" target="http://seattlepostglobe.org/2010/02/05/torture-feared-in-arrest-of-iraqi-blogger/">
 <front>
 <title>
-“Torture feared in arrest of Iraqi blogger”
+Torture feared in arrest of Iraqi blogger
 </title>
 <author initials="L.J." surname="Johnson" fullname="Larry
  Johnson"></author>
@@ -839,7 +1066,7 @@ July 2010 7
 <reference anchor="ref-57" target="http://news.bbc.co.uk/2/hi/asia-pacific/7783640.stm">
 <front>
 <title>
-“China's internet 'spin doctors‘“
+China's internet 'spin doctors‘
 </title>
 <author initials="M.B." surname="Bristow" fullname="Michael
  Bristow"></author>
@@ -850,7 +1077,7 @@ July 2010 7
 <reference anchor="ref-58" target="http://www.theguardian.com/media/2008/sep/22/chinathemedia.marketingandpr">
 <front>
 <title>
-“China joins a turf war”
+China joins a turf war
 </title>
 <author initials="M.F." surname="Fareed" fullname="Malik
  Fareed"></author>
@@ -861,7 +1088,7 @@ July 2010 7
 <reference anchor="ref-59" target="http://www.nytimes.com/2014/06/04/opinion/tiananmen-forgotten.html">
 <front>
 <title>
-“Tiananmen, Forgotten”
+Tiananmen, Forgotten
 </title>
 <author initials="H.G." surname="Gao" fullname="Helen
  Gao"></author>
@@ -872,7 +1099,7 @@ July 2010 7
 <reference anchor="ref-60" target="http://access.opennet.net/wp-content/uploads/2011/12/accessdenied-chapter-3.pdf#page=8">
 <front>
 <title>
-“Access Denied: Tools and Technology of Internet Filtering”
+Access Denied: Tools and Technology of Internet Filtering
 </title>
 <author initials="R.A." surname="Anderson" fullname="Ross.
  Anderson"></author>
@@ -883,7 +1110,7 @@ July 2010 7
 <reference anchor="ref-61" target="http://access.opennet.net/wp-content/uploads/2011/12/accessdenied-chapter-3.pdf#page=8">
 <front>
 <title>
-“Access Denied: Tools and Technology of Internet Filtering”
+Access Denied: Tools and Technology of Internet Filtering
 </title>
 <author initials="S.M." surname="Murdoch" fullname="Steven
  Murdoch"></author>
@@ -891,6 +1118,93 @@ July 2010 7
 " day="N/A" />
 </front>
 </reference>
+
+<reference anchor="ref-62" target="https://www.usenix.org/system/files/conference/foci12/foci12-final1.pdf">
+<front>
+<title>
+Inferring Mechanics of Web Censorship Around the World
+</title>
+<author initials="J.V." surname="Verkamp" fullname="John-Paul Verkamp"></author>
+<author initials="M.G." surname="Gupta" fullname="Minaxi Gupta"></author>
+<date month="August" year="2012" day="N/A" />
+</front>
+</reference>
+<reference anchor="ref-63" target="http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/12387-foci13-nabi.pdf">
+<front>
+<title>
+The Anatomy of Web Censorship in Pakistan
+</title>
+<author initials="Z.N." surname="Nabi" fullname="Zubair Nabi"></author>
+<date month="August" year="2013" day="N/A" />
+</front>
+</reference>
+<reference anchor="ref-64" target="http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/12388-foci13-aryan.pdf">
+<front>
+<title>
+Internet Censorship in Iran: A First Look
+</title>
+<author initials="S.A." surname="Aryan" fullname="Simurgh Aryan"></author>
+<author initials="H.A." surname="Aryan" fullname="Homa Aryan"></author>
+<author initials="J.A.H." surname="Halderman" fullname="J. Alex Halderman"></author>
+<date month="August" year="2012" day="N/A" />
+</front>
+</reference>
+<reference anchor="ref-65" target="http://conferences2.sigcomm.org/imc/2014/papers/p299.pdf">
+<front>
+<title>
+Automated Detection and Fingerprinting of Censorship Block Pages
+</title>
+<author initials="B.J." surname="Jones" fullname="Ben Jones"></author>
+<date month="November" year="2014" day="N/A" />
+</front>
+</reference>
+<reference anchor="ref-66" target="http://www.theguardian.com/technology/2014/feb/11/bing-censors-chinese-language-search-results">
+<front>
+<title>
+Bing censoring Chinese language search results for users in the US
+</title>
+<author initials="D.R." surname="Rushe" fullname="Dominic Rushe"></author>
+<date month="February" year="2015" day="N/A" />
+</front>
+</reference>
+<reference anchor="ref-67" target="https://citizenlab.org/2013/11/asia-chats-analyzing-information-controls-privacy-asian-messaging-applications/">
+<front>
+<title>
+Asia Chats: Analyzing Information Controls and Privacy in Asian Messaging Applications
+</title>
+<author initials="A.S." surname="Senft" fullname="Adam Senft"></author>
+<date month="November" year="2013" day="N/A" />
+</front>
+</reference>
+<reference anchor="ref-68" target="http://link.springer.com/chapter/10.1007/11957454_2">
+<front>
+<title>
+Ignoring the Great Firewall of China
+</title>
+<author initials="R.C." surname="Clayton" fullname="Richard Clayton"></author>
+<date month="January" year="2006" day="N/A" />
+</front>
+</reference>
+<reference anchor="ref-69" target="https://www.usenix.org/system/files/conference/foci14/foci14-anonymous.pdf">
+<front>
+<title>
+Towards a Comprehensive Picture of the Great Firewall’s DNS Censorship
+</title>
+<author initials="A." surname="Anonymous" fullname="Anonymous"></author>
+<date month="August" year="2014" day="N/A" />
+</front>
+</reference>
+<reference anchor="ref-70" target="http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/12389-foci13-khattak.pdf">
+<front>
+<title>
+Towards Illuminating a Censorship Monitor's Model to Facilitate Evasion
+</title>
+<author initials="S.K" surname="Khattak" fullname="Sheharbano Khattak"></author>
+<date month="August" year="2013" day="N/A" />
+</front>
+</reference>
+
+  
 </references>
 </back>
 </rfc>
