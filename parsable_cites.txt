@@ -316,3 +316,19 @@ Verkamp, John-Paul
 “Inferring Mechanics of Web Censorship Around the World”
 August 2012
 https://www.usenix.org/system/files/conference/foci12/foci12-final1.pdf
+63:
+Nabi, Zubair
+“The Anatomy of Web Censorship in Pakistan”
+August 2013
+http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/12387-foci13-nabi.pdf
+64:
+Aryan, Simurgh
+&Aryan, Homa.
+“Internet Censorship in Iran: A First Look”
+August 2012
+http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/12388-foci13-aryan.pdf
+65:
+Jones, Ben
+“Automated Detection and Fingerprinting of Censorship Block Pages”
+November 2014
+http://conferences2.sigcomm.org/imc/2014/papers/p299.pdf
