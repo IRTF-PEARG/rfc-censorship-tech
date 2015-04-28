@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE rfc SYSTEM "rfc2629.dtd">
-<rfc>
+<rfc ipr='trust200902'>
    <front>
-       <title>A Survey of Worldwide Censorship Techniques</title>
-        <author initials="J.H." surname="Hall" fullname="Joeseph L. Hall">
+       <title abbrev="Censorship Techniques Survey">A Survey of Worldwide Censorship Techniques</title>
+        <author initials="J.H." surname="Hall" fullname="Joseph L. Hall">
           <organization>Center for Democracy and Technology</organization>
           <address>
             <email>jhall@cdt.org</email>
@@ -25,7 +25,18 @@
        <abstract><t> This document describes the technical mechanisms used by censorship regimes around the world to block or degrade internet traffic. It aims to make designers, implementers, and users of Internet protocols aware of the properties being exploited and mechanisms used to censor end-user access to information.  This document makes no suggestions on individual protocol considerations, and is purely informational, intended to be a reference.  </t></abstract>
    </front>
    <middle>
-    <section anchor="intro" title="Introduction">
+     <section anchor="intro" title="Introduction"><t>
+          This document describes the technical mechanisms used by censorship
+   regimes around the world to block or degrade internet traffic. To
+   that end, we describe three elements of Internet censorship:
+   aggregation, identification, and prevention. Aggregation is the
+   process by which censors determine what they should block,
+   i.e. they decide to block a list of pornographic
+   websites. Identification is the process by which censors determine
+   whether content is blocked, i.e. the censor blocks all webpages
+   containing "sex" in the title. Prevention is the process by which
+   the censor intercedes in communication and prevents access to
+   censored materials.</t>
     </section>
     <section title="Technical Aggregation">
       <t>
