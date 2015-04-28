@@ -4,15 +4,21 @@
    <front>
        <title abbrev="Censorship Techniques Survey">A Survey of Worldwide Censorship Techniques</title>
         <author initials="J.H." surname="Hall" fullname="Joseph L. Hall">
-          <organization>Center for Democracy and Technology</organization>
+          <organization>CDT</organization>
           <address>
             <email>jhall@cdt.org</email>
         </address>
         </author>
         <author initials="M.A." surname="Aaron" fullname="Michael D. Aaron">
-          <organization>Center for Democracy and Technology</organization>
+          <organization>CU Boulder</organization>
           <address>
-            <email>maaron@cdt.org</email>
+            <email>michael.aaron@colorado.edu</email>
+          </address>
+	</author>
+        <author initials="B.J." surname="Jones" fullname="Ben Jones">
+          <organization>GA Tech</organization>
+          <address>
+            <email>bjones99@gatech.edu</email>
         </address>
       </author>
        <date month="July" year="2014"></date>
