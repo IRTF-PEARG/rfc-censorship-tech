@@ -58,7 +58,8 @@ $ gem install kramdown-rfc2629
 At this point, you should be able to build the draft with the
 following commands:
 
-```make draft-hall-censorship-tech-latest.txt
+```sh
+$ make draft-hall-censorship-tech-latest.txt
 $ make draft-hall-censorship-tech-latest.xml
 ```
 
