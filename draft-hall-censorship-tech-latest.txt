@@ -81,8 +81,8 @@ Table of Contents
    4.  Technical Prevention  . . . . . . . . . . . . . . . . . . . .   9
      4.1.  Packet Dropping . . . . . . . . . . . . . . . . . . . . .  10
      4.2.  RST Packet Injection  . . . . . . . . . . . . . . . . . .  10
-     4.3.  DNS Cache Poisoning . . . . . . . . . . . . . . . . . . .  11
-     4.4.  Distributed Denial of Service (DDoS)  . . . . . . . . . .  12
+     4.3.  DNS Interference  . . . . . . . . . . . . . . . . . . . .  11
+     4.4.  Distributed Denial of Service (DDoS)  . . . . . . . . . .  13
      4.5.  Network Disconnection or Adversarial Route Announcement .  13
    5.  Non-Technical Aggregation . . . . . . . . . . . . . . . . . .  14
    6.  Non-Technical Prevention  . . . . . . . . . . . . . . . . . .  14
@@ -91,20 +91,20 @@ Table of Contents
      6.3.  Server Takedown . . . . . . . . . . . . . . . . . . . . .  15
    7.  Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  15
    8.  Informative References  . . . . . . . . . . . . . . . . . . .  15
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  22
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  23
 
 1.  Introduction
 
    This document describes the technical mechanisms used by censorship
-   regimes around the world to block or degrade internet traffic.  To
-   that end, we describe three elements of Internet censorship:
-   aggregation, identification, and prevention.  Aggregation is the
-   process by which censors determine what they should block, i.e. they
-   decide to block a list of pornographic websites.  Identification is
-   the process by which censors determine whether content is blocked,
-   i.e. the censor blocks all webpages containing "sex" in the title.
-   Prevention is the process by which the censor intercedes in
-   communication and prevents access to censored materials.
+   regimes around the world to block or degrade internet traffic (see
+   [RFC7754] for a discussion of Internet blocking and filtering in
+   terms of Internet architecture).  To that end, we describe three
+   elements of Internet censorship: aggregation, identification, and
+   prevention.  Aggregation is the process by which censors determine
+   what they should block, i.e. they decide to block a list of
+   pornographic websites.  Identification is the process by which
+   censors determine whether content is blocked, i.e. the censor blocks
+   all webpages containing "sex" in the title.  Prevention is the
 
 
 
@@ -113,6 +113,9 @@ Hall, et al.           Expires September 19, 2016               [Page 2]
 
 Internet-Draft            hall-censorship-tech                March 2016
 
+
+   process by which the censor intercedes in communication and prevents
+   access to censored materials.
 
 2.  Technical Aggregation
 
@@ -159,9 +162,6 @@ Internet-Draft            hall-censorship-tech                March 2016
       the most natural point-of-control.  They have a benefit of being
       easily enumerable by a censor paired with the ability to identify
       the regional and international traffic of all their users.  The
-      censor's filtration mechanisms can be placed on an ISP via
-      governmental mandates, ownership, or voluntary/coercive influence.
-
 
 
 
@@ -169,6 +169,9 @@ Hall, et al.           Expires September 19, 2016               [Page 3]
 
 Internet-Draft            hall-censorship-tech                March 2016
 
+
+      censor's filtration mechanisms can be placed on an ISP via
+      governmental mandates, ownership, or voluntary/coercive influence.
 
    o  Institutions: Private institutions such as corporations, schools,
       and cyber cafes can put filtration mechanisms in place.  These
@@ -216,9 +219,6 @@ Internet-Draft            hall-censorship-tech                March 2016
    fields, so pairing with TCP/IP identification (see Section 3.3.1) is
    necessary for filtering of HTTPS.
 
-   Empirical Examples: Studies exploring censorship mechanisms have
-   found evidence of HTTP header/ URL filtering in many countries,
-
 
 
 Hall, et al.           Expires September 19, 2016               [Page 4]
@@ -226,6 +226,8 @@ Hall, et al.           Expires September 19, 2016               [Page 4]
 Internet-Draft            hall-censorship-tech                March 2016
 
 
+   Empirical Examples: Studies exploring censorship mechanisms have
+   found evidence of HTTP header/ URL filtering in many countries,
    including Bangladesh, Bahrain, China, India, Iran, Malaysia,
    Pakistan, Russia, Saudi Arabia, South Korea, Thailand, and Turkey
    [Verkamp-2012][Nabi-2013][Aryan-2012].  Commercial technologies such
@@ -272,8 +274,6 @@ Internet-Draft            hall-censorship-tech                March 2016
    service that provides utility to users, including everything from web
    sites to locally installed programs.  The defining factor of keyword
    identification by content providers is the choice of content
-   providers to detect restricted terms on their platform.  The terms to
-
 
 
 
@@ -282,6 +282,7 @@ Hall, et al.           Expires September 19, 2016               [Page 5]
 Internet-Draft            hall-censorship-tech                March 2016
 
 
+   providers to detect restricted terms on their platform.  The terms to
    look for may be provided by the government or the content provider
    may be expected to come up with their own list.
 
@@ -329,7 +330,6 @@ Internet-Draft            hall-censorship-tech                March 2016
    Bing's results so that the more popular results in China (the
    uncensored results) were also more popular for Chinese speakers
    outside of China.
-
 
 
 
@@ -595,21 +595,21 @@ Internet-Draft            hall-censorship-tech                March 2016
    of encrypted/obfuscated protocols, such as those used by Tor
    [Winter-2012].
 
-4.3.  DNS Cache Poisoning
+4.3.  DNS Interference
 
-   DNS Cache Poisoning refers to a mechanism where a censor interferes
-   with the response sent by a DNS resolver to the requesting device by
+   There are a variety of mechanisms that censors can use to block or
+   filter access to content by altering responses from the DNS
+   [AFNIC-2013][ICANN-SSAC-2012], including blocking the response,
+   replying with an error message, or responding with an incorrect
+   address (potentially to a server that can communicate to the end-user
+   a reason for blocking access to that resource, for example using HTTP
+   Status Code 451 [RFC7725]).
+
+   DNS poisoning refers to a mechanism where a censor interferes with
+   the response sent by a DNS server to the requesting device by
    injecting an alternative IP address into the response message on the
-   return path.  Cache poisoning occurs after the requested site's name
-   servers resolve the request and attempt to forward the IP back to the
-   requesting device; on the return route the resolved IP is recursively
-   cached by each DNS server that initially forwarded the request.
-   During this caching process if an undesirable keyword is recognized,
-   the resolved IP is poisoned and an alternative IP is returned.  These
-   alternative IPs usually direct to a nonsense domain or a warning page
-   [ViewDNS-2011].  Alternatively, Iranian censorship appears to prevent
-   the communication en-route, preventing a response from ever being
-   sent [Aryan-2012].
+   return path [ViewDNS-2011].  Cache poisoning occurs after the
+   requested site's name servers resolve the request and attempt to
 
 
 
@@ -618,41 +618,61 @@ Hall, et al.           Expires September 19, 2016              [Page 11]
 Internet-Draft            hall-censorship-tech                March 2016
 
 
-   Trade-offs: DNS Cache Poisoning is one of the rarer forms of
-   prevention due to a number of shortcomings.  DNS Cache Poisoning
-   requires the censor to force a user to traverse a controlled DNS
-   resolver for the mechanism to be effective, it is easily circumvented
-   by a technical savvy user that opts to use alternative DNS resolvers,
-   such as the 8.8.8.8/8.8.4.4 public DNS resolvers provided by Google.
-   DNS Cache Poisoning also implies returning an incorrect IP to those
-   attempting to resolve a domain name, but the site is still
-   technically unblocked if the user has another method to acquire the
-   IP address of the desired site.  Blocking overflow has also been a
-   problem, as occasionally users outside of the censors region will be
-   directed through a DNS server controlled by a censor, causing the
-   request to fail.  The ease of circumvention paired with the large
-   risk of overblocking and blocking overflow make DNS Cache Poisoning a
-   partial, difficult, and less than ideal censorship mechanism.
+   forward the IP back to the requesting device; on the return route the
+   resolved IP is recursively cached by each DNS server that initially
+   forwarded the request.  During this caching process if an undesirable
+   keyword is recognized, the resolved IP is "poisoned" and an
+   alternative IP (or NXDOMAIN error) is returned.  The alternative IPs
+   usually direct to a nonsense domain or a warning page.
+   Alternatively, Iranian censorship appears to prevent the
+   communication en-route, preventing a response from ever being sent
+   [Aryan-2012].
 
-   Empirical Evidence: DNS Cache Poisoning, when properly implemented,
-   is easy to identify based on the shortcomings identified above.
-   Turkey relied on DNS Cache Poisoning for its country-wide block of
-   websites such Twitter and Youtube for almost week in March of 2014
-   but the ease of circumvention resulted in an increase in the
-   popularity of Twitter until Turkish ISPs implementing an IP blacklist
-   to achieve the governmental mandate [Zmijewki-2014].  To drive
-   proverbial "nail in the coffin" Turkish ISPs started hijacking all
-   requests to Google and Level 3's international DNS resolvers
-   [Zmijewki-2014].  DNS Cache Poisoning, when incorrectly implemented,
-   has as has resulted in some of the largest "censorship disasters".
-   In January 2014 China started directing all requests passing through
-   the Great Fire Wall to a single domain, dongtaiwang.com, due to an
-   improperly configured DNS Cache Poisoning attempt; this incident is
-   thought to be the largest internet-service outage in history
-   [AFP-2014][Anon-SIGCOMM12].  Countries such as China, Iran, Turkey,
-   and the United States have discussed blocking entire TLDs as well,
-   but only Iran has acted by blocking all Israeli (.il) domains
-   [Albert-2011].
+   Trade-offs: DNS interference requires the censor to force a user to
+   traverse a controlled DNS hierarchy (or intervening network on which
+   the censor serves as a Active Pervastive Attacker [RFC7624] to
+   rewrite DNS responses) for the mechanism to be effective.  It can be
+   circumvented by a technical savvy user that opts to use alternative
+   DNS resolvers (such as the public DNS resolvers provided by Google or
+   OpenDNS) or Virtual Private Network technology.  DNS poisoning also
+   implies returning an incorrect IP to those attempting to resolve a
+   domain name, but in some cases the destination may be technically
+   acessible; over HTTP, for example, the user may have another method
+   of obtaining the IP address of the desired site and may be able to
+   access it if the site is configured to be the defualt server
+   listening at this IP address.  Blocking overflow has also been a
+   problem, as occasionally users outside of the censors region will be
+   directed through a DNS servers or DNS-rewriting network equipment
+   controlled by a censor, causing the request to fail.  The ease of
+   circumvention paired with the large risk of overblocking and blocking
+   overflow make DNS interference a partial, difficult, and less than
+   ideal censorship mechanism.
+
+   Empirical Evidence: DNS interference, when properly implemented, is
+   easy to identify based on the shortcomings identified above.  Turkey
+   relied on DNS interference for its country-wide block of websites
+   such Twitter and Youtube for almost week in March of 2014 but the
+   ease of circumvention resulted in an increase in the popularity of
+   Twitter until Turkish ISPs implementing an IP blacklist to achieve
+   the governmental mandate [Zmijewki-2014].  Ultimately, Turkish ISPs
+   started hijacking all requests to Google and Level 3's international
+   DNS resolvers [Zmijewki-2014].  DNS interference, when incorrectly
+   implemented, has resulted in some of the largest "censorship
+   disasters".  In January 2014 China started directing all requests
+   passing through the Great Fire Wall to a single domain,
+   dongtaiwang.com, due to an improperly configured DNS poisoning
+   attempt; this incident is thought to be the largest internet-service
+   outage in history [AFP-2014][Anon-SIGCOMM12].  Countries such as
+   China, Iran, Turkey, and the United States have discussed blocking
+   entire TLDs as well, but only Iran has acted by blocking all Israeli
+   (.il) domains [Albert-2011].
+
+
+
+Hall, et al.           Expires September 19, 2016              [Page 12]
+
+Internet-Draft            hall-censorship-tech                March 2016
+
 
 4.4.  Distributed Denial of Service (DDoS)
 
@@ -664,15 +684,6 @@ Internet-Draft            hall-censorship-tech                March 2016
    while resources are being spent to flood the service, a crash attack
    aims to crash the service so resources can be reallocated elsewhere
    without "releasing" the service.
-
-
-
-
-
-Hall, et al.           Expires September 19, 2016              [Page 12]
-
-Internet-Draft            hall-censorship-tech                March 2016
-
 
    Trade-offs: DDoS is an appealing mechanism when a censor would like
    to prevent all access to undesirable content, instead of only access
@@ -711,6 +722,14 @@ Internet-Draft            hall-censorship-tech                March 2016
    a long-term solution for any rational censor and is normally only
    used as a last resort in times of substantial unrest.
 
+
+
+
+Hall, et al.           Expires September 19, 2016              [Page 13]
+
+Internet-Draft            hall-censorship-tech                March 2016
+
+
    Empirical Examples: Network Disconnections tend to only happen in
    times of substantial unrest, largely due to the huge social,
    political, and economic impact such a move has.  One of the first,
@@ -722,13 +741,6 @@ Internet-Draft            hall-censorship-tech                March 2016
    the most frequent usage of Network Disconnection, with events in
    Egypt and Libya in 2011 [Cowie-2011][Cowie-2011b], and Syria in 2012
    [Thomson-2012].
-
-
-
-Hall, et al.           Expires September 19, 2016              [Page 13]
-
-Internet-Draft            hall-censorship-tech                March 2016
-
 
 5.  Non-Technical Aggregation
 
@@ -766,6 +778,14 @@ Internet-Draft            hall-censorship-tech                March 2016
    techniques used by censors to encourage self-censorship.  Controlling
    Information relies on traditional censorship techniques, or by
    forcing all users to connect through an intranet, such as in North
+
+
+
+Hall, et al.           Expires September 19, 2016              [Page 14]
+
+Internet-Draft            hall-censorship-tech                March 2016
+
+
    Korea.  Intimidation is often achieved through allowing internet
    users to post "whatever they want", but arresting those who post
    about dissenting views, this technique is incredibly common
@@ -778,21 +798,13 @@ Internet-Draft            hall-censorship-tech                March 2016
    information over time and is ideal for a censorship regime
    [Gao-2014].
 
-
-
-
-Hall, et al.           Expires September 19, 2016              [Page 14]
-
-Internet-Draft            hall-censorship-tech                March 2016
-
-
 6.2.  Domain Name Reallocation
 
    As Domain Names are resolved recursively, if a TLD deregisters a
-   domain all other DNS resolvers will be unable to properly forward and
+   domain all other DNS servers will be unable to properly forward and
    cache the site.  Domain name registration is only really a risk where
    undesirable content is hosted on TLD controlled by the censoring
-   country, such as .ch or .ru [Anderson-2011].
+   country, such as .cn or .ru [Anderson-2011].
 
 6.3.  Server Takedown
 
@@ -808,11 +820,27 @@ Internet-Draft            hall-censorship-tech                March 2016
 
 8.  Informative References
 
+   [AFNIC-2013]
+              AFNIC, "Report of the AFNIC Scientific Council:
+              Consequences of DNS-based Internet filtering", 2013,
+              <http://www.afnic.fr/medias/documents/conseilscientifique/
+              SC-consequences-of-DNS-based-Internet-filtering.pdf>.
+
    [AFP-2014]
               AFP, "China Has Massive Internet Breakdown Reportedly
               Caused By Their Own Censoring Tools", 2014,
               <http://www.businessinsider.com/chinas-internet-breakdown-
               reportedly-caused-by-censoring-tools-2014-1>.
+
+
+
+
+
+
+Hall, et al.           Expires September 19, 2016              [Page 15]
+
+Internet-Draft            hall-censorship-tech                March 2016
+
 
    [Albert-2011]
               Albert, K., "DNS Tampering and the new ICANN gTLD Rules",
@@ -830,17 +858,6 @@ Internet-Draft            hall-censorship-tech                March 2016
               by DNS Injection", 2012,
               <http://www.sigcomm.org/sites/default/files/ccr/
               papers/2012/July/2317307-2317311.pdf>.
-
-
-
-
-
-
-
-Hall, et al.           Expires September 19, 2016              [Page 15]
-
-Internet-Draft            hall-censorship-tech                March 2016
-
 
    [Anonymous-2007]
               Anonymous, "How to Bypass Comcast's Bittorrent
@@ -874,6 +891,13 @@ Internet-Draft            hall-censorship-tech                March 2016
               BBC News, "Google and Microsoft agree steps to block abuse
               images", 2013, <http://www.bbc.com/news/uk-24980765>.
 
+
+
+Hall, et al.           Expires September 19, 2016              [Page 16]
+
+Internet-Draft            hall-censorship-tech                March 2016
+
+
    [BBC-2013b]
               BBC, "China employs two million microblog monitors state
               media say", 2013,
@@ -887,16 +911,6 @@ Internet-Draft            hall-censorship-tech                March 2016
               Calamur, K., "Prominent Egyptian Blogger Arrested", 2013,
               <http://www.npr.org/blogs/thetwo-way/2013/11/29/247820503/
               prominent-egyptian-blogger-arrested>.
-
-
-
-
-
-
-Hall, et al.           Expires September 19, 2016              [Page 16]
-
-Internet-Draft            hall-censorship-tech                March 2016
-
 
    [CERT-2000]
               CERT, "TCP SYN Flooding and IP Spoofing Attacks", 2000,
@@ -928,6 +942,18 @@ Internet-Draft            hall-censorship-tech                March 2016
               Cowie, J., "Libyan Disconnect", 2011,
               <http://www.renesys.com/2011/02/libyan-disconnect-1/>.
 
+
+
+
+
+
+
+
+Hall, et al.           Expires September 19, 2016              [Page 17]
+
+Internet-Draft            hall-censorship-tech                March 2016
+
+
    [Crandall-2010]
               Crandall, J., "Empirical Study of a National-Scale
               Distributed Intrusion Detection System: Backbone-Level
@@ -943,16 +969,6 @@ Internet-Draft            hall-censorship-tech                March 2016
    [Dobie-2007]
               Dobie, M., "Junta tightens media screw", 2007,
               <http://news.bbc.co.uk/2/hi/asia-pacific/7016238.stm>.
-
-
-
-
-
-
-Hall, et al.           Expires September 19, 2016              [Page 17]
-
-Internet-Draft            hall-censorship-tech                March 2016
-
 
    [Ensafi-2013]
               Ensafi, R., "Detecting Intentional Packet Drops on the
@@ -985,6 +1001,15 @@ Internet-Draft            hall-censorship-tech                March 2016
               After Riots", 2009, <https://opennet.net/blog/2009/07/
               china-shuts-down-internet-xinjiang-region-after-riots>.
 
+
+
+
+
+Hall, et al.           Expires September 19, 2016              [Page 18]
+
+Internet-Draft            hall-censorship-tech                March 2016
+
+
    [Hepting-2011]
               Electronic Frontier Foundation, "Hepting vs. AT&T", 2011,
               <https://www.eff.org/cases/hepting>.
@@ -1000,15 +1025,12 @@ Internet-Draft            hall-censorship-tech                March 2016
               <http://readwrite.com/2011/03/03/
               communications_blocked_in_libya_this_week_in_onlin>.
 
-
-
-
-
-
-Hall, et al.           Expires September 19, 2016              [Page 18]
-
-Internet-Draft            hall-censorship-tech                March 2016
-
+   [ICANN-SSAC-2012]
+              ICANN Security and Stability Advisory Committee (SSAC),
+              "SAC 056: SSAC Advisory on Impacts of Content Blocking via
+              the Domain Name System", 2012,
+              <https://www.icann.org/en/system/files/files/sac-
+              056-en.pdf>.
 
    [Johnson-2010]
               Johnson, L., "Torture feared in arrest of Iraqi blogger",
@@ -1032,6 +1054,17 @@ Internet-Draft            hall-censorship-tech                March 2016
               Election", 2012,
               <http://www.themoscowtimes.com/news/article/
               cyberattacks-disrupt-oppositions-election/470119.html>.
+
+
+
+
+
+
+
+Hall, et al.           Expires September 19, 2016              [Page 19]
+
+Internet-Draft            hall-censorship-tech                March 2016
+
 
    [Muncaster-2013]
               Muncaster, P., "Malaysian election sparks web blocking/
@@ -1059,16 +1092,35 @@ Internet-Draft            hall-censorship-tech                March 2016
               <http://www.symantec.com/connect/articles/
               perils-deep-packet-inspection>.
 
-
-
-Hall, et al.           Expires September 19, 2016              [Page 19]
-
-Internet-Draft            hall-censorship-tech                March 2016
-
-
    [RFC0793]  Postel, J., "Transmission Control Protocol", STD 7,
               RFC 793, DOI 10.17487/RFC0793, September 1981,
               <http://www.rfc-editor.org/info/rfc793>.
+
+   [RFC7624]  Barnes, R., Schneier, B., Jennings, C., Hardie, T.,
+              Trammell, B., Huitema, C., and D. Borkmann,
+              "Confidentiality in the Face of Pervasive Surveillance: A
+              Threat Model and Problem Statement", RFC 7624,
+              DOI 10.17487/RFC7624, August 2015,
+              <http://www.rfc-editor.org/info/rfc7624>.
+
+   [RFC7725]  Bray, T., "An HTTP Status Code to Report Legal Obstacles",
+              RFC 7725, DOI 10.17487/RFC7725, February 2016,
+              <http://www.rfc-editor.org/info/rfc7725>.
+
+   [RFC7754]  Barnes, R., Cooper, A., Kolkman, O., Thaler, D., and E.
+              Nordmark, "Technical Considerations for Internet Service
+              Blocking and Filtering", RFC 7754, DOI 10.17487/RFC7754,
+              March 2016, <http://www.rfc-editor.org/info/rfc7754>.
+
+
+
+
+
+
+Hall, et al.           Expires September 19, 2016              [Page 20]
+
+Internet-Draft            hall-censorship-tech                March 2016
+
 
    [Rushe-2015]
               Rushe, D., "Bing censoring Chinese language search results
@@ -1117,7 +1169,11 @@ Internet-Draft            hall-censorship-tech                March 2016
 
 
 
-Hall, et al.           Expires September 19, 2016              [Page 20]
+
+
+
+
+Hall, et al.           Expires September 19, 2016              [Page 21]
 
 Internet-Draft            hall-censorship-tech                March 2016
 
@@ -1173,7 +1229,7 @@ Internet-Draft            hall-censorship-tech                March 2016
 
 
 
-Hall, et al.           Expires September 19, 2016              [Page 21]
+Hall, et al.           Expires September 19, 2016              [Page 22]
 
 Internet-Draft            hall-censorship-tech                March 2016
 
@@ -1229,4 +1285,4 @@ Authors' Addresses
 
 
 
-Hall, et al.           Expires September 19, 2016              [Page 22]
+Hall, et al.           Expires September 19, 2016              [Page 23]
