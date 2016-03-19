@@ -872,7 +872,7 @@ Internet-Draft            hall-censorship-tech                March 2016
 7.  Contributors
 
    This document benefited from discussions with Stephane Bortzmeyer,
-   Nick Feamster, and Martin Nillson.
+   Nick Feamster, and Martin Nilsson.
 
 8.  Informative References
 

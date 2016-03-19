@@ -1325,7 +1325,7 @@ Contributors {#Contributors}
 ============
 
 This document benefited from discussions with Stephane Bortzmeyer,
-Nick Feamster, and Martin Nillson.
+Nick Feamster, and Martin Nilsson.
 
 --- back
 
