@@ -35,6 +35,8 @@ normative:
 informative:
 
   RFC0793:
+  RFC7725:
+  RFC7754:
   
   Glanville-2008:
     target: http://www.theguardian.com/commentisfree/2008/nov/17/censorship-internet
@@ -533,6 +535,20 @@ informative:
       ins: S.J. Murdoch
     date: 2011
 
+  AFNIC-2013:
+    target: http://www.afnic.fr/medias/documents/conseilscientifique/SC-consequences-of-DNS-based-Internet-filtering.pdf
+    title: "Report of the AFNIC Scientific Council: Consequences of DNS-based Internet filtering"
+    author:
+      org: AFNIC
+    date: 2013
+
+  ICANN-SSAC-2012:
+    target: https://www.icann.org/en/system/files/files/sac-056-en.pdf
+    title: "SAC 056: SSAC Advisory on Impacts of Content Blocking via the Domain Name System"
+    author:
+      org: ICANN Security and Stability Advisory Committee (SSAC)
+    date: 2012
+
 
 --- abstract
 
@@ -551,7 +567,9 @@ Introduction {#intro}
 ============
 
 This document describes the technical mechanisms used by censorship
-regimes around the world to block or degrade internet traffic. To that
+regimes around the world to block or degrade internet traffic (see
+{{RFC7754}} for a discussion of Internet blocking and filtering
+in terms of Internet architecture). To that
 end, we describe three elements of Internet censorship: aggregation,
 identification, and prevention. Aggregation is the process by which
 censors determine what they should block, i.e. they decide to block a
@@ -992,8 +1010,16 @@ Injection for censorship purposes. This prevention is especially
 evident in the interruption of encrypted/obfuscated protocols, such as
 those used by Tor {{Winter-2012}}.
 
-DNS Cache Poisoning {#dns-poison}
+DNS Interference {#dns-mangling}
 -------------------
+
+There are a variety of mechanisms that censors can use to block or
+filter access to content by altering responses from the DNS
+{{AFNIC-2013}}{{ICANN-SSAC-2012}}, including blocking the response,
+replying with an erroneous error message, or responding with an
+incorrect address (potentially to a server that can communicate to the
+end-user a reason for blocking access to that resource, for example
+using HTTP Status Code 451 {{RFC7725}}).
 
 DNS Cache Poisoning refers to a mechanism where a censor interferes
 with the response sent by a DNS resolver to the requesting device by
