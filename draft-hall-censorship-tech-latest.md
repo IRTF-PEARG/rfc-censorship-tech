@@ -601,6 +601,13 @@ informative:
       ins: I. Chrisment
     date: 2015
 
+  RSF-2005:
+    target: http://archives.rsf.org/print-blogs.php3?id_article=15013
+    title: Technical ways to get around censorship
+    author:
+      org: Reporters Sans Frontieres
+    date: 2005
+
 
 --- abstract
 
@@ -730,7 +737,8 @@ Application Layer {#app-layer}
 
 An HTTP header contains a lot of useful information for traffic
 identification; although host is the only required field in an HTTP
-request header, an HTTP method field is necessary to do anything
+request header (HTTP/1.1 and later), an HTTP method field is necessary
+to do anything
 useful. As such, the method and host fields are the two fields used
 most often for ubiquitous censorship. A censor can sniff traffic and
 identify a specific domain name (host) and usually a page name (GET
@@ -744,7 +752,9 @@ or ISP level. The hardware needed for this sort of identification is
 cheap and easy-to-acquire, making it desirable when budget and scope
 are a concern. HTTPS will encrypt the relevant request and response
 fields, so pairing with TCP/IP identification (see [](#sec_tcpid)) is
-necessary for filtering of HTTPS.
+necessary for filtering of HTTPS. However, some countermeasures such
+as URL obfuscation {{RSF-2005}} can trivially defeat simple forms of
+HTTP Request Header Identification.
 
 Empirical Examples: Studies exploring censorship mechanisms have found
 evidence of HTTP header/ URL filtering in many countries, including
@@ -903,7 +913,7 @@ Client Hello message which domain name it seeks to connect to (so that
 the server can respond with the appropriate TLS certificate) using the
 Server Name Indication (SNI) TLS extension {{RFC6066}}. Since SNI is
 sent in the clear, censors and filtering software can use it as a
-basis for blocking, filtering, or imparement by dropping connections
+basis for blocking, filtering, or impairment by dropping connections
 to domains that match prohibited content (e.g., bad.foo.com may be
 censored while good.foo.com is not) {{Shbair-2015}}.
 
@@ -914,7 +924,7 @@ addition, this technique requires deep packet inspection techniques
 that can be computationally and infrastructurally expensive and
 improper configuration of an SNI-based block can result in significant
 overblocking, e.g., when a second-level domain like google.com is
-inadvertantly blocked.
+inadvertently blocked.
 
 Empirical Evidence: While there are many examples of security firms
 that offer SNI-based filtering {{Trustwave-2015}} {{Sophos-2015}}
@@ -1134,7 +1144,7 @@ Trade-offs:
 DNS interference
 requires the censor to force a user to traverse a controlled DNS
 hierarchy (or intervening network on which the censor serves as a
-Active Pervastive Attacker {{RFC7624}} to rewrite DNS responses)
+Active Pervasive Attacker {{RFC7624}} to rewrite DNS responses)
 for the mechanism to be effective. It can be circumvented
 by a technical savvy user that opts to use alternative DNS resolvers
 (such as the public DNS resolvers provided by
@@ -1142,11 +1152,11 @@ Google or OpenDNS) or Virtual Private Network technology. DNS poisoning
 also implies returning an incorrect IP to
 those attempting to resolve a domain name, but in some cases the destination
 may be
-technically acessible;  over HTTP, for example, the user may have another
+technically accessible;  over HTTP, for example, the user may have another
 method of obtaining the IP
 address of the desired site and may be able to access it if the site
 is configured to be the
-defualt server listening at this IP address.  Blocking overflow has
+default server listening at this IP address.  Blocking overflow has
 also been a
 problem, as occasionally users outside of the censors region will be
 directed through a DNS servers or DNS-rewriting network equipment
