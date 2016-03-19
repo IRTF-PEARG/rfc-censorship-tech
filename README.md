@@ -4,8 +4,8 @@ This is the working area for the draft of draft-hall-censorship-tech.
 
 ## Contributing
 
-Be aware that all contributions to the specification fall under the "NOTE WELL"
-terms outlined below.
+Be aware that all contributions to this document fall under the "NOTE
+WELL" terms outlined below.
 
 1. The best way to provide feedback (editorial or design) and ask
 questions is sending an e-mail to draft-hall-censorship-tech@ietf.org.
