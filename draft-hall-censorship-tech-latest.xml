@@ -106,7 +106,7 @@ own blacklists.</t>
 
 <section anchor="poc" title="Points of Control">
 
-<t>Digital censorship, necessarily, takes place over a network. Network
+<t>Internet censorship, necessarily, takes place over a network. Network
 design gives censors a number of different points-of-control where
 they can identify the content they are interested in filtering. An
 important aspect of pervasive technical interception is the necessity
@@ -166,7 +166,7 @@ provider of undesirable content.</t>
 
 <t>An HTTP header contains a lot of useful information for traffic
 identification; although host is the only required field in an HTTP
-request header (HTTP/1.1 and later), an HTTP method field is necessary
+request header (for HTTP/1.1 and later), an HTTP method field is necessary
 to do anything
 useful. As such, the method and host fields are the two fields used
 most often for ubiquitous censorship. A censor can sniff traffic and
@@ -275,7 +275,7 @@ abuse <xref target="BBC-2013"/> <xref target="Condliffe-2013"/>.</t>
 <t>Depending on the output, search engine keyword identification may be
 difficult or easy to detect. In some cases specialized or blank
 results provide a trivial enumeration mechanism, but more subtle
-censorship can be difficult to detect. In February, Microsoft’s search
+censorship can be difficult to detect. In February 2015, Microsoft’s search
 engine, Bing, was accused of censoring Chinese content outside of
 China <xref target="Rushe-2015"/> because Bing returned different results for
 censored terms in Chinese and English. However, it is possible that
@@ -288,7 +288,7 @@ outside of China.</t>
 <section anchor="dpi" title="Deep Packet Inspection (DPI) Identification">
 
 <t>Deep Packet Inspection has become computationally feasible as a
-censorship mechanism in the past 5 years <xref target="Wagner-2009"/>. Unlike other
+censorship mechanism in recent years <xref target="Wagner-2009"/>. Unlike other
 techniques, DPI reassembles network flows to examine the application
 “data” section, as opposed to only the header, and is therefore often
 used for keyword identification. DPI also differs from other
@@ -323,8 +323,8 @@ Anonymous, and Khattak et al., all explored the GFW and Khattak et
 al. even probed the firewall to discover implementation details like
 how much state it stores
 <xref target="Crandall-2010"/> <xref target="Clayton-2006"/> <xref target="Anonymous-2014"/> <xref target="Khattak-2013"/>. The
-Tor project claims that China, Iran, Ethiopia, and others must being
-using DPI to block the obsf2 protocol <xref target="Wilde-2012"/>.  Malaysia has
+Tor project claims that China, Iran, Ethiopia, and others must have used
+DPI to block the obsf2 protocol <xref target="Wilde-2012"/>.  Malaysia has
 been accused of using targeted DPI, paired with DDoS, to identify and
 subsequently knockout pro-opposition material <xref target="Wagstaff-2013"/>.  It
 also seems likely that organizations not so worried about blocking
@@ -335,7 +335,7 @@ gathered traffic using technologies such as NarusInsight
 </section>
 <section anchor="sni" title="Server Name Indication">
 
-<t>In encrypted connections using Transport Layer Security, there may be
+<t>In encrypted connections using Transport Layer Security (TLS), there may be
 servers that host multiple “virtual servers” at a give network
 address, and the client will need to specify in the (unencrypted)
 Client Hello message which domain name it seeks to connect to (so that
@@ -508,7 +508,9 @@ QoS bottleneck one can encounter with inline techniques such as Packet
 Dropping. This out-of-band property allows a censor to inspect a copy
 of the information, usually mirrored by an optical splitter, making it
 an ideal pairing for DPI and Protocol Identification
-<xref target="Weaver-2009"/>. RST Packet Injection also has the advantage of only
+<xref target="Weaver-2009"/> (this asynchronous version of a MITM is ofen called a
+Man-on-the-Side (MOTS)).
+RST Packet Injection also has the advantage of only
 requiring one of the two endpoints to accept the spoofed packet for
 the connection to be interrupted.  The difficult part of RST Packet
 Injection is spoofing “enough” correct information to ensure one
@@ -646,7 +648,12 @@ frequently victims of DDoS around politically sensitive events in
 Burma <xref target="Villeneuve-2011"/>. Controlling parties in Russia
 <xref target="Kravtsova-2012"/>, Zimbabwe <xref target="Orion-2013"/>, and Malaysia
 <xref target="Muncaster-2013"/> have been accused of using DDoS to interrupt
-opposition support and access during elections.</t>
+opposition support and access during elections.
+In 2015, China launched a DDoS attack using a true MITM system
+colocated with the Great Firewall, dubbed “Great Cannon”, that was
+able to inject JavaScript code into web visits to a Chinese search
+engine that comandeered those user agents to send DDoS traffic to
+various sites <xref target="Marczak-2015"/>.</t>
 
 </section>
 <section anchor="discon" title="Network Disconnection or Adversarial Route Announcement">
@@ -693,7 +700,7 @@ occurs on an institutional level.  Internet Content Providers such as
 Google or Weibo, require a business license to operate in China.  One
 of the prerequisites for a business license is an agreement to sign a
 “voluntary pledge” known as the “Public Pledge on Self-discipline for
-the Chinese Internet Industry”.  The failure to “ energetically
+the Chinese Internet Industry”.  The failure to “energetically
 uphold” the pledged values can lead to the ICPs being held liable for
 the offending content by the Chinese government <xref target="BBC-2013b"/>.</t>
 
@@ -1475,6 +1482,42 @@ Nick Feamster, and Martin Nilsson.</t>
       <organization>Reporters Sans Frontieres</organization>
     </author>
     <date year="2005"/>
+  </front>
+</reference>
+<reference anchor="Marczak-2015" target="https://www.usenix.org/system/files/conference/foci15/foci15-paper-marczak.pdf">
+  <front>
+    <title>An Analysis of China’s “Great Cannon”</title>
+    <author initials="B." surname="Marczak" fullname="Bill Marczak">
+      <organization></organization>
+    </author>
+    <author initials="N." surname="Weaver" fullname="Nicholas Weaver">
+      <organization></organization>
+    </author>
+    <author initials="J." surname="Dalek" fullname="Jakub Dalek">
+      <organization></organization>
+    </author>
+    <author initials="R." surname="Ensafi" fullname="Roya Ensafi">
+      <organization></organization>
+    </author>
+    <author initials="D." surname="Fifield" fullname="David Fifield">
+      <organization></organization>
+    </author>
+    <author initials="S." surname="McKune" fullname="Sarah McKune">
+      <organization></organization>
+    </author>
+    <author initials="A." surname="Rey" fullname="Arn Rey">
+      <organization></organization>
+    </author>
+    <author initials="J." surname="Scott-Railton" fullname="John Scott-Railton">
+      <organization></organization>
+    </author>
+    <author initials="R." surname="Deibert" fullname="Ron Deibert">
+      <organization></organization>
+    </author>
+    <author initials="V." surname="Paxson" fullname="Vern Paxson">
+      <organization></organization>
+    </author>
+    <date year="2015"/>
   </front>
 </reference>
 

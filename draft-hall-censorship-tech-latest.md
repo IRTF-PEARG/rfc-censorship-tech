@@ -608,6 +608,42 @@ informative:
       org: Reporters Sans Frontieres
     date: 2005
 
+  Marczak-2015:
+    target: https://www.usenix.org/system/files/conference/foci15/foci15-paper-marczak.pdf
+    title: An Analysis of China’s “Great Cannon”
+    author:
+    -
+      name: Bill Marczak
+      ins: B. Marczak
+    -
+      name: Nicholas Weaver
+      ins: N. Weaver
+    -
+      name: Jakub Dalek
+      ins: J. Dalek
+    -
+      name: Roya Ensafi
+      ins: R. Ensafi
+    -
+      name: David Fifield
+      ins: D. Fifield
+    -
+      name: Sarah McKune
+      ins: S. McKune
+    -
+      name: Arn Rey
+      ins: A. Rey
+    -
+      name: John Scott-Railton
+      ins: J. Scott-Railton
+    -
+      name: Ron Deibert
+      ins: R. Deibert
+    -
+      name: Vern Paxson
+      ins: V. Paxson
+    date: 2015
+
 
 --- abstract
 
@@ -673,7 +709,7 @@ Technical Identification {#tech-id}
 Points of Control {#poc}
 -----------------
 
-Digital censorship, necessarily, takes place over a network. Network
+Internet censorship, necessarily, takes place over a network. Network
 design gives censors a number of different points-of-control where
 they can identify the content they are interested in filtering. An
 important aspect of pervasive technical interception is the necessity
@@ -737,7 +773,7 @@ Application Layer {#app-layer}
 
 An HTTP header contains a lot of useful information for traffic
 identification; although host is the only required field in an HTTP
-request header (HTTP/1.1 and later), an HTTP method field is necessary
+request header (for HTTP/1.1 and later), an HTTP method field is necessary
 to do anything
 useful. As such, the method and host fields are the two fields used
 most often for ubiquitous censorship. A censor can sniff traffic and
@@ -846,7 +882,7 @@ abuse {{BBC-2013}} {{Condliffe-2013}}.
 Depending on the output, search engine keyword identification may be
 difficult or easy to detect. In some cases specialized or blank
 results provide a trivial enumeration mechanism, but more subtle
-censorship can be difficult to detect. In February, Microsoft's search
+censorship can be difficult to detect. In February 2015, Microsoft's search
 engine, Bing, was accused of censoring Chinese content outside of
 China {{Rushe-2015}} because Bing returned different results for
 censored terms in Chinese and English. However, it is possible that
@@ -859,7 +895,7 @@ outside of China.
 ### Deep Packet Inspection (DPI) Identification {#dpi}
 
 Deep Packet Inspection has become computationally feasible as a
-censorship mechanism in the past 5 years {{Wagner-2009}}. Unlike other
+censorship mechanism in recent years {{Wagner-2009}}. Unlike other
 techniques, DPI reassembles network flows to examine the application
 "data" section, as opposed to only the header, and is therefore often
 used for keyword identification. DPI also differs from other
@@ -894,8 +930,8 @@ Anonymous, and Khattak et al., all explored the GFW and Khattak et
 al. even probed the firewall to discover implementation details like
 how much state it stores
 {{Crandall-2010}} {{Clayton-2006}} {{Anonymous-2014}} {{Khattak-2013}}. The
-Tor project claims that China, Iran, Ethiopia, and others must being
-using DPI to block the obsf2 protocol {{Wilde-2012}}.  Malaysia has
+Tor project claims that China, Iran, Ethiopia, and others must have used
+DPI to block the obsf2 protocol {{Wilde-2012}}.  Malaysia has
 been accused of using targeted DPI, paired with DDoS, to identify and
 subsequently knockout pro-opposition material {{Wagstaff-2013}}.  It
 also seems likely that organizations not so worried about blocking
@@ -906,7 +942,7 @@ gathered traffic using technologies such as NarusInsight
 
 ### Server Name Indication {#sni}
 
-In encrypted connections using Transport Layer Security, there may be
+In encrypted connections using Transport Layer Security (TLS), there may be
 servers that host multiple "virtual servers" at a give network
 address, and the client will need to specify in the (unencrypted)
 Client Hello message which domain name it seeks to connect to (so that
@@ -1080,7 +1116,9 @@ QoS bottleneck one can encounter with inline techniques such as Packet
 Dropping. This out-of-band property allows a censor to inspect a copy
 of the information, usually mirrored by an optical splitter, making it
 an ideal pairing for DPI and Protocol Identification
-{{Weaver-2009}}. RST Packet Injection also has the advantage of only
+{{Weaver-2009}} (this asynchronous version of a MITM is ofen called a
+Man-on-the-Side (MOTS)).
+RST Packet Injection also has the advantage of only
 requiring one of the two endpoints to accept the spoofed packet for
 the connection to be interrupted.  The difficult part of RST Packet
 Injection is spoofing "enough" correct information to ensure one
@@ -1219,6 +1257,12 @@ Burma {{Villeneuve-2011}}. Controlling parties in Russia
 {{Kravtsova-2012}}, Zimbabwe {{Orion-2013}}, and Malaysia
 {{Muncaster-2013}} have been accused of using DDoS to interrupt
 opposition support and access during elections.
+In 2015, China launched a DDoS attack using a true MITM system
+colocated with the Great Firewall, dubbed "Great Cannon", that was
+able to inject JavaScript code into web visits to a Chinese search
+engine that comandeered those user agents to send DDoS traffic to
+various sites {{Marczak-2015}}.
+
 
 Network Disconnection or Adversarial Route Announcement {#discon}
 --------------------------------
@@ -1265,7 +1309,7 @@ occurs on an institutional level.  Internet Content Providers such as
 Google or Weibo, require a business license to operate in China.  One
 of the prerequisites for a business license is an agreement to sign a
 "voluntary pledge" known as the "Public Pledge on Self-discipline for
-the Chinese Internet Industry".  The failure to " energetically
+the Chinese Internet Industry".  The failure to "energetically
 uphold" the pledged values can lead to the ICPs being held liable for
 the offending content by the Chinese government {{BBC-2013b}}.
 
