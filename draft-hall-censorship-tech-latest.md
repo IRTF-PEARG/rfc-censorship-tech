@@ -38,6 +38,7 @@ informative:
   RFC7725:
   RFC7754:
   RFC7624:
+  RFC6066:
   
   Glanville-2008:
     target: http://www.theguardian.com/commentisfree/2008/nov/17/censorship-internet
@@ -550,6 +551,63 @@ informative:
       org: ICANN Security and Stability Advisory Committee (SSAC)
     date: 2012
 
+  Ding-1999:
+    target: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.132.3302&amp;rep=rep1&amp;type=pdf
+    title: "Centralized Content-Based Web Filtering and Blocking: How Far Can It Go?"
+    author:
+    -
+      name: Chen Ding
+      ins: C. Ding
+    -
+      name: Chi-Hung Chi
+      ins: C.H. Chi
+    -
+      name: Jing Deng
+      ins: J. Deng
+    -
+      name: Chun-Lei Dong
+      ins: C.L. Dong
+    date: 1999
+
+  Trustwave-2015:
+    target: https://www3.trustwave.com/software/8e6/hlp/r3000/files/1system_filter.html
+    title: "Filter: SNI extension feature and HTTPS blocking"
+    author:
+      org: Trustwave
+    date: 2015
+
+  Sophos-2015:
+    target: https://www.sophos.com/en-us/support/knowledgebase/115865.aspx
+    title: Understanding Sophos Web Filtering
+    author:
+      org: Sophos
+    date: 2015
+
+  Shbair-2015:
+    target: https://hal.inria.fr/hal-01202712/document
+    title: Efficiently Bypassing SNI-based HTTPS Filtering
+    author:
+    -
+      name: Wazen M. Shbair
+      ins: W.M. Shbair
+    -
+      name: Thibault Cholez
+      ins: T. Cholez
+    -
+      name: Antoine Goichot
+      ins: A. Goichot
+    -
+      name: Isabelle Chrisment
+      ins: I. Chrisment
+    date: 2015
+
+  RSF-2005:
+    target: http://archives.rsf.org/print-blogs.php3?id_article=15013
+    title: Technical ways to get around censorship
+    author:
+      org: Reporters Sans Frontieres
+    date: 2005
+
 
 --- abstract
 
@@ -586,16 +644,21 @@ Technical Aggregation {#tech-aggregation}
 
 Aggregation is the process of figuring out what censors would like to
 block {{Glanville-2008}}. Generally, censors aggregate "to block"
-information in three possible sorts of blacklists: Keyword, Domain
+information in blacklists or using real-time heuristic assessment of
+content {{Ding-1999}}.
+There are typically three types of blacklists: Keyword, Domain
 Name, or IP. Keyword and Domain Name blocking take place at the
 application level (e.g. HTTP), whereas IP blocking tends to take place
 in the TCP/IP header. The mechanisms for building up these blacklists
 are varied. Many times private industries that sell "content control"
-software, such as SmartFilter, provide their services to nations which
-can then pick from broad categories, such as gambling or pornography,
-that they would like to block . In these cases, the private services
+software, such as SmartFilter, which allows filtering
+from broad categories, such as gambling or pornography,
+that they would like to block. In these cases, the private services
 embark on an attempt to label every semi-questionable website as to
-allow for this metatag blocking. Countries that are more interested in
+allow for metatag blocking (similarly, they tune real-time content
+heuristic systems to map their assessments onto categories of
+objectionable content).
+Countries that are more interested in
 retaining specific political control, a desire which requires swift
 and decisive action, often have ministries or organizations, such as
 the Ministry of Industry and Information Technology in China or the
@@ -616,7 +679,7 @@ they can identify the content they are interested in filtering. An
 important aspect of pervasive technical interception is the necessity
 to rely on software or hardware to intercept the content the censor is
 interested in. This requirement, the need to have the interception
-mechanism located somewhere, logically or physically, implicates four
+mechanism located somewhere, logically or physically, implicates various
 general points-of-control:
 
 * Internet Backbone: If a censor controls the gateways into a region,
@@ -646,6 +709,13 @@ general points-of-control:
   requirements. The emergence of mobile devices exacerbate these
   feasibility problems.
 
+* Services: Application service providers can be pressured, coerced,
+  or legally required to censor specific content or flows of
+  data. Service providers naturally face incentives to maximize their
+  potential customer base and potential service shutdowns or legal
+  liability due to censorship efforts may seem much less attractive
+  than potentially excluding content, users, or uses of their service.
+
 At all levels of the network hierarchy, the filtration mechanisms used
 to detect undesirable traffic are essentially the same: a censor
 sniffs transmitting packets and identifies undesirable content, and
@@ -667,7 +737,8 @@ Application Layer {#app-layer}
 
 An HTTP header contains a lot of useful information for traffic
 identification; although host is the only required field in an HTTP
-request header, an HTTP method field is necessary to do anything
+request header (HTTP/1.1 and later), an HTTP method field is necessary
+to do anything
 useful. As such, the method and host fields are the two fields used
 most often for ubiquitous censorship. A censor can sniff traffic and
 identify a specific domain name (host) and usually a page name (GET
@@ -681,19 +752,21 @@ or ISP level. The hardware needed for this sort of identification is
 cheap and easy-to-acquire, making it desirable when budget and scope
 are a concern. HTTPS will encrypt the relevant request and response
 fields, so pairing with TCP/IP identification (see [](#sec_tcpid)) is
-necessary for filtering of HTTPS.
+necessary for filtering of HTTPS. However, some countermeasures such
+as URL obfuscation {{RSF-2005}} can trivially defeat simple forms of
+HTTP Request Header Identification.
 
 Empirical Examples: Studies exploring censorship mechanisms have found
 evidence of HTTP header/ URL filtering in many countries, including
 Bangladesh, Bahrain, China, India, Iran, Malaysia, Pakistan, Russia,
 Saudi Arabia, South Korea, Thailand, and Turkey
-{{Verkamp-2012}}{{Nabi-2013}}{{Aryan-2012}}. Commercial technologies
+{{Verkamp-2012}} {{Nabi-2013}} {{Aryan-2012}}. Commercial technologies
 such as the McAfee SmartFilter and NetSweeper are often purchased by
 censors {{Dalek-2013}}.  These commercial technologies use a
 combination of HTTP Request Identification and TCP/IP Header
 Identification to filter specific URLs. Dalek et al. and Jones et
 al. identified the use of these products in the wild
-{{Dalek-2013}}{{Jones-2014}}.
+{{Dalek-2013}} {{Jones-2014}}.
 
 
 ### HTTP Response Header Identification
@@ -751,7 +824,7 @@ requested assistance.
 Empirical Examples: Researchers have discovered keyword identification
 by content providers on platforms ranging from instant messaging
 applications {{Senft-2013}} to search engines
-{{Rushe-2015}}{{Cheng-2010}}{{Whittaker-2013}}{{BBC-2013}}{{Condliffe-2013}}. To
+{{Rushe-2015}} {{Cheng-2010}} {{Whittaker-2013}} {{BBC-2013}} {{Condliffe-2013}}. To
 demonstrate the prevalence of this type of keyword identification, we
 look to search engine censorship.
 
@@ -764,11 +837,11 @@ requires search engine providers to "voluntarily" maintain search term
 blacklists to acquire/keep an Internet content provider (ICP) license
 {{Cheng-2010}}.  It is clear these blacklists are maintained by each
 search engine provider based on the slight variations in the
-intercepted searches {{Zhu-2011}}{{Whittaker-2013}}. The United
+intercepted searches {{Zhu-2011}} {{Whittaker-2013}}. The United
 Kingdom has been pushing search engines to self censor with the threat
 of litigation if they don't do it themselves: Google and Microsoft
 have agreed to block more than 100,00 queries in U.K. to help combat
-abuse {{BBC-2013}}{{Condliffe-2013}}.
+abuse {{BBC-2013}} {{Condliffe-2013}}.
 
 Depending on the output, search engine keyword identification may be
 difficult or easy to detect. In some cases specialized or blank
@@ -813,14 +886,14 @@ and is widely used in practice. The Great Firewall of China (GFW), the
 largest censorship system in the world, uses DPI to identify
 restricted content over HTTP and DNS and inject TCP RSTs and bad DNS
 responses, respectively, into connections
-{{Crandall-2010}}{{Clayton-2006}}{{Anonymous-2014}}.
+{{Crandall-2010}} {{Clayton-2006}} {{Anonymous-2014}}.
 
 Empirical Evidence: Several studies have found evidence of DPI being
 used to censor content and tools. Clayton et al. Crandal et al.,
 Anonymous, and Khattak et al., all explored the GFW and Khattak et
 al. even probed the firewall to discover implementation details like
 how much state it stores
-{{Crandall-2010}}{{Clayton-2006}}{{Anonymous-2014}}{{Khattak-2013}}. The
+{{Crandall-2010}} {{Clayton-2006}} {{Anonymous-2014}} {{Khattak-2013}}. The
 Tor project claims that China, Iran, Ethiopia, and others must being
 using DPI to block the obsf2 protocol {{Wilde-2012}}.  Malaysia has
 been accused of using targeted DPI, paired with DDoS, to identify and
@@ -829,6 +902,35 @@ also seems likely that organizations not so worried about blocking
 content in real-time could use DPI to sort and categorically search
 gathered traffic using technologies such as NarusInsight
 {{Hepting-2011}}.
+
+
+### Server Name Indication {#sni}
+
+In encrypted connections using Transport Layer Security, there may be
+servers that host multiple "virtual servers" at a give network
+address, and the client will need to specify in the (unencrypted)
+Client Hello message which domain name it seeks to connect to (so that
+the server can respond with the appropriate TLS certificate) using the
+Server Name Indication (SNI) TLS extension {{RFC6066}}. Since SNI is
+sent in the clear, censors and filtering software can use it as a
+basis for blocking, filtering, or impairment by dropping connections
+to domains that match prohibited content (e.g., bad.foo.com may be
+censored while good.foo.com is not) {{Shbair-2015}}.
+
+Tradeoffs: Some clients do not send the SNI extension (e.g., clients
+that only support versions of SSL and not TLS) or will fall back to
+SSL if a TLS connection fails, rendering this method ineffective. In
+addition, this technique requires deep packet inspection techniques
+that can be computationally and infrastructurally expensive and
+improper configuration of an SNI-based block can result in significant
+overblocking, e.g., when a second-level domain like google.com is
+inadvertently blocked.
+
+Empirical Evidence: While there are many examples of security firms
+that offer SNI-based filtering {{Trustwave-2015}} {{Sophos-2015}}
+{{Shbair-2015}}, the authors currently know of no specific examples or
+reports of SNI-based filtering observed in the field used for
+censorship purposes.
 
 
 Transport Layer {#transport}
@@ -881,7 +983,7 @@ can analyze {{Aryan-2012}}. A simple protocol identification
 would be to recognize all TCP traffic over port 443 as HTTPS, but more
 sophisticated analysis of the statistical properties of payload data
 and flow behavior, would be more effective, even when port 443 is not
-used {{Hjelmvik-2010}}{{Sandvine-2014}}.
+used {{Hjelmvik-2010}} {{Sandvine-2014}}.
 
 If censors can detect circumvention tools, they can block them, so
 censors like China are extremely interested in identifying the
@@ -1016,7 +1118,7 @@ DNS Interference {#dns-mangling}
 
 There are a variety of mechanisms that censors can use to block or
 filter access to content by altering responses from the DNS
-{{AFNIC-2013}}{{ICANN-SSAC-2012}}, including blocking the response,
+{{AFNIC-2013}} {{ICANN-SSAC-2012}}, including blocking the response,
 replying with an error message, or responding with an
 incorrect address (potentially to a server that can communicate to the
 end-user a reason for blocking access to that resource, for example
@@ -1042,7 +1144,7 @@ Trade-offs:
 DNS interference
 requires the censor to force a user to traverse a controlled DNS
 hierarchy (or intervening network on which the censor serves as a
-Active Pervastive Attacker {{RFC7624}} to rewrite DNS responses)
+Active Pervasive Attacker {{RFC7624}} to rewrite DNS responses)
 for the mechanism to be effective. It can be circumvented
 by a technical savvy user that opts to use alternative DNS resolvers
 (such as the public DNS resolvers provided by
@@ -1050,11 +1152,11 @@ Google or OpenDNS) or Virtual Private Network technology. DNS poisoning
 also implies returning an incorrect IP to
 those attempting to resolve a domain name, but in some cases the destination
 may be
-technically acessible;  over HTTP, for example, the user may have another
+technically accessible;  over HTTP, for example, the user may have another
 method of obtaining the IP
 address of the desired site and may be able to access it if the site
 is configured to be the
-defualt server listening at this IP address.  Blocking overflow has
+default server listening at this IP address.  Blocking overflow has
 also been a
 problem, as occasionally users outside of the censors region will be
 directed through a DNS servers or DNS-rewriting network equipment
@@ -1078,7 +1180,7 @@ directing all requests passing through the Great Fire Wall to a single
 domain, dongtaiwang.com, due to an improperly configured DNS 
 poisoning attempt; this incident is thought to be the largest
 internet-service outage in history
-{{AFP-2014}}{{Anon-SIGCOMM12}}. Countries such as China, Iran, Turkey,
+{{AFP-2014}} {{Anon-SIGCOMM12}}. Countries such as China, Iran, Turkey,
 and the United States have discussed blocking entire TLDs as well, but
 only Iran has acted by blocking all Israeli (.il) domains
 {{Albert-2011}}.
@@ -1111,7 +1213,7 @@ shutdown IRC chat rooms frequented by members of Anonymous using the
 Syn Flood DDoS method; Syn Flood exploits the handshake used by TCP to
 overload the victim server with so many requests that legitimate
 traffic becomes slow or impossible
-{{Schone-2014}}{{CERT-2000}}. Dissenting opinion websites are
+{{Schone-2014}} {{CERT-2000}}. Dissenting opinion websites are
 frequently victims of DDoS around politically sensitive events in
 Burma {{Villeneuve-2011}}. Controlling parties in Russia
 {{Kravtsova-2012}}, Zimbabwe {{Orion-2013}}, and Malaysia
@@ -1143,7 +1245,7 @@ Network Disconnection to help Junta forces quash a rebellion in 2007
 during unrest in 2009 in an effort to prevent the protests from
 spreading to other regions {{Heacock-2009}}. The Arab Spring saw the
 the most frequent usage of Network Disconnection, with events in Egypt
-and Libya in 2011 {{Cowie-2011}}{{Cowie-2011b}}, and Syria in 2012
+and Libya in 2011 {{Cowie-2011}} {{Cowie-2011b}}, and Syria in 2012
 {{Thomson-2012}}.
 
 
@@ -1190,7 +1292,7 @@ to connect through an intranet, such as in North Korea.  Intimidation
 is often achieved through allowing internet users to post "whatever
 they want", but arresting those who post about dissenting views, this
 technique is incredibly common
-{{Calamur-2013}}{{AP-2012}}{{Hopkins-2011}}{{Guardian-2014}}{{Johnson-2010}}.
+{{Calamur-2013}} {{AP-2012}} {{Hopkins-2011}} {{Guardian-2014}} {{Johnson-2010}}.
 A good example of swaying public thought is China's "50-Cent Party",
 composed of somewhere between 20,000 {{Bristow-2013}} and 300,000
 {{Fareed-2008}} contributors who are paid to "guide public thought" on
