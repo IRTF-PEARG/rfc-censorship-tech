@@ -1021,17 +1021,19 @@ incorrect address (potentially to a server that can communicate to the
 end-user a reason for blocking access to that resource, for example
 using HTTP Status Code 451 {{RFC7725}}).
 
-DNS Cache Poisoning refers to a mechanism where a censor interferes
-with the response sent by a DNS resolver to the requesting device by
+DNS poisoning refers to a mechanism where a censor interferes
+with the response sent by a DNS server to the requesting device by
 injecting an alternative IP address into the response message on the
-return path. Cache poisoning occurs after the requested site's name
+return path {{ViewDNS-2011}}. Cache poisoning occurs after the
+requested site's name
 servers resolve the request and attempt to forward the IP back to the
 requesting device; on the return route the resolved IP is recursively
 cached by each DNS server that initially forwarded the request. During
 this caching process if an undesirable keyword is recognized, the
-resolved IP is poisoned and an alternative IP is returned. These
-alternative IPs usually direct to a nonsense domain or a warning page
-{{ViewDNS-2011}}. Alternatively, Iranian censorship appears to prevent
+resolved IP is poisoned and an alternative IP (or NXDOMAIN error) is
+returned. The
+alternative IPs usually direct to a nonsense domain or a warning page.
+Alternatively, Iranian censorship appears to prevent
 the communication en-route, preventing a response from ever being sent
 {{Aryan-2012}}.
 
