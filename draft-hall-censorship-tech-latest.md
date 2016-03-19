@@ -550,6 +550,24 @@ informative:
       org: ICANN Security and Stability Advisory Committee (SSAC)
     date: 2012
 
+  Ding-1999:
+    target: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.132.3302&amp;rep=rep1&amp;type=pdf
+    title: "Centralized Content-Based Web Filtering and Blocking: How Far Can It Go?"
+    author:
+    -
+      name: Chen Ding
+      ins: C. Ding
+    -
+      name: Chi-Hung Chi
+      ins: C.H. Chi
+    -
+      name: Jing Deng
+      ins: J. Deng
+    -
+      name: Chun-Lei Dong
+      ins: C.L. Dong
+    date: 1999
+
 
 --- abstract
 
@@ -586,16 +604,21 @@ Technical Aggregation {#tech-aggregation}
 
 Aggregation is the process of figuring out what censors would like to
 block {{Glanville-2008}}. Generally, censors aggregate "to block"
-information in three possible sorts of blacklists: Keyword, Domain
+information in blacklists or using real-time heuristic assessment of
+content {{Ding-1999}}.
+There are typically three types of blacklists: Keyword, Domain
 Name, or IP. Keyword and Domain Name blocking take place at the
 application level (e.g. HTTP), whereas IP blocking tends to take place
 in the TCP/IP header. The mechanisms for building up these blacklists
 are varied. Many times private industries that sell "content control"
-software, such as SmartFilter, provide their services to nations which
-can then pick from broad categories, such as gambling or pornography,
-that they would like to block . In these cases, the private services
+software, such as SmartFilter, which allows filtering
+from broad categories, such as gambling or pornography,
+that they would like to block. In these cases, the private services
 embark on an attempt to label every semi-questionable website as to
-allow for this metatag blocking. Countries that are more interested in
+allow for metatag blocking (similarly, they tune real-time content
+heuristic systems to map their assessments onto categories of
+objectionable content).
+Countries that are more interested in
 retaining specific political control, a desire which requires swift
 and decisive action, often have ministries or organizations, such as
 the Ministry of Industry and Information Technology in China or the
