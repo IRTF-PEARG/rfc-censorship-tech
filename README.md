@@ -59,7 +59,7 @@ At this point, you should be able to build the draft with the
 following commands:
 
 ```make draft-hall-censorship-tech-latest.txt
-make draft-hall-censorship-tech-latest.xml
+$ make draft-hall-censorship-tech-latest.xml
 ```
 
 Other tools can be used to produce PDF files, or to provide a
