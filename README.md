@@ -12,7 +12,7 @@ questions is sending an e-mail to draft-hall-censorship-tech@ietf.org.
 This will ensure that all authors see your input in a timely fashion.
 
 2. If you have **editorial** suggestions (i.e., those that do not
-change the meaning of the specification), you can either:
+change the meaning of the document), you can either:
 
   * Fork this repository and [submit a pull
   request](https://help.github.com/articles/fork-a-repo/); this is the
