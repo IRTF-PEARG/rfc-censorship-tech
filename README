@@ -1,9 +1,0 @@
-censorship_rfc.xml* -- the working version, edit this!
-
-censorship_rfc.txt -- the version of the above produced by xml2rfc
-                      v2. If you have TCL installed, you can grab
-                      xml2rfc from here [1]. The README file there
-                      tells you how to check your TCL version and run
-                      the GUI for the conversion program.
-
-[1]: http://svn.tools.ietf.org/svn/tools/xml2rfc
