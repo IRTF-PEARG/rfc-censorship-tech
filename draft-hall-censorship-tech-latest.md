@@ -37,6 +37,7 @@ informative:
   RFC0793:
   RFC7725:
   RFC7754:
+  RFC7624:
   
   Glanville-2008:
     target: http://www.theguardian.com/commentisfree/2008/nov/17/censorship-internet
@@ -1016,7 +1017,7 @@ DNS Interference {#dns-mangling}
 There are a variety of mechanisms that censors can use to block or
 filter access to content by altering responses from the DNS
 {{AFNIC-2013}}{{ICANN-SSAC-2012}}, including blocking the response,
-replying with an erroneous error message, or responding with an
+replying with an error message, or responding with an
 incorrect address (potentially to a server that can communicate to the
 end-user a reason for blocking access to that resource, for example
 using HTTP Status Code 451 {{RFC7725}}).
@@ -1030,43 +1031,52 @@ servers resolve the request and attempt to forward the IP back to the
 requesting device; on the return route the resolved IP is recursively
 cached by each DNS server that initially forwarded the request. During
 this caching process if an undesirable keyword is recognized, the
-resolved IP is poisoned and an alternative IP (or NXDOMAIN error) is
+resolved IP is "poisoned" and an alternative IP (or NXDOMAIN error) is
 returned. The
 alternative IPs usually direct to a nonsense domain or a warning page.
 Alternatively, Iranian censorship appears to prevent
 the communication en-route, preventing a response from ever being sent
 {{Aryan-2012}}.
 
-Trade-offs: DNS Cache Poisoning is one of the rarer forms of
-prevention due to a number of shortcomings. DNS Cache Poisoning
+Trade-offs:
+DNS interference
 requires the censor to force a user to traverse a controlled DNS
-resolver for the mechanism to be effective, it is easily circumvented
-by a technical savvy user that opts to use alternative DNS resolvers,
-such as the 8.8.8.8/8.8.4.4 public DNS resolvers provided by
-Google. DNS Cache Poisoning also implies returning an incorrect IP to
-those attempting to resolve a domain name, but the site is still
-technically unblocked if the user has another method to acquire the IP
-address of the desired site.  Blocking overflow has also been a
+hierarchy (or intervening network on which the censor serves as a
+Active Pervastive Attacker {{RFC7624}} to rewrite DNS responses)
+for the mechanism to be effective. It can be circumvented
+by a technical savvy user that opts to use alternative DNS resolvers
+(such as the public DNS resolvers provided by
+Google or OpenDNS) or Virtual Private Network technology. DNS poisoning
+also implies returning an incorrect IP to
+those attempting to resolve a domain name, but in some cases the destination
+may be
+technically acessible;  over HTTP, for example, the user may have another
+method of obtaining the IP
+address of the desired site and may be able to access it if the site
+is configured to be the
+defualt server listening at this IP address.  Blocking overflow has
+also been a
 problem, as occasionally users outside of the censors region will be
-directed through a DNS server controlled by a censor, causing the
+directed through a DNS servers or DNS-rewriting network equipment
+controlled by a censor, causing the
 request to fail. The ease of circumvention paired with the large risk
-of overblocking and blocking overflow make DNS Cache Poisoning a
+of overblocking and blocking overflow make DNS interference a
 partial, difficult, and less than ideal censorship mechanism.
 
-Empirical Evidence: DNS Cache Poisoning, when properly implemented, is
+Empirical Evidence: DNS interference, when properly implemented, is
 easy to identify based on the shortcomings identified above. Turkey
-relied on DNS Cache Poisoning for its country-wide block of websites
+relied on DNS interference for its country-wide block of websites
 such Twitter and Youtube for almost week in March of 2014 but the ease
 of circumvention resulted in an increase in the popularity of Twitter
 until Turkish ISPs implementing an IP blacklist to achieve the
-governmental mandate {{Zmijewki-2014}}. To drive proverbial "nail in
-the coffin" Turkish ISPs started hijacking all requests to Google and
-Level 3's international DNS resolvers {{Zmijewki-2014}}. DNS Cache
-Poisoning, when incorrectly implemented, has as has resulted in some
+governmental mandate {{Zmijewki-2014}}. 
+Ultimately, Turkish ISPs started hijacking all requests to Google and
+Level 3's international DNS resolvers {{Zmijewki-2014}}. DNS 
+interference, when incorrectly implemented, has resulted in some
 of the largest "censorship disasters".  In January 2014 China started
 directing all requests passing through the Great Fire Wall to a single
-domain, dongtaiwang.com, due to an improperly configured DNS Cache
-Poisoning attempt; this incident is thought to be the largest
+domain, dongtaiwang.com, due to an improperly configured DNS 
+poisoning attempt; this incident is thought to be the largest
 internet-service outage in history
 {{AFP-2014}}{{Anon-SIGCOMM12}}. Countries such as China, Iran, Turkey,
 and the United States have discussed blocking entire TLDs as well, but
@@ -1194,10 +1204,10 @@ Domain Name Reallocation {#dnrealloc}
 ------------------------
 
 As Domain Names are resolved recursively, if a TLD deregisters a
-domain all other DNS resolvers will be unable to properly forward and
+domain all other DNS servers will be unable to properly forward and
 cache the site. Domain name registration is only really a risk where
 undesirable content is hosted on TLD controlled by the censoring
-country, such as .ch or .ru {{Anderson-2011}}.
+country, such as .cn or .ru {{Anderson-2011}}.
 
 
 Server Takedown {#serverko}
