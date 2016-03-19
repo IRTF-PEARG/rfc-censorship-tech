@@ -639,7 +639,7 @@ they can identify the content they are interested in filtering. An
 important aspect of pervasive technical interception is the necessity
 to rely on software or hardware to intercept the content the censor is
 interested in. This requirement, the need to have the interception
-mechanism located somewhere, logically or physically, implicates four
+mechanism located somewhere, logically or physically, implicates various
 general points-of-control:
 
 * Internet Backbone: If a censor controls the gateways into a region,
@@ -668,6 +668,13 @@ general points-of-control:
   of scalability, ease-of-circumvention, and operating system
   requirements. The emergence of mobile devices exacerbate these
   feasibility problems.
+
+* Services: Application service providers can be pressured, coerced,
+  or legally required to censor specific content or flows of
+  data. Service providers naturally face incentives to maximize their
+  potential customer base and potential service shutdowns or legal
+  liability due to censorship efforts may seem much less attractive
+  than potentially excluding content, users, or uses of their service.
 
 At all levels of the network hierarchy, the filtration mechanisms used
 to detect undesirable traffic are essentially the same: a censor
