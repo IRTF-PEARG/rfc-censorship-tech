@@ -1,7 +1,7 @@
 ---
 title: A Survey of Worldwide Censorship Techniques
 abbrev: hall-censorship-tech
-docname: draft-hall-censorship-tech-01
+docname: draft-hall-censorship-tech-latest
 date: 2016-03-18
 category: info
 
@@ -648,7 +648,7 @@ informative:
 --- abstract
 
 This document describes the technical mechanisms used by censorship
-regimes around the world to block or degrade internet traffic. It aims
+regimes around the world to block or degrade Internet traffic. It aims
 to make designers, implementers, and users of Internet protocols aware
 of the properties being exploited and mechanisms used to censor
 end-user access to information.  This document makes no suggestions on
@@ -662,7 +662,7 @@ Introduction {#intro}
 ============
 
 This document describes the technical mechanisms used by censorship
-regimes around the world to block or degrade internet traffic (see
+regimes around the world to block or degrade Internet traffic (see
 {{RFC7754}} for a discussion of Internet blocking and filtering
 in terms of Internet architecture). To that
 end, we describe three elements of Internet censorship: aggregation,
@@ -723,7 +723,7 @@ general points-of-control:
   of the region by sniffing and mirroring at the relevant exchange
   points. Censorship at this point-of-control is most effective at
   controlling the flow of information between a region and the rest of
-  the internet, but is ineffective at identifying content traveling
+  the Internet, but is ineffective at identifying content traveling
   between the users within a region.
 
 * Internet Service Providers: Internet Service Providers are perhaps
@@ -1217,7 +1217,7 @@ of the largest "censorship disasters".  In January 2014 China started
 directing all requests passing through the Great Fire Wall to a single
 domain, dongtaiwang.com, due to an improperly configured DNS 
 poisoning attempt; this incident is thought to be the largest
-internet-service outage in history
+Internet-service outage in history
 {{AFP-2014}} {{Anon-SIGCOMM12}}. Countries such as China, Iran, Turkey,
 and the United States have discussed blocking entire TLDs as well, but
 only Iran has acted by blocking all Israeli (.il) domains
@@ -1276,7 +1276,7 @@ through the censor's country.
 
 Trade-offs: The impact to a network disconnection in a region is huge
 and absolute; the censor pays for absolute control over digital
-information with all the benefits the internet brings; this is never a
+information with all the benefits the Internet brings; this is never a
 long-term solution for any rational censor and is normally only used
 as a last resort in times of substantial unrest.
 
@@ -1333,7 +1333,7 @@ undesirable content; instead one must look at the tools and techniques
 used by censors to encourage self-censorship. Controlling Information
 relies on traditional censorship techniques, or by forcing all users
 to connect through an intranet, such as in North Korea.  Intimidation
-is often achieved through allowing internet users to post "whatever
+is often achieved through allowing Internet users to post "whatever
 they want", but arresting those who post about dissenting views, this
 technique is incredibly common
 {{Calamur-2013}} {{AP-2012}} {{Hopkins-2011}} {{Guardian-2014}} {{Johnson-2010}}.
