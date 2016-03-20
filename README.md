@@ -1,6 +1,6 @@
 # draft-hall-censorship-tech
 
-This is the working area for the draft of draft-hall-censorship-tech.
+This is the working area for the draft of [draft-hall-censorship-tech](https://datatracker.ietf.org/doc/draft-hall-censorship-tech/).
 
 ## Contributing
 
