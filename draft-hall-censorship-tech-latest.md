@@ -27,8 +27,13 @@ author:
  -
     ins: B. Jones
     name: Ben Jones
-    email: bjones99@gatech.edu
-    org: GA Tech
+    email: bj6@cs.princeton.edu
+    org: Princeton
+-
+	ins: N. Feamster
+	name: Nick Feamster
+	email: feamster@cs.princeton.edu
+	org: Princeton
 
 normative:
 
@@ -661,10 +666,10 @@ intended to be a reference.
 Introduction {#intro}
 ============
 
-This document describes the technical mechanisms used by censorship
-regimes around the world to block or degrade Internet traffic (see
+This document describes the technical mechanisms that censorship
+regimes around the world use to block or degrade Internet traffic (see
 {{RFC7754}} for a discussion of Internet blocking and filtering
-in terms of Internet architecture). To that
+in terms of Internet architecture). To this
 end, we describe three elements of Internet censorship: aggregation,
 identification, and prevention. Aggregation is the process by which
 censors determine what they should block, i.e. they decide to block a
