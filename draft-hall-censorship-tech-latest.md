@@ -1110,7 +1110,7 @@ connection; as each receiver thinks the other has dropped the
 connection, the session is terminated.
 
 Trade-offs: RST Packet Injection has a few advantages that make it
-extremely popular is a censorship technique. RST Packet Injection is
+extremely popular as a censorship technique. RST Packet Injection is
 an out-of-band prevention mechanism, allowing the avoidance of the the
 QoS bottleneck one can encounter with inline techniques such as Packet
 Dropping. This out-of-band property allows a censor to inspect a copy
