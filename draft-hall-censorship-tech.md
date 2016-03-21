@@ -1,7 +1,7 @@
 ---
 title: A Survey of Worldwide Censorship Techniques
-abbrev: hall-censorship-tech
-docname: draft-hall-censorship-tech-latest
+abbrev: draft-hall-censorship-tech
+docname: draft-hall-censorship-tech-02
 date: 2016-03-18
 category: info
 
@@ -649,11 +649,33 @@ informative:
       ins: V. Paxson
     date: 2015
 
+  Google-RTBF:
+    target: https://support.google.com/legal/contact/lr_eudpa?product=websearch
+    title: Search removal request under data protection law in Europe
+    author:
+      org: Google, Inc.
+    date: 2015
+
+  DMLP-512:
+    target: http://www.dmlp.org/legal-guide/protecting-yourself-against-copyright-claims-based-user-content
+    title: Protecting Yourself Against Copyright Claims Based on User Content
+    author:
+      org: Digital Media Law Project
+    date: 2012
+
+  Kopel-2013:
+    target: http://dx.doi.org/doi:10.15779/Z384Q3M
+    title: "Operation Seizing Our Sites: How the Federal Government is Taking Domain Names Without Prior Notice"
+    author:
+      name: Karen Kopel
+      ins: K. Kopel
+    date: 2013
+
 
 --- abstract
 
 This document describes the technical mechanisms used by censorship
-regimes around the world to block or degrade Internet traffic. It aims
+regimes around the world to block or impair Internet traffic. It aims
 to make designers, implementers, and users of Internet protocols aware
 of the properties being exploited and mechanisms used to censor
 end-user access to information.  This document makes no suggestions on
@@ -666,24 +688,35 @@ intended to be a reference.
 Introduction {#intro}
 ============
 
+Censorship is where an entity in a position of power -- such as a
+government, organization, or individual -- suppresses communication
+that it considers objectionable, harmful, sensitive, politically
+incorrect or inconvenient. (Although censors that engage in censorship or
+establish censorship regimes must do so through legal, military, or
+other sources of power, this document focuses largely on technical
+mechanisms used to achieve network censorship.)
+
 This document describes the technical mechanisms that censorship
 regimes around the world use to block or degrade Internet traffic (see
 {{RFC7754}} for a discussion of Internet blocking and filtering
 in terms of Internet architecture). To this
-end, we describe three elements of Internet censorship: aggregation,
-identification, and prevention. Aggregation is the process by which
-censors determine what they should block, i.e. they decide to block a
+end, we describe three elements of Internet censorship: prescription,
+identification, and interference. Prescription is the process by which
+censors determine what types of material they should block, i.e. they
+decide to block a
 list of pornographic websites. Identification is the process by which
-censors determine whether content is blocked, i.e. the censor blocks
-all webpages containing "sex" in the title. Prevention is the process
+censors classify specific traffic to be blocked or impaired, i.e. the
+censor blocks or impairs
+all webpages containing "sex" in the title or traffic to sex.com.
+Interference is the process
 by which the censor intercedes in communication and prevents access to
-censored materials.
+censored materials by blocking access or impairing the connection.
 
 
-Technical Aggregation {#tech-aggregation}
+Technical Prescription {#tech-prescrip}
 =====================
 
-Aggregation is the process of figuring out what censors would like to
+Prescription is the process of figuring out what censors would like to
 block {{Glanville-2008}}. Generally, censors aggregate "to block"
 information in blacklists or using real-time heuristic assessment of
 content {{Ding-1999}}.
@@ -726,13 +759,13 @@ general points-of-control:
 * Internet Backbone: If a censor controls the gateways into a region,
   they can filter undesirable traffic that is traveling into and out
   of the region by sniffing and mirroring at the relevant exchange
-  points. Censorship at this point-of-control is most effective at
+  points. Censorship at this point of control is most effective at
   controlling the flow of information between a region and the rest of
   the Internet, but is ineffective at identifying content traveling
   between the users within a region.
 
 * Internet Service Providers: Internet Service Providers are perhaps
-  the most natural point-of-control. They have a benefit of being
+  the most natural point of control. They have a benefit of being
   easily enumerable by a censor paired with the ability to identify
   the regional and international traffic of all their users. The
   censor's filtration mechanisms can be placed on an ISP via
@@ -757,10 +790,21 @@ general points-of-control:
   liability due to censorship efforts may seem much less attractive
   than potentially excluding content, users, or uses of their service.
 
+* Certificate Authorities: Authorities that issue cryptographically
+  secured resources can be a significant point of control. Certificate
+  Authorities that issue certificates to domain holders for TLS/HTTPS
+  or Regional/Local Internet Registries that issue Route Origination
+  Authorizations to BGP operators can be forced to issue rogue
+  certificates that may allow compromises in confidentiatlity
+  guarantees -- allowing censorship software to engage in
+  identification and interference where not possible before -- or
+  integrity degrees -- allowing, for example, adversarial routing of
+  traffic.
+
 At all levels of the network hierarchy, the filtration mechanisms used
 to detect undesirable traffic are essentially the same: a censor
 sniffs transmitting packets and identifies undesirable content, and
-then uses a blocking or shaping mechanism to prevent or degrade
+then uses a blocking or shaping mechanism to prevent or impair
 access.  Identification of undesirable traffic can occur at the
 application, transport, or network layer of the IP stack. Censors are
 almost always concerned with web traffic, so the relevant protocols
@@ -1017,7 +1061,7 @@ to HTTP.
 ### Protocol Identification {#prot-id}
 
 Censors sometimes identify entire protocols to be blocked using a
-variety of traffic characteristics.  For example, Iran degrades the
+variety of traffic characteristics.  For example, Iran impairs the
 performance of HTTPS traffic, a protocol that prevents further
 analysis, to encourage users to switch to HTTP, a protocol that they
 can analyze {{Aryan-2012}}. A simple protocol identification
@@ -1065,9 +1109,31 @@ States used RST injection to interrupt BitTorrent Traffic
 {{Winter-2012}}.
 
 
-Technical Prevention {#tech-prev}
+Technical Interference {#tech-interference}
 ====================
 
+Performance Degradation
+----------------------
+
+While other interference techniques outlined in this section mostly
+focus on blocking or preventing access to content, it can be an
+effective censorship strategy in some cases to not entirely block
+access to a given destination, or service but instead degrade the
+performance of the relevant network connection.  The resulting user
+experience for a site or service under performance degradation can be
+so bad that users opt to use a different site, service, or method of
+communication, or may not engage in communication at all if there are
+no alternatives.  Traffic shaping techniques that rate-limit the
+bandwidth available to certain types of traffic is one example of a
+performance degradation.
+
+Trade offs: While implementing a performance degradation will not
+always eliminate the ability of people to access a desire resource, it
+may force them to use other means of communication where censorship
+(or surveillance) is more easily accomplished.
+
+Empirical examples: Iran is known to shape the bandwidth available to
+HTTPS traffic to encourage unencrypted HTTP traffic {{Aryan-2012}}.
 
 Packet Dropping
 ---------------
@@ -1092,7 +1158,7 @@ traversing packet in close to real time also makes Packet Dropping
 somewhat challenging from a QoS perspective.
 
 Empirical Examples: Packet Dropping is a very common form of technical
-prevention and lends itself to accurate detection given the unique
+interference and lends itself to accurate detection given the unique
 nature of the time-out requests it leaves in its wake. The Great
 Firewall of China uses packet dropping as one of its primary
 mechanisms of technical censorship {{Ensafi-2013}}. Iran also uses
@@ -1115,13 +1181,13 @@ connection; as each receiver thinks the other has dropped the
 connection, the session is terminated.
 
 Trade-offs: RST Packet Injection has a few advantages that make it
-extremely popular is a censorship technique. RST Packet Injection is
-an out-of-band prevention mechanism, allowing the avoidance of the the
+extremely popular as a censorship technique. RST Packet Injection is
+an out-of-band interference mechanism, allowing the avoidance of the the
 QoS bottleneck one can encounter with inline techniques such as Packet
 Dropping. This out-of-band property allows a censor to inspect a copy
 of the information, usually mirrored by an optical splitter, making it
 an ideal pairing for DPI and Protocol Identification
-{{Weaver-2009}} (this asynchronous version of a MITM is ofen called a
+{{Weaver-2009}} (this asynchronous version of a MITM is often called a
 Man-on-the-Side (MOTS)).
 RST Packet Injection also has the advantage of only
 requiring one of the two endpoints to accept the spoofed packet for
@@ -1152,7 +1218,7 @@ using RST Packet Injection to interrupt traffic it identified as
 BitTorrent {{Schoen-2007}}, this later led to a US Federal
 Communications Commission ruling against Comcast
 {{VonLohmann-2008}}. China has also been known to use RST Packet
-Injection for censorship purposes. This prevention is especially
+Injection for censorship purposes. This interference is especially
 evident in the interruption of encrypted/obfuscated protocols, such as
 those used by Tor {{Winter-2012}}.
 
@@ -1298,12 +1364,12 @@ and Libya in 2011 {{Cowie-2011}} {{Cowie-2011b}}, and Syria in 2012
 {{Thomson-2012}}.
 
 
-Non-Technical Aggregation {#nontechag}
+Non-Technical Prescription {#nontechag}
 =========================
 
 As the name implies, sometimes manpower is the easiest way to figure
 out which content to block.  Manual Filtering differs from the common
-tactic of building up blacklists in that is doesn't necessarily target
+tactic of building up blacklists in that it doesn't necessarily target
 a specific IP or DNS, but instead removes or flags content.  Given the
 imprecise nature of automatic filtering, manually sorting through
 content and flagging dissenting websites, blogs, articles and other
@@ -1319,7 +1385,7 @@ uphold" the pledged values can lead to the ICPs being held liable for
 the offending content by the Chinese government {{BBC-2013b}}.
 
 
-Non-Technical Prevention {#nontechprev}
+Non-Technical Interference {#nontechint}
 ========================
 
 
@@ -1358,7 +1424,9 @@ As Domain Names are resolved recursively, if a TLD deregisters a
 domain all other DNS servers will be unable to properly forward and
 cache the site. Domain name registration is only really a risk where
 undesirable content is hosted on TLD controlled by the censoring
-country, such as .cn or .ru {{Anderson-2011}}.
+country, such as .cn or .ru {{Anderson-2011}} or where legal processes
+in countries like the United States result in domain name seizures
+and/or DNS redirection by the government {{Kopel-2013}}.
 
 
 Server Takedown {#serverko}
@@ -1369,6 +1437,17 @@ undesirable content is hosted in the censoring country the servers can
 be physically seized or the hosting provider can be required to
 prevent access {{Anderson-2011}}.
 
+
+Notice and Takedown {#notice}
+-------------------
+
+In some countries, legal mechanisms exist where an individual can
+issue a legal request to a content host that requires the host to take
+down content. Examples include the voluntary systems employed by
+companies like Google to comply with "Right to be Forgotten" policies
+in the European Union {{Google-RTBF}} and the copyright-oriented
+notice and takedown regime of the United States Digital Millennium
+Copyright Act (DMCA) Section 512 {{DMLP-512}}.
 
 Contributors {#Contributors}
 ============
