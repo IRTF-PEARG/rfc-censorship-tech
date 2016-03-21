@@ -658,6 +658,14 @@ informative:
       org: Digital Media Law Project
     date: 2012
 
+  Kopel-2013:
+    target: http://dx.doi.org/doi:10.15779/Z384Q3M
+    title: "Operation Seizing Our Sites: How the Federal Government is Taking Domain Names Without Prior Notice"
+    author:
+      name: Karen Kopel
+      ins: K. Kopel
+    date: 2013
+
 
 --- abstract
 
@@ -746,13 +754,13 @@ general points-of-control:
 * Internet Backbone: If a censor controls the gateways into a region,
   they can filter undesirable traffic that is traveling into and out
   of the region by sniffing and mirroring at the relevant exchange
-  points. Censorship at this point-of-control is most effective at
+  points. Censorship at this point of control is most effective at
   controlling the flow of information between a region and the rest of
   the Internet, but is ineffective at identifying content traveling
   between the users within a region.
 
 * Internet Service Providers: Internet Service Providers are perhaps
-  the most natural point-of-control. They have a benefit of being
+  the most natural point of control. They have a benefit of being
   easily enumerable by a censor paired with the ability to identify
   the regional and international traffic of all their users. The
   censor's filtration mechanisms can be placed on an ISP via
@@ -776,6 +784,17 @@ general points-of-control:
   potential customer base and potential service shutdowns or legal
   liability due to censorship efforts may seem much less attractive
   than potentially excluding content, users, or uses of their service.
+
+* Certificate Authorities: Authorities that issue cryptographically
+  secured resources can be a significant point of control. Certificate
+  Authorities that issue certificates to domain holders for TLS/HTTPS
+  or Regional/Local Internet Registries that issue Route Origination
+  Authorizations to BGP operators can be forced to issue rogue
+  certificates that may allow compromises in confidentiatlity
+  guarantees -- allowing censorship software to engage in
+  identification and interference where not possible before -- or
+  integrity degrees -- allowing, for example, adversarial routing of
+  traffic.
 
 At all levels of the network hierarchy, the filtration mechanisms used
 to detect undesirable traffic are essentially the same: a censor
@@ -1400,7 +1419,9 @@ As Domain Names are resolved recursively, if a TLD deregisters a
 domain all other DNS servers will be unable to properly forward and
 cache the site. Domain name registration is only really a risk where
 undesirable content is hosted on TLD controlled by the censoring
-country, such as .cn or .ru {{Anderson-2011}}.
+country, such as .cn or .ru {{Anderson-2011}} or where legal processes
+in countries like the United States result in domain name seizures
+and/or DNS redirection by the government {{Kopel-2013}}.
 
 
 Server Takedown {#serverko}
