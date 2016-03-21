@@ -27,8 +27,13 @@ author:
  -
     ins: B. Jones
     name: Ben Jones
-    email: bjones99@gatech.edu
-    org: GA Tech
+    email: bj6@cs.princeton.edu
+    org: Princeton
+-
+	ins: N. Feamster
+	name: Nick Feamster
+	email: feamster@cs.princeton.edu
+	org: Princeton
 
 normative:
 
@@ -686,15 +691,15 @@ Introduction {#intro}
 Censorship is where an entity in a position of power -- such as a
 government, organization, or individual -- suppresses communication
 that it considers objectionable, harmful, sensitive, politically
-incorrect or inconvenient. (While censors that engage in censorship or
+incorrect or inconvenient. (Although censors that engage in censorship or
 establish censorship regimes must do so through legal, military, or
 other sources of power, this document focuses largely on technical
 mechanisms used to achieve network censorship.)
 
-This document describes the technical mechanisms used by censorship
-regimes around the world to block or impair Internet traffic (see
+This document describes the technical mechanisms that censorship
+regimes around the world use to block or degrade Internet traffic (see
 {{RFC7754}} for a discussion of Internet blocking and filtering
-in terms of Internet architecture). To that
+in terms of Internet architecture). To this
 end, we describe three elements of Internet censorship: prescription,
 identification, and interference. Prescription is the process by which
 censors determine what types of material they should block, i.e. they
