@@ -644,6 +644,20 @@ informative:
       ins: V. Paxson
     date: 2015
 
+  Google-RTBF:
+    target: https://support.google.com/legal/contact/lr_eudpa?product=websearch
+    title: Search removal request under data protection law in Europe
+    author:
+      org: Google, Inc.
+    date: 2015
+
+  DMLP-512:
+    target: http://www.dmlp.org/legal-guide/protecting-yourself-against-copyright-claims-based-user-content
+    title: Protecting Yourself Against Copyright Claims Based on User Content
+    author:
+      org: Digital Media Law Project
+    date: 2012
+
 
 --- abstract
 
@@ -662,7 +676,7 @@ Introduction {#intro}
 ============
 
 Censorship is where an entity in a position of power -- such as a
-government, organization, or individual -- supresses communication
+government, organization, or individual -- suppresses communication
 that it considers objectionable, harmful, sensitive, politically
 incorrect or inconvenient. (While censors that engage in censorship or
 establish censorship regimes must do so through legal, military, or
@@ -678,7 +692,7 @@ identification, and interference. Prescription is the process by which
 censors determine what types of material they should block, i.e. they
 decide to block a
 list of pornographic websites. Identification is the process by which
-censors classify specific traffic to be blocked or impaird, i.e. the
+censors classify specific traffic to be blocked or impaired, i.e. the
 censor blocks or impairs
 all webpages containing "sex" in the title or traffic to sex.com.
 Interference is the process
@@ -1074,6 +1088,28 @@ States used RST injection to interrupt BitTorrent Traffic
 Technical Interference {#tech-interference}
 ====================
 
+Performance Degradation
+----------------------
+
+While other interference techniques outlined in this section mostly
+focus on blocking or preventing access to content, it can be an
+effective censorship strategy in some cases to not entirely block
+access to a given destination, or service but instead degrade the
+performance of the relevant network connection.  The resulting user
+experience for a site or service under performance degradation can be
+so bad that users opt to use a different site, service, or method of
+communication, or may not engage in communication at all if there are
+no alternatives.  Traffic shaping techniques that rate-limit the
+bandwidth available to certain types of traffic is one example of a
+performance degradation.
+
+Trade offs: While implementing a performance degradation will not
+always eliminate the ability of people to access a desire resource, it
+may force them to use other means of communication where censorship
+(or surveillance) is more easily accomplished.
+
+Empirical examples: Iran is known to shape the bandwidth available to
+HTTPS traffic to encourage unencrypted HTTP traffic {{Aryan-2012}}.
 
 Packet Dropping
 ---------------
@@ -1375,6 +1411,17 @@ undesirable content is hosted in the censoring country the servers can
 be physically seized or the hosting provider can be required to
 prevent access {{Anderson-2011}}.
 
+
+Notice and Takedown {#notice}
+-------------------
+
+In some countries, legal mechanisms exist where an individual can
+issue a legal request to a content host that requires the host to take
+down content. Examples include the voluntary systems employed by
+companies like Google to comply with "Right to be Forgotten" policies
+in the European Union {{Google-RTBF}} and the copyright-oriented
+notice and takedown regime of the United States Digital Millennium
+Copyright Act (DMCA) Section 512 {{DMLP-512}}.
 
 Contributors {#Contributors}
 ============
