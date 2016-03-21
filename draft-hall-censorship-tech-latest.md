@@ -648,7 +648,7 @@ informative:
 --- abstract
 
 This document describes the technical mechanisms used by censorship
-regimes around the world to block or degrade Internet traffic. It aims
+regimes around the world to block or impair Internet traffic. It aims
 to make designers, implementers, and users of Internet protocols aware
 of the properties being exploited and mechanisms used to censor
 end-user access to information.  This document makes no suggestions on
@@ -661,24 +661,35 @@ intended to be a reference.
 Introduction {#intro}
 ============
 
+Censorship is where an entity in a position of power -- such as a
+government, organization, or individual -- supresses communication
+that it considers objectionable, harmful, sensitive, politically
+incorrect or inconvenient. (While censors that engage in censorship or
+establish censorship regimes must do so through legal, military, or
+other sources of power, this document focuses largely on technical
+mechanisms used to achieve network censorship.)
+
 This document describes the technical mechanisms used by censorship
-regimes around the world to block or degrade Internet traffic (see
+regimes around the world to block or impair Internet traffic (see
 {{RFC7754}} for a discussion of Internet blocking and filtering
 in terms of Internet architecture). To that
-end, we describe three elements of Internet censorship: aggregation,
-identification, and prevention. Aggregation is the process by which
-censors determine what they should block, i.e. they decide to block a
+end, we describe three elements of Internet censorship: prescription,
+identification, and interference. Prescription is the process by which
+censors determine what types of material they should block, i.e. they
+decide to block a
 list of pornographic websites. Identification is the process by which
-censors determine whether content is blocked, i.e. the censor blocks
-all webpages containing "sex" in the title. Prevention is the process
+censors classify specific traffic to be blocked or impaird, i.e. the
+censor blocks or impairs
+all webpages containing "sex" in the title or traffic to sex.com.
+Interference is the process
 by which the censor intercedes in communication and prevents access to
-censored materials.
+censored materials by blocking access or impairing the connection.
 
 
-Technical Aggregation {#tech-aggregation}
+Technical Prescription {#tech-prescrip}
 =====================
 
-Aggregation is the process of figuring out what censors would like to
+Prescription is the process of figuring out what censors would like to
 block {{Glanville-2008}}. Generally, censors aggregate "to block"
 information in blacklists or using real-time heuristic assessment of
 content {{Ding-1999}}.
@@ -755,7 +766,7 @@ general points-of-control:
 At all levels of the network hierarchy, the filtration mechanisms used
 to detect undesirable traffic are essentially the same: a censor
 sniffs transmitting packets and identifies undesirable content, and
-then uses a blocking or shaping mechanism to prevent or degrade
+then uses a blocking or shaping mechanism to prevent or impair
 access.  Identification of undesirable traffic can occur at the
 application, transport, or network layer of the IP stack. Censors are
 almost always concerned with web traffic, so the relevant protocols
@@ -1012,7 +1023,7 @@ to HTTP.
 ### Protocol Identification {#prot-id}
 
 Censors sometimes identify entire protocols to be blocked using a
-variety of traffic characteristics.  For example, Iran degrades the
+variety of traffic characteristics.  For example, Iran impairs the
 performance of HTTPS traffic, a protocol that prevents further
 analysis, to encourage users to switch to HTTP, a protocol that they
 can analyze {{Aryan-2012}}. A simple protocol identification
@@ -1060,7 +1071,7 @@ States used RST injection to interrupt BitTorrent Traffic
 {{Winter-2012}}.
 
 
-Technical Prevention {#tech-prev}
+Technical Interference {#tech-interference}
 ====================
 
 
@@ -1087,7 +1098,7 @@ traversing packet in close to real time also makes Packet Dropping
 somewhat challenging from a QoS perspective.
 
 Empirical Examples: Packet Dropping is a very common form of technical
-prevention and lends itself to accurate detection given the unique
+interference and lends itself to accurate detection given the unique
 nature of the time-out requests it leaves in its wake. The Great
 Firewall of China uses packet dropping as one of its primary
 mechanisms of technical censorship {{Ensafi-2013}}. Iran also uses
@@ -1111,7 +1122,7 @@ connection, the session is terminated.
 
 Trade-offs: RST Packet Injection has a few advantages that make it
 extremely popular as a censorship technique. RST Packet Injection is
-an out-of-band prevention mechanism, allowing the avoidance of the the
+an out-of-band interference mechanism, allowing the avoidance of the the
 QoS bottleneck one can encounter with inline techniques such as Packet
 Dropping. This out-of-band property allows a censor to inspect a copy
 of the information, usually mirrored by an optical splitter, making it
@@ -1147,7 +1158,7 @@ using RST Packet Injection to interrupt traffic it identified as
 BitTorrent {{Schoen-2007}}, this later led to a US Federal
 Communications Commission ruling against Comcast
 {{VonLohmann-2008}}. China has also been known to use RST Packet
-Injection for censorship purposes. This prevention is especially
+Injection for censorship purposes. This interference is especially
 evident in the interruption of encrypted/obfuscated protocols, such as
 those used by Tor {{Winter-2012}}.
 
@@ -1293,7 +1304,7 @@ and Libya in 2011 {{Cowie-2011}} {{Cowie-2011b}}, and Syria in 2012
 {{Thomson-2012}}.
 
 
-Non-Technical Aggregation {#nontechag}
+Non-Technical Prescription {#nontechag}
 =========================
 
 As the name implies, sometimes manpower is the easiest way to figure
@@ -1314,7 +1325,7 @@ uphold" the pledged values can lead to the ICPs being held liable for
 the offending content by the Chinese government {{BBC-2013b}}.
 
 
-Non-Technical Prevention {#nontechprev}
+Non-Technical Interference {#nontechint}
 ========================
 
 
