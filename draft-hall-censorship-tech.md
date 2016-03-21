@@ -658,6 +658,14 @@ informative:
       org: Digital Media Law Project
     date: 2012
 
+  Kopel-2013:
+    target: http://dx.doi.org/doi:10.15779/Z384Q3M
+    title: "Operation Seizing Our Sites: How the Federal Government is Taking Domain Names Without Prior Notice"
+    author:
+      name: Karen Kopel
+      ins: K. Kopel
+    date: 2013
+
 
 --- abstract
 
@@ -1400,7 +1408,9 @@ As Domain Names are resolved recursively, if a TLD deregisters a
 domain all other DNS servers will be unable to properly forward and
 cache the site. Domain name registration is only really a risk where
 undesirable content is hosted on TLD controlled by the censoring
-country, such as .cn or .ru {{Anderson-2011}}.
+country, such as .cn or .ru {{Anderson-2011}} or where legal processes
+in countries like the United States result in domain name seizures
+and/or DNS redirection by the government {{Kopel-2013}}.
 
 
 Server Takedown {#serverko}
