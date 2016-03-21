@@ -1116,7 +1116,7 @@ QoS bottleneck one can encounter with inline techniques such as Packet
 Dropping. This out-of-band property allows a censor to inspect a copy
 of the information, usually mirrored by an optical splitter, making it
 an ideal pairing for DPI and Protocol Identification
-{{Weaver-2009}} (this asynchronous version of a MITM is ofen called a
+{{Weaver-2009}} (this asynchronous version of a MITM is often called a
 Man-on-the-Side (MOTS)).
 RST Packet Injection also has the advantage of only
 requiring one of the two endpoints to accept the spoofed packet for
@@ -1298,7 +1298,7 @@ Non-Technical Aggregation {#nontechag}
 
 As the name implies, sometimes manpower is the easiest way to figure
 out which content to block.  Manual Filtering differs from the common
-tactic of building up blacklists in that is doesn't necessarily target
+tactic of building up blacklists in that it doesn't necessarily target
 a specific IP or DNS, but instead removes or flags content.  Given the
 imprecise nature of automatic filtering, manually sorting through
 content and flagging dissenting websites, blogs, articles and other
