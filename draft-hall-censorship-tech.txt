@@ -12,7 +12,7 @@ Expires: September 19, 2016                                   CU Boulder
 
 
               A Survey of Worldwide Censorship Techniques
-                   draft-hall-censorship-tech-latest
+                       draft-hall-censorship-tech
 
 Abstract
 
@@ -55,7 +55,7 @@ Copyright Notice
 
 Hall, et al.           Expires September 19, 2016               [Page 1]
 
-Internet-Draft            hall-censorship-tech                March 2016
+Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
    carefully, as they describe your rights and restrictions with respect
@@ -111,7 +111,7 @@ Table of Contents
 
 Hall, et al.           Expires September 19, 2016               [Page 2]
 
-Internet-Draft            hall-censorship-tech                March 2016
+Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
    This document describes the technical mechanisms used by censorship
@@ -167,7 +167,7 @@ Internet-Draft            hall-censorship-tech                March 2016
 
 Hall, et al.           Expires September 19, 2016               [Page 3]
 
-Internet-Draft            hall-censorship-tech                March 2016
+Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
    interception mechanism located somewhere, logically or physically,
@@ -223,7 +223,7 @@ Internet-Draft            hall-censorship-tech                March 2016
 
 Hall, et al.           Expires September 19, 2016               [Page 4]
 
-Internet-Draft            hall-censorship-tech                March 2016
+Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
    IP address of the site serving the image may be blacklisted when
@@ -279,7 +279,7 @@ Internet-Draft            hall-censorship-tech                March 2016
 
 Hall, et al.           Expires September 19, 2016               [Page 5]
 
-Internet-Draft            hall-censorship-tech                March 2016
+Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
    easy to implement, but is made useless by HTTPS, because the response
@@ -335,7 +335,7 @@ Internet-Draft            hall-censorship-tech                March 2016
 
 Hall, et al.           Expires September 19, 2016               [Page 6]
 
-Internet-Draft            hall-censorship-tech                March 2016
+Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
    Search engine censorship demonstrates keyword identification by
@@ -391,7 +391,7 @@ Internet-Draft            hall-censorship-tech                March 2016
 
 Hall, et al.           Expires September 19, 2016               [Page 7]
 
-Internet-Draft            hall-censorship-tech                March 2016
+Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
    of an encrypted data flow (e.g., the Server Name Indicator (SNI) sent
@@ -447,7 +447,7 @@ Internet-Draft            hall-censorship-tech                March 2016
 
 Hall, et al.           Expires September 19, 2016               [Page 8]
 
-Internet-Draft            hall-censorship-tech                March 2016
+Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
    Empirical Evidence: While there are many examples of security firms
@@ -503,7 +503,7 @@ Internet-Draft            hall-censorship-tech                March 2016
 
 Hall, et al.           Expires September 19, 2016               [Page 9]
 
-Internet-Draft            hall-censorship-tech                March 2016
+Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
 3.3.2.  Protocol Identification
@@ -559,7 +559,7 @@ Internet-Draft            hall-censorship-tech                March 2016
 
 Hall, et al.           Expires September 19, 2016              [Page 10]
 
-Internet-Draft            hall-censorship-tech                March 2016
+Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
    States used RST injection to interrupt BitTorrent Traffic
@@ -615,7 +615,7 @@ Internet-Draft            hall-censorship-tech                March 2016
 
 Hall, et al.           Expires September 19, 2016              [Page 11]
 
-Internet-Draft            hall-censorship-tech                March 2016
+Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
    Empirical Examples: Packet Dropping is a very common form of
@@ -671,7 +671,7 @@ Internet-Draft            hall-censorship-tech                March 2016
 
 Hall, et al.           Expires September 19, 2016              [Page 12]
 
-Internet-Draft            hall-censorship-tech                March 2016
+Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
    most popular censorship techniques used today given its versatile
@@ -727,7 +727,7 @@ Internet-Draft            hall-censorship-tech                March 2016
 
 Hall, et al.           Expires September 19, 2016              [Page 13]
 
-Internet-Draft            hall-censorship-tech                March 2016
+Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
    accessible; over HTTP, for example, the user may have another method
@@ -783,7 +783,7 @@ Internet-Draft            hall-censorship-tech                March 2016
 
 Hall, et al.           Expires September 19, 2016              [Page 14]
 
-Internet-Draft            hall-censorship-tech                March 2016
+Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
    imprecise.  DDoS is an incredibly crude censorship technique, and
@@ -839,7 +839,7 @@ Internet-Draft            hall-censorship-tech                March 2016
 
 Hall, et al.           Expires September 19, 2016              [Page 15]
 
-Internet-Draft            hall-censorship-tech                March 2016
+Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
 5.  Non-Technical Prescription
@@ -895,7 +895,7 @@ Internet-Draft            hall-censorship-tech                March 2016
 
 Hall, et al.           Expires September 19, 2016              [Page 16]
 
-Internet-Draft            hall-censorship-tech                March 2016
+Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
 6.2.  Domain Name Reallocation
@@ -951,7 +951,7 @@ Internet-Draft            hall-censorship-tech                March 2016
 
 Hall, et al.           Expires September 19, 2016              [Page 17]
 
-Internet-Draft            hall-censorship-tech                March 2016
+Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
    [Anderson-2011]
@@ -1007,7 +1007,7 @@ Internet-Draft            hall-censorship-tech                March 2016
 
 Hall, et al.           Expires September 19, 2016              [Page 18]
 
-Internet-Draft            hall-censorship-tech                March 2016
+Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
    [Bristow-2013]
@@ -1063,7 +1063,7 @@ Internet-Draft            hall-censorship-tech                March 2016
 
 Hall, et al.           Expires September 19, 2016              [Page 19]
 
-Internet-Draft            hall-censorship-tech                March 2016
+Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
    [Dalek-2013]
@@ -1119,7 +1119,7 @@ Internet-Draft            hall-censorship-tech                March 2016
 
 Hall, et al.           Expires September 19, 2016              [Page 20]
 
-Internet-Draft            hall-censorship-tech                March 2016
+Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
    [Guardian-2014]
@@ -1175,7 +1175,7 @@ Internet-Draft            hall-censorship-tech                March 2016
 
 Hall, et al.           Expires September 19, 2016              [Page 21]
 
-Internet-Draft            hall-censorship-tech                March 2016
+Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
    [Khattak-2013]
@@ -1231,7 +1231,7 @@ Internet-Draft            hall-censorship-tech                March 2016
 
 Hall, et al.           Expires September 19, 2016              [Page 22]
 
-Internet-Draft            hall-censorship-tech                March 2016
+Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
    [RFC0793]  Postel, J., "Transmission Control Protocol", STD 7,
@@ -1287,7 +1287,7 @@ Internet-Draft            hall-censorship-tech                March 2016
 
 Hall, et al.           Expires September 19, 2016              [Page 23]
 
-Internet-Draft            hall-censorship-tech                March 2016
+Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
    [Schone-2014]
@@ -1343,7 +1343,7 @@ Internet-Draft            hall-censorship-tech                March 2016
 
 Hall, et al.           Expires September 19, 2016              [Page 24]
 
-Internet-Draft            hall-censorship-tech                March 2016
+Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
    [Villeneuve-2011]
@@ -1399,7 +1399,7 @@ Internet-Draft            hall-censorship-tech                March 2016
 
 Hall, et al.           Expires September 19, 2016              [Page 25]
 
-Internet-Draft            hall-censorship-tech                March 2016
+Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
    [Winter-2012]

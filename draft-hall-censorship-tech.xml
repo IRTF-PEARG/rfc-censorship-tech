@@ -9,10 +9,10 @@
 <?rfc sortrefs="yes"?>
 <?rfc symrefs="yes"?>
 
-<rfc ipr="trust200902" docName="draft-hall-censorship-tech-latest" category="info">
+<rfc ipr="trust200902" docName="draft-hall-censorship-tech" category="info">
 
   <front>
-    <title abbrev="hall-censorship-tech">A Survey of Worldwide Censorship Techniques</title>
+    <title abbrev="draft-hall-censorship-tech">A Survey of Worldwide Censorship Techniques</title>
 
     <author initials="J.L." surname="Hall" fullname="Joseph Lorenzo Hall">
       <organization>CDT</organization>
