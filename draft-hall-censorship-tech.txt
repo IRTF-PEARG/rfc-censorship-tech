@@ -5,14 +5,15 @@
 Network Working Group                                            J. Hall
 Internet-Draft                                                       CDT
 Intended status: Informational                                  M. Aaron
-Expires: September 19, 2016                                   CU Boulder
+Expires: September 22, 2016                                   CU Boulder
                                                                 B. Jones
-                                                                 GA Tech
-                                                          March 18, 2016
+                                                             N. Feamster
+                                                               Princeton
+                                                          March 21, 2016
 
 
               A Survey of Worldwide Censorship Techniques
-                     draft-hall-censorship-tech-02
+                     draft-hall-censorship-tech-03
 
 Abstract
 
@@ -39,7 +40,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on September 19, 2016.
+   This Internet-Draft will expire on September 22, 2016.
 
 Copyright Notice
 
@@ -49,15 +50,15 @@ Copyright Notice
    This document is subject to BCP 78 and the IETF Trust's Legal
    Provisions Relating to IETF Documents
    (http://trustee.ietf.org/license-info) in effect on the date of
-   publication of this document.  Please review these documents
 
 
 
-Hall, et al.           Expires September 19, 2016               [Page 1]
+Hall, et al.           Expires September 22, 2016               [Page 1]
 
 Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
+   publication of this document.  Please review these documents
    carefully, as they describe your rights and restrictions with respect
    to this document.  Code Components extracted from this document must
    include Simplified BSD License text as described in Section 4.e of
@@ -101,23 +102,22 @@ Table of Contents
    Censorship is where an entity in a position of power - such as a
    government, organization, or individual - suppresses communication
    that it considers objectionable, harmful, sensitive, politically
-   incorrect or inconvenient.  (While censors that engage in censorship
-   or establish censorship regimes must do so through legal, military,
-   or other sources of power, this document focuses largely on technical
-   mechanisms used to achieve network censorship.)
+   incorrect or inconvenient.  (Although censors that engage in
+   censorship or establish censorship regimes must do so through legal,
+   military, or other sources of power, this document focuses largely on
+   technical mechanisms used to achieve network censorship.)
 
 
 
-
-Hall, et al.           Expires September 19, 2016               [Page 2]
+Hall, et al.           Expires September 22, 2016               [Page 2]
 
 Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
-   This document describes the technical mechanisms used by censorship
-   regimes around the world to block or impair Internet traffic (see
-   [RFC7754] for a discussion of Internet blocking and filtering in
-   terms of Internet architecture).  To that end, we describe three
+   This document describes the technical mechanisms that censorship
+   regimes around the world use to block or degrade Internet traffic
+   (see [RFC7754] for a discussion of Internet blocking and filtering in
+   terms of Internet architecture).  To this end, we describe three
    elements of Internet censorship: prescription, identification, and
    interference.  Prescription is the process by which censors determine
    what types of material they should block, i.e. they decide to block a
@@ -165,7 +165,7 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
 
-Hall, et al.           Expires September 19, 2016               [Page 3]
+Hall, et al.           Expires September 22, 2016               [Page 3]
 
 Internet-Draft         draft-hall-censorship-tech             March 2016
 
@@ -221,7 +221,7 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
 
-Hall, et al.           Expires September 19, 2016               [Page 4]
+Hall, et al.           Expires September 22, 2016               [Page 4]
 
 Internet-Draft         draft-hall-censorship-tech             March 2016
 
@@ -277,7 +277,7 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
 
-Hall, et al.           Expires September 19, 2016               [Page 5]
+Hall, et al.           Expires September 22, 2016               [Page 5]
 
 Internet-Draft         draft-hall-censorship-tech             March 2016
 
@@ -333,7 +333,7 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
 
-Hall, et al.           Expires September 19, 2016               [Page 6]
+Hall, et al.           Expires September 22, 2016               [Page 6]
 
 Internet-Draft         draft-hall-censorship-tech             March 2016
 
@@ -389,7 +389,7 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
 
-Hall, et al.           Expires September 19, 2016               [Page 7]
+Hall, et al.           Expires September 22, 2016               [Page 7]
 
 Internet-Draft         draft-hall-censorship-tech             March 2016
 
@@ -445,7 +445,7 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
 
-Hall, et al.           Expires September 19, 2016               [Page 8]
+Hall, et al.           Expires September 22, 2016               [Page 8]
 
 Internet-Draft         draft-hall-censorship-tech             March 2016
 
@@ -501,7 +501,7 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
 
-Hall, et al.           Expires September 19, 2016               [Page 9]
+Hall, et al.           Expires September 22, 2016               [Page 9]
 
 Internet-Draft         draft-hall-censorship-tech             March 2016
 
@@ -557,7 +557,7 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
 
-Hall, et al.           Expires September 19, 2016              [Page 10]
+Hall, et al.           Expires September 22, 2016              [Page 10]
 
 Internet-Draft         draft-hall-censorship-tech             March 2016
 
@@ -613,7 +613,7 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
 
-Hall, et al.           Expires September 19, 2016              [Page 11]
+Hall, et al.           Expires September 22, 2016              [Page 11]
 
 Internet-Draft         draft-hall-censorship-tech             March 2016
 
@@ -669,7 +669,7 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
 
-Hall, et al.           Expires September 19, 2016              [Page 12]
+Hall, et al.           Expires September 22, 2016              [Page 12]
 
 Internet-Draft         draft-hall-censorship-tech             March 2016
 
@@ -725,7 +725,7 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
 
-Hall, et al.           Expires September 19, 2016              [Page 13]
+Hall, et al.           Expires September 22, 2016              [Page 13]
 
 Internet-Draft         draft-hall-censorship-tech             March 2016
 
@@ -781,7 +781,7 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
 
-Hall, et al.           Expires September 19, 2016              [Page 14]
+Hall, et al.           Expires September 22, 2016              [Page 14]
 
 Internet-Draft         draft-hall-censorship-tech             March 2016
 
@@ -837,7 +837,7 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
 
-Hall, et al.           Expires September 19, 2016              [Page 15]
+Hall, et al.           Expires September 22, 2016              [Page 15]
 
 Internet-Draft         draft-hall-censorship-tech             March 2016
 
@@ -893,7 +893,7 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
 
-Hall, et al.           Expires September 19, 2016              [Page 16]
+Hall, et al.           Expires September 22, 2016              [Page 16]
 
 Internet-Draft         draft-hall-censorship-tech             March 2016
 
@@ -949,7 +949,7 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
 
-Hall, et al.           Expires September 19, 2016              [Page 17]
+Hall, et al.           Expires September 22, 2016              [Page 17]
 
 Internet-Draft         draft-hall-censorship-tech             March 2016
 
@@ -1005,7 +1005,7 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
 
-Hall, et al.           Expires September 19, 2016              [Page 18]
+Hall, et al.           Expires September 22, 2016              [Page 18]
 
 Internet-Draft         draft-hall-censorship-tech             March 2016
 
@@ -1061,7 +1061,7 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
 
-Hall, et al.           Expires September 19, 2016              [Page 19]
+Hall, et al.           Expires September 22, 2016              [Page 19]
 
 Internet-Draft         draft-hall-censorship-tech             March 2016
 
@@ -1117,7 +1117,7 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
 
-Hall, et al.           Expires September 19, 2016              [Page 20]
+Hall, et al.           Expires September 22, 2016              [Page 20]
 
 Internet-Draft         draft-hall-censorship-tech             March 2016
 
@@ -1173,7 +1173,7 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
 
-Hall, et al.           Expires September 19, 2016              [Page 21]
+Hall, et al.           Expires September 22, 2016              [Page 21]
 
 Internet-Draft         draft-hall-censorship-tech             March 2016
 
@@ -1229,7 +1229,7 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
 
-Hall, et al.           Expires September 19, 2016              [Page 22]
+Hall, et al.           Expires September 22, 2016              [Page 22]
 
 Internet-Draft         draft-hall-censorship-tech             March 2016
 
@@ -1285,7 +1285,7 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
 
-Hall, et al.           Expires September 19, 2016              [Page 23]
+Hall, et al.           Expires September 22, 2016              [Page 23]
 
 Internet-Draft         draft-hall-censorship-tech             March 2016
 
@@ -1341,7 +1341,7 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
 
-Hall, et al.           Expires September 19, 2016              [Page 24]
+Hall, et al.           Expires September 22, 2016              [Page 24]
 
 Internet-Draft         draft-hall-censorship-tech             March 2016
 
@@ -1397,7 +1397,7 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
 
-Hall, et al.           Expires September 19, 2016              [Page 25]
+Hall, et al.           Expires September 22, 2016              [Page 25]
 
 Internet-Draft         draft-hall-censorship-tech             March 2016
 
@@ -1441,16 +1441,16 @@ Authors' Addresses
 
 
    Ben Jones
-   GA Tech
+   Princeton
 
-   Email: bjones99@gatech.edu
-
-
+   Email: bj6@cs.princeton.edu
 
 
+   Nick Feamster
+   Princeton
+
+   Email: feamster@cs.princeton.edu
 
 
 
-
-
-Hall, et al.           Expires September 19, 2016              [Page 26]
+Hall, et al.           Expires September 22, 2016              [Page 26]

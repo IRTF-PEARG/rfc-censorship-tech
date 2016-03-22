@@ -9,7 +9,7 @@
 <?rfc sortrefs="yes"?>
 <?rfc symrefs="yes"?>
 
-<rfc ipr="trust200902" docName="draft-hall-censorship-tech-02" category="info">
+<rfc ipr="trust200902" docName="draft-hall-censorship-tech-03" category="info">
 
   <front>
     <title abbrev="draft-hall-censorship-tech">A Survey of Worldwide Censorship Techniques</title>
@@ -27,13 +27,19 @@
       </address>
     </author>
     <author initials="B." surname="Jones" fullname="Ben Jones">
-      <organization>GA Tech</organization>
+      <organization>Princeton</organization>
       <address>
-        <email>bjones99@gatech.edu</email>
+        <email>bj6@cs.princeton.edu</email>
+      </address>
+    </author>
+    <author initials="N." surname="Feamster" fullname="Nick Feamster">
+      <organization>Princeton</organization>
+      <address>
+        <email>feamster@cs.princeton.edu</email>
       </address>
     </author>
 
-    <date year="2016" month="March" day="18"/>
+    <date year="2016" month="March" day="21"/>
 
     <area>General</area>
     
@@ -65,15 +71,15 @@ intended to be a reference.</t>
 <t>Censorship is where an entity in a position of power – such as a
 government, organization, or individual – suppresses communication
 that it considers objectionable, harmful, sensitive, politically
-incorrect or inconvenient. (While censors that engage in censorship or
+incorrect or inconvenient. (Although censors that engage in censorship or
 establish censorship regimes must do so through legal, military, or
 other sources of power, this document focuses largely on technical
 mechanisms used to achieve network censorship.)</t>
 
-<t>This document describes the technical mechanisms used by censorship
-regimes around the world to block or impair Internet traffic (see
+<t>This document describes the technical mechanisms that censorship
+regimes around the world use to block or degrade Internet traffic (see
 <xref target="RFC7754"/> for a discussion of Internet blocking and filtering
-in terms of Internet architecture). To that
+in terms of Internet architecture). To this
 end, we describe three elements of Internet censorship: prescription,
 identification, and interference. Prescription is the process by which
 censors determine what types of material they should block, i.e. they

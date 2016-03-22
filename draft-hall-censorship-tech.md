@@ -1,8 +1,8 @@
 ---
 title: A Survey of Worldwide Censorship Techniques
 abbrev: draft-hall-censorship-tech
-docname: draft-hall-censorship-tech-02
-date: 2016-03-18
+docname: draft-hall-censorship-tech-03
+date: 2016-03-21
 category: info
 
 ipr: trust200902
@@ -29,11 +29,11 @@ author:
     name: Ben Jones
     email: bj6@cs.princeton.edu
     org: Princeton
--
-	ins: N. Feamster
-	name: Nick Feamster
-	email: feamster@cs.princeton.edu
-	org: Princeton
+ -
+    ins: N. Feamster
+    name: Nick Feamster
+    email: feamster@cs.princeton.edu
+    org: Princeton
 
 normative:
 
