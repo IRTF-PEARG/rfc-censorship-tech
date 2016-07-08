@@ -70,32 +70,32 @@ Table of Contents
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
    2.  Technical Prescription  . . . . . . . . . . . . . . . . . . .   3
    3.  Technical Identification  . . . . . . . . . . . . . . . . . .   3
-     3.1.  Points of Control . . . . . . . . . . . . . . . . . . . .   3
+     3.1.  Points of Control . . . . . . . . . . . . . . . . . . . .   4
      3.2.  Application Layer . . . . . . . . . . . . . . . . . . . .   5
        3.2.1.  HTTP Request Header Identification  . . . . . . . . .   5
        3.2.2.  HTTP Response Header Identification . . . . . . . . .   6
        3.2.3.  Instrumenting Content Providers . . . . . . . . . . .   6
-       3.2.4.  Deep Packet Inspection (DPI) Identification . . . . .   7
-       3.2.5.  Server Name Indication  . . . . . . . . . . . . . . .   8
+       3.2.4.  Deep Packet Inspection (DPI) Identification . . . . .   8
+       3.2.5.  Server Name Indication  . . . . . . . . . . . . . . .   9
      3.3.  Transport Layer . . . . . . . . . . . . . . . . . . . . .   9
        3.3.1.  TCP/IP Header Identification  . . . . . . . . . . . .   9
        3.3.2.  Protocol Identification . . . . . . . . . . . . . . .  10
    4.  Technical Interference  . . . . . . . . . . . . . . . . . . .  11
      4.1.  Performance Degradation . . . . . . . . . . . . . . . . .  11
-     4.2.  Packet Dropping . . . . . . . . . . . . . . . . . . . . .  11
+     4.2.  Packet Dropping . . . . . . . . . . . . . . . . . . . . .  12
      4.3.  RST Packet Injection  . . . . . . . . . . . . . . . . . .  12
-     4.4.  DNS Interference  . . . . . . . . . . . . . . . . . . . .  13
-     4.5.  Distributed Denial of Service (DDoS)  . . . . . . . . . .  14
-     4.6.  Network Disconnection or Adversarial Route Announcement .  15
-   5.  Non-Technical Prescription  . . . . . . . . . . . . . . . . .  16
-   6.  Non-Technical Interference  . . . . . . . . . . . . . . . . .  16
-     6.1.  Self Censorship . . . . . . . . . . . . . . . . . . . . .  16
-     6.2.  Domain Name Reallocation  . . . . . . . . . . . . . . . .  17
-     6.3.  Server Takedown . . . . . . . . . . . . . . . . . . . . .  17
-     6.4.  Notice and Takedown . . . . . . . . . . . . . . . . . . .  17
-   7.  Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  17
-   8.  Informative References  . . . . . . . . . . . . . . . . . . .  17
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  26
+     4.4.  DNS Interference  . . . . . . . . . . . . . . . . . . . .  14
+     4.5.  Distributed Denial of Service (DDoS)  . . . . . . . . . .  16
+     4.6.  Network Disconnection or Adversarial Route Announcement .  16
+   5.  Non-Technical Prescription  . . . . . . . . . . . . . . . . .  17
+   6.  Non-Technical Interference  . . . . . . . . . . . . . . . . .  17
+     6.1.  Self Censorship . . . . . . . . . . . . . . . . . . . . .  17
+     6.2.  Domain Name Reallocation  . . . . . . . . . . . . . . . .  18
+     6.3.  Server Takedown . . . . . . . . . . . . . . . . . . . . .  18
+     6.4.  Notice and Takedown . . . . . . . . . . . . . . . . . . .  18
+   7.  Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  19
+   8.  Informative References  . . . . . . . . . . . . . . . . . . .  19
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  28
 
 1.  Introduction
 
@@ -103,9 +103,9 @@ Table of Contents
    government, organization, or individual - suppresses communication
    that it considers objectionable, harmful, sensitive, politically
    incorrect or inconvenient.  (Although censors that engage in
-   censorship or establish censorship regimes must do so through legal,
-   military, or other sources of power, this document focuses largely on
-   technical mechanisms used to achieve network censorship.)
+   censorship must do so through legal, military, or other means, this
+   document focuses largely on technical mechanisms used to achieve
+   network censorship.)
 
 
 
@@ -117,50 +117,50 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
    This document describes the technical mechanisms that censorship
    regimes around the world use to block or degrade Internet traffic
    (see [RFC7754] for a discussion of Internet blocking and filtering in
-   terms of Internet architecture).  To this end, we describe three
-   elements of Internet censorship: prescription, identification, and
-   interference.  Prescription is the process by which censors determine
-   what types of material they should block, i.e. they decide to block a
-   list of pornographic websites.  Identification is the process by
-   which censors classify specific traffic to be blocked or impaired,
-   i.e. the censor blocks or impairs all webpages containing "sex" in
-   the title or traffic to sex.com.  Interference is the process by
-   which the censor intercedes in communication and prevents access to
-   censored materials by blocking access or impairing the connection.
+   terms of implications for Internet architecture, rather than end-user
+   access to content and services).
+
+   We describe three elements of Internet censorship: prescription,
+   identification, and interference.  Prescription is the process by
+   which censors determine what types of material they should block,
+   i.e. they decide to block a list of pornographic websites.
+   Identification is the process by which censors classify specific
+   traffic to be blocked or impaired, i.e. the censor blocks or impairs
+   all webpages containing "sex" in the title or traffic to sex.com.
+   Interference is the process by which the censor intercedes in
+   communication and prevents access to censored materials by blocking
+   access or impairing the connection.
 
 2.  Technical Prescription
 
    Prescription is the process of figuring out what censors would like
    to block [Glanville-2008].  Generally, censors aggregate "to block"
    information in blacklists or using real-time heuristic assessment of
-   content [Ding-1999].  There are typically three types of blacklists:
-   Keyword, Domain Name, or IP.  Keyword and Domain Name blocking take
-   place at the application level (e.g.  HTTP), whereas IP blocking
-   tends to take place in the TCP/IP header.  The mechanisms for
-   building up these blacklists are varied.  Many times private
-   industries that sell "content control" software, such as SmartFilter,
-   which allows filtering from broad categories, such as gambling or
-   pornography, that they would like to block.  In these cases, the
-   private services embark on an attempt to label every semi-
-   questionable website as to allow for metatag blocking (similarly,
-   they tune real-time content heuristic systems to map their
-   assessments onto categories of objectionable content).  Countries
-   that are more interested in retaining specific political control, a
-   desire which requires swift and decisive action, often have
-   ministries or organizations, such as the Ministry of Industry and
-   Information Technology in China or the Ministry of Culture and
+   content [Ding-1999].
+
+   There are typically three types of blacklists: Keyword, Domain Name,
+   or IP.  Keyword and Domain Name blocking take place at the
+   application level (e.g.  HTTP), whereas IP blocking tends to take
+   place using routing data in TCP/IP headers.  The mechanisms for
+   building up these blacklists are varied.  Censors can purchase from
+   private industry "content control" software, such as SmartFilter,
+   which allows filtering from broad categories that they would like to
+   block, such as gambling or pornography.  In these cases, thes private
+   services attempt to categorize every semi-questionable website as to
+   allow for metatag blocking (similarly, they tune real-time content
+   heuristic systems to map their assessments onto categories of
+   objectionable content).
+
+   Countries that are more interested in retaining specific political
+   control, a desire which requires swift and decisive action, often
+   have ministries or organizations, such as the Ministry of Industry
+   and Information Technology in China or the Ministry of Culture and
    Islamic Guidance in Iran, which maintain their own blacklists.
 
 3.  Technical Identification
 
-3.1.  Points of Control
 
-   Internet censorship, necessarily, takes place over a network.
-   Network design gives censors a number of different points-of-control
-   where they can identify the content they are interested in filtering.
-   An important aspect of pervasive technical interception is the
-   necessity to rely on software or hardware to intercept the content
-   the censor is interested in.  This requirement, the need to have the
+
 
 
 
@@ -170,6 +170,14 @@ Hall, et al.           Expires September 22, 2016               [Page 3]
 Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
+3.1.  Points of Control
+
+   Internet censorship, necessarily, takes place over a network.
+   Network design gives censors a number of different points-of-control
+   where they can identify the content they are interested in filtering.
+   An important aspect of pervasive technical interception is the
+   necessity to rely on software or hardware to intercept the content
+   the censor is interested in.  This requirement, the need to have the
    interception mechanism located somewhere, logically or physically,
    implicates various general points-of-control:
 
@@ -210,6 +218,14 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
 
    o  Certificate Authorities: Authorities that issue cryptographically
       secured resources can be a significant point of control.
+
+
+
+Hall, et al.           Expires September 22, 2016               [Page 4]
+
+Internet-Draft         draft-hall-censorship-tech             March 2016
+
+
       Certificate Authorities that issue certificates to domain holders
       for TLS/HTTPS or Regional/Local Internet Registries that issue
       Route Origination Authorizations to BGP operators can be forced to
@@ -219,12 +235,11 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
       before - or integrity degrees - allowing, for example, adversarial
       routing of traffic.
 
-
-
-Hall, et al.           Expires September 22, 2016               [Page 4]
-
-Internet-Draft         draft-hall-censorship-tech             March 2016
-
+   o  Content Distribution Networks (CDNs): CDNs seek to collapse
+      network topology in order to better locate content closer to the
+      service's users in order to improve quality of service.  These can
+      be powerful points of control for censors, especially if the
+      location of a CDN results in easier interference.
 
    At all levels of the network hierarchy, the filtration mechanisms
    used to detect undesirable traffic are essentially the same: a censor
@@ -259,6 +274,14 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
    are a concern.  HTTPS will encrypt the relevant request and response
    fields, so pairing with TCP/IP identification (see Section 3.3.1) is
    necessary for filtering of HTTPS.  However, some countermeasures such
+
+
+
+Hall, et al.           Expires September 22, 2016               [Page 5]
+
+Internet-Draft         draft-hall-censorship-tech             March 2016
+
+
    as URL obfuscation [RSF-2005] can trivially defeat simple forms of
    HTTP Request Header Identification.
 
@@ -273,14 +296,6 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
    Identification to filter specific URLs.  Dalek et al. and Jones et
    al. identified the use of these products in the wild [Dalek-2013]
    [Jones-2014].
-
-
-
-
-Hall, et al.           Expires September 22, 2016               [Page 5]
-
-Internet-Draft         draft-hall-censorship-tech             March 2016
-
 
 3.2.2.  HTTP Response Header Identification
 
@@ -315,6 +330,14 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
    In addition to censorship by the state, many governments pressure
    content providers to censor themselves.  Due to the extensive reach
    of government censorship, we need to define content provider as any
+
+
+
+Hall, et al.           Expires September 22, 2016               [Page 6]
+
+Internet-Draft         draft-hall-censorship-tech             March 2016
+
+
    service that provides utility to users, including everything from web
    sites to locally installed programs.  The defining factor of keyword
    identification by content providers is the choice of content
@@ -330,14 +353,6 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
    restricted content, but this may drive away potential investment.
    Coercing content providers may encourage self censorship, an
    additional advantage for censors.  The tradeoffs for instrumenting
-
-
-
-Hall, et al.           Expires September 22, 2016               [Page 6]
-
-Internet-Draft         draft-hall-censorship-tech             March 2016
-
-
    content providers are highly dependent on the content provider and
    the requested assistance.
 
@@ -371,6 +386,14 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
    of China [Rushe-2015] because Bing returned different results for
    censored terms in Chinese and English.  However, it is possible that
    censorship of the largest base of Chinese search users, China, biased
+
+
+
+Hall, et al.           Expires September 22, 2016               [Page 7]
+
+Internet-Draft         draft-hall-censorship-tech             March 2016
+
+
    Bing's results so that the more popular results in China (the
    uncensored results) were also more popular for Chinese speakers
    outside of China.
@@ -386,14 +409,6 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
    and flow characteristics, i.e. packet sizes and timings, to identify
    content.  To prevent substantial quality of service (QoS) impacts,
    DPI normally analyzes a copy of data while the original packets
-
-
-
-Hall, et al.           Expires September 22, 2016               [Page 7]
-
-Internet-Draft         draft-hall-censorship-tech             March 2016
-
-
    continue to be routed.  Typically, the traffic is split using either
    a mirror switch or fiber splitter, and analyzed on a cluster of
    machines running Intrusion Detection Systems (IDS) configured for
@@ -407,7 +422,8 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
    of an encrypted data flow (e.g., the Server Name Indicator (SNI) sent
    in the clear for TLS) or statistical information about an encrypted
    flow (e.g., video takes more bandwidth than audio or textual forms of
-   communication) to identify traffic.
+   communication) to identify traffic.  (TODO: talk about content
+   inference through things like TLS fingerprinting?)
 
    Despite these problems, DPI is the most powerful identification
    method and is widely used in practice.  The Great Firewall of China
@@ -426,6 +442,14 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
    protocol [Wilde-2012].  Malaysia has been accused of using targeted
    DPI, paired with DDoS, to identify and subsequently knockout pro-
    opposition material [Wagstaff-2013].  It also seems likely that
+
+
+
+Hall, et al.           Expires September 22, 2016               [Page 8]
+
+Internet-Draft         draft-hall-censorship-tech             March 2016
+
+
    organizations not so worried about blocking content in real-time
    could use DPI to sort and categorically search gathered traffic using
    technologies such as NarusInsight [Hepting-2011].
@@ -442,13 +466,8 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
    use it as a basis for blocking, filtering, or impairment by dropping
    connections to domains that match prohibited content (e.g.,
    bad.foo.com may be censored while good.foo.com is not) [Shbair-2015].
-
-
-
-Hall, et al.           Expires September 22, 2016               [Page 8]
-
-Internet-Draft         draft-hall-censorship-tech             March 2016
-
+   (TODO: talk about domain fronting in CDNs where SNI does not match
+   the HOST field inside the encrypted HTTPS envelope?)
 
    Tradeoffs: Some clients do not send the SNI extension (e.g., clients
    that only support versions of SSL and not TLS) or will fall back to
@@ -478,6 +497,15 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
    but also allows a censor to identify the IP of the user making the
    request.  Port is useful for whitelisting certain applications.
 
+
+
+
+
+Hall, et al.           Expires September 22, 2016               [Page 9]
+
+Internet-Draft         draft-hall-censorship-tech             March 2016
+
+
    Trade-offs: TCP/IP identification is popular due to its simplicity,
    availability, and robustness.
 
@@ -498,14 +526,6 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
    change their port.  For example, most HTTP traffic goes over port 80,
    so the censor cannot differentiate between restricted and allowed
    content solely on the basis of port.  Port whitelisting is
-
-
-
-Hall, et al.           Expires September 22, 2016               [Page 9]
-
-Internet-Draft         draft-hall-censorship-tech             March 2016
-
-
    occasionally used, where a censor limits communication to approved
    ports, such as 80 for HTTP traffic and is most effective when used in
    conjunction with other identification mechanisms.  For example, a
@@ -534,6 +554,14 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
 
    In active probing, the censor determines whether hosts are running a
    circumvention protocol by trying to initiate communication using the
+
+
+
+Hall, et al.           Expires September 22, 2016              [Page 10]
+
+Internet-Draft         draft-hall-censorship-tech             March 2016
+
+
    circumvention protocol.  If the host and the censor successfully
    negotiate a connection, then the censor conclusively knows that host
    is running a circumvention tool.  China has used active scanning to
@@ -554,14 +582,6 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
 
    Empirical Examples: Protocol identification can be easy to detect if
    it is conducted in real time and only a particular protocol is
-
-
-
-Hall, et al.           Expires September 22, 2016              [Page 10]
-
-Internet-Draft         draft-hall-censorship-tech             March 2016
-
-
    blocked, but some types of protocol identification, like active
    scanning, are much more difficult to detect.  Protocol identification
    has been used by Iran to identify and throttle SSH traffic to make it
@@ -572,6 +592,11 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
    [Winter-2012].
 
 4.  Technical Interference
+
+   (TODO: organize this section into layers just like identification
+   above.  Alternatively, the whole document can be organized in a layer
+   structure and do identification and interference at the same time for
+   each layer?  That seems wise.)
 
 4.1.  Performance Degradation
 
@@ -584,6 +609,15 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
    so bad that users opt to use a different site, service, or method of
    communication, or may not engage in communication at all if there are
    no alternatives.  Traffic shaping techniques that rate-limit the
+
+
+
+
+Hall, et al.           Expires September 22, 2016              [Page 11]
+
+Internet-Draft         draft-hall-censorship-tech             March 2016
+
+
    bandwidth available to certain types of traffic is one example of a
    performance degradation.
 
@@ -610,14 +644,6 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
    such as a Destination IP.  One downside Packet Dropping suffers from
    is the necessity of overblocking all content from otherwise allowable
    IPs based on a single subversive sub-domain; blogging services and
-
-
-
-Hall, et al.           Expires September 22, 2016              [Page 11]
-
-Internet-Draft         draft-hall-censorship-tech             March 2016
-
-
    github repositories are good examples.  China famously dropped all
    github packets for three days based on a single repository hosting
    undesirable content [Anonymous-2013].  The need to inspect every
@@ -640,6 +666,14 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
    traffic stream.  RST packets are normally used to let one side of TCP
    connection know the other side has stopped sending information, and
    thus the receiver should close the connection.  RST Packet Injection
+
+
+
+Hall, et al.           Expires September 22, 2016              [Page 12]
+
+Internet-Draft         draft-hall-censorship-tech             March 2016
+
+
    is a specific type of packet injection attack that is used to
    interrupt an established stream by sending RST packets to both sides
    of a TCP connection; as each receiver thinks the other has dropped
@@ -655,9 +689,10 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
    Identification [Weaver-2009] (this asynchronous version of a MITM is
    often called a Man-on-the-Side (MOTS)).  RST Packet Injection also
    has the advantage of only requiring one of the two endpoints to
-   accept the spoofed packet for the connection to be interrupted.  The
-   difficult part of RST Packet Injection is spoofing "enough" correct
-   information to ensure one end-point accepts a RST packet as
+   accept the spoofed packet for the connection to be interrupted.
+
+   The difficult part of RST Packet Injection is spoofing "enough"
+   correct information to ensure one end-point accepts a RST packet as
    legitimate; this generally implies a correct IP, port, and (TCP)
    sequence number.  Sequence number is the hardest to get correct, as
    [RFC0793] specifies an RST Packet should be in-sequence to be
@@ -666,14 +701,6 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
    it is implemented it allows for successful Blind RST Injection
    attacks [Netsec-2011].  When in-window sequencing is allowed, It is
    trivial to conduct a Blind RST Injection, a blind injection implies
-
-
-
-Hall, et al.           Expires September 22, 2016              [Page 12]
-
-Internet-Draft         draft-hall-censorship-tech             March 2016
-
-
    the censor doesn't know any sensitive (encrypted) sequencing
    information about the TCP stream they are injecting into, they can
    simply enumerate the ~70000 possible windows; this is particularly
@@ -694,6 +721,15 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
    interruption of encrypted/obfuscated protocols, such as those used by
    Tor [Winter-2012].
 
+
+
+
+
+Hall, et al.           Expires September 22, 2016              [Page 13]
+
+Internet-Draft         draft-hall-censorship-tech             March 2016
+
+
 4.4.  DNS Interference
 
    There are a variety of mechanisms that censors can use to block or
@@ -704,44 +740,77 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
    a reason for blocking access to that resource, for example using HTTP
    Status Code 451 [RFC7725]).
 
-   DNS poisoning refers to a mechanism where a censor interferes with
-   the response sent by a DNS server to the requesting device by
-   injecting an alternative IP address into the response message on the
-   return path [ViewDNS-2011].  Cache poisoning occurs after the
-   requested site's name servers resolve the request and attempt to
-   forward the IP back to the requesting device; on the return route the
-   resolved IP is recursively cached by each DNS server that initially
-   forwarded the request.  During this caching process if an undesirable
-   keyword is recognized, the resolved IP is "poisoned" and an
-   alternative IP (or NXDOMAIN error) is returned.  The alternative IPs
-   usually direct to a nonsense domain or a warning page.
-   Alternatively, Iranian censorship appears to prevent the
-   communication en-route, preventing a response from ever being sent
-   [Aryan-2012].
+   "DNS mangling" is a network-level technique where an incorrect IP
+   address is returned in response to a DNS query to a censored
+   destination.  An example of this is what the Chinese network does (we
+   are not aware of any other wide-scale uses of mangling).  On the
+   Chinese network every DNS request in transit is examined (presumably
+   by network inspection technologies such as DPI) and, if it matches a
+   censored domain, a false response is injected.  End users can see
+   this technique in action by simply sending DNS requests to any unused
+   IP address in China (see example below).  If it is not a censored
+   name, there will be no response.  If it is censored, an erroneous
+   response will be returned.  For example, using the command-line dig
+   utility to query an unused IP address in China of 113.113.113.113 for
+   the name "www.ietf.org" (uncensored at the time of writing) compared
+   with "www.facebook.com" (censored at the time of writing), we get an
+   erroneous IP address "37.61.54.158" as a response:
 
-   Trade-offs: DNS interference requires the censor to force a user to
-   traverse a controlled DNS hierarchy (or intervening network on which
-   the censor serves as a Active Pervasive Attacker [RFC7624] to rewrite
+   % dig +short +nodnssec @113.113.113.113 A www.ietf.org
+   ;; connection timed out; no servers could be reached
+
+   % dig +short +nodnssec @113.113.113.113 A www.facebook.com
+   37.61.54.158
+
+   There are also cases of what is colloquially called "DNS lying",
+   where a censor mandates that the DNS responses provided - by an
+   operator of a resursive resolver such as an Internet access provider
+   - be different than what authoritative resolvers would provide
+   [Bortzmayer-2015].
+
+   DNS cache poisoning refers to a mechanism where a censor interferes
+   with the response sent by an authoritative DNS resolver to a
+   recursive resolver by responding more quickly than the authoritative
+   resolver can respond with an alternative IP address [ViewDNS-2011].
+   (TODO: Stephane says this cite misuses "cache poisoning" and that we
+   haven't seen much of this performed systematically.)  Cache poisoning
+   occurs after the requested site's name servers resolve the request
+   and attempt to forward the true IP back to the requesting device; on
+   the return route the resolved IP is recursively cached by each DNS
+   server that initially forwarded the request.  During this caching
 
 
 
-Hall, et al.           Expires September 22, 2016              [Page 13]
+Hall, et al.           Expires September 22, 2016              [Page 14]
 
 Internet-Draft         draft-hall-censorship-tech             March 2016
 
 
-   DNS responses) for the mechanism to be effective.  It can be
-   circumvented by a technical savvy user that opts to use alternative
-   DNS resolvers (such as the public DNS resolvers provided by Google or
-   OpenDNS) or Virtual Private Network technology.  DNS poisoning also
-   implies returning an incorrect IP to those attempting to resolve a
+   process if an undesirable keyword is recognized, the resolved IP is
+   "poisoned" and an alternative IP (or NXDOMAIN error) is returned more
+   quickly than the upstream resolver can respond, causing an erroneous
+   IP address to be cached (and potentially recursively so).  The
+   alternative IPs usually direct to a nonsense domain or a warning
+   page.  Alternatively, Iranian censorship appears to prevent the
+   communication en-route, preventing a response from ever being sent
+   [Aryan-2012].
+
+   Trade-offs: These forms of DNS interference require the censor to
+   force a user to traverse a controlled DNS hierarchy (or intervening
+   network on which the censor serves as a Active Pervasive Attacker
+   [RFC7624] to rewrite DNS responses) for the mechanism to be
+   effective.  It can be circumvented by a technical savvy user that
+   opts to use alternative DNS resolvers (such as the public DNS
+   resolvers provided by Google, OpenDNS, Telcomix, or FDN) or Virtual
+   Private Network technology.  DNS mangling and cache poisoning also
+   imply returning an incorrect IP to those attempting to resolve a
    domain name, but in some cases the destination may be technically
    accessible; over HTTP, for example, the user may have another method
    of obtaining the IP address of the desired site and may be able to
    access it if the site is configured to be the default server
    listening at this IP address.  Blocking overflow has also been a
    problem, as occasionally users outside of the censors region will be
-   directed through a DNS servers or DNS-rewriting network equipment
+   directed through DNS servers or DNS-rewriting network equipment
    controlled by a censor, causing the request to fail.  The ease of
    circumvention paired with the large risk of overblocking and blocking
    overflow make DNS interference a partial, difficult, and less than
@@ -766,25 +835,23 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
    entire TLDs as well, but only Iran has acted by blocking all Israeli
    (.il) domains [Albert-2011].
 
+
+
+Hall, et al.           Expires September 22, 2016              [Page 15]
+
+Internet-Draft         draft-hall-censorship-tech             March 2016
+
+
 4.5.  Distributed Denial of Service (DDoS)
 
    Distributed Denial of Service attacks are a common attack mechanism
-   used by "hacktivists" and black-hat hackers, but censors have used
+   used by "hacktivists" and malicious hackers, but censors have used
    DDoS in the past for a variety of reasons.  There is a huge variety
    of DDoS attacks [Wikip-DoS], but on a high level two possible impacts
    tend to occur; a flood attack results in the service being unusable
    while resources are being spent to flood the service, a crash attack
    aims to crash the service so resources can be reallocated elsewhere
    without "releasing" the service.
-
-
-
-
-
-Hall, et al.           Expires September 22, 2016              [Page 14]
-
-Internet-Draft         draft-hall-censorship-tech             March 2016
-
 
    Trade-offs: DDoS is an appealing mechanism when a censor would like
    to prevent all access to undesirable content, instead of only access
@@ -822,6 +889,15 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
    body withdraws all of the Boarder Gateway Protocol (BGP) prefixes
    routing through the censor's country.
 
+
+
+
+
+Hall, et al.           Expires September 22, 2016              [Page 16]
+
+Internet-Draft         draft-hall-censorship-tech             March 2016
+
+
    Trade-offs: The impact to a network disconnection in a region is huge
    and absolute; the censor pays for absolute control over digital
    information with all the benefits the Internet brings; this is never
@@ -834,14 +910,6 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
    highly covered occurrences was with the Junta in Myanmar employing
    Network Disconnection to help Junta forces quash a rebellion in 2007
    [Dobie-2007].  China disconnected the network in the Xinjiang region
-
-
-
-Hall, et al.           Expires September 22, 2016              [Page 15]
-
-Internet-Draft         draft-hall-censorship-tech             March 2016
-
-
    during unrest in 2009 in an effort to prevent the protests from
    spreading to other regions [Heacock-2009].  The Arab Spring saw the
    the most frequent usage of Network Disconnection, with events in
@@ -878,6 +946,14 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
    censorship is when a censor creates an atmosphere where users censor
    themselves.  This can be achieved through controlling information,
    intimidating would-be dissidents, swaying public thought, and
+
+
+
+Hall, et al.           Expires September 22, 2016              [Page 17]
+
+Internet-Draft         draft-hall-censorship-tech             March 2016
+
+
    creating apathy.  Self censorship is difficult to document, as when
    it is implemented effectively the only noticeable tracing is a lack
    of undesirable content; instead one must look at the tools and
@@ -890,14 +966,6 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
    [Calamur-2013] [AP-2012] [Hopkins-2011] [Guardian-2014]
    [Johnson-2010].  A good example of swaying public thought is China's
    "50-Cent Party", composed of somewhere between 20,000 [Bristow-2013]
-
-
-
-Hall, et al.           Expires September 22, 2016              [Page 16]
-
-Internet-Draft         draft-hall-censorship-tech             March 2016
-
-
    and 300,000 [Fareed-2008] contributors who are paid to "guide public
    thought" on local and regional issues as directed by the Ministry of
    Culture.  Creating apathy can be a side-effect of successfully
@@ -931,6 +999,17 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
    oriented notice and takedown regime of the United States Digital
    Millennium Copyright Act (DMCA) Section 512 [DMLP-512].
 
+
+
+
+
+
+
+Hall, et al.           Expires September 22, 2016              [Page 18]
+
+Internet-Draft         draft-hall-censorship-tech             March 2016
+
+
 7.  Contributors
 
    This document benefited from discussions with Stephane Bortzmeyer,
@@ -943,16 +1022,6 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
               Consequences of DNS-based Internet filtering", 2013,
               <http://www.afnic.fr/medias/documents/conseilscientifique/
               SC-consequences-of-DNS-based-Internet-filtering.pdf>.
-
-
-
-
-
-
-Hall, et al.           Expires September 22, 2016              [Page 17]
-
-Internet-Draft         draft-hall-censorship-tech             March 2016
-
 
    [AFP-2014]
               AFP, "China Has Massive Internet Breakdown Reportedly
@@ -989,6 +1058,14 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
               china-how-it-happened-how-get-around-it-and-where-it-will-
               take-us>.
 
+
+
+
+Hall, et al.           Expires September 22, 2016              [Page 19]
+
+Internet-Draft         draft-hall-censorship-tech             March 2016
+
+
    [Anonymous-2014]
               Anonymous, "Towards a Comprehensive Picture of the Great
               Firewall's DNS Censorship", 2014,
@@ -999,16 +1076,6 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
               Beaten In Prison According To Prosecutor", 2012,
               <http://www.huffingtonpost.com/2012/12/03/
               sattar-beheshit-iran_n_2233125.html>.
-
-
-
-
-
-
-Hall, et al.           Expires September 22, 2016              [Page 18]
-
-Internet-Draft         draft-hall-censorship-tech             March 2016
-
 
    [Aryan-2012]
               Aryan, S., Aryan, H., and J. Halderman, "Internet
@@ -1024,6 +1091,12 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
               media say", 2013,
               <http://www.bbc.com/news/world-asia-china-2439695>.
 
+   [Bortzmayer-2015]
+              Bortzmayer, S., "DNS Censorship (DNS Lies) As Seen By RIPE
+              Atlas", 2015,
+              <https://labs.ripe.net/Members/stephane_bortzmeyer/dns-
+              censorship-dns-lies-seen-by-atlas-probes>.
+
    [Bristow-2013]
               Bristow, M., "China's internet 'spin doctors'", 2013,
               <http://news.bbc.co.uk/2/hi/asia-pacific/7783640.stm>.
@@ -1037,6 +1110,17 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
               CERT, "TCP SYN Flooding and IP Spoofing Attacks", 2000,
               <http://www.cert.org/historical/advisories/
               CA-1996-21.cfm>.
+
+
+
+
+
+
+
+Hall, et al.           Expires September 22, 2016              [Page 20]
+
+Internet-Draft         draft-hall-censorship-tech             March 2016
+
 
    [Cheng-2010]
               Cheng, J., "Google stops Hong Kong auto-redirect as China
@@ -1058,13 +1142,6 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
               Cowie, J., "Egypt Leaves the Internet", 2011,
               <http://www.renesys.com/2011/01/
               egypt-leaves-the-internet/>.
-
-
-
-Hall, et al.           Expires September 22, 2016              [Page 19]
-
-Internet-Draft         draft-hall-censorship-tech             March 2016
-
 
    [Cowie-2011b]
               Cowie, J., "Libyan Disconnect", 2011,
@@ -1094,6 +1171,13 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
               <http://www.dmlp.org/legal-guide/protecting-yourself-
               against-copyright-claims-based-user-content>.
 
+
+
+Hall, et al.           Expires September 22, 2016              [Page 21]
+
+Internet-Draft         draft-hall-censorship-tech             March 2016
+
+
    [Dobie-2007]
               Dobie, M., "Junta tightens media screw", 2007,
               <http://news.bbc.co.uk/2/hi/asia-pacific/7016238.stm>.
@@ -1112,15 +1196,6 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
               Gao, H., "Tiananmen, Forgotten", 2014,
               <http://www.nytimes.com/2014/06/04/opinion/
               tiananmen-forgotten.html>.
-
-
-
-
-
-Hall, et al.           Expires September 22, 2016              [Page 20]
-
-Internet-Draft         draft-hall-censorship-tech             March 2016
-
 
    [Glanville-2008]
               Glanville, J., "The Big Business of Net Censorship", 2008,
@@ -1148,6 +1223,17 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
               Electronic Frontier Foundation, "Hepting vs. AT&T", 2011,
               <https://www.eff.org/cases/hepting>.
 
+
+
+
+
+
+
+Hall, et al.           Expires September 22, 2016              [Page 22]
+
+Internet-Draft         draft-hall-censorship-tech             March 2016
+
+
    [Hjelmvik-2010]
               Hjelmvik, E., "Breaking and Improving Protocol
               Obfuscation", 2010, <https://www.iis.se/docs/
@@ -1170,13 +1256,6 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
               Johnson, L., "Torture feared in arrest of Iraqi blogger",
               2011, <http://seattlepostglobe.org/2010/02/05/
               torture-feared-in-arrest-of-iraqi-blogger/>.
-
-
-
-Hall, et al.           Expires September 22, 2016              [Page 21]
-
-Internet-Draft         draft-hall-censorship-tech             March 2016
-
 
    [Jones-2014]
               Jones, B., "Automated Detection and Fingerprinting of
@@ -1201,6 +1280,16 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
               <http://www.themoscowtimes.com/news/article/
               cyberattacks-disrupt-oppositions-election/470119.html>.
 
+
+
+
+
+
+Hall, et al.           Expires September 22, 2016              [Page 23]
+
+Internet-Draft         draft-hall-censorship-tech             March 2016
+
+
    [Marczak-2015]
               Marczak, B., Weaver, N., Dalek, J., Ensafi, R., Fifield,
               D., McKune, S., Rey, A., Scott-Railton, J., Deibert, R.,
@@ -1224,16 +1313,6 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
               n3t2.3c, "TCP-RST Injection", 2011, <https://nets.ec/TCP-
               RST_Injection>.
 
-
-
-
-
-
-Hall, et al.           Expires September 22, 2016              [Page 22]
-
-Internet-Draft         draft-hall-censorship-tech             March 2016
-
-
    [Orion-2013]
               Orion, E., "Zimbabwe election hit by hacking and DDoS
               attacks", 2013,
@@ -1253,6 +1332,19 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
               Extensions: Extension Definitions", RFC 6066,
               DOI 10.17487/RFC6066, January 2011,
               <http://www.rfc-editor.org/info/rfc6066>.
+
+
+
+
+
+
+
+
+
+Hall, et al.           Expires September 22, 2016              [Page 24]
+
+Internet-Draft         draft-hall-censorship-tech             March 2016
+
 
    [RFC7624]  Barnes, R., Schneier, B., Jennings, C., Hardie, T.,
               Trammell, B., Huitema, C., and D. Borkmann,
@@ -1281,15 +1373,6 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
               <http://www.theguardian.com/technology/2014/feb/11/
               bing-censors-chinese-language-search-results>.
 
-
-
-
-
-Hall, et al.           Expires September 22, 2016              [Page 23]
-
-Internet-Draft         draft-hall-censorship-tech             March 2016
-
-
    [Sandvine-2014]
               Sandvine, "Technology Showcase on Traffic Classification:
               Why Measurements and Freeform Policy Matter", 2014,
@@ -1309,6 +1392,15 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
               2014, <http://www.nbcnews.com/feature/edward-snowden-
               interview/exclusive-snowden-docs-show-uk-spies-attacked-
               anonymous-hackers-n21361>.
+
+
+
+
+
+Hall, et al.           Expires September 22, 2016              [Page 25]
+
+Internet-Draft         draft-hall-censorship-tech             March 2016
+
 
    [Senft-2013]
               Senft, A., "Asia Chats: Analyzing Information Controls and
@@ -1339,13 +1431,6 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
               <https://www3.trustwave.com/software/8e6/hlp/r3000/
               files/1system_filter.html>.
 
-
-
-Hall, et al.           Expires September 22, 2016              [Page 24]
-
-Internet-Draft         draft-hall-censorship-tech             March 2016
-
-
    [Verkamp-2012]
               Verkamp, J. and M. Gupta, "Inferring Mechanics of Web
               Censorship Around the World", 2012,
@@ -1362,6 +1447,16 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
               Resistance, Attacks on Burmese Opposition Media", 2011,
               <http://access.opennet.net/wp-content/uploads/2011/12/
               accesscontested-chapter-08.pdf>.
+
+
+
+
+
+
+Hall, et al.           Expires September 22, 2016              [Page 26]
+
+Internet-Draft         draft-hall-censorship-tech             March 2016
+
 
    [VonLohmann-2008]
               VonLohmann, F., "FCC Rules Against Comcast for BitTorrent
@@ -1393,15 +1488,6 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
               <http://www.zdnet.com/1168-keywords-skype-uses-to-censor-
               monitor-its-chinese-users-7000012328/>.
 
-
-
-
-
-Hall, et al.           Expires September 22, 2016              [Page 25]
-
-Internet-Draft         draft-hall-censorship-tech             March 2016
-
-
    [Wikip-DoS]
               Wikipedia, "Denial of Service Attacks", 2016,
               <https://en.wikipedia.org/w/index.php?title=Denial-of-
@@ -1420,6 +1506,13 @@ Internet-Draft         draft-hall-censorship-tech             March 2016
               Zhu, T., "An Analysis of Chinese Search Engine Filtering",
               2011,
               <http://arxiv.org/ftp/arxiv/papers/1107/1107.3794.pdf>.
+
+
+
+Hall, et al.           Expires September 22, 2016              [Page 27]
+
+Internet-Draft         draft-hall-censorship-tech             March 2016
+
 
    [Zmijewki-2014]
               Zmijewki, E., "Turkish Internet Censorship Takes a New
@@ -1453,4 +1546,23 @@ Authors' Addresses
 
 
 
-Hall, et al.           Expires September 22, 2016              [Page 26]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Hall, et al.           Expires September 22, 2016              [Page 28]

@@ -671,6 +671,14 @@ informative:
       ins: K. Kopel
     date: 2013
 
+  Bortzmayer-2015:
+    target: https://labs.ripe.net/Members/stephane_bortzmeyer/dns-censorship-dns-lies-seen-by-atlas-probes
+    title: "DNS Censorship (DNS Lies) As Seen By RIPE Atlas"
+    author:
+      name: Stephane Bortzmayer
+      ins: S. Bortzmayer
+    date: 2015
+
 
 --- abstract
 
@@ -691,16 +699,17 @@ Introduction {#intro}
 Censorship is where an entity in a position of power -- such as a
 government, organization, or individual -- suppresses communication
 that it considers objectionable, harmful, sensitive, politically
-incorrect or inconvenient. (Although censors that engage in censorship or
-establish censorship regimes must do so through legal, military, or
-other sources of power, this document focuses largely on technical
+incorrect or inconvenient. (Although censors that engage in censorship
+must do so through legal, military, or
+other means, this document focuses largely on technical
 mechanisms used to achieve network censorship.)
 
 This document describes the technical mechanisms that censorship
 regimes around the world use to block or degrade Internet traffic (see
 {{RFC7754}} for a discussion of Internet blocking and filtering
-in terms of Internet architecture). To this
-end, we describe three elements of Internet censorship: prescription,
+in terms of implications for Internet architecture, rather than end-user access to content and services).
+
+We describe three elements of Internet censorship: prescription,
 identification, and interference. Prescription is the process by which
 censors determine what types of material they should block, i.e. they
 decide to block a
@@ -720,18 +729,20 @@ Prescription is the process of figuring out what censors would like to
 block {{Glanville-2008}}. Generally, censors aggregate "to block"
 information in blacklists or using real-time heuristic assessment of
 content {{Ding-1999}}.
-There are typically three types of blacklists: Keyword, Domain
-Name, or IP. Keyword and Domain Name blocking take place at the
-application level (e.g. HTTP), whereas IP blocking tends to take place
-in the TCP/IP header. The mechanisms for building up these blacklists
-are varied. Many times private industries that sell "content control"
-software, such as SmartFilter, which allows filtering
-from broad categories, such as gambling or pornography,
-that they would like to block. In these cases, the private services
-embark on an attempt to label every semi-questionable website as to
-allow for metatag blocking (similarly, they tune real-time content
-heuristic systems to map their assessments onto categories of
-objectionable content).
+
+There are typically three types of blacklists: Keyword, Domain Name,
+or IP. Keyword and Domain Name blocking take place at the application
+level (e.g. HTTP), whereas IP blocking tends to take place using
+routing data in TCP/IP headers. The mechanisms for building up these
+blacklists are varied. Censors can purchase from private industry
+"content control" software, such as SmartFilter, which allows
+filtering from broad categories that they would like to block, such as
+gambling or pornography.  In these cases, thes private services 
+attempt to categorize every semi-questionable website as to allow for
+metatag blocking (similarly, they tune real-time content heuristic
+systems to map their assessments onto categories of objectionable
+content).
+
 Countries that are more interested in
 retaining specific political control, a desire which requires swift
 and decisive action, often have ministries or organizations, such as
@@ -800,6 +811,12 @@ general points-of-control:
   identification and interference where not possible before -- or
   integrity degrees -- allowing, for example, adversarial routing of
   traffic.
+
+* Content Distribution Networks (CDNs): CDNs seek to collapse network
+  topology in order to better locate content closer to the service's
+  users in order to improve quality of service. These can be powerful
+  points of control for censors, especially if the location of a CDN
+  results in easier interference.
 
 At all levels of the network hierarchy, the filtration mechanisms used
 to detect undesirable traffic are essentially the same: a censor
@@ -964,7 +981,8 @@ against encrypted data, though DPI can leverage unencrypted elements
 of an encrypted data flow (e.g., the Server Name Indicator (SNI) sent
 in the clear for TLS) or statistical information about an encrypted
 flow (e.g., video takes more bandwidth than audio or textual forms of
-communication) to identify traffic.
+communication) to identify traffic. (TODO: talk about content
+inference through things like TLS fingerprinting?)
 
 Despite these problems, DPI is the most powerful identification method
 and is widely used in practice. The Great Firewall of China (GFW), the
@@ -1000,7 +1018,9 @@ Server Name Indication (SNI) TLS extension {{RFC6066}}. Since SNI is
 sent in the clear, censors and filtering software can use it as a
 basis for blocking, filtering, or impairment by dropping connections
 to domains that match prohibited content (e.g., bad.foo.com may be
-censored while good.foo.com is not) {{Shbair-2015}}.
+censored while good.foo.com is not) {{Shbair-2015}}. (TODO: talk about
+domain fronting in CDNs where SNI does not match the HOST field inside
+the encrypted HTTPS envelope?)
 
 Tradeoffs: Some clients do not send the SNI extension (e.g., clients
 that only support versions of SSL and not TLS) or will fall back to
@@ -1112,6 +1132,11 @@ States used RST injection to interrupt BitTorrent Traffic
 Technical Interference {#tech-interference}
 ====================
 
+(TODO: organize this section into layers just like identification
+above. Alternatively, the whole document can be organized in a layer
+structure and do identification and interference at the same time for
+each layer? That seems wise.)
+
 Performance Degradation
 ----------------------
 
@@ -1191,7 +1216,9 @@ an ideal pairing for DPI and Protocol Identification
 Man-on-the-Side (MOTS)).
 RST Packet Injection also has the advantage of only
 requiring one of the two endpoints to accept the spoofed packet for
-the connection to be interrupted.  The difficult part of RST Packet
+the connection to be interrupted.
+
+The difficult part of RST Packet
 Injection is spoofing "enough" correct information to ensure one
 end-point accepts a RST packet as legitimate; this generally implies a
 correct IP, port, and (TCP) sequence number. Sequence number is the
@@ -1233,32 +1260,62 @@ incorrect address (potentially to a server that can communicate to the
 end-user a reason for blocking access to that resource, for example
 using HTTP Status Code 451 {{RFC7725}}).
 
-DNS poisoning refers to a mechanism where a censor interferes
-with the response sent by a DNS server to the requesting device by
-injecting an alternative IP address into the response message on the
-return path {{ViewDNS-2011}}. Cache poisoning occurs after the
-requested site's name
-servers resolve the request and attempt to forward the IP back to the
-requesting device; on the return route the resolved IP is recursively
-cached by each DNS server that initially forwarded the request. During
-this caching process if an undesirable keyword is recognized, the
-resolved IP is "poisoned" and an alternative IP (or NXDOMAIN error) is
-returned. The
-alternative IPs usually direct to a nonsense domain or a warning page.
-Alternatively, Iranian censorship appears to prevent
-the communication en-route, preventing a response from ever being sent
-{{Aryan-2012}}.
+"DNS mangling" is a network-level technique where an incorrect IP
+address is returned in response to a DNS query to a censored
+destination. An example of this is what the Chinese network does (we
+are not aware of any other wide-scale uses of mangling). On the
+Chinese network every DNS request in transit is examined (presumably
+by network inspection technologies such as DPI) and, if it matches a
+censored domain, a false response is injected. End users can see this
+technique in action by simply sending DNS requests to any unused IP
+address in China (see example below). If it is not a censored name,
+there will be no response. If it is censored, an erroneous response
+will be returned. For example, using the command-line dig utility to
+query an unused IP address in China of 113.113.113.113 for the name
+"www.ietf.org" (uncensored at the time of writing) compared with
+"www.facebook.com" (censored at the time of writing), we get an
+erroneous IP address "37.61.54.158" as a response:
+
+    % dig +short +nodnssec @113.113.113.113 A www.ietf.org
+    ;; connection timed out; no servers could be reached
+    
+    % dig +short +nodnssec @113.113.113.113 A www.facebook.com
+    37.61.54.158
+
+There are also cases of what is colloquially called "DNS lying", where
+a censor mandates that the DNS responses provided -- by an operator of
+a resursive resolver such as an Internet access provider -- be
+different than what authoritative resolvers would provide
+{{Bortzmayer-2015}}.
+
+DNS cache poisoning refers to a mechanism where a censor interferes
+with the response sent by an authoritative DNS resolver to a recursive
+resolver by responding more quickly than the authoritative resolver
+can respond with an alternative IP address {{ViewDNS-2011}}. (TODO:
+Stephane says this cite misuses "cache poisoning" and that we haven't
+seen much of this performed systematically.) Cache poisoning occurs
+after the requested site's name servers resolve the request and
+attempt to forward the true IP back to the requesting device; on the
+return route the resolved IP is recursively cached by each DNS server
+that initially forwarded the request. During this caching process if
+an undesirable keyword is recognized, the resolved IP is "poisoned"
+and an alternative IP (or NXDOMAIN error) is returned more quickly
+than the upstream resolver can respond, causing an erroneous IP
+address to be cached (and potentially recursively so). The alternative
+IPs usually direct to a nonsense domain or a warning page.
+Alternatively, Iranian censorship appears to prevent the communication
+en-route, preventing a response from ever being sent {{Aryan-2012}}.
 
 Trade-offs:
-DNS interference
-requires the censor to force a user to traverse a controlled DNS
+These forms of DNS interference
+require the censor to force a user to traverse a controlled DNS
 hierarchy (or intervening network on which the censor serves as a
 Active Pervasive Attacker {{RFC7624}} to rewrite DNS responses)
 for the mechanism to be effective. It can be circumvented
 by a technical savvy user that opts to use alternative DNS resolvers
 (such as the public DNS resolvers provided by
-Google or OpenDNS) or Virtual Private Network technology. DNS poisoning
-also implies returning an incorrect IP to
+Google, OpenDNS, Telcomix, or FDN) or Virtual Private Network technology. DNS mangling and cache poisoning
+also imply returning an incorrect IP to
 those attempting to resolve a domain name, but in some cases the destination
 may be
 technically accessible;  over HTTP, for example, the user may have another
@@ -1268,7 +1325,7 @@ is configured to be the
 default server listening at this IP address.  Blocking overflow has
 also been a
 problem, as occasionally users outside of the censors region will be
-directed through a DNS servers or DNS-rewriting network equipment
+directed through DNS servers or DNS-rewriting network equipment
 controlled by a censor, causing the
 request to fail. The ease of circumvention paired with the large risk
 of overblocking and blocking overflow make DNS interference a
@@ -1298,7 +1355,7 @@ Distributed Denial of Service (DDoS) {#ddos}
 ------------------------------------
 
 Distributed Denial of Service attacks are a common attack mechanism
-used by "hacktivists" and black-hat hackers, but censors have used
+used by "hacktivists" and malicious hackers, but censors have used
 DDoS in the past for a variety of reasons. There is a huge variety of
 DDoS attacks {{Wikip-DoS}}, but on a high level two possible impacts
 tend to occur; a flood attack results in the service being unusable
