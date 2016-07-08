@@ -9,7 +9,7 @@
 <?rfc sortrefs="yes"?>
 <?rfc symrefs="yes"?>
 
-<rfc ipr="trust200902" docName="draft-hall-censorship-tech-03" category="info">
+<rfc ipr="trust200902" docName="draft-hall-censorship-tech-04" category="info">
 
   <front>
     <title abbrev="draft-hall-censorship-tech">A Survey of Worldwide Censorship Techniques</title>
@@ -39,7 +39,7 @@
       </address>
     </author>
 
-    <date year="2016" month="March" day="21"/>
+    <date year="2016" month="July" day="08"/>
 
     <area>General</area>
     

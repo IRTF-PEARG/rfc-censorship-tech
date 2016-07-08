@@ -1,8 +1,8 @@
 ---
 title: A Survey of Worldwide Censorship Techniques
 abbrev: draft-hall-censorship-tech
-docname: draft-hall-censorship-tech-03
-date: 2016-03-21
+docname: draft-hall-censorship-tech-04
+date: 2016-07-08
 category: info
 
 ipr: trust200902
