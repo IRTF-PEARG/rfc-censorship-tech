@@ -618,9 +618,7 @@ those used by Tor <xref target="Winter-2012"/>.</t>
 filter access to content by altering responses from the DNS
 <xref target="AFNIC-2013"/> <xref target="ICANN-SSAC-2012"/>, including blocking the response,
 replying with an error message, or responding with an
-incorrect address (potentially to a server that can communicate to the
-end-user a reason for blocking access to that resource, for example
-using HTTP Status Code 451 <xref target="RFC7725"/>).</t>
+incorrect address.</t>
 
 <t>“DNS mangling” is a network-level technique where an incorrect IP
 address is returned in response to a DNS query to a censored
@@ -893,19 +891,6 @@ Nick Feamster, and Martin Nilsson.</t>
 <seriesInfo name='STD' value='7'/>
 <seriesInfo name='RFC' value='793'/>
 <seriesInfo name='DOI' value='10.17487/RFC0793'/>
-</reference>
-
-
-
-<reference  anchor='RFC7725' target='http://www.rfc-editor.org/info/rfc7725'>
-<front>
-<title>An HTTP Status Code to Report Legal Obstacles</title>
-<author initials='T.' surname='Bray' fullname='T. Bray'><organization /></author>
-<date year='2016' month='February' />
-<abstract><t>This document specifies a Hypertext Transfer Protocol (HTTP) status code for use when resource access is denied as a consequence of legal demands.</t></abstract>
-</front>
-<seriesInfo name='RFC' value='7725'/>
-<seriesInfo name='DOI' value='10.17487/RFC7725'/>
 </reference>
 
 

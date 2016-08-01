@@ -40,7 +40,6 @@ normative:
 informative:
 
   RFC0793:
-  RFC7725:
   RFC7754:
   RFC7624:
   RFC6066:
@@ -1256,9 +1255,7 @@ There are a variety of mechanisms that censors can use to block or
 filter access to content by altering responses from the DNS
 {{AFNIC-2013}} {{ICANN-SSAC-2012}}, including blocking the response,
 replying with an error message, or responding with an
-incorrect address (potentially to a server that can communicate to the
-end-user a reason for blocking access to that resource, for example
-using HTTP Status Code 451 {{RFC7725}}).
+incorrect address.
 
 "DNS mangling" is a network-level technique where an incorrect IP
 address is returned in response to a DNS query to a censored

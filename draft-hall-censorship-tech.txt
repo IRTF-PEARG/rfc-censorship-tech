@@ -736,9 +736,7 @@ Internet-Draft         draft-hall-censorship-tech              July 2016
    filter access to content by altering responses from the DNS
    [AFNIC-2013] [ICANN-SSAC-2012], including blocking the response,
    replying with an error message, or responding with an incorrect
-   address (potentially to a server that can communicate to the end-user
-   a reason for blocking access to that resource, for example using HTTP
-   Status Code 451 [RFC7725]).
+   address.
 
    "DNS mangling" is a network-level technique where an incorrect IP
    address is returned in response to a DNS query to a censored
@@ -778,6 +776,8 @@ Internet-Draft         draft-hall-censorship-tech              July 2016
    and attempt to forward the true IP back to the requesting device; on
    the return route the resolved IP is recursively cached by each DNS
    server that initially forwarded the request.  During this caching
+   process if an undesirable keyword is recognized, the resolved IP is
+   "poisoned" and an alternative IP (or NXDOMAIN error) is returned more
 
 
 
@@ -786,8 +786,6 @@ Hall, et al.             Expires January 9, 2017               [Page 14]
 Internet-Draft         draft-hall-censorship-tech              July 2016
 
 
-   process if an undesirable keyword is recognized, the resolved IP is
-   "poisoned" and an alternative IP (or NXDOMAIN error) is returned more
    quickly than the upstream resolver can respond, causing an erroneous
    IP address to be cached (and potentially recursively so).  The
    alternative IPs usually direct to a nonsense domain or a warning
@@ -834,6 +832,8 @@ Internet-Draft         draft-hall-censorship-tech              July 2016
    China, Iran, Turkey, and the United States have discussed blocking
    entire TLDs as well, but only Iran has acted by blocking all Israeli
    (.il) domains [Albert-2011].
+
+
 
 
 
@@ -1353,10 +1353,6 @@ Internet-Draft         draft-hall-censorship-tech              July 2016
               DOI 10.17487/RFC7624, August 2015,
               <http://www.rfc-editor.org/info/rfc7624>.
 
-   [RFC7725]  Bray, T., "An HTTP Status Code to Report Legal Obstacles",
-              RFC 7725, DOI 10.17487/RFC7725, February 2016,
-              <http://www.rfc-editor.org/info/rfc7725>.
-
    [RFC7754]  Barnes, R., Cooper, A., Kolkman, O., Thaler, D., and E.
               Nordmark, "Technical Considerations for Internet Service
               Blocking and Filtering", RFC 7754, DOI 10.17487/RFC7754,
@@ -1392,6 +1388,10 @@ Internet-Draft         draft-hall-censorship-tech              July 2016
               2014, <http://www.nbcnews.com/feature/edward-snowden-
               interview/exclusive-snowden-docs-show-uk-spies-attacked-
               anonymous-hackers-n21361>.
+
+
+
+
 
 
 
