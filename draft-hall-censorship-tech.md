@@ -1,13 +1,13 @@
 ---
 title: A Survey of Worldwide Censorship Techniques
 abbrev: draft-hall-censorship-tech
-docname: draft-hall-censorship-tech-04
+docname: draft-hall-censorship-tech-latest
 date: 2016-07-08
 category: info
 
 ipr: trust200902
 area: General
-workgroup: 
+workgroup:
 keyword: Internet-Draft
 
 stand_alone: yes
@@ -43,7 +43,7 @@ informative:
   RFC7754:
   RFC7624:
   RFC6066:
-  
+
   Glanville-2008:
     target: http://www.theguardian.com/commentisfree/2008/nov/17/censorship-internet
     title: The Big Business of Net Censorship
@@ -65,7 +65,7 @@ informative:
     date: 2012
 
   Nabi-2013:
-    target: http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/12387-foci13-nabi.pdf 
+    target: http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/12387-foci13-nabi.pdf
     title: The Anatomy of Web Censorship in Pakistan
     author:
       name: Zubair Nabi
@@ -88,7 +88,7 @@ informative:
     date: 2012
 
   Dalek-2013:
-    target: http://www.cs.stonybrook.edu/~phillipa/papers/imc112s-dalek.pdf 
+    target: http://www.cs.stonybrook.edu/~phillipa/papers/imc112s-dalek.pdf
     title: A Method for Identifying and Confirming the Use of URL Filtering Products for Censorship
     author:
       name: Jakub Dalek
@@ -736,7 +736,7 @@ routing data in TCP/IP headers. The mechanisms for building up these
 blacklists are varied. Censors can purchase from private industry
 "content control" software, such as SmartFilter, which allows
 filtering from broad categories that they would like to block, such as
-gambling or pornography.  In these cases, thes private services 
+gambling or pornography.  In these cases, thes private services
 attempt to categorize every semi-questionable website as to allow for
 metatag blocking (similarly, they tune real-time content heuristic
 systems to map their assessments onto categories of objectionable
@@ -1275,7 +1275,7 @@ erroneous IP address "37.61.54.158" as a response:
 
     % dig +short +nodnssec @113.113.113.113 A www.ietf.org
     ;; connection timed out; no servers could be reached
-    
+
     % dig +short +nodnssec @113.113.113.113 A www.facebook.com
     37.61.54.158
 
@@ -1334,13 +1334,13 @@ relied on DNS interference for its country-wide block of websites
 such Twitter and Youtube for almost week in March of 2014 but the ease
 of circumvention resulted in an increase in the popularity of Twitter
 until Turkish ISPs implementing an IP blacklist to achieve the
-governmental mandate {{Zmijewki-2014}}. 
+governmental mandate {{Zmijewki-2014}}.
 Ultimately, Turkish ISPs started hijacking all requests to Google and
-Level 3's international DNS resolvers {{Zmijewki-2014}}. DNS 
+Level 3's international DNS resolvers {{Zmijewki-2014}}. DNS
 interference, when incorrectly implemented, has resulted in some
 of the largest "censorship disasters".  In January 2014 China started
 directing all requests passing through the Great Fire Wall to a single
-domain, dongtaiwang.com, due to an improperly configured DNS 
+domain, dongtaiwang.com, due to an improperly configured DNS
 poisoning attempt; this incident is thought to be the largest
 Internet-service outage in history
 {{AFP-2014}} {{Anon-SIGCOMM12}}. Countries such as China, Iran, Turkey,
