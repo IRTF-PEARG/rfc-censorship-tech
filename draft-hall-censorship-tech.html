@@ -1,0 +1,1077 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head profile="http://www.w3.org/2006/03/hcard http://dublincore.org/documents/2008/08/04/dc-html/">
+  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+
+  <title>A Survey of Worldwide Censorship Techniques</title>
+
+  
+<style type="text/css">/*<![CDATA[*/
+
+body {
+  font: 16px "Helvetica Neue","Open Sans",Helvetica,Calibri,sans-serif;
+  color: #333;
+  font-size-adjust: 0.5;
+  line-height: 24px;
+  margin: 75px auto;
+  max-width: 724px;
+  padding: 0 5px;
+}
+
+.title, .filename, h1, h2, h3, h4, h5 {
+  font: 16px "Roboto Condensed","Helvetica Neue","Open Sans",Helvetica,Calibri,sans-serif;
+  font-size-adjust: 0.5;
+  font-weight: bold;
+  color: #333;
+  line-height: 100%;
+  margin: 0.8em 0 0.3em;
+}
+.title, #rfc\.title h1 { font-size: 32px; }
+h1, section h1, h2, section h2, section h3, nav h2 { font-size: 20px; }
+h3, section h4, h4, section h5 { font-size: 16px; }
+h1 a[href], h2 a[href], h3 a[href], h4 a[href] {
+  color: #333;
+}
+
+table {
+  margin-left: 0em;
+  border-collapse: collapse;
+}
+th {
+  text-align: left;
+  border-bottom: 2px solid #ddd;
+}
+td {
+  border-top: 1px solid #ddd;
+  vertical-align: top;
+}
+tr:nth-child(2n+1) > td,
+tr:nth-child(2n+1) > th {
+  background-color: #f9f9f9;
+}
+td.reference {
+  max-width: 200px;
+  border-top: none;
+  padding-right: 1em;
+}
+.right {
+  text-align: right;
+}
+
+
+table.header, table#rfc\.headerblock {
+  width: 100%;
+}
+table.header td, table#rfc\.headerblock td {
+  border: none;
+  background-color: transparent;
+  color: black;
+  padding: 0;
+}
+.filename {
+  display: block;
+  color: rgb(119, 119, 119);
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 100%;
+  margin: 10px 0 32px;
+}
+#rfc\.abstract+p, #rfc\.abstract p {
+  font-size: 20px;
+  line-height: 28px;
+}
+
+samp, tt, code, pre {
+  font: 11pt consolas, monospace;
+  font-size-adjust: none;
+}
+pre {
+  background-color: #eee;
+  border: 1px solid #ddd;
+  overflow-x: auto;
+  padding: 5px;
+  margin: 5px;
+}
+.figure, caption {
+  font-style: italic;
+  margin: 0 1.5em;
+  text-align: left;
+}
+
+address {
+  margin: 16px 2px;
+  line-height: 20px;
+}
+.vcard {
+  font-style: normal;
+}
+.vcardline {
+  display: block;
+}
+.vcardline .fn, address b {
+  font-weight: normal;
+}
+.vcardline .hidden {
+  display: none;
+}
+
+dl {
+  margin-left: 1em;
+}
+dl.dl-horizontal: {
+  margin-left: 0;
+}
+dl > dt {
+  float: left;
+  margin-right: 1em;
+}
+dl.nohang > dt {
+  float: none;
+}
+dl > dd {
+  margin-bottom: .5em;
+}
+dl.compact > dd {
+  margin-bottom: 0em;
+}
+dl > dd > dl {
+  margin-top: 0.5em;
+  margin-bottom: 0em;
+}
+ul.empty {
+  list-style-type: none;
+}
+ul.empty li {
+  margin-top: .5em;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #eee;
+}
+hr.noprint {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+}
+a[href] {
+  color: #2a6496;
+}
+a[href]:hover {
+  background-color: #eee;
+}
+
+ol, ul, li, p {
+  padding: 0;
+  margin: 0.5em 0 0.5em 2em;
+}
+li, p {
+  margin-left: 0;
+}
+address {
+  font-style: normal;
+}
+
+ul.toc ul {
+  margin: 0 0 0 2em;
+}
+ul.toc li {
+  list-style: none;
+  margin: 0;
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    padding-right: 350px;
+  }
+  body>ul.toc, body>#rfc\.toc {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    right: calc(50vw - 550px);
+    width: 300px;
+    z-index: 1;
+    overflow: auto;
+    overscroll-behavior: contain;
+  }
+  body>#rfc\.toc {
+    top: 55px;
+  }
+  body>ul.toc {
+    top: 100px;
+  }
+
+  ul.toc {
+    margin: 0 0 0 4px;
+    font-size: 12px;
+    line-height: 20px;
+  }
+  ul.toc ul {
+    margin-left: 1.2em;
+  }
+}
+
+.github-fork-ribbon-wrapper {
+  display: none;
+}
+@media screen and (min-width: 800px) {
+  /* "Fork me on GitHub" CSS ribbon based on
+   * https://github.com/simonwhitaker/github-fork-ribbon-css
+   */
+  .github-fork-ribbon {
+    position: absolute;
+    padding: 2px 0;
+    background-color: #a00;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.5);
+    font: 700 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    pointer-events: auto;
+
+    top: 38px;
+    right: -45px;
+
+    transform: rotate(45deg);
+  }
+
+  .github-fork-ribbon a[href],
+  .github-fork-ribbon a[href]:hover {
+    color: #fff;
+    background-color: transparent;
+    text-decoration: none;
+    text-shadow: 0 -1px rgba(0, 0, 0, 0.5);
+    text-align: center;
+
+    width: 190px;
+    line-height: 18px;
+
+    display: inline-block;
+    padding: 2px 0;
+
+    border: 1.5px dotted #fff;
+    border-color: rgba(255, 255, 255, 0.6);
+  }
+
+  .github-fork-ribbon-wrapper {
+    display: block;
+    width: 130px;
+    height: 130px;
+    position: absolute;
+    overflow: hidden;
+    top: 0; right: 0;
+    z-index: 2;
+    pointer-events: none;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .github-fork-ribbon-wrapper {
+    position: fixed;
+  }
+/*]]>*/</style>
+<meta name="viewport" content="initial-scale=1.0">
+
+
+  <link href="#rfc.toc" rel="Contents"/>
+<link href="#rfc.section.1" rel="Chapter" title="1 Introduction"/>
+<link href="#rfc.section.2" rel="Chapter" title="2 Technical Prescription"/>
+<link href="#rfc.section.3" rel="Chapter" title="3 Technical Identification"/>
+<link href="#rfc.section.3.1" rel="Chapter" title="3.1 Points of Control"/>
+<link href="#rfc.section.3.2" rel="Chapter" title="3.2 Application Layer"/>
+<link href="#rfc.section.3.2.1" rel="Chapter" title="3.2.1 HTTP Request Header Identification"/>
+<link href="#rfc.section.3.2.2" rel="Chapter" title="3.2.2 HTTP Response Header Identification"/>
+<link href="#rfc.section.3.2.3" rel="Chapter" title="3.2.3 Instrumenting Content Providers"/>
+<link href="#rfc.section.3.2.4" rel="Chapter" title="3.2.4 Deep Packet Inspection (DPI) Identification"/>
+<link href="#rfc.section.3.2.5" rel="Chapter" title="3.2.5 Server Name Indication"/>
+<link href="#rfc.section.3.3" rel="Chapter" title="3.3 Transport Layer"/>
+<link href="#rfc.section.3.3.1" rel="Chapter" title="3.3.1 TCP/IP Header Identification"/>
+<link href="#rfc.section.3.3.2" rel="Chapter" title="3.3.2 Protocol Identification"/>
+<link href="#rfc.section.4" rel="Chapter" title="4 Technical Interference"/>
+<link href="#rfc.section.4.1" rel="Chapter" title="4.1 Performance Degradation"/>
+<link href="#rfc.section.4.2" rel="Chapter" title="4.2 Packet Dropping"/>
+<link href="#rfc.section.4.3" rel="Chapter" title="4.3 RST Packet Injection"/>
+<link href="#rfc.section.4.4" rel="Chapter" title="4.4 DNS Interference"/>
+<link href="#rfc.section.4.5" rel="Chapter" title="4.5 Distributed Denial of Service (DDoS)"/>
+<link href="#rfc.section.4.6" rel="Chapter" title="4.6 Network Disconnection or Adversarial Route Announcement"/>
+<link href="#rfc.section.5" rel="Chapter" title="5 Non-Technical Prescription"/>
+<link href="#rfc.section.6" rel="Chapter" title="6 Non-Technical Interference"/>
+<link href="#rfc.section.6.1" rel="Chapter" title="6.1 Self Censorship"/>
+<link href="#rfc.section.6.2" rel="Chapter" title="6.2 Domain Name Reallocation"/>
+<link href="#rfc.section.6.3" rel="Chapter" title="6.3 Server Takedown"/>
+<link href="#rfc.section.6.4" rel="Chapter" title="6.4 Notice and Takedown"/>
+<link href="#rfc.section.7" rel="Chapter" title="7 Contributors"/>
+<link href="#rfc.references" rel="Chapter" title="8 Informative References"/>
+<link href="#rfc.authors" rel="Chapter"/>
+
+
+  <meta name="generator" content="xml2rfc version 2.5.2 - http://tools.ietf.org/tools/xml2rfc" />
+  <link rel="schema.dct" href="http://purl.org/dc/terms/" />
+
+  <meta name="dct.creator" content="Hall, J., Aaron, M., Jones, B., and N. Feamster" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-hall-censorship-tech-latest" />
+  <meta name="dct.issued" scheme="ISO8601" content="2016-7-08" />
+  <meta name="dct.abstract" content="This document describes the technical mechanisms used by censorship regimes around the world to block or impair Internet traffic. It aims to make designers, implementers, and users of Internet protocols aware of the properties being exploited and mechanisms used to censor end-user access to information.  This document makes no suggestions on individual protocol considerations, and is purely informational, intended to be a reference." />
+  <meta name="description" content="This document describes the technical mechanisms used by censorship regimes around the world to block or impair Internet traffic. It aims to make designers, implementers, and users of Internet protocols aware of the properties being exploited and mechanisms used to censor end-user access to information.  This document makes no suggestions on individual protocol considerations, and is purely informational, intended to be a reference." />
+
+</head>
+
+<body>
+
+  <table class="header">
+    <tbody>
+    
+    	<tr>
+  <td class="left">Network Working Group</td>
+  <td class="right">J. Hall</td>
+</tr>
+<tr>
+  <td class="left">Internet-Draft</td>
+  <td class="right">CDT</td>
+</tr>
+<tr>
+  <td class="left">Intended status: Informational</td>
+  <td class="right">M. Aaron</td>
+</tr>
+<tr>
+  <td class="left">Expires: January 9, 2017</td>
+  <td class="right">CU Boulder</td>
+</tr>
+<tr>
+  <td class="left"></td>
+  <td class="right">B. Jones</td>
+</tr>
+<tr>
+  <td class="left"></td>
+  <td class="right">N. Feamster</td>
+</tr>
+<tr>
+  <td class="left"></td>
+  <td class="right">Princeton</td>
+</tr>
+<tr>
+  <td class="left"></td>
+  <td class="right">July 08, 2016</td>
+</tr>
+
+    	
+    </tbody>
+  </table>
+
+  <p class="title">A Survey of Worldwide Censorship Techniques<br />
+  <span class="filename">draft-hall-censorship-tech-latest</span></p>
+  
+  <h1 id="rfc.abstract">
+  <a href="#rfc.abstract">Abstract</a>
+</h1>
+<p>This document describes the technical mechanisms used by censorship regimes around the world to block or impair Internet traffic. It aims to make designers, implementers, and users of Internet protocols aware of the properties being exploited and mechanisms used to censor end-user access to information.  This document makes no suggestions on individual protocol considerations, and is purely informational, intended to be a reference.</p>
+<h1 id="rfc.status">
+  <a href="#rfc.status">Status of This Memo</a>
+</h1>
+<p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
+<p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
+<p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
+<p>This Internet-Draft will expire on January 9, 2017.</p>
+<h1 id="rfc.copyrightnotice">
+  <a href="#rfc.copyrightnotice">Copyright Notice</a>
+</h1>
+<p>Copyright (c) 2016 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
+<p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (http://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
+
+  
+  <hr class="noprint" />
+  <h1 class="np" id="rfc.toc"><a href="#rfc.toc">Table of Contents</a></h1>
+  <ul class="toc">
+
+  	<li>1.   <a href="#rfc.section.1">Introduction</a></li>
+<li>2.   <a href="#rfc.section.2">Technical Prescription</a></li>
+<li>3.   <a href="#rfc.section.3">Technical Identification</a></li>
+<ul><li>3.1.   <a href="#rfc.section.3.1">Points of Control</a></li>
+<li>3.2.   <a href="#rfc.section.3.2">Application Layer</a></li>
+<ul><li>3.2.1.   <a href="#rfc.section.3.2.1">HTTP Request Header Identification</a></li>
+<li>3.2.2.   <a href="#rfc.section.3.2.2">HTTP Response Header Identification</a></li>
+<li>3.2.3.   <a href="#rfc.section.3.2.3">Instrumenting Content Providers</a></li>
+<li>3.2.4.   <a href="#rfc.section.3.2.4">Deep Packet Inspection (DPI) Identification</a></li>
+<li>3.2.5.   <a href="#rfc.section.3.2.5">Server Name Indication</a></li>
+</ul><li>3.3.   <a href="#rfc.section.3.3">Transport Layer</a></li>
+<ul><li>3.3.1.   <a href="#rfc.section.3.3.1">TCP/IP Header Identification</a></li>
+<li>3.3.2.   <a href="#rfc.section.3.3.2">Protocol Identification</a></li>
+</ul></ul><li>4.   <a href="#rfc.section.4">Technical Interference</a></li>
+<ul><li>4.1.   <a href="#rfc.section.4.1">Performance Degradation</a></li>
+<li>4.2.   <a href="#rfc.section.4.2">Packet Dropping</a></li>
+<li>4.3.   <a href="#rfc.section.4.3">RST Packet Injection</a></li>
+<li>4.4.   <a href="#rfc.section.4.4">DNS Interference</a></li>
+<li>4.5.   <a href="#rfc.section.4.5">Distributed Denial of Service (DDoS)</a></li>
+<li>4.6.   <a href="#rfc.section.4.6">Network Disconnection or Adversarial Route Announcement</a></li>
+</ul><li>5.   <a href="#rfc.section.5">Non-Technical Prescription</a></li>
+<li>6.   <a href="#rfc.section.6">Non-Technical Interference</a></li>
+<ul><li>6.1.   <a href="#rfc.section.6.1">Self Censorship</a></li>
+<li>6.2.   <a href="#rfc.section.6.2">Domain Name Reallocation</a></li>
+<li>6.3.   <a href="#rfc.section.6.3">Server Takedown</a></li>
+<li>6.4.   <a href="#rfc.section.6.4">Notice and Takedown</a></li>
+</ul><li>7.   <a href="#rfc.section.7">Contributors</a></li>
+<li>8.   <a href="#rfc.references">Informative References</a></li>
+<li><a href="#rfc.authors">Authors' Addresses</a></li>
+
+
+  </ul>
+
+  <h1 id="rfc.section.1"><a href="#rfc.section.1">1.</a> <a href="#intro" id="intro">Introduction</a></h1>
+<p id="rfc.section.1.p.1">Censorship is where an entity in a position of power &#8211; such as a government, organization, or individual &#8211; suppresses communication that it considers objectionable, harmful, sensitive, politically incorrect or inconvenient. (Although censors that engage in censorship must do so through legal, military, or other means, this document focuses largely on technical mechanisms used to achieve network censorship.)</p>
+<p id="rfc.section.1.p.2">This document describes the technical mechanisms that censorship regimes around the world use to block or degrade Internet traffic (see <a href="#RFC7754">[RFC7754]</a> for a discussion of Internet blocking and filtering in terms of implications for Internet architecture, rather than end-user access to content and services).</p>
+<p id="rfc.section.1.p.3">We describe three elements of Internet censorship: prescription, identification, and interference. Prescription is the process by which censors determine what types of material they should block, i.e. they decide to block a list of pornographic websites. Identification is the process by which censors classify specific traffic to be blocked or impaired, i.e. the censor blocks or impairs all webpages containing &#8220;sex&#8221; in the title or traffic to sex.com.  Interference is the process by which the censor intercedes in communication and prevents access to censored materials by blocking access or impairing the connection.</p>
+<h1 id="rfc.section.2"><a href="#rfc.section.2">2.</a> <a href="#tech-prescrip" id="tech-prescrip">Technical Prescription</a></h1>
+<p id="rfc.section.2.p.1">Prescription is the process of figuring out what censors would like to block <a href="#Glanville-2008">[Glanville-2008]</a>. Generally, censors aggregate &#8220;to block&#8221; information in blacklists or using real-time heuristic assessment of content <a href="#Ding-1999">[Ding-1999]</a>.</p>
+<p id="rfc.section.2.p.2">There are typically three types of blacklists: Keyword, Domain Name, or IP. Keyword and Domain Name blocking take place at the application level (e.g. HTTP), whereas IP blocking tends to take place using routing data in TCP/IP headers. The mechanisms for building up these blacklists are varied. Censors can purchase from private industry &#8220;content control&#8221; software, such as SmartFilter, which allows filtering from broad categories that they would like to block, such as gambling or pornography.  In these cases, thes private services attempt to categorize every semi-questionable website as to allow for metatag blocking (similarly, they tune real-time content heuristic systems to map their assessments onto categories of objectionable content).</p>
+<p id="rfc.section.2.p.3">Countries that are more interested in retaining specific political control, a desire which requires swift and decisive action, often have ministries or organizations, such as the Ministry of Industry and Information Technology in China or the Ministry of Culture and Islamic Guidance in Iran, which maintain their own blacklists.</p>
+<h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#tech-id" id="tech-id">Technical Identification</a></h1>
+<h1 id="rfc.section.3.1"><a href="#rfc.section.3.1">3.1.</a> <a href="#poc" id="poc">Points of Control</a></h1>
+<p id="rfc.section.3.1.p.1">Internet censorship, necessarily, takes place over a network. Network design gives censors a number of different points-of-control where they can identify the content they are interested in filtering. An important aspect of pervasive technical interception is the necessity to rely on software or hardware to intercept the content the censor is interested in. This requirement, the need to have the interception mechanism located somewhere, logically or physically, implicates various general points-of-control:</p>
+<p/>
+
+<ul>
+  <li>Internet Backbone: If a censor controls the gateways into a region, they can filter undesirable traffic that is traveling into and out of the region by sniffing and mirroring at the relevant exchange points. Censorship at this point of control is most effective at controlling the flow of information between a region and the rest of the Internet, but is ineffective at identifying content traveling between the users within a region.</li>
+  <li>Internet Service Providers: Internet Service Providers are perhaps the most natural point of control. They have a benefit of being easily enumerable by a censor paired with the ability to identify the regional and international traffic of all their users. The censor&#8217;s filtration mechanisms can be placed on an ISP via governmental mandates, ownership, or voluntary/coercive influence.</li>
+  <li>Institutions: Private institutions such as corporations, schools, and cyber cafes can put filtration mechanisms in place. These mechanisms are occasionally at the request of a censor, but are more often implemented to help achieve institutional goals, such as to prevent the viewing of pornography on school computers.</li>
+  <li>Personal Devices: Censors can mandate censorship software be installed on the device level. This has many disadvantages in terms of scalability, ease-of-circumvention, and operating system requirements. The emergence of mobile devices exacerbate these feasibility problems.</li>
+  <li>Services: Application service providers can be pressured, coerced, or legally required to censor specific content or flows of data. Service providers naturally face incentives to maximize their potential customer base and potential service shutdowns or legal liability due to censorship efforts may seem much less attractive than potentially excluding content, users, or uses of their service.</li>
+  <li>Certificate Authorities: Authorities that issue cryptographically secured resources can be a significant point of control. Certificate Authorities that issue certificates to domain holders for TLS/HTTPS or Regional/Local Internet Registries that issue Route Origination Authorizations to BGP operators can be forced to issue rogue certificates that may allow compromises in confidentiatlity guarantees &#8211; allowing censorship software to engage in identification and interference where not possible before &#8211; or integrity degrees &#8211; allowing, for example, adversarial routing of traffic.</li>
+  <li>Content Distribution Networks (CDNs): CDNs seek to collapse network topology in order to better locate content closer to the service&#8217;s users in order to improve quality of service. These can be powerful points of control for censors, especially if the location of a CDN results in easier interference.</li>
+</ul>
+<p id="rfc.section.3.1.p.3">At all levels of the network hierarchy, the filtration mechanisms used to detect undesirable traffic are essentially the same: a censor sniffs transmitting packets and identifies undesirable content, and then uses a blocking or shaping mechanism to prevent or impair access.  Identification of undesirable traffic can occur at the application, transport, or network layer of the IP stack. Censors are almost always concerned with web traffic, so the relevant protocols tend to be filtered in predictable ways. For example, a subversive image would always make it past a keyword filter, but the IP address of the site serving the image may be blacklisted when identified as a provider of undesirable content.</p>
+<h1 id="rfc.section.3.2"><a href="#rfc.section.3.2">3.2.</a> <a href="#app-layer" id="app-layer">Application Layer</a></h1>
+<h1 id="rfc.section.3.2.1"><a href="#rfc.section.3.2.1">3.2.1.</a> <a href="#http-request-header-identification" id="http-request-header-identification">HTTP Request Header Identification</a></h1>
+<p id="rfc.section.3.2.1.p.1">An HTTP header contains a lot of useful information for traffic identification; although host is the only required field in an HTTP request header (for HTTP/1.1 and later), an HTTP method field is necessary to do anything useful. As such, the method and host fields are the two fields used most often for ubiquitous censorship. A censor can sniff traffic and identify a specific domain name (host) and usually a page name (GET /page) as well. This identification technique is usually paired with TCP/IP header identification (see <a href="#sec_tcpid">Section 3.3.1</a>) for a more robust method.</p>
+<p id="rfc.section.3.2.1.p.2">Tradeoffs: Request Identification is a technically straight-forward identification method that can be easily implemented at the Backbone or ISP level. The hardware needed for this sort of identification is cheap and easy-to-acquire, making it desirable when budget and scope are a concern. HTTPS will encrypt the relevant request and response fields, so pairing with TCP/IP identification (see <a href="#sec_tcpid">Section 3.3.1</a>) is necessary for filtering of HTTPS. However, some countermeasures such as URL obfuscation <a href="#RSF-2005">[RSF-2005]</a> can trivially defeat simple forms of HTTP Request Header Identification.</p>
+<p id="rfc.section.3.2.1.p.3">Empirical Examples: Studies exploring censorship mechanisms have found evidence of HTTP header/ URL filtering in many countries, including Bangladesh, Bahrain, China, India, Iran, Malaysia, Pakistan, Russia, Saudi Arabia, South Korea, Thailand, and Turkey <a href="#Verkamp-2012">[Verkamp-2012]</a> <a href="#Nabi-2013">[Nabi-2013]</a> <a href="#Aryan-2012">[Aryan-2012]</a>. Commercial technologies such as the McAfee SmartFilter and NetSweeper are often purchased by censors <a href="#Dalek-2013">[Dalek-2013]</a>.  These commercial technologies use a combination of HTTP Request Identification and TCP/IP Header Identification to filter specific URLs. Dalek et al. and Jones et al. identified the use of these products in the wild <a href="#Dalek-2013">[Dalek-2013]</a> <a href="#Jones-2014">[Jones-2014]</a>.</p>
+<h1 id="rfc.section.3.2.2"><a href="#rfc.section.3.2.2">3.2.2.</a> <a href="#http-response-header-identification" id="http-response-header-identification">HTTP Response Header Identification</a></h1>
+<p id="rfc.section.3.2.2.p.1">While HTTP Request Header Identification relies on the information contained in the HTTP request from client to server, response identification uses information sent in response by the server to client to identify undesirable content.</p>
+<p id="rfc.section.3.2.2.p.2">Tradeoffs: As with HTTP Request Header Identification, the techniques used to identify HTTP traffic are well-known, cheap, and relatively easy to implement, but is made useless by HTTPS, because the response in HTTPS is encrypted, including headers.</p>
+<p id="rfc.section.3.2.2.p.3">The response fields are also less helpful for identifying content than request fields, as Server could easily be identified using HTTP Request Header identification, and Via is rarely relevant.  HTTP Response censorship mechanisms normally let the first n packets through while the mirrored traffic is being processed; this may allow some content through and the user may be able to detect that the censor is actively interfering with undesirable content.</p>
+<p id="rfc.section.3.2.2.p.4">Empirical Examples: In 2009, Jong Park et al. at the University of New Mexico demonstrated that the Great Firewall of China (GFW) used this technique <a href="#Crandall-2010">[Crandall-2010]</a>. However, Jong Park et al. found that the GFW discontinued this practice during the course of the study. Due to the overlap in HTTP response filtering and keyword filtering (see <a href="#kw-filt">Section 3.2.3</a>), it is likely that most censors rely on keyword filtering over TCP streams instead of HTTP response filtering.</p>
+<h1 id="rfc.section.3.2.3"><a href="#rfc.section.3.2.3">3.2.3.</a> <a href="#kw-filt" id="kw-filt">Instrumenting Content Providers</a></h1>
+<p id="rfc.section.3.2.3.p.1">In addition to censorship by the state, many governments pressure content providers to censor themselves. Due to the extensive reach of government censorship, we need to define content provider as any service that provides utility to users, including everything from web sites to locally installed programs. The defining factor of keyword identification by content providers is the choice of content providers to detect restricted terms on their platform. The terms to look for may be provided by the government or the content provider may be expected to come up with their own list.</p>
+<p id="rfc.section.3.2.3.p.2">Tradeoffs: By instrumenting content providers to identify restricted content, the censor can gain new information at the cost of political capital with the companies it forces or encourages to participate in censorship. For example, the censor can gain insight about the content of encrypted traffic by coercing web sites to identify restricted content, but this may drive away potential investment. Coercing content providers may encourage self censorship, an additional advantage for censors. The tradeoffs for instrumenting content providers are highly dependent on the content provider and the requested assistance.</p>
+<p id="rfc.section.3.2.3.p.3">Empirical Examples: Researchers have discovered keyword identification by content providers on platforms ranging from instant messaging applications <a href="#Senft-2013">[Senft-2013]</a> to search engines <a href="#Rushe-2015">[Rushe-2015]</a> <a href="#Cheng-2010">[Cheng-2010]</a> <a href="#Whittaker-2013">[Whittaker-2013]</a> <a href="#BBC-2013">[BBC-2013]</a> <a href="#Condliffe-2013">[Condliffe-2013]</a>. To demonstrate the prevalence of this type of keyword identification, we look to search engine censorship.</p>
+<p id="rfc.section.3.2.3.p.4">Search engine censorship demonstrates keyword identification by content providers and can be regional or worldwide.  Implementation is occasionally voluntary, but normally is based on laws and regulations of the country a search engine is operating in. The keyword blacklists are most likely maintained by the search engine provider. China requires search engine providers to &#8220;voluntarily&#8221; maintain search term blacklists to acquire/keep an Internet content provider (ICP) license <a href="#Cheng-2010">[Cheng-2010]</a>.  It is clear these blacklists are maintained by each search engine provider based on the slight variations in the intercepted searches <a href="#Zhu-2011">[Zhu-2011]</a> <a href="#Whittaker-2013">[Whittaker-2013]</a>. The United Kingdom has been pushing search engines to self censor with the threat of litigation if they don&#8217;t do it themselves: Google and Microsoft have agreed to block more than 100,00 queries in U.K. to help combat abuse <a href="#BBC-2013">[BBC-2013]</a> <a href="#Condliffe-2013">[Condliffe-2013]</a>.</p>
+<p id="rfc.section.3.2.3.p.5">Depending on the output, search engine keyword identification may be difficult or easy to detect. In some cases specialized or blank results provide a trivial enumeration mechanism, but more subtle censorship can be difficult to detect. In February 2015, Microsoft&#8217;s search engine, Bing, was accused of censoring Chinese content outside of China <a href="#Rushe-2015">[Rushe-2015]</a> because Bing returned different results for censored terms in Chinese and English. However, it is possible that censorship of the largest base of Chinese search users, China, biased Bing&#8217;s results so that the more popular results in China (the uncensored results) were also more popular for Chinese speakers outside of China.</p>
+<h1 id="rfc.section.3.2.4"><a href="#rfc.section.3.2.4">3.2.4.</a> <a href="#dpi" id="dpi">Deep Packet Inspection (DPI) Identification</a></h1>
+<p id="rfc.section.3.2.4.p.1">Deep Packet Inspection has become computationally feasible as a censorship mechanism in recent years <a href="#Wagner-2009">[Wagner-2009]</a>. Unlike other techniques, DPI reassembles network flows to examine the application &#8220;data&#8221; section, as opposed to only the header, and is therefore often used for keyword identification. DPI also differs from other identification technologies because it can leverage additional packet and flow characteristics, i.e. packet sizes and timings, to identify content. To prevent substantial quality of service (QoS) impacts, DPI normally analyzes a copy of data while the original packets continue to be routed. Typically, the traffic is split using either a mirror switch or fiber splitter, and analyzed on a cluster of machines running Intrusion Detection Systems (IDS) configured for censorship.</p>
+<p id="rfc.section.3.2.4.p.2">Tradeoffs: DPI is one of the most expensive identification mechanisms and can have a large QoS impact <a href="#Porter-2010">[Porter-2010]</a>.  When used as a keyword filter for TCP flows, DPI systems can cause also major overblocking problems. Like other techniques, DPI is less useful against encrypted data, though DPI can leverage unencrypted elements of an encrypted data flow (e.g., the Server Name Indicator (SNI) sent in the clear for TLS) or statistical information about an encrypted flow (e.g., video takes more bandwidth than audio or textual forms of communication) to identify traffic. (TODO: talk about content inference through things like TLS fingerprinting?)</p>
+<p id="rfc.section.3.2.4.p.3">Despite these problems, DPI is the most powerful identification method and is widely used in practice. The Great Firewall of China (GFW), the largest censorship system in the world, uses DPI to identify restricted content over HTTP and DNS and inject TCP RSTs and bad DNS responses, respectively, into connections <a href="#Crandall-2010">[Crandall-2010]</a> <a href="#Clayton-2006">[Clayton-2006]</a> <a href="#Anonymous-2014">[Anonymous-2014]</a>.</p>
+<p id="rfc.section.3.2.4.p.4">Empirical Evidence: Several studies have found evidence of DPI being used to censor content and tools. Clayton et al. Crandal et al., Anonymous, and Khattak et al., all explored the GFW and Khattak et al. even probed the firewall to discover implementation details like how much state it stores <a href="#Crandall-2010">[Crandall-2010]</a> <a href="#Clayton-2006">[Clayton-2006]</a> <a href="#Anonymous-2014">[Anonymous-2014]</a> <a href="#Khattak-2013">[Khattak-2013]</a>. The Tor project claims that China, Iran, Ethiopia, and others must have used DPI to block the obsf2 protocol <a href="#Wilde-2012">[Wilde-2012]</a>.  Malaysia has been accused of using targeted DPI, paired with DDoS, to identify and subsequently knockout pro-opposition material <a href="#Wagstaff-2013">[Wagstaff-2013]</a>.  It also seems likely that organizations not so worried about blocking content in real-time could use DPI to sort and categorically search gathered traffic using technologies such as NarusInsight <a href="#Hepting-2011">[Hepting-2011]</a>.</p>
+<h1 id="rfc.section.3.2.5"><a href="#rfc.section.3.2.5">3.2.5.</a> <a href="#sni" id="sni">Server Name Indication</a></h1>
+<p id="rfc.section.3.2.5.p.1">In encrypted connections using Transport Layer Security (TLS), there may be servers that host multiple &#8220;virtual servers&#8221; at a give network address, and the client will need to specify in the (unencrypted) Client Hello message which domain name it seeks to connect to (so that the server can respond with the appropriate TLS certificate) using the Server Name Indication (SNI) TLS extension <a href="#RFC6066">[RFC6066]</a>. Since SNI is sent in the clear, censors and filtering software can use it as a basis for blocking, filtering, or impairment by dropping connections to domains that match prohibited content (e.g., bad.foo.com may be censored while good.foo.com is not) <a href="#Shbair-2015">[Shbair-2015]</a>. (TODO: talk about domain fronting in CDNs where SNI does not match the HOST field inside the encrypted HTTPS envelope?)</p>
+<p id="rfc.section.3.2.5.p.2">Tradeoffs: Some clients do not send the SNI extension (e.g., clients that only support versions of SSL and not TLS) or will fall back to SSL if a TLS connection fails, rendering this method ineffective. In addition, this technique requires deep packet inspection techniques that can be computationally and infrastructurally expensive and improper configuration of an SNI-based block can result in significant overblocking, e.g., when a second-level domain like google.com is inadvertently blocked.</p>
+<p id="rfc.section.3.2.5.p.3">Empirical Evidence: While there are many examples of security firms that offer SNI-based filtering <a href="#Trustwave-2015">[Trustwave-2015]</a> <a href="#Sophos-2015">[Sophos-2015]</a> <a href="#Shbair-2015">[Shbair-2015]</a>, the authors currently know of no specific examples or reports of SNI-based filtering observed in the field used for censorship purposes.</p>
+<h1 id="rfc.section.3.3"><a href="#rfc.section.3.3">3.3.</a> <a href="#transport" id="transport">Transport Layer</a></h1>
+<h1 id="rfc.section.3.3.1"><a href="#rfc.section.3.3.1">3.3.1.</a> <a href="#sec_tcpid" id="sec_tcpid">TCP/IP Header Identification</a></h1>
+<p id="rfc.section.3.3.1.p.1">TCP/IP Header Identification is the most pervasive, reliable, and predictable type of identification.  TCP/IP headers contain a few invaluable pieces of information that must be transparent for traffic to be successfully routed: destination and source IP address and port.  Destination and Source IP are doubly useful, as not only does it allow a censor to block undesirable content via IP blacklisting, but also allows a censor to identify the IP of the user making the request. Port is useful for whitelisting certain applications.</p>
+<p id="rfc.section.3.3.1.p.2">Trade-offs: TCP/IP identification is popular due to its simplicity, availability, and robustness.</p>
+<p id="rfc.section.3.3.1.p.3">TCP/IP identification is trivial to implement, but is difficult to implement in backbone or ISP routers at scale, and is therefore typically implemented with DPI. Blacklisting an IP is equivalent to installing a /32 route on a router and due to limited flow table space, this cannot scale beyond a few thousand IPs at most. IP blocking is also relatively crude, leading to overblocking, and cannot deal with some services like Content Distribution Networks (CDN), that host content at hundreds or thousands of IP addresses. Despite these limitations, IP blocking is extremely effective because the user needs to proxy their traffic through another destination to circumvent this type of identification.</p>
+<p id="rfc.section.3.3.1.p.4">Port-blocking is generally not useful because many types of content share the same port and it is possible for censored applications to change their port. For example, most HTTP traffic goes over port 80, so the censor cannot differentiate between restricted and allowed content solely on the basis of port. Port whitelisting is occasionally used, where a censor limits communication to approved ports, such as 80 for HTTP traffic and is most effective when used in conjunction with other identification mechanisms. For example, a censor could block the default HTTPS port, port 443, thereby forcing most users to fall back to HTTP.</p>
+<h1 id="rfc.section.3.3.2"><a href="#rfc.section.3.3.2">3.3.2.</a> <a href="#prot-id" id="prot-id">Protocol Identification</a></h1>
+<p id="rfc.section.3.3.2.p.1">Censors sometimes identify entire protocols to be blocked using a variety of traffic characteristics.  For example, Iran impairs the performance of HTTPS traffic, a protocol that prevents further analysis, to encourage users to switch to HTTP, a protocol that they can analyze <a href="#Aryan-2012">[Aryan-2012]</a>. A simple protocol identification would be to recognize all TCP traffic over port 443 as HTTPS, but more sophisticated analysis of the statistical properties of payload data and flow behavior, would be more effective, even when port 443 is not used <a href="#Hjelmvik-2010">[Hjelmvik-2010]</a> <a href="#Sandvine-2014">[Sandvine-2014]</a>.</p>
+<p id="rfc.section.3.3.2.p.2">If censors can detect circumvention tools, they can block them, so censors like China are extremely interested in identifying the protocols for censorship circumvention tools. In recent years, this has devolved into an arms race between censors and circumvention tool developers. As part of this arms race, China developed an extremely effective protocol identification technique that researchers call active probing or active scanning.</p>
+<p id="rfc.section.3.3.2.p.3">In active probing, the censor determines whether hosts are running a circumvention protocol by trying to initiate communication using the circumvention protocol. If the host and the censor successfully negotiate a connection, then the censor conclusively knows that host is running a circumvention tool. China has used active scanning to great effect to block Tor <a href="#Winter-2012">[Winter-2012]</a>.</p>
+<p id="rfc.section.3.3.2.p.4">Trade-offs: Protocol Identification necessarily only provides insight into the way information is traveling, and not the information itself.</p>
+<p id="rfc.section.3.3.2.p.5">Protocol identification is useful for detecting and blocking circumvention tools, like Tor, or traffic that is difficult to analyze, like VoIP or SSL, because the censor can assume that this traffic should be blocked. However, this can lead to overblocking problems when used with popular protocols.  These methods are expensive, both computationally and financially, due to the use of statistical analysis, and can be ineffective due to its imprecise nature.</p>
+<p id="rfc.section.3.3.2.p.6">Empirical Examples: Protocol identification can be easy to detect if it is conducted in real time and only a particular protocol is blocked, but some types of protocol identification, like active scanning, are much more difficult to detect. Protocol identification has been used by Iran to identify and throttle SSH traffic to make it unusable <a href="#Anonymous-2007">[Anonymous-2007]</a> and by China to identify and block Tor relays <a href="#Winter-2012">[Winter-2012]</a>. Protocol Identification has also been used for traffic management, such as the 2007 case where Comcast in the United States used RST injection to interrupt BitTorrent Traffic <a href="#Winter-2012">[Winter-2012]</a>.</p>
+<h1 id="rfc.section.4"><a href="#rfc.section.4">4.</a> <a href="#tech-interference" id="tech-interference">Technical Interference</a></h1>
+<p id="rfc.section.4.p.1">(TODO: organize this section into layers just like identification above. Alternatively, the whole document can be organized in a layer structure and do identification and interference at the same time for each layer? That seems wise.)</p>
+<h1 id="rfc.section.4.1"><a href="#rfc.section.4.1">4.1.</a> <a href="#performance-degradation" id="performance-degradation">Performance Degradation</a></h1>
+<p id="rfc.section.4.1.p.1">While other interference techniques outlined in this section mostly focus on blocking or preventing access to content, it can be an effective censorship strategy in some cases to not entirely block access to a given destination, or service but instead degrade the performance of the relevant network connection.  The resulting user experience for a site or service under performance degradation can be so bad that users opt to use a different site, service, or method of communication, or may not engage in communication at all if there are no alternatives.  Traffic shaping techniques that rate-limit the bandwidth available to certain types of traffic is one example of a performance degradation.</p>
+<p id="rfc.section.4.1.p.2">Trade offs: While implementing a performance degradation will not always eliminate the ability of people to access a desire resource, it may force them to use other means of communication where censorship (or surveillance) is more easily accomplished.</p>
+<p id="rfc.section.4.1.p.3">Empirical examples: Iran is known to shape the bandwidth available to HTTPS traffic to encourage unencrypted HTTP traffic <a href="#Aryan-2012">[Aryan-2012]</a>.</p>
+<h1 id="rfc.section.4.2"><a href="#rfc.section.4.2">4.2.</a> <a href="#packet-dropping" id="packet-dropping">Packet Dropping</a></h1>
+<p id="rfc.section.4.2.p.1">Packet dropping is a simple mechanism to prevent undesirable traffic. The censor identifies undesirable traffic and chooses to not properly forward any packets it sees associated with the traversing undesirable traffic instead of following a normal routing protocol. This can be paired with any of the previously described mechanisms so long as the censor knows the user must route traffic through a controlled router.</p>
+<p id="rfc.section.4.2.p.2">Trade offs: Packet Dropping is most successful when every traversing packet has transparent information linked to undesirable content, such as a Destination IP. One downside Packet Dropping suffers from is the necessity of overblocking all content from otherwise allowable IPs based on a single subversive sub-domain; blogging services and github repositories are good examples. China famously dropped all github packets for three days based on a single repository hosting undesirable content <a href="#Anonymous-2013">[Anonymous-2013]</a>.  The need to inspect every traversing packet in close to real time also makes Packet Dropping somewhat challenging from a QoS perspective.</p>
+<p id="rfc.section.4.2.p.3">Empirical Examples: Packet Dropping is a very common form of technical interference and lends itself to accurate detection given the unique nature of the time-out requests it leaves in its wake. The Great Firewall of China uses packet dropping as one of its primary mechanisms of technical censorship <a href="#Ensafi-2013">[Ensafi-2013]</a>. Iran also uses Packet Dropping as the mechanisms for throttling SSH <a href="#Aryan-2012">[Aryan-2012]</a>. These are but two examples of a ubiquitous censorship practice.</p>
+<h1 id="rfc.section.4.3"><a href="#rfc.section.4.3">4.3.</a> <a href="#rst-inject" id="rst-inject">RST Packet Injection</a></h1>
+<p id="rfc.section.4.3.p.1">Packet injection, generally, refers to a man-in-the-middle (MITM) network interference technique that spoofs packets in an established traffic stream. RST packets are normally used to let one side of TCP connection know the other side has stopped sending information, and thus the receiver should close the connection. RST Packet Injection is a specific type of packet injection attack that is used to interrupt an established stream by sending RST packets to both sides of a TCP connection; as each receiver thinks the other has dropped the connection, the session is terminated.</p>
+<p id="rfc.section.4.3.p.2">Trade-offs: RST Packet Injection has a few advantages that make it extremely popular as a censorship technique. RST Packet Injection is an out-of-band interference mechanism, allowing the avoidance of the the QoS bottleneck one can encounter with inline techniques such as Packet Dropping. This out-of-band property allows a censor to inspect a copy of the information, usually mirrored by an optical splitter, making it an ideal pairing for DPI and Protocol Identification <a href="#Weaver-2009">[Weaver-2009]</a> (this asynchronous version of a MITM is often called a Man-on-the-Side (MOTS)).  RST Packet Injection also has the advantage of only requiring one of the two endpoints to accept the spoofed packet for the connection to be interrupted.</p>
+<p id="rfc.section.4.3.p.3">The difficult part of RST Packet Injection is spoofing &#8220;enough&#8221; correct information to ensure one end-point accepts a RST packet as legitimate; this generally implies a correct IP, port, and (TCP) sequence number. Sequence number is the hardest to get correct, as <a href="#RFC0793">[RFC0793]</a> specifies an RST Packet should be in-sequence to be accepted, although the RFC also recommends allowing in-window packets as &#8220;good enough&#8221;. This in-window recommendation is important, as if it is implemented it allows for successful Blind RST Injection attacks <a href="#Netsec-2011">[Netsec-2011]</a>.  When in-window sequencing is allowed, It is trivial to conduct a Blind RST Injection, a blind injection implies the censor doesn&#8217;t know any sensitive (encrypted) sequencing information about the TCP stream they are injecting into, they can simply enumerate the ~70000 possible windows; this is particularly useful for interrupting encrypted/obfuscated protocols such as SSH or Tor. RST Packet Injection relies on a stateful network, making it useless against UDP connections. RST Packet Injection is among the most popular censorship techniques used today given its versatile nature and effectiveness against all types of TCP traffic.</p>
+<p id="rfc.section.4.3.p.4">Empirical Examples: RST Packet Injection, as mentioned above, is most often paired with identification techniques that require splitting, such as DPI or Protocol Identification. In 2007 Comcast was accused of using RST Packet Injection to interrupt traffic it identified as BitTorrent <a href="#Schoen-2007">[Schoen-2007]</a>, this later led to a US Federal Communications Commission ruling against Comcast <a href="#VonLohmann-2008">[VonLohmann-2008]</a>. China has also been known to use RST Packet Injection for censorship purposes. This interference is especially evident in the interruption of encrypted/obfuscated protocols, such as those used by Tor <a href="#Winter-2012">[Winter-2012]</a>.</p>
+<h1 id="rfc.section.4.4"><a href="#rfc.section.4.4">4.4.</a> <a href="#dns-mangling" id="dns-mangling">DNS Interference</a></h1>
+<p id="rfc.section.4.4.p.1">There are a variety of mechanisms that censors can use to block or filter access to content by altering responses from the DNS <a href="#AFNIC-2013">[AFNIC-2013]</a> <a href="#ICANN-SSAC-2012">[ICANN-SSAC-2012]</a>, including blocking the response, replying with an error message, or responding with an incorrect address.</p>
+<p id="rfc.section.4.4.p.2">&#8220;DNS mangling&#8221; is a network-level technique where an incorrect IP address is returned in response to a DNS query to a censored destination. An example of this is what the Chinese network does (we are not aware of any other wide-scale uses of mangling). On the Chinese network every DNS request in transit is examined (presumably by network inspection technologies such as DPI) and, if it matches a censored domain, a false response is injected. End users can see this technique in action by simply sending DNS requests to any unused IP address in China (see example below). If it is not a censored name, there will be no response. If it is censored, an erroneous response will be returned. For example, using the command-line dig utility to query an unused IP address in China of 113.113.113.113 for the name &#8220;www.ietf.org&#8221; (uncensored at the time of writing) compared with &#8220;www.facebook.com&#8221; (censored at the time of writing), we get an erroneous IP address &#8220;37.61.54.158&#8221; as a response:</p>
+<pre>
+% dig +short +nodnssec @113.113.113.113 A www.ietf.org
+;; connection timed out; no servers could be reached
+
+% dig +short +nodnssec @113.113.113.113 A www.facebook.com
+37.61.54.158
+</pre>
+<p id="rfc.section.4.4.p.3">There are also cases of what is colloquially called &#8220;DNS lying&#8221;, where a censor mandates that the DNS responses provided &#8211; by an operator of a resursive resolver such as an Internet access provider &#8211; be different than what authoritative resolvers would provide <a href="#Bortzmayer-2015">[Bortzmayer-2015]</a>.</p>
+<p id="rfc.section.4.4.p.4">DNS cache poisoning refers to a mechanism where a censor interferes with the response sent by an authoritative DNS resolver to a recursive resolver by responding more quickly than the authoritative resolver can respond with an alternative IP address <a href="#ViewDNS-2011">[ViewDNS-2011]</a>. (TODO: Stephane says this cite misuses &#8220;cache poisoning&#8221; and that we haven&#8217;t seen much of this performed systematically.) Cache poisoning occurs after the requested site&#8217;s name servers resolve the request and attempt to forward the true IP back to the requesting device; on the return route the resolved IP is recursively cached by each DNS server that initially forwarded the request. During this caching process if an undesirable keyword is recognized, the resolved IP is &#8220;poisoned&#8221; and an alternative IP (or NXDOMAIN error) is returned more quickly than the upstream resolver can respond, causing an erroneous IP address to be cached (and potentially recursively so). The alternative IPs usually direct to a nonsense domain or a warning page.  Alternatively, Iranian censorship appears to prevent the communication en-route, preventing a response from ever being sent <a href="#Aryan-2012">[Aryan-2012]</a>.</p>
+<p id="rfc.section.4.4.p.5">Trade-offs: These forms of DNS interference require the censor to force a user to traverse a controlled DNS hierarchy (or intervening network on which the censor serves as a Active Pervasive Attacker <a href="#RFC7624">[RFC7624]</a> to rewrite DNS responses) for the mechanism to be effective. It can be circumvented by a technical savvy user that opts to use alternative DNS resolvers (such as the public DNS resolvers provided by Google, OpenDNS, Telcomix, or FDN) or Virtual Private Network technology. DNS mangling and cache poisoning also imply returning an incorrect IP to those attempting to resolve a domain name, but in some cases the destination may be technically accessible;  over HTTP, for example, the user may have another method of obtaining the IP address of the desired site and may be able to access it if the site is configured to be the default server listening at this IP address.  Blocking overflow has also been a problem, as occasionally users outside of the censors region will be directed through DNS servers or DNS-rewriting network equipment controlled by a censor, causing the request to fail. The ease of circumvention paired with the large risk of overblocking and blocking overflow make DNS interference a partial, difficult, and less than ideal censorship mechanism.</p>
+<p id="rfc.section.4.4.p.6">Empirical Evidence: DNS interference, when properly implemented, is easy to identify based on the shortcomings identified above. Turkey relied on DNS interference for its country-wide block of websites such Twitter and Youtube for almost week in March of 2014 but the ease of circumvention resulted in an increase in the popularity of Twitter until Turkish ISPs implementing an IP blacklist to achieve the governmental mandate <a href="#Zmijewki-2014">[Zmijewki-2014]</a>.  Ultimately, Turkish ISPs started hijacking all requests to Google and Level 3&#8217;s international DNS resolvers <a href="#Zmijewki-2014">[Zmijewki-2014]</a>. DNS interference, when incorrectly implemented, has resulted in some of the largest &#8220;censorship disasters&#8221;.  In January 2014 China started directing all requests passing through the Great Fire Wall to a single domain, dongtaiwang.com, due to an improperly configured DNS poisoning attempt; this incident is thought to be the largest Internet-service outage in history <a href="#AFP-2014">[AFP-2014]</a> <a href="#Anon-SIGCOMM12">[Anon-SIGCOMM12]</a>. Countries such as China, Iran, Turkey, and the United States have discussed blocking entire TLDs as well, but only Iran has acted by blocking all Israeli (.il) domains <a href="#Albert-2011">[Albert-2011]</a>.</p>
+<h1 id="rfc.section.4.5"><a href="#rfc.section.4.5">4.5.</a> <a href="#ddos" id="ddos">Distributed Denial of Service (DDoS)</a></h1>
+<p id="rfc.section.4.5.p.1">Distributed Denial of Service attacks are a common attack mechanism used by &#8220;hacktivists&#8221; and malicious hackers, but censors have used DDoS in the past for a variety of reasons. There is a huge variety of DDoS attacks <a href="#Wikip-DoS">[Wikip-DoS]</a>, but on a high level two possible impacts tend to occur; a flood attack results in the service being unusable while resources are being spent to flood the service, a crash attack aims to crash the service so resources can be reallocated elsewhere without &#8220;releasing&#8221; the service.</p>
+<p id="rfc.section.4.5.p.2">Trade-offs: DDoS is an appealing mechanism when a censor would like to prevent all access to undesirable content, instead of only access in their region for a limited period of time, but this is really the only uniquely beneficial feature for DDoS as a censorship technique. The resources required to carry out a successful DDoS against major targets are computationally expensive, usually requiring renting or owning a malicious distributed platform such as a botnet, and imprecise. DDoS is an incredibly crude censorship technique, and appears to largely be used as a timely, easy-to-access mechanism for blocking undesirable content for a limited period of time.</p>
+<p id="rfc.section.4.5.p.3">Empirical Examples: In 2012 the U.K.&#8217;s GCHQ used DDoS to temporarily shutdown IRC chat rooms frequented by members of Anonymous using the Syn Flood DDoS method; Syn Flood exploits the handshake used by TCP to overload the victim server with so many requests that legitimate traffic becomes slow or impossible <a href="#Schone-2014">[Schone-2014]</a> <a href="#CERT-2000">[CERT-2000]</a>. Dissenting opinion websites are frequently victims of DDoS around politically sensitive events in Burma <a href="#Villeneuve-2011">[Villeneuve-2011]</a>. Controlling parties in Russia <a href="#Kravtsova-2012">[Kravtsova-2012]</a>, Zimbabwe <a href="#Orion-2013">[Orion-2013]</a>, and Malaysia <a href="#Muncaster-2013">[Muncaster-2013]</a> have been accused of using DDoS to interrupt opposition support and access during elections.  In 2015, China launched a DDoS attack using a true MITM system colocated with the Great Firewall, dubbed &#8220;Great Cannon&#8221;, that was able to inject JavaScript code into web visits to a Chinese search engine that comandeered those user agents to send DDoS traffic to various sites <a href="#Marczak-2015">[Marczak-2015]</a>.</p>
+<h1 id="rfc.section.4.6"><a href="#rfc.section.4.6">4.6.</a> <a href="#discon" id="discon">Network Disconnection or Adversarial Route Announcement</a></h1>
+<p id="rfc.section.4.6.p.1">While it is perhaps the crudest of all censorship techniques, there is no more effective way of making sure undesirable information isn&#8217;t allowed to propagate on the web than by shutting off the network. The network can be logically cut off in a region when a censoring body withdraws all of the Boarder Gateway Protocol (BGP) prefixes routing through the censor&#8217;s country.</p>
+<p id="rfc.section.4.6.p.2">Trade-offs: The impact to a network disconnection in a region is huge and absolute; the censor pays for absolute control over digital information with all the benefits the Internet brings; this is never a long-term solution for any rational censor and is normally only used as a last resort in times of substantial unrest.</p>
+<p id="rfc.section.4.6.p.3">Empirical Examples: Network Disconnections tend to only happen in times of substantial unrest, largely due to the huge social, political, and economic impact such a move has. One of the first, highly covered occurrences was with the Junta in Myanmar employing Network Disconnection to help Junta forces quash a rebellion in 2007 <a href="#Dobie-2007">[Dobie-2007]</a>. China disconnected the network in the Xinjiang region during unrest in 2009 in an effort to prevent the protests from spreading to other regions <a href="#Heacock-2009">[Heacock-2009]</a>. The Arab Spring saw the the most frequent usage of Network Disconnection, with events in Egypt and Libya in 2011 <a href="#Cowie-2011">[Cowie-2011]</a> <a href="#Cowie-2011b">[Cowie-2011b]</a>, and Syria in 2012 <a href="#Thomson-2012">[Thomson-2012]</a>.</p>
+<h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#nontechag" id="nontechag">Non-Technical Prescription</a></h1>
+<p id="rfc.section.5.p.1">As the name implies, sometimes manpower is the easiest way to figure out which content to block.  Manual Filtering differs from the common tactic of building up blacklists in that it doesn&#8217;t necessarily target a specific IP or DNS, but instead removes or flags content.  Given the imprecise nature of automatic filtering, manually sorting through content and flagging dissenting websites, blogs, articles and other media for filtration can be an effective technique.  This filtration can occur on the Backbone/ISP level &#8211; China&#8217;s army of monitors is a good example <a href="#BBC-2013b">[BBC-2013b]</a> &#8211; but more commonly manual filtering occurs on an institutional level.  Internet Content Providers such as Google or Weibo, require a business license to operate in China.  One of the prerequisites for a business license is an agreement to sign a &#8220;voluntary pledge&#8221; known as the &#8220;Public Pledge on Self-discipline for the Chinese Internet Industry&#8221;.  The failure to &#8220;energetically uphold&#8221; the pledged values can lead to the ICPs being held liable for the offending content by the Chinese government <a href="#BBC-2013b">[BBC-2013b]</a>.</p>
+<h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#nontechint" id="nontechint">Non-Technical Interference</a></h1>
+<h1 id="rfc.section.6.1"><a href="#rfc.section.6.1">6.1.</a> <a href="#selfcensor" id="selfcensor">Self Censorship</a></h1>
+<p id="rfc.section.6.1.p.1">Self censorship is one of the most interesting and effective types of censorship; a mix of Bentham&#8217;s Panopticon, cultural manipulation, intelligence gathering, and meatspace enforcement. Simply put, self censorship is when a censor creates an atmosphere where users censor themselves. This can be achieved through controlling information, intimidating would-be dissidents, swaying public thought, and creating apathy. Self censorship is difficult to document, as when it is implemented effectively the only noticeable tracing is a lack of undesirable content; instead one must look at the tools and techniques used by censors to encourage self-censorship. Controlling Information relies on traditional censorship techniques, or by forcing all users to connect through an intranet, such as in North Korea.  Intimidation is often achieved through allowing Internet users to post &#8220;whatever they want&#8221;, but arresting those who post about dissenting views, this technique is incredibly common <a href="#Calamur-2013">[Calamur-2013]</a> <a href="#AP-2012">[AP-2012]</a> <a href="#Hopkins-2011">[Hopkins-2011]</a> <a href="#Guardian-2014">[Guardian-2014]</a> <a href="#Johnson-2010">[Johnson-2010]</a>.  A good example of swaying public thought is China&#8217;s &#8220;50-Cent Party&#8221;, composed of somewhere between 20,000 <a href="#Bristow-2013">[Bristow-2013]</a> and 300,000 <a href="#Fareed-2008">[Fareed-2008]</a> contributors who are paid to &#8220;guide public thought&#8221; on local and regional issues as directed by the Ministry of Culture. Creating apathy can be a side-effect of successfully controlling information over time and is ideal for a censorship regime <a href="#Gao-2014">[Gao-2014]</a>.</p>
+<h1 id="rfc.section.6.2"><a href="#rfc.section.6.2">6.2.</a> <a href="#dnrealloc" id="dnrealloc">Domain Name Reallocation</a></h1>
+<p id="rfc.section.6.2.p.1">As Domain Names are resolved recursively, if a TLD deregisters a domain all other DNS servers will be unable to properly forward and cache the site. Domain name registration is only really a risk where undesirable content is hosted on TLD controlled by the censoring country, such as .cn or .ru <a href="#Anderson-2011">[Anderson-2011]</a> or where legal processes in countries like the United States result in domain name seizures and/or DNS redirection by the government <a href="#Kopel-2013">[Kopel-2013]</a>.</p>
+<h1 id="rfc.section.6.3"><a href="#rfc.section.6.3">6.3.</a> <a href="#serverko" id="serverko">Server Takedown</a></h1>
+<p id="rfc.section.6.3.p.1">Servers must have a physical location somewhere in the world. If undesirable content is hosted in the censoring country the servers can be physically seized or the hosting provider can be required to prevent access <a href="#Anderson-2011">[Anderson-2011]</a>.</p>
+<h1 id="rfc.section.6.4"><a href="#rfc.section.6.4">6.4.</a> <a href="#notice" id="notice">Notice and Takedown</a></h1>
+<p id="rfc.section.6.4.p.1">In some countries, legal mechanisms exist where an individual can issue a legal request to a content host that requires the host to take down content. Examples include the voluntary systems employed by companies like Google to comply with &#8220;Right to be Forgotten&#8221; policies in the European Union <a href="#Google-RTBF">[Google-RTBF]</a> and the copyright-oriented notice and takedown regime of the United States Digital Millennium Copyright Act (DMCA) Section 512 <a href="#DMLP-512">[DMLP-512]</a>.</p>
+<h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#Contributors" id="Contributors">Contributors</a></h1>
+<p id="rfc.section.7.p.1">This document benefited from discussions with Stephane Bortzmeyer, Nick Feamster, and Martin Nilsson.</p>
+<h1 id="rfc.references"><a href="#rfc.references">8.</a> Informative References</h1>
+<table>
+  <tbody>
+    <tr>
+      <td class="reference">
+        <b id="AFNIC-2013">[AFNIC-2013]</b>
+      </td>
+      <td class="top"><a>AFNIC</a>, "<a href="http://www.afnic.fr/medias/documents/conseilscientifique/SC-consequences-of-DNS-based-Internet-filtering.pdf">Report of the AFNIC Scientific Council: Consequences of DNS-based Internet filtering</a>", 2013.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="AFP-2014">[AFP-2014]</b>
+      </td>
+      <td class="top"><a>AFP</a>, "<a href="http://www.businessinsider.com/chinas-internet-breakdown-reportedly-caused-by-censoring-tools-2014-1">China Has Massive Internet Breakdown Reportedly Caused By Their Own Censoring Tools</a>", 2014.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Albert-2011">[Albert-2011]</b>
+      </td>
+      <td class="top"><a>Albert, K.</a>, "<a href="https://opennet.net/blog/2011/06/dns-tampering-and-new-icann-gtld-rules">DNS Tampering and the new ICANN gTLD Rules</a>", 2011.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Anderson-2011">[Anderson-2011]</b>
+      </td>
+      <td class="top"><a>Anderson, R.</a> and <a>S. Murdoch</a>, "<a href="http://access.opennet.net/wp-content/uploads/2011/12/accessdenied-chapter-3.pdf">Access Denied: Tools and Technology of Internet Filtering</a>", 2011.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Anon-SIGCOMM12">[Anon-SIGCOMM12]</b>
+      </td>
+      <td class="top"><a>Anonymous</a>, "<a href="http://www.sigcomm.org/sites/default/files/ccr/papers/2012/July/2317307-2317311.pdf">The Collateral Damage of Internet Censorship by DNS Injection</a>", 2012.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Anonymous-2007">[Anonymous-2007]</b>
+      </td>
+      <td class="top"><a>Anonymous</a>, "<a href="https://torrentfreak.com/how-to-bypass-comcast-bittorrent-throttling-071021">How to Bypass Comcast's Bittorrent Throttling</a>", 2012.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Anonymous-2013">[Anonymous-2013]</b>
+      </td>
+      <td class="top"><a>Anonymous</a>, "<a href="https://en.greatfire.org/blog/2013/jan/github-blocked-china-how-it-happened-how-get-around-it-and-where-it-will-take-us">GitHub blocked in China - how it happened, how to get around it, and where it will take us</a>", 2013.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Anonymous-2014">[Anonymous-2014]</b>
+      </td>
+      <td class="top"><a>Anonymous</a>, "<a href="https://www.usenix.org/system/files/conference/foci14/foci14-anonymous.pdf">Towards a Comprehensive Picture of the Great Firewall's DNS Censorship</a>", 2014.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="AP-2012">[AP-2012]</b>
+      </td>
+      <td class="top"><a>Associated Press</a>, "<a href="http://www.huffingtonpost.com/2012/12/03/sattar-beheshit-iran_n_2233125.html">Sattar Beheshit, Iranian Blogger, Was Beaten In Prison According To Prosecutor</a>", 2012.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Aryan-2012">[Aryan-2012]</b>
+      </td>
+      <td class="top"><a>Aryan, S.</a>, <a>Aryan, H.</a> and <a>J. Halderman</a>, "<a href="https://jhalderm.com/pub/papers/iran-foci13.pdf">Internet Censorship in Iran: A First Look</a>", 2012.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="BBC-2013">[BBC-2013]</b>
+      </td>
+      <td class="top"><a>BBC News</a>, "<a href="http://www.bbc.com/news/uk-24980765">Google and Microsoft agree steps to block abuse images</a>", 2013.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="BBC-2013b">[BBC-2013b]</b>
+      </td>
+      <td class="top"><a>BBC</a>, "<a href="http://www.bbc.com/news/world-asia-china-2439695">China employs two million microblog monitors state media say</a>", 2013.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Bortzmayer-2015">[Bortzmayer-2015]</b>
+      </td>
+      <td class="top"><a>Bortzmayer, S.</a>, "<a href="https://labs.ripe.net/Members/stephane_bortzmeyer/dns-censorship-dns-lies-seen-by-atlas-probes">DNS Censorship (DNS Lies) As Seen By RIPE Atlas</a>", 2015.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Bristow-2013">[Bristow-2013]</b>
+      </td>
+      <td class="top"><a>Bristow, M.</a>, "<a href="http://news.bbc.co.uk/2/hi/asia-pacific/7783640.stm">China's internet 'spin doctors&#8216;</a>", 2013.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Calamur-2013">[Calamur-2013]</b>
+      </td>
+      <td class="top"><a>Calamur, K.</a>, "<a href="http://www.npr.org/blogs/thetwo-way/2013/11/29/247820503/prominent-egyptian-blogger-arrested">Prominent Egyptian Blogger Arrested</a>", 2013.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="CERT-2000">[CERT-2000]</b>
+      </td>
+      <td class="top"><a>CERT</a>, "<a href="http://www.cert.org/historical/advisories/CA-1996-21.cfm">TCP SYN Flooding and IP Spoofing Attacks</a>", 2000.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Cheng-2010">[Cheng-2010]</b>
+      </td>
+      <td class="top"><a>Cheng, J.</a>, "<a href="http://arstechnica.com/tech-policy/2010/06/google-tweaks-china-to-hong-kong-redirect-same-results/">Google stops Hong Kong auto-redirect as China plays hardball</a>", 2010.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Clayton-2006">[Clayton-2006]</b>
+      </td>
+      <td class="top"><a>Clayton, R.</a>, "<a href="http://link.springer.com/chapter/10.1007/11957454_2">Ignoring the Great Firewall of China</a>", 2006.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Condliffe-2013">[Condliffe-2013]</b>
+      </td>
+      <td class="top"><a>Condliffe, J.</a>, "<a href="http://gizmodo.com/google-announces-massive-new-restrictions-on-child-abus-1466539163">Google Announces Massive New Restrictions on Child Abuse Search Terms</a>", 2013.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Cowie-2011">[Cowie-2011]</b>
+      </td>
+      <td class="top"><a>Cowie, J.</a>, "<a href="http://www.renesys.com/2011/01/egypt-leaves-the-internet/">Egypt Leaves the Internet</a>", 2011.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Cowie-2011b">[Cowie-2011b]</b>
+      </td>
+      <td class="top"><a>Cowie, J.</a>, "<a href="http://www.renesys.com/2011/02/libyan-disconnect-1/">Libyan Disconnect</a>", 2011.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Crandall-2010">[Crandall-2010]</b>
+      </td>
+      <td class="top"><a>Crandall, J.</a>, "<a href="http://www.cs.unm.edu/~crandall/icdcs2010.pdf">Empirical Study of a National-Scale Distributed Intrusion Detection System: Backbone-Level Filtering of HTML Responses in China</a>", 2010.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Dalek-2013">[Dalek-2013]</b>
+      </td>
+      <td class="top"><a>Dalek, J.</a>, "<a href="http://www.cs.stonybrook.edu/~phillipa/papers/imc112s-dalek.pdf">A Method for Identifying and Confirming the Use of URL Filtering Products for Censorship</a>", 2013.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Ding-1999">[Ding-1999]</b>
+      </td>
+      <td class="top"><a>Ding, C.</a>, <a>Chi, C.</a>, <a>Deng, J.</a> and <a>C. Dong</a>, "<a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.132.3302&amp;rep=rep1&amp;type=pdf">Centralized Content-Based Web Filtering and Blocking: How Far Can It Go?</a>", 1999.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="DMLP-512">[DMLP-512]</b>
+      </td>
+      <td class="top"><a>Digital Media Law Project</a>, "<a href="http://www.dmlp.org/legal-guide/protecting-yourself-against-copyright-claims-based-user-content">Protecting Yourself Against Copyright Claims Based on User Content</a>", 2012.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Dobie-2007">[Dobie-2007]</b>
+      </td>
+      <td class="top"><a>Dobie, M.</a>, "<a href="http://news.bbc.co.uk/2/hi/asia-pacific/7016238.stm">Junta tightens media screw</a>", 2007.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Ensafi-2013">[Ensafi-2013]</b>
+      </td>
+      <td class="top"><a>Ensafi, R.</a>, "<a href="http://arxiv.org/pdf/1312.5739v1.pdf">Detecting Intentional Packet Drops on the Internet via TCP/IP Side Channels</a>", 2013.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Fareed-2008">[Fareed-2008]</b>
+      </td>
+      <td class="top"><a>Fareed, M.</a>, "<a href="http://www.theguardian.com/media/2008/sep/22/chinathemedia.marketingandpr">China joins a turf war</a>", 2008.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Gao-2014">[Gao-2014]</b>
+      </td>
+      <td class="top"><a>Gao, H.</a>, "<a href="http://www.nytimes.com/2014/06/04/opinion/tiananmen-forgotten.html">Tiananmen, Forgotten</a>", 2014.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Glanville-2008">[Glanville-2008]</b>
+      </td>
+      <td class="top"><a>Glanville, J.</a>, "<a href="http://www.theguardian.com/commentisfree/2008/nov/17/censorship-internet">The Big Business of Net Censorship</a>", 2008.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Google-RTBF">[Google-RTBF]</b>
+      </td>
+      <td class="top"><a>Google, Inc.</a>, "<a href="https://support.google.com/legal/contact/lr_eudpa?product=websearch">Search removal request under data protection law in Europe</a>", 2015.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Guardian-2014">[Guardian-2014]</b>
+      </td>
+      <td class="top"><a>The Gaurdian</a>, "<a href="http://www.theguardian.com/world/2014/apr/17/chinese-blogger-jailed-crackdown-internet-rumours-qin-zhihui">Chinese blogger jailed under crackdown on 'internet rumours'</a>", 2014.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Heacock-2009">[Heacock-2009]</b>
+      </td>
+      <td class="top"><a>Heacock, R.</a>, "<a href="https://opennet.net/blog/2009/07/china-shuts-down-internet-xinjiang-region-after-riots">China Shuts Down Internet in Xinjiang Region After Riots</a>", 2009.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Hepting-2011">[Hepting-2011]</b>
+      </td>
+      <td class="top"><a>Electronic Frontier Foundation</a>, "<a href="https://www.eff.org/cases/hepting">Hepting vs. AT&amp;T</a>", 2011.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Hjelmvik-2010">[Hjelmvik-2010]</b>
+      </td>
+      <td class="top"><a>Hjelmvik, E.</a>, "<a href="https://www.iis.se/docs/hjelmvik_breaking.pdf">Breaking and Improving Protocol Obfuscation</a>", 2010.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Hopkins-2011">[Hopkins-2011]</b>
+      </td>
+      <td class="top"><a>Hopkins, C.</a>, "<a href="http://readwrite.com/2011/03/03/communications_blocked_in_libya_this_week_in_onlin">Communications Blocked in Libya, Qatari Blogger Arrested: This Week in Online Tyranny</a>", 2011.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="ICANN-SSAC-2012">[ICANN-SSAC-2012]</b>
+      </td>
+      <td class="top"><a>ICANN Security and Stability Advisory Committee (SSAC)</a>, "<a href="https://www.icann.org/en/system/files/files/sac-056-en.pdf">SAC 056: SSAC Advisory on Impacts of Content Blocking via the Domain Name System</a>", 2012.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Johnson-2010">[Johnson-2010]</b>
+      </td>
+      <td class="top"><a>Johnson, L.</a>, "<a href="http://seattlepostglobe.org/2010/02/05/torture-feared-in-arrest-of-iraqi-blogger/">Torture feared in arrest of Iraqi blogger</a>", 2011.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Jones-2014">[Jones-2014]</b>
+      </td>
+      <td class="top"><a>Jones, B.</a>, "<a href="http://conferences2.sigcomm.org/imc/2014/papers/p299.pdf">Automated Detection and Fingerprinting of Censorship Block Pages</a>", 2014.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Khattak-2013">[Khattak-2013]</b>
+      </td>
+      <td class="top"><a>Khattak, S.</a>, "<a href="http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/12389-foci13-khattak.pdf">Towards Illuminating a Censorship Monitor's Model to Facilitate Evasion</a>", 2013.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Kopel-2013">[Kopel-2013]</b>
+      </td>
+      <td class="top"><a>Kopel, K.</a>, "<a href="http://dx.doi.org/doi:10.15779/Z384Q3M">Operation Seizing Our Sites: How the Federal Government is Taking Domain Names Without Prior Notice</a>", 2013.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Kravtsova-2012">[Kravtsova-2012]</b>
+      </td>
+      <td class="top"><a>Kravtsova, Y.</a>, "<a href="http://www.themoscowtimes.com/news/article/cyberattacks-disrupt-oppositions-election/470119.html">Cyberattacks Disrupt Opposition's Election</a>", 2012.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Marczak-2015">[Marczak-2015]</b>
+      </td>
+      <td class="top"><a>Marczak, B.</a>, <a>Weaver, N.</a>, <a>Dalek, J.</a>, <a>Ensafi, R.</a>, <a>Fifield, D.</a>, <a>McKune, S.</a>, <a>Rey, A.</a>, <a>Scott-Railton, J.</a>, <a>Deibert, R.</a> and <a>V. Paxson</a>, "<a href="https://www.usenix.org/system/files/conference/foci15/foci15-paper-marczak.pdf">An Analysis of China&#8217;s &#8220;Great Cannon&#8221;</a>", 2015.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Muncaster-2013">[Muncaster-2013]</b>
+      </td>
+      <td class="top"><a>Muncaster, P.</a>, "<a href="http://www.theregister.co.uk/2013/05/09/malaysia_fraud_elections_ddos_web_blocking/">Malaysian election sparks web blocking/DDoS claims</a>", 2013.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Nabi-2013">[Nabi-2013]</b>
+      </td>
+      <td class="top"><a>Nabi, Z.</a>, "<a href="http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/12387-foci13-nabi.pdf">The Anatomy of Web Censorship in Pakistan</a>", 2013.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Netsec-2011">[Netsec-2011]</b>
+      </td>
+      <td class="top"><a>n3t2.3c</a>, "<a href="https://nets.ec/TCP-RST_Injection">TCP-RST Injection</a>", 2011.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Orion-2013">[Orion-2013]</b>
+      </td>
+      <td class="top"><a>Orion, E.</a>, "<a href="http://www.theinquirer.net/inquirer/news/2287433/zimbabwe-election-hit-by-hacking-and-ddos-attacks">Zimbabwe election hit by hacking and DDoS attacks</a>", 2013.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Porter-2010">[Porter-2010]</b>
+      </td>
+      <td class="top"><a>Porter, T.</a>, "<a href="http://www.symantec.com/connect/articles/perils-deep-packet-inspection">The Perils of Deep Packet Inspection</a>", 2010.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="RFC0793">[RFC0793]</b>
+      </td>
+      <td class="top"><a>Postel, J.</a>, "<a href="http://tools.ietf.org/html/rfc793">Transmission Control Protocol</a>", STD 7, RFC 793, DOI 10.17487/RFC0793, September 1981.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="RFC6066">[RFC6066]</b>
+      </td>
+      <td class="top"><a>Eastlake 3rd, D.</a>, "<a href="http://tools.ietf.org/html/rfc6066">Transport Layer Security (TLS) Extensions: Extension Definitions</a>", RFC 6066, DOI 10.17487/RFC6066, January 2011.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="RFC7624">[RFC7624]</b>
+      </td>
+      <td class="top"><a>Barnes, R.</a>, <a>Schneier, B.</a>, <a>Jennings, C.</a>, <a>Hardie, T.</a>, <a>Trammell, B.</a>, <a>Huitema, C.</a> and <a>D. Borkmann</a>, "<a href="http://tools.ietf.org/html/rfc7624">Confidentiality in the Face of Pervasive Surveillance: A Threat Model and Problem Statement</a>", RFC 7624, DOI 10.17487/RFC7624, August 2015.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="RFC7754">[RFC7754]</b>
+      </td>
+      <td class="top"><a>Barnes, R.</a>, <a>Cooper, A.</a>, <a>Kolkman, O.</a>, <a>Thaler, D.</a> and <a>E. Nordmark</a>, "<a href="http://tools.ietf.org/html/rfc7754">Technical Considerations for Internet Service Blocking and Filtering</a>", RFC 7754, DOI 10.17487/RFC7754, March 2016.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="RSF-2005">[RSF-2005]</b>
+      </td>
+      <td class="top"><a>Reporters Sans Frontieres</a>, "<a href="http://archives.rsf.org/print-blogs.php3?id_article=15013">Technical ways to get around censorship</a>", 2005.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Rushe-2015">[Rushe-2015]</b>
+      </td>
+      <td class="top"><a>Rushe, D.</a>, "<a href="http://www.theguardian.com/technology/2014/feb/11/bing-censors-chinese-language-search-results">Bing censoring Chinese language search results for users in the US</a>", 2013.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Sandvine-2014">[Sandvine-2014]</b>
+      </td>
+      <td class="top"><a>Sandvine</a>, "<a href="https://www.sandvine.com/downloads/general/technology/sandvine-technology-showcases/sandvine-technology-showcase-traffic-classification.pdf">Technology Showcase on Traffic Classification: Why Measurements and Freeform Policy Matter</a>", 2014.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Schoen-2007">[Schoen-2007]</b>
+      </td>
+      <td class="top"><a>Schoen, S.</a>, "<a href="https://www.eff.org/deeplinks/2007/10/eff-tests-agree-ap-comcast-forging-packets-to-interfere">EFF tests agree with AP: Comcast is forging packets to interfere with user traffic</a>", 2007.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Schone-2014">[Schone-2014]</b>
+      </td>
+      <td class="top"><a>Schone, M.</a>, <a>Esposito, R.</a>, <a>Cole, M.</a> and <a>G. Greenwald</a>, "<a href="http://www.nbcnews.com/feature/edward-snowden-interview/exclusive-snowden-docs-show-uk-spies-attacked-anonymous-hackers-n21361">Snowden Docs Show UK Spies Attacked Anonymous, Hackers</a>", 2014.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Senft-2013">[Senft-2013]</b>
+      </td>
+      <td class="top"><a>Senft, A.</a>, "<a href="https://citizenlab.org/2013/11/asia-chats-analyzing-information-controls-privacy-asian-messaging-applications/">Asia Chats: Analyzing Information Controls and Privacy in Asian Messaging Applications</a>", 2013.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Shbair-2015">[Shbair-2015]</b>
+      </td>
+      <td class="top"><a>Shbair, W.</a>, <a>Cholez, T.</a>, <a>Goichot, A.</a> and <a>I. Chrisment</a>, "<a href="https://hal.inria.fr/hal-01202712/document">Efficiently Bypassing SNI-based HTTPS Filtering</a>", 2015.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Sophos-2015">[Sophos-2015]</b>
+      </td>
+      <td class="top"><a>Sophos</a>, "<a href="https://www.sophos.com/en-us/support/knowledgebase/115865.aspx">Understanding Sophos Web Filtering</a>", 2015.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Thomson-2012">[Thomson-2012]</b>
+      </td>
+      <td class="top"><a>Thomson, I.</a>, "<a href="http://www.theregister.co.uk/2012/11/29/syria_internet_blackout/">Syria Cuts off Internet and Mobile Communication</a>", 2012.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Trustwave-2015">[Trustwave-2015]</b>
+      </td>
+      <td class="top"><a>Trustwave</a>, "<a href="https://www3.trustwave.com/software/8e6/hlp/r3000/files/1system_filter.html">Filter: SNI extension feature and HTTPS blocking</a>", 2015.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Verkamp-2012">[Verkamp-2012]</b>
+      </td>
+      <td class="top"><a>Verkamp, J.</a> and <a>M. Gupta</a>, "<a href="https://www.usenix.org/system/files/conference/foci12/foci12-final1.pdf">Inferring Mechanics of Web Censorship Around the World</a>", 2012.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="ViewDNS-2011">[ViewDNS-2011]</b>
+      </td>
+      <td class="top"><a>ViewDNS.info</a>, "<a href="http://viewdns.info/research/dns-cache-poisoning-in-the-peoples-republic-of-china/">DNS Cache Poisoning in the People's Republic of China</a>", 2011.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Villeneuve-2011">[Villeneuve-2011]</b>
+      </td>
+      <td class="top"><a>Villeneuve, N.</a>, "<a href="http://access.opennet.net/wp-content/uploads/2011/12/accesscontested-chapter-08.pdf">Open Access: Chapter 8, Control and Resistance, Attacks on Burmese Opposition Media</a>", 2011.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="VonLohmann-2008">[VonLohmann-2008]</b>
+      </td>
+      <td class="top"><a>VonLohmann, F.</a>, "<a href="https://www.eff.org/deeplinks/2008/08/fcc-rules-against-comcast-bit-torrent-blocking">FCC Rules Against Comcast for BitTorrent Blocking</a>", 2008.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Wagner-2009">[Wagner-2009]</b>
+      </td>
+      <td class="top"><a>Wagner, B.</a>, "<a href="http://advocacy.globalvoicesonline.org/wp-content/uploads/2009/06/deeppacketinspectionandinternet-censorship2.pdf">Deep Packet Inspection and Internet Censorship: International Convergence on an &#8216;Integrated Technology of Control'</a>", 2009.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Wagstaff-2013">[Wagstaff-2013]</b>
+      </td>
+      <td class="top"><a>Wagstaff, J.</a>, "<a href="http://www.reuters.com/article/2013/05/04/uk-malaysia-election-online-idUKBRE94309G20130504">In Malaysia, online election battles take a nasty turn</a>", 2013.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Weaver-2009">[Weaver-2009]</b>
+      </td>
+      <td class="top"><a>Weaver, N.</a>, <a>Sommer, R.</a> and <a>V. Paxson</a>, "<a href="http://www.icir.org/vern/papers/reset-injection.ndss09.pdf">Detecting Forged TCP Packets</a>", 2009.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Whittaker-2013">[Whittaker-2013]</b>
+      </td>
+      <td class="top"><a>Whittaker, Z.</a>, "<a href="http://www.zdnet.com/1168-keywords-skype-uses-to-censor-monitor-its-chinese-users-7000012328/">1,168 keywords Skype uses to censor, monitor its Chinese users</a>", 2013.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Wikip-DoS">[Wikip-DoS]</b>
+      </td>
+      <td class="top"><a>Wikipedia</a>, "<a href="https://en.wikipedia.org/w/index.php?title=Denial-of-service_attack&amp;oldid=710558258">Denial of Service Attacks</a>", 2016.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Wilde-2012">[Wilde-2012]</b>
+      </td>
+      <td class="top"><a>Wilde, T.</a>, "<a href="https://blog.torproject.org/blog/knock-knock-knockin-bridges-doors">Knock Knock Knockin' on Bridges Doors</a>", 2012.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Winter-2012">[Winter-2012]</b>
+      </td>
+      <td class="top"><a>Winter, P.</a>, "<a href="http://arxiv.org/pdf/1204.0447v1.pdf">How China is Blocking Tor</a>", 2012.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Zhu-2011">[Zhu-2011]</b>
+      </td>
+      <td class="top"><a>Zhu, T.</a>, "<a href="http://arxiv.org/ftp/arxiv/papers/1107/1107.3794.pdf">An Analysis of Chinese Search Engine Filtering</a>", 2011.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="Zmijewki-2014">[Zmijewki-2014]</b>
+      </td>
+      <td class="top"><a>Zmijewki, E.</a>, "<a href="http://www.renesys.com/2014/03/turkish-internet-censorship/">Turkish Internet Censorship Takes a New Turn</a>", 2014.</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="rfc.authors">
+  <a href="#rfc.authors">Authors' Addresses</a>
+</h1>
+<div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Joseph Lorenzo Hall</span> 
+	  <span class="n hidden">
+		<span class="family-name">Hall</span>
+	  </span>
+	</span>
+	<span class="org vcardline">CDT</span>
+	<span class="adr">
+	  
+	  <span class="vcardline">
+		<span class="locality"></span> 
+		<span class="region"></span>
+		<span class="code"></span>
+	  </span>
+	  <span class="country-name vcardline"></span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:joe@cdt.org">joe@cdt.org</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Michael D. Aaron</span> 
+	  <span class="n hidden">
+		<span class="family-name">Aaron</span>
+	  </span>
+	</span>
+	<span class="org vcardline">CU Boulder</span>
+	<span class="adr">
+	  
+	  <span class="vcardline">
+		<span class="locality"></span> 
+		<span class="region"></span>
+		<span class="code"></span>
+	  </span>
+	  <span class="country-name vcardline"></span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:michael.aaron@colorado.edu">michael.aaron@colorado.edu</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Ben Jones</span> 
+	  <span class="n hidden">
+		<span class="family-name">Jones</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Princeton</span>
+	<span class="adr">
+	  
+	  <span class="vcardline">
+		<span class="locality"></span> 
+		<span class="region"></span>
+		<span class="code"></span>
+	  </span>
+	  <span class="country-name vcardline"></span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:bj6@cs.princeton.edu">bj6@cs.princeton.edu</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Nick Feamster</span> 
+	  <span class="n hidden">
+		<span class="family-name">Feamster</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Princeton</span>
+	<span class="adr">
+	  
+	  <span class="vcardline">
+		<span class="locality"></span> 
+		<span class="region"></span>
+		<span class="code"></span>
+	  </span>
+	  <span class="country-name vcardline"></span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:feamster@cs.princeton.edu">feamster@cs.princeton.edu</a></span>
+
+  </address>
+</div>
+
+</body>
+</html>
