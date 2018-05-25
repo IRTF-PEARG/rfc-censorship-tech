@@ -2,7 +2,6 @@
 title: A Survey of Worldwide Censorship Techniques
 abbrev: draft-hall-censorship-tech
 docname: draft-hall-censorship-tech-05
-date: 2016-07-08
 category: info
 
 ipr: trust200902
@@ -17,23 +16,23 @@ author:
  -
     ins: J.L. Hall
     name: Joseph Lorenzo Hall
+    organization: CDT
     email: joe@cdt.org
-    org: CDT
  -
     ins: M.D. Aaron
     name: Michael D. Aaron
+    organization: CU Boulder
     email: michael.aaron@colorado.edu
-    org: CU Boulder
  -
     ins: B. Jones
     name: Ben Jones
+    organization: Princeton
     email: bj6@cs.princeton.edu
-    org: Princeton
  -
     ins: N. Feamster
     name: Nick Feamster
+    organization: Princeton
     email: feamster@cs.princeton.edu
-    org: Princeton
 
 normative:
 
