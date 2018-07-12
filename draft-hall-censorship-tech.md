@@ -735,9 +735,9 @@ routing data in TCP/IP headers. The mechanisms for building up these
 blacklists are varied. Censors can purchase from private industry
 "content control" software, such as SmartFilter, which allows
 filtering from broad categories that they would like to block, such as
-gambling or pornography.  In these cases, thes private services
+gambling or pornography.  In these cases, these private services
 attempt to categorize every semi-questionable website as to allow for
-metatag blocking (similarly, they tune real-time content heuristic
+meta-tag blocking (similarly, they tune real-time content heuristic
 systems to map their assessments onto categories of objectionable
 content).
 
@@ -1509,5 +1509,3 @@ This document benefited from discussions with Stephane Bortzmeyer,
 Nick Feamster, and Martin Nilsson.
 
 --- back
-
-
