@@ -99,6 +99,24 @@ informative:
       ins: J.A. Halderman
     date: 2012
 
+  Husak-2016:
+    target: https://link.springer.com/article/10.1186/s13635-016-0030-7
+    title: HTTPS traffic analysis and client identification using passive SSL/TLS fingerprinting
+    author:
+    -
+      name: Martin Husak
+      ins: M. Husak
+    -
+      name: Milan Cermak
+      ins: M. Cermak
+    -
+      name: Tomas Jirsik
+      ins: T. Jirsik
+    -
+      name: Pavel Celeda
+      ins: P. Celeda
+    date: 2016
+
   Dalek-2013:
     target: http://www.cs.stonybrook.edu/~phillipa/papers/imc112s-dalek.pdf
     title: A Method for Identifying and Confirming the Use of URL Filtering Products for Censorship
@@ -1000,12 +1018,7 @@ exchanged during TLS handshakes to similar data points from known sources.
 This practice, called TLS fingerprinting, allows a probabilistic identification of
 a party's operating system, browser, or application based on a comparison of the
 specific combinations of TLS version, ciphersuites, compression options, etc.
-sent in the ClientHello message to similar signatures found in unencrypted traffic.
-(cite Husak, et al. https://link.springer.com/article/10.1186/s13635-016-0030-7)
-
-
-*(TODO: talk about content
-inference through things like TLS fingerprinting? JLH to check, add more )*
+sent in the ClientHello message to similar signatures found in unencrypted traffic {{Husak-2016}}.
 
 Despite these problems, DPI is the most powerful identification method
 and is widely used in practice. The Great Firewall of China (GFW), the
