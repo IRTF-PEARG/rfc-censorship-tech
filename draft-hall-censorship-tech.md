@@ -1201,10 +1201,6 @@ States used RST injection to interrupt BitTorrent Traffic
 Technical Interference {#tech-interference}
 ====================
 
-*(TODO: consider rework: the whole document can be organized in a layer
-structure and do identification and interference at the same time for
-each layer? That seems wise.)*
-
 Application Layer
 -------------------
 
