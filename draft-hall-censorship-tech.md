@@ -1238,7 +1238,7 @@ erroneous IP address "37.61.54.158" as a response:
 
 There are also cases of what is colloquially called "DNS lying", where
 a censor mandates that the DNS responses provided -- by an operator of
-a resursive resolver such as an Internet access provider -- be
+a recursive resolver such as an Internet access provider -- be
 different than what authoritative resolvers would provide
 {{Bortzmayer-2015}}.
 
@@ -1287,7 +1287,7 @@ partial, difficult, and less than ideal censorship mechanism.
 **Empirical Evidence:** DNS interference, when properly implemented, is
 easy to identify based on the shortcomings identified above. Turkey
 relied on DNS interference for its country-wide block of websites
-such Twitter and Youtube for almost week in March of 2014 but the ease
+such Twitter and YouTube for almost week in March of 2014 but the ease
 of circumvention resulted in an increase in the popularity of Twitter
 until Turkish ISPs implementing an IP blacklist to achieve the
 governmental mandate {{Zmijewki-2014}}.
@@ -1460,9 +1460,9 @@ Burma {{Villeneuve-2011}}. Controlling parties in Russia
 {{Muncaster-2013}} have been accused of using DDoS to interrupt
 opposition support and access during elections.
 In 2015, China launched a DDoS attack using a true MITM system
-colocated with the Great Firewall, dubbed "Great Cannon", that was
+collocated with the Great Firewall, dubbed "Great Cannon", that was
 able to inject JavaScript code into web visits to a Chinese search
-engine that comandeered those user agents to send DDoS traffic to
+engine that commandeered those user agents to send DDoS traffic to
 various sites {{Marczak-2015}}.
 
 
