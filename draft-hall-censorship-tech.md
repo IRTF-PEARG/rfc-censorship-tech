@@ -76,6 +76,14 @@ informative:
       ins: Z. Nabi
     date: 2013
 
+  Tang-2016:
+    target: https://www.cs.tufts.edu/comp/116/archive/fall2016/ctang.pdf
+    title: In-depth analysis of the Great Firewall of China
+    author:
+      name: Chao Tang
+      ins: C. Tang
+    date: 2016
+
   Aryan-2012:
     target: https://jhalderm.com/pub/papers/iran-foci13.pdf
     title: "Internet Censorship in Iran: A First Look"
@@ -729,12 +737,13 @@ Technical Prescription {#tech-prescrip}
 =====================
 
 Prescription is the process of figuring out what censors would like to
-block {{Glanville-2008}}. Generally, censors aggregate "to block"
-information in blacklists or using real-time heuristic assessment of
-content {{Ding-1999}}.
+block {{Glanville-2008}}. Generally, censors aggregate
+information "to block" in blacklists or using real-time heuristic assessment of
+content {{Ding-1999}}. There are indications that online censors
+are starting to use machine learning techniques as well {{Tang-2016}}.
 
 There are typically three types of blacklists: Keyword, Domain Name,
-or IP. Keyword and Domain Name blocking take place at the application
+or Internet Protocol (IP) address. Keyword and Domain Name blocking take place at the application
 level (e.g. HTTP), whereas IP blocking tends to take place using
 routing data in TCP/IP headers. The mechanisms for building up these
 blacklists are varied. Censors can purchase from private industry
@@ -812,7 +821,7 @@ general points-of-control:
   certificates that may allow compromises in confidentiality
   guarantees -- allowing censorship software to engage in
   identification and interference where not possible before -- or
-  integrity degrees -- allowing, for example, adversarial routing of
+  integrity guarantees -- allowing, for example, adversarial routing of
   traffic.
 
 * **Content Distribution Networks (CDNs):** CDNs seek to collapse network
@@ -945,7 +954,7 @@ search engine provider based on the slight variations in the
 intercepted searches {{Zhu-2011}} {{Whittaker-2013}}. The United
 Kingdom has been pushing search engines to self-censor with the threat
 of litigation if they don't do it themselves: Google and Microsoft
-have agreed to block more than 100,00 queries in U.K. to help combat
+have agreed to block more than 100,000 queries in U.K. to help combat
 abuse {{BBC-2013}} {{Condliffe-2013}}.
 
 Depending on the output, search engine keyword identification may be
