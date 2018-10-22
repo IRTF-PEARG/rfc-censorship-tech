@@ -24,6 +24,11 @@ author:
     organization: CU Boulder
     email: michael.aaron@colorado.edu
  -
+    ins: S. Adams
+    name: Stan Adams
+    organization: CDT
+    email: sadams@cdt.org
+ -
     ins: B. Jones
     name: Ben Jones
     organization: Princeton
