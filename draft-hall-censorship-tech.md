@@ -678,6 +678,27 @@ informative:
       ins: V. Paxson
     date: 2015
 
+  Fifield-2015:
+    target: https://petsymposium.org/2015/papers/03_Fifield.pdf
+    title: Blocking-resistant communication through domain fronting
+    author:
+    -
+      name: David Fifield
+      ins: D. Fifield
+    -
+      name: Chang Lan
+      ins: C. Lan
+    -
+      name: Rod Hynes
+      ins: R. Hynes
+    -
+      name: Percy Wegmann
+      ins: P. Wegmann
+    -
+      name: Vern Paxson
+      ins: V. Paxson
+    date: 2015
+
   Google-RTBF:
     target: https://support.google.com/legal/contact/lr_eudpa?product=websearch
     title: Search removal request under data protection law in Europe
@@ -1056,12 +1077,7 @@ basis for blocking, filtering, or impairment by dropping connections
 to domains that match prohibited content (e.g., bad.foo.com may be
 censored while good.foo.com is not) {{Shbair-2015}}.
 
-*(TODO: talk about
-domain fronting in CDNs where SNI does not match the HOST field inside
-the encrypted HTTPS envelope?)*
-
-Domain fronting has been one popular way to avoid identification by censors.
-(cite Fifield, Lan, Hynes, Paxson "Blocking-resistant communication through domain fronting")
+Domain fronting has been one popular way to avoid identification by censors {{Fifield-2015}}.
 To avoid identification by censors, applications using domain fronting put a different
 domain name in the SNI extension than the one encrypted by HTTPS. The visible
 SNI would indicate an unblocked domain, while the blocked domain remains hidden
@@ -1071,7 +1087,7 @@ provision in countries employing SNI-based filtering. These services used the
 cover provided by domains for which blocking at the domain level would be
 undesirable to hide their true domain names. However, the companies holding the
 most popular domains have since reconfigured their software to prevent this practice.
-It may be possible to achieve similar results using the option to encrypt SNI in
+It may be possible to achieve similar results using potential future options to encrypt SNI in
 TLS 1.3.
 
 **Tradeoffs:** Some clients do not send the SNI extension (e.g., clients
