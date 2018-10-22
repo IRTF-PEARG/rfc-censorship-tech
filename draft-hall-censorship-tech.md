@@ -341,12 +341,13 @@ informative:
       ins: F. VonLohmann
     date: 2008
 
-  ViewDNS-2011:
-    target: http://viewdns.info/research/dns-cache-poisoning-in-the-peoples-republic-of-china/
-    title: DNS Cache Poisoning in the People's Republic of China
+  Halley-2008:
+    target: https://www.networkworld.com/article/2277316/tech-primers/tech-primers-how-dns-cache-poisoning-works.html
+    title: How DNS cache poisoning works
     author:
-      org: ViewDNS.info
-    date: 2011
+      name: Bob Halley
+      ins: B. Halley
+    date: 2014
 
   Zmijewki-2014:
     target: http://www.renesys.com/2014/03/turkish-internet-censorship/
@@ -1244,9 +1245,7 @@ different than what authoritative resolvers would provide
 DNS cache poisoning refers to a mechanism where a censor interferes
 with the response sent by an authoritative DNS resolver to a recursive
 resolver by responding more quickly than the authoritative resolver
-can respond with an alternative IP address {{ViewDNS-2011}}. *(TODO:
-Stephane says this cite misuses "cache poisoning" and that we haven't
-seen much of this performed systematically. Potential alternate source: https://www.networkworld.com/article/2277316/tech-primers/tech-primers-how-dns-cache-poisoning-works.html)*
+can respond with an alternative IP address {{Halley-2008}}.
 Cache poisoning occurs
 after the requested site's name servers resolve the request and
 attempt to forward the true IP back to the requesting device; on the
