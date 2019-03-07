@@ -767,7 +767,7 @@ decide to block a
 list of pornographic websites. Identification is the process by which
 censors classify specific traffic to be blocked or impaired, i.e. the
 censor blocks or impairs
-all webpages containing "sex" in the title or traffic to sex.com.
+all webpages containing "sex" in the title or traffic to www.sex.example.
 Interference is the process
 by which the censor intercedes in communication and prevents access to
 censored materials by blocking access or impairing the connection.
@@ -782,8 +782,8 @@ information "to block" in blacklists or using real-time heuristic assessment of
 content {{Ding-1999}}. There are indications that online censors
 are starting to use machine learning techniques as well {{Tang-2016}}.
 
-There are typically three types of blacklists: Keyword, Domain Name,
-or Internet Protocol (IP) address. Keyword and Domain Name blocking take place at the application
+There are typically three types of blacklists: Keyword, domain name,
+or Internet Protocol (IP) address. Keyword and domain name blocking take place at the application
 level (e.g. HTTP), whereas IP blocking tends to take place using
 routing data in TCP/IP headers. The mechanisms for building up these
 blacklists are varied. Censors can purchase from private industry
@@ -819,7 +819,7 @@ interested in. This requirement, the need to have the interception
 mechanism located somewhere, logically or physically, implicates various
 general points-of-control:
 
-* **Internet Backbone:** If a censor controls the gateways into a region,
+* __Internet Backbone:__ If a censor controls the gateways into a region,
   they can filter undesirable traffic that is traveling into and out
   of the region by packet sniffing and port mirroring at the relevant exchange
   points. Censorship at this point of control is most effective at
@@ -827,33 +827,33 @@ general points-of-control:
   the Internet, but is ineffective at identifying content traveling
   between the users within a region.
 
-* **Internet Service Providers:** Internet Service Providers are perhaps
+* __Internet Service Providers:__ Internet Service Providers are perhaps
   the most natural point of control. They have a benefit of being
   easily enumerable by a censor paired with the ability to identify
   the regional and international traffic of all their users. The
   censor's filtration mechanisms can be placed on an ISP via
   governmental mandates, ownership, or voluntary/coercive influence.
 
-* **Institutions:** Private institutions such as corporations, schools,
+* __Institutions:__ Private institutions such as corporations, schools,
   and cyber cafes can put filtration mechanisms in place. These
   mechanisms are occasionally at the request of a censor, but are more
   often implemented to help achieve institutional goals, such as to
   prevent the viewing of pornography on school computers.
 
-* **Personal Devices:** Censors can mandate censorship software be
+* __Personal Devices:__ Censors can mandate censorship software be
   installed on the device level. This has many disadvantages in terms
   of scalability, ease-of-circumvention, and operating system
   requirements. The emergence of mobile devices exacerbate these
   feasibility problems.
 
-* **Services:** Application service providers can be pressured, coerced,
+* __Services:__ Application service providers can be pressured, coerced,
   or legally required to censor specific content or flows of
   data. Service providers naturally face incentives to maximize their
   potential customer base and potential service shutdowns or legal
   liability due to censorship efforts may seem much less attractive
   than potentially excluding content, users, or uses of their service.
 
-* **Certificate Authorities:** Authorities that issue cryptographically
+* __Certificate Authorities:__ Authorities that issue cryptographically
   secured resources can be a significant point of control. Certificate
   Authorities that issue certificates to domain holders for TLS/HTTPS
   or Regional/Local Internet Registries that issue Route Origination
@@ -864,7 +864,7 @@ general points-of-control:
   integrity guarantees -- allowing, for example, adversarial routing of
   traffic.
 
-* **Content Distribution Networks (CDNs):** CDNs seek to collapse network
+* __Content Distribution Networks (CDNs):__ CDNs seek to collapse network
   topology in order to better locate content closer to the service's
   users in order to improve quality of service. These can be powerful
   points of control for censors, especially if the location of a CDN
@@ -900,7 +900,7 @@ identify a specific domain name (host) and usually a page name (GET
 TCP/IP header identification (see [](#sec_tcpid)) for a more robust
 method.
 
-**Tradeoffs:** Request Identification is a technically straight-forward
+__Tradeoffs:__ Request Identification is a technically straight-forward
 identification method that can be easily implemented at the Backbone
 or ISP level. The hardware needed for this sort of identification is
 cheap and easy-to-acquire, making it desirable when budget and scope
@@ -910,7 +910,7 @@ necessary for filtering of HTTPS. However, some countermeasures such
 as URL obfuscation {{RSF-2005}} can trivially defeat simple forms of
 HTTP Request Header Identification.
 
-**Empirical Examples:** Studies exploring censorship mechanisms have found
+__Empirical Examples:__ Studies exploring censorship mechanisms have found
 evidence of HTTP header/ URL filtering in many countries, including
 Bangladesh, Bahrain, China, India, Iran, Malaysia, Pakistan, Russia,
 Saudi Arabia, South Korea, Thailand, and Turkey
@@ -930,7 +930,7 @@ contained in the HTTP request from client to server, response
 identification uses information sent in response by the server to
 client to identify undesirable content.
 
-**Tradeoffs:** As with HTTP Request Header Identification, the techniques
+__Tradeoffs:__ As with HTTP Request Header Identification, the techniques
 used to identify HTTP traffic are well-known, cheap, and relatively
 easy to implement, but is made useless by HTTPS, because the response
 in HTTPS is encrypted, including headers.
@@ -943,8 +943,8 @@ through while the mirrored traffic is being processed; this may allow
 some content through and the user may be able to detect that the
 censor is actively interfering with undesirable content.
 
-**Empirical Examples:** In 2009, Jong Park et al. at the University of New
-Mexico demonstrated that the Great Firewall of China (GFW) used this
+__Empirical Examples:__ In 2009, Jong Park et al. at the University of New
+Mexico demonstrated that the Great Firewall of China (GFW) has used this
 technique {{Crandall-2010}}. However, Jong Park et al. found that the
 GFW discontinued this practice during the course of the study. Due to
 the overlap in HTTP response filtering and keyword filtering (see
@@ -964,7 +964,7 @@ to detect restricted terms on their platform. The terms to look for
 may be provided by the government or the content provider may be
 expected to come up with their own list.
 
-**Tradeoffs:** By instrumenting content providers to identify restricted
+__Tradeoffs:__ By instrumenting content providers to identify restricted
 content, the censor can gain new information at the cost of political
 capital with the companies it forces or encourages to participate in
 censorship. For example, the censor can gain insight about the content
@@ -975,7 +975,7 @@ advantage for censors. The tradeoffs for instrumenting content
 providers are highly dependent on the content provider and the
 requested assistance.
 
-**Empirical Examples:** Researchers have discovered keyword identification
+__Empirical Examples:__ Researchers have discovered keyword identification
 by content providers on platforms ranging from instant messaging
 applications {{Senft-2013}} to search engines
 {{Rushe-2015}} {{Cheng-2010}} {{Whittaker-2013}} {{BBC-2013}} {{Condliffe-2013}}. To
@@ -986,8 +986,8 @@ Search engine censorship demonstrates keyword identification by
 content providers and can be regional or worldwide.  Implementation is
 occasionally voluntary, but normally is based on laws and regulations
 of the country a search engine is operating in. The keyword blacklists
-are most likely maintained by the search engine provider. China
-requires search engine providers to "voluntarily" maintain search term
+are most likely maintained by the search engine provider. China is known to
+require search engine providers to "voluntarily" maintain search term
 blacklists to acquire/keep an Internet content provider (ICP) license
 {{Cheng-2010}}.  It is clear these blacklists are maintained by each
 search engine provider based on the slight variations in the
@@ -1025,7 +1025,7 @@ to be routed. Typically, the traffic is split using either a mirror
 switch or fiber splitter, and analyzed on a cluster of machines
 running Intrusion Detection Systems (IDS) configured for censorship.
 
-**Tradeoffs:** DPI is one of the most expensive identification mechanisms
+__Tradeoffs:__ DPI is one of the most expensive identification mechanisms
 and can have a large QoS impact {{Porter-2010}}.  When used as a
 keyword filter for TCP flows, DPI systems can cause also major
 overblocking problems. Like other techniques, DPI is less useful
@@ -1044,12 +1044,12 @@ sent in the ClientHello message to similar signatures found in unencrypted traff
 
 Despite these problems, DPI is the most powerful identification method
 and is widely used in practice. The Great Firewall of China (GFW), the
-largest censorship system in the world, uses DPI to identify
+largest censorship system in the world, has used DPI to identify
 restricted content over HTTP and DNS and inject TCP RSTs and bad DNS
 responses, respectively, into connections
 {{Crandall-2010}} {{Clayton-2006}} {{Anonymous-2014}}.
 
-**Empirical Evidence:** Several studies have found evidence of DPI being
+__Empirical Examples:__ Several studies have found evidence of DPI being
 used to censor content and tools. Clayton et al. Crandal et al.,
 Anonymous, and Khattak et al., all explored the GFW and Khattak et
 al. even probed the firewall to discover implementation details like
@@ -1065,7 +1065,7 @@ gathered traffic using technologies such as NarusInsight
 {{Hepting-2011}}.
 
 
-### Server Name Indication {#sni}
+#### Server Name Indication {#sni}
 
 In encrypted connections using Transport Layer Security (TLS), there may be
 servers that host multiple "virtual servers" at a give network
@@ -1075,8 +1075,8 @@ the server can respond with the appropriate TLS certificate) using the
 Server Name Indication (SNI) TLS extension {{RFC6066}}. Since SNI is
 sent in the clear, censors and filtering software can use it as a
 basis for blocking, filtering, or impairment by dropping connections
-to domains that match prohibited content (e.g., bad.foo.com may be
-censored while good.foo.com is not) {{Shbair-2015}}.
+to domains that match prohibited content (e.g., bad.foo.example may be
+censored while good.foo.example is not) {{Shbair-2015}}.
 
 Domain fronting has been one popular way to avoid identification by censors {{Fifield-2015}}.
 To avoid identification by censors, applications using domain fronting put a different
@@ -1091,29 +1091,27 @@ most popular domains have since reconfigured their software to prevent this prac
 It may be possible to achieve similar results using potential future options to encrypt SNI in
 TLS 1.3.
 
-**Tradeoffs:** Some clients do not send the SNI extension (e.g., clients
+__Tradeoffs:__ Some clients do not send the SNI extension (e.g., clients
 that only support versions of SSL and not TLS) or will fall back to
 SSL if a TLS connection fails, rendering this method ineffective. In
 addition, this technique requires deep packet inspection techniques
 that can be computationally and infrastructurally expensive and
 improper configuration of an SNI-based block can result in significant
-overblocking, e.g., when a second-level domain like google.com is
+overblocking, e.g., when a second-level domain like populardomain.example is
 inadvertently blocked. In the case of encrypted SNI, pressure to censor may
 transfer to other points of intervention, such as content and application providers.
 
-**Empirical Evidence:** While there are many examples of security firms
+__Empirical Examples:__ While there are many examples of security firms
 that offer SNI-based filtering {{Trustwave-2015}} {{Sophos-2015}}
-{{Shbair-2015}}, the authors currently know of no specific examples or
-reports of SNI-based filtering observed in the field used for
-censorship purposes.
+{{Shbair-2015}}, the government of South Korea was recently observed using SNI-based filtering. Cite to Gatlan https://www.bleepingcomputer.com/news/security/south-korea-is-censoring-the-internet-by-snooping-on-sni-traffic/
 
 
 Transport Layer {#transport}
 ---------------
 
-### TCP/IP Header Identification {#sec_tcpid}
+### Shallow Packet Inspection and TCP/IP Header Identification {#sec_tcpid}
 
-TCP/IP Header Identification is the most pervasive, reliable, and
+Of the various shallow packet inspection methods, TCP/IP Header Identification is the most pervasive, reliable, and
 predictable type of identification.  TCP/IP headers contain a few
 invaluable pieces of information that must be transparent for traffic
 to be successfully routed: destination and source IP address and port.
@@ -1122,7 +1120,7 @@ a censor to block undesirable content via IP blacklisting, but also
 allows a censor to identify the IP of the user making the
 request. Port is useful for whitelisting certain applications.
 
-**Trade-offs:** TCP/IP identification is popular due to its simplicity,
+__Trade-offs:__ TCP/IP identification is popular due to its simplicity,
 availability, and robustness.
 
 TCP/IP identification is trivial to implement, but is difficult to
@@ -1175,7 +1173,7 @@ negotiate a connection, then the censor conclusively knows that host
 is running a circumvention tool. China has used active scanning to
 great effect to block Tor {{Winter-2012}}.
 
-**Trade-offs:** Protocol Identification necessarily only provides insight
+__Trade-offs:__ Protocol Identification necessarily only provides insight
 into the way information is traveling, and not the information itself.
 
 Protocol identification is useful for detecting and blocking
@@ -1187,7 +1185,7 @@ expensive, both computationally and financially, due to the use of
 statistical analysis, and can be ineffective due to its imprecise
 nature.
 
-**Empirical Examples:** Protocol identification can be easy to detect if
+__Empirical Examples:__ Protocol identification can be easy to detect if
 it is conducted in real time and only a particular protocol is
 blocked, but some types of protocol identification, like active
 scanning, are much more difficult to detect. Protocol identification
@@ -1216,24 +1214,24 @@ incorrect address.
 
 "DNS mangling" is a network-level technique where an incorrect IP
 address is returned in response to a DNS query to a censored
-destination. An example of this is what the Chinese network does (we
-are not aware of any other wide-scale uses of mangling). On the
-Chinese network every DNS request in transit is examined (presumably
+destination. An example of this is what some Chinese networks do (we
+are not aware of any other wide-scale uses of mangling). On those
+Chinese networks, every DNS request in transit is examined (presumably
 by network inspection technologies such as DPI) and, if it matches a
 censored domain, a false response is injected. End users can see this
 technique in action by simply sending DNS requests to any unused IP
 address in China (see example below). If it is not a censored name,
 there will be no response. If it is censored, an erroneous response
 will be returned. For example, using the command-line dig utility to
-query an unused IP address in China of 113.113.113.113 for the name
-"www.ietf.org" (uncensored at the time of writing) compared with
-"www.facebook.com" (censored at the time of writing), we get an
+query an unused IP address in China of 192.0.2.2 for the name
+"www.uncensored.example"  compared with
+"www.censored.example" (censored at the time of writing), we get an
 erroneous IP address "37.61.54.158" as a response:
 
-    % dig +short +nodnssec @113.113.113.113 A www.ietf.org
+    % dig +short +nodnssec @192.0.2.2 A www.uncensored.example
     ;; connection timed out; no servers could be reached
 
-    % dig +short +nodnssec @113.113.113.113 A www.facebook.com
+    % dig +short +nodnssec @192.0.2.2 A www.censored.example
     37.61.54.158
 
 There are also cases of what is colloquially called "DNS lying", where
@@ -1259,7 +1257,7 @@ IPs usually direct to a nonsense domain or a warning page.
 Alternatively, Iranian censorship appears to prevent the communication
 en-route, preventing a response from ever being sent {{Aryan-2012}}.
 
-**Trade-offs:**
+__Trade-offs:__
 These forms of DNS interference
 require the censor to force a user to traverse a controlled DNS
 hierarchy (or intervening network on which the censor serves as a
@@ -1282,9 +1280,9 @@ directed through DNS servers or DNS-rewriting network equipment
 controlled by a censor, causing the
 request to fail. The ease of circumvention paired with the large risk
 of content blocking and target blocking make DNS interference a
-partial, difficult, and less than ideal censorship mechanism.
+partial, difficult, and less than ideal censorship mechanism. Additionally, the above mechanisms rely on DNSSEC not being deployed or DNSSEC validation not being active on the client or recursive resolver.
 
-**Empirical Evidence:** DNS interference, when properly implemented, is
+__Empirical Examples:__ DNS interference, when properly implemented, is
 easy to identify based on the shortcomings identified above. Turkey
 relied on DNS interference for its country-wide block of websites
 such Twitter and YouTube for almost week in March of 2014 but the ease
@@ -1294,7 +1292,7 @@ governmental mandate {{Zmijewki-2014}}.
 Ultimately, Turkish ISPs started hijacking all requests to Google and
 Level 3's international DNS resolvers {{Zmijewki-2014}}. DNS
 interference, when incorrectly implemented, has resulted in some
-of the largest "censorship disasters".  In January 2014 China started
+of the largest "censorship disasters".  In January 2014, China started
 directing all requests passing through the Great Fire Wall to a single
 domain, dongtaiwang.com, due to an improperly configured DNS
 poisoning attempt; this incident is thought to be the largest
@@ -1323,12 +1321,12 @@ no alternatives.  Traffic shaping techniques that rate-limit the
 bandwidth available to certain types of traffic is one example of a
 performance degradation.
 
-**Trade offs:** While implementing a performance degradation will not
+__Trade offs:__ While implementing a performance degradation will not
 always eliminate the ability of people to access a desire resource, it
 may force them to use other means of communication where censorship
 (or surveillance) is more easily accomplished.
 
-**Empirical examples:** Iran is known to shape the bandwidth available to
+__Empirical Examples:__ Iran has been known to shape the bandwidth available to
 HTTPS traffic to encourage unencrypted HTTP traffic {{Aryan-2012}}.
 
 ### Packet Dropping
@@ -1342,7 +1340,7 @@ protocol. This can be paired with any of the previously described
 mechanisms so long as the censor knows the user must route traffic
 through a controlled router.
 
-**Trade offs:** Packet Dropping is most successful when every traversing
+__Trade offs:__ Packet Dropping is most successful when every traversing
 packet has transparent information linked to undesirable content, such
 as a Destination IP. One downside Packet Dropping suffers from is the
 necessity of blocking all content from otherwise allowable IPs
@@ -1353,11 +1351,11 @@ undesirable content {{Anonymous-2013}}.  The need to inspect every
 traversing packet in close to real time also makes Packet Dropping
 somewhat challenging from a QoS perspective.
 
-**Empirical Examples:** Packet Dropping is a very common form of technical
+__Empirical Examples:__ Packet Dropping is a very common form of technical
 interference and lends itself to accurate detection given the unique
 nature of the time-out requests it leaves in its wake. The Great
-Firewall of China uses packet dropping as one of its primary
-mechanisms of technical censorship {{Ensafi-2013}}. Iran also uses
+Firewall of China has been observed using packet dropping as one of its primary
+mechanisms of technical censorship {{Ensafi-2013}}. Iran has also used
 Packet Dropping as the mechanisms for throttling SSH
 {{Aryan-2012}}. These are but two examples of a ubiquitous censorship
 practice.
@@ -1376,7 +1374,7 @@ an established stream by sending RST packets to both sides of a TCP
 connection; as each receiver thinks the other has dropped the
 connection, the session is terminated.
 
-**Trade-offs:** RST Packet Injection has a few advantages that make it
+__Trade-offs:__ RST Packet Injection has a few advantages that make it
 extremely popular as a censorship technique. RST Packet Injection is
 an out-of-band interference mechanism, allowing the avoidance of the the
 QoS bottleneck one can encounter with inline techniques such as Packet
@@ -1409,9 +1407,9 @@ connections. RST Packet Injection is among the most popular censorship
 techniques used today given its versatile nature and effectiveness
 against all types of TCP traffic.
 
-**Empirical Examples:** RST Packet Injection, as mentioned above, is most
+__Empirical Examples:__ RST Packet Injection, as mentioned above, is most
 often paired with identification techniques that require splitting,
-such as DPI or Protocol Identification. In 2007 Comcast was accused of
+such as DPI or Protocol Identification. In 2007, Comcast was accused of
 using RST Packet Injection to interrupt traffic it identified as
 BitTorrent {{Schoen-2007}}, this later led to a US Federal
 Communications Commission ruling against Comcast
@@ -1437,7 +1435,7 @@ while resources are being spent to flood the service, a crash attack
 aims to crash the service so resources can be reallocated elsewhere
 without "releasing" the service.
 
-**Trade-offs:** DDoS is an appealing mechanism when a censor would like to
+__Trade-offs:__ DDoS is an appealing mechanism when a censor would like to
 prevent all access to undesirable content, instead of only access in
 their region for a limited period of time, but this is really the only
 uniquely beneficial feature for DDoS as a censorship technique. The
@@ -1448,7 +1446,7 @@ imprecise. DDoS is an incredibly crude censorship technique, and
 appears to largely be used as a timely, easy-to-access mechanism for
 blocking undesirable content for a limited period of time.
 
-**Empirical Examples:** In 2012 the U.K.'s GCHQ used DDoS to temporarily
+__Empirical Examples:__ In 2012 the U.K.'s GCHQ used DDoS to temporarily
 shutdown IRC chat rooms frequented by members of Anonymous using the
 Syn Flood DDoS method; Syn Flood exploits the handshake used by TCP to
 overload the victim server with so many requests that legitimate
@@ -1476,13 +1474,13 @@ network can be logically cut off in a region when a censoring body
 withdraws all of the Boarder Gateway Protocol (BGP) prefixes routing
 through the censor's country.
 
-**Trade-offs:** The impact to a network disconnection in a region is huge
+__Trade-offs:__ The impact to a network disconnection in a region is huge
 and absolute; the censor pays for absolute control over digital
 information with all the benefits the Internet brings; this is never a
 long-term solution for any rational censor and is normally only used
 as a last resort in times of substantial unrest.
 
-**Empirical Examples:** Network Disconnections tend to only happen in
+__Empirical Examples:__ Network Disconnections tend to only happen in
 times of substantial unrest, largely due to the huge social,
 political, and economic impact such a move has. One of the first,
 highly covered occurrences was with the Junta in Myanmar employing
@@ -1492,7 +1490,7 @@ during unrest in 2009 in an effort to prevent the protests from
 spreading to other regions {{Heacock-2009}}. The Arab Spring saw the
 the most frequent usage of Network Disconnection, with events in Egypt
 and Libya in 2011 {{Cowie-2011}} {{Cowie-2011b}}, and Syria in 2012
-{{Thomson-2012}}.
+{{Thomson-2012}}. Russia has indicated that it will attempt to disconnect all Russian networks from the global internet in April 2019 as part of a test of the nation's network independence. Reports also indicate that, as part of the test disconnect, Russian telecom firms must route all traffic to state-operated monitoring points. cite ZD Net https://www.zdnet.com/article/russia-to-disconnect-from-the-internet-as-part-of-a-planned-test/
 
 
 Non-Technical Prescription {#nontechag}
@@ -1539,7 +1537,7 @@ they want," but arresting those who post about dissenting views, this
 technique is incredibly common
 {{Calamur-2013}} {{AP-2012}} {{Hopkins-2011}} {{Guardian-2014}} {{Johnson-2010}}.
 A good example of swaying public thought is China's "50-Cent Party,"
-composed of somewhere between 20,000 {{Bristow-2013}} and 300,000
+reported to be composed of somewhere between 20,000 {{Bristow-2013}} and 300,000
 {{Fareed-2008}} contributors who are paid to "guide public thought" on
 local and regional issues as directed by the Ministry of
 Culture. Creating apathy can be a side-effect of successfully
@@ -1550,8 +1548,8 @@ controlling information over time and is ideal for a censorship regime
 Domain Name Reallocation {#dnrealloc}
 ------------------------
 
-As Domain Names are resolved recursively, if a TLD deregisters a
-domain all other DNS servers will be unable to properly forward and
+Because domain names are resolved recursively, if a root name server reassigns or delists a
+domain, all other DNS servers will be unable to properly forward and
 cache the site. Domain name registration is only really a risk where
 undesirable content is hosted on TLD controlled by the censoring
 country, such as .cn or .ru {{Anderson-2011}} or where legal processes
