@@ -1226,13 +1226,13 @@ will be returned. For example, using the command-line dig utility to
 query an unused IP address in China of 192.0.2.2 for the name
 "www.uncensored.example"  compared with
 "www.censored.example" (censored at the time of writing), we get an
-erroneous IP address "37.61.54.158" as a response:
+erroneous IP address "198.51.100.0" as a response:
 
     % dig +short +nodnssec @192.0.2.2 A www.uncensored.example
     ;; connection timed out; no servers could be reached
 
     % dig +short +nodnssec @192.0.2.2 A www.censored.example
-    37.61.54.158
+    198.51.100.0
 
 There are also cases of what is colloquially called "DNS lying", where
 a censor mandates that the DNS responses provided -- by an operator of
