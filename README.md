@@ -1,6 +1,6 @@
-# 
+# A Survey of Worldwide Censorship Techniques
 
-This is the working area for the individual Internet-Draft, "".
+This is the working area for the individual Internet-Draft, "A Survey of Worldwide Censorship Techniques".
 
 * [Editor's Copy](https://josephlhall.github.io/rfc-censorship-tech/#go.draft-hall-censorship-tech.html)
 * [Individual Draft](https://tools.ietf.org/html/draft-hall-censorship-tech)
