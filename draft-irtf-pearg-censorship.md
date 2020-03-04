@@ -1580,7 +1580,7 @@ Copyright Act (DMCA) Section 512 {{DMLP-512}}.
 Contributors {#Contributors}
 ============
 
-This document benefited from discussions with Stephane Bortzmeyer,
-Nick Feamster, and Martin Nilsson.
+This document benefited from discussions with Amelia Andersdotter, Stephane Bortzmeyer,
+and Martin Nilsson.
 
 --- back
