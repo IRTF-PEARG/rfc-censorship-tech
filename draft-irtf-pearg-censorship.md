@@ -1070,7 +1070,7 @@ al. even probed the firewall to discover implementation details like
 how much state it stores
 {{Crandall-2010}} {{Clayton-2006}} {{Anonymous-2014}} {{Khattak-2013}}. The
 Tor project claims that China, Iran, Ethiopia, and others must have used
-DPI to block the obsf2 protocol {{Wilde-2012}}.  Malaysia has
+DPI to block the obfs2 protocol {{Wilde-2012}}.  Malaysia has
 been accused of using targeted DPI, paired with DDoS, to identify and
 subsequently knockout pro-opposition material {{Wagstaff-2013}}.  It
 also seems likely that organizations not so worried about blocking
@@ -1082,7 +1082,7 @@ gathered traffic using technologies such as NarusInsight
 #### Server Name Indication {#sni}
 
 In encrypted connections using Transport Layer Security (TLS), there may be
-servers that host multiple "virtual servers" at a give network
+servers that host multiple "virtual servers" at a given network
 address, and the client will need to specify in the (unencrypted)
 Client Hello message which domain name it seeks to connect to (so that
 the server can respond with the appropriate TLS certificate) using the
@@ -1537,7 +1537,7 @@ Self-Censorship {#selfcensor}
 
 Self-censorship is one of the most interesting and effective types of
 censorship; a mix of Bentham's Panopticon, cultural manipulation,
-intelligence gathering, and meatspace enforcement. Simply put, self-censorship is when a censor creates an atmosphere where users censor
+intelligence gathering, and offline enforcement. Simply put, self-censorship is when a censor creates an atmosphere where users censor
 themselves. This can be achieved through controlling information,
 intimidating would-be dissidents, swaying public thought, and creating
 apathy. Self-censorship is difficult to document, as when it is
