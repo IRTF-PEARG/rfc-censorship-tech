@@ -778,15 +778,15 @@ Technical Prescription {#tech-prescrip}
 
 Prescription is the process of figuring out what censors would like to
 block {{Glanville-2008}}. Generally, censors aggregate
-information "to block" in blacklists or using real-time heuristic assessment of
+information "to block" in blocklists or using real-time heuristic assessment of
 content {{Ding-1999}}. There are indications that online censors
 are starting to use machine learning techniques as well {{Tang-2016}}.
 
-There are typically three types of blacklists: Keyword, domain name,
+There are typically three types of blocklists: Keyword, domain name,
 or Internet Protocol (IP) address. Keyword and domain name blocking take place at the application
 level (e.g. HTTP), whereas IP blocking tends to take place using
 routing data in TCP/IP headers. The mechanisms for building up these
-blacklists are varied. Censors can purchase from private industry
+blocklists are varied. Censors can purchase from private industry
 "content control" software, such as SmartFilter, which allows
 filtering from broad categories that they would like to block, such as
 gambling or pornography.  In these cases, these private services
@@ -800,7 +800,7 @@ retaining specific political control, a desire which requires swift
 and decisive action, often have ministries or organizations, such as
 the Ministry of Industry and Information Technology in China or the
 Ministry of Culture and Islamic Guidance in Iran, which maintain their
-own blacklists.
+own blocklists.
 
 
 Technical Identification {#tech-id}
@@ -879,7 +879,7 @@ application, transport, or network layer of the IP stack. Censors are
 almost always concerned with web traffic, so the relevant protocols
 tend to be filtered in predictable ways. For example, a subversive
 image would always make it past a keyword filter, but the IP address
-of the site serving the image may be blacklisted when identified as a
+of the site serving the image may be blocklisted when identified as a
 provider of undesirable content.
 
 
@@ -985,11 +985,11 @@ look to search engine censorship.
 Search engine censorship demonstrates keyword identification by
 content providers and can be regional or worldwide.  Implementation is
 occasionally voluntary, but normally is based on laws and regulations
-of the country a search engine is operating in. The keyword blacklists
+of the country a search engine is operating in. The keyword blocklists
 are most likely maintained by the search engine provider. China is known to
 require search engine providers to "voluntarily" maintain search term
-blacklists to acquire/keep an Internet content provider (ICP) license
-{{Cheng-2010}}.  It is clear these blacklists are maintained by each
+blocklists to acquire/keep an Internet content provider (ICP) license
+{{Cheng-2010}}.  It is clear these blocklists are maintained by each
 search engine provider based on the slight variations in the
 intercepted searches {{Zhu-2011}} {{Whittaker-2013}}. The United
 Kingdom has been pushing search engines to self-censor with the threat
@@ -1116,7 +1116,7 @@ predictable type of identification.  TCP/IP headers contain a few
 invaluable pieces of information that must be transparent for traffic
 to be successfully routed: destination and source IP address and port.
 Destination and Source IP are doubly useful, as not only does it allow
-a censor to block undesirable content via IP blacklisting, but also
+a censor to block undesirable content via IP blocklisting, but also
 allows a censor to identify the IP of the user making the
 request. Port is useful for whitelisting certain applications.
 
@@ -1125,7 +1125,7 @@ availability, and robustness.
 
 TCP/IP identification is trivial to implement, but is difficult to
 implement in backbone or ISP routers at scale, and is therefore
-typically implemented with DPI. Blacklisting an IP is equivalent to
+typically implemented with DPI. Blocklisting an IP is equivalent to
 installing a /32 route on a router and due to limited flow table
 space, this cannot scale beyond a few thousand IPs at most. IP
 blocking is also relatively crude, leading to overblocking, and cannot
@@ -1287,7 +1287,7 @@ easy to identify based on the shortcomings identified above. Turkey
 relied on DNS interference for its country-wide block of websites
 such Twitter and YouTube for almost week in March of 2014 but the ease
 of circumvention resulted in an increase in the popularity of Twitter
-until Turkish ISPs implementing an IP blacklist to achieve the
+until Turkish ISPs implementing an IP blocklist to achieve the
 governmental mandate {{Zmijewki-2014}}.
 Ultimately, Turkish ISPs started hijacking all requests to Google and
 Level 3's international DNS resolvers {{Zmijewki-2014}}. DNS
@@ -1498,7 +1498,7 @@ Non-Technical Prescription {#nontechag}
 
 As the name implies, sometimes manpower is the easiest way to figure
 out which content to block.  Manual Filtering differs from the common
-tactic of building up blacklists in that it doesn't necessarily target
+tactic of building up blocklists in that it doesn't necessarily target
 a specific IP or DNS, but instead removes or flags content.  Given the
 imprecise nature of automatic filtering, manually sorting through
 content and flagging dissenting websites, blogs, articles and other
