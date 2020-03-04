@@ -48,12 +48,50 @@ informative:
   RFC7624:
   RFC6066:
 
+  EC-gambling-2012:
+    target: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52012SC0345
+    title: "Online gambling in the Internal Market"
+    author:
+      org: European Commission
+    date: 2012
+
+  EC-gambling-2019:
+    target: https://ec.europa.eu/growth/content/evaluation-regulatory-tools-enforcing-online-gambling-rules-and-channelling-demand-towards-1_en
+    title: "Evaluation of regulatory tools for enforcing online gambling rules and channelling demand towards controlled offers"
+    author:
+      org: European Commission
+    date: 2019
+
   EC-2012:
     target: https://ec.europa.eu/information_society/newsroom/image/document/2017-4/consultation_summary_report_en_2010_42070.pdf
     title: "Summary of the results of the Public Consultation on the future of electronic commerce in the Internal Market and the implementation of the Directive on electronic commerce (2000/31/EC)"
     author:
       org: European Commission
-    date: 2000
+    date: 2012
+
+  Cimpanu-2019:
+    target: https://www.zdnet.com/article/russia-to-disconnect-from-the-internet-as-part-of-a-planned-test/
+    title: "Russia to disconnect from the internet as part of a planned test"
+    author:
+      name: Catalin Cimpanu
+      ins: C. Cimpanu
+    date: 2019
+
+  Hertel-2015:
+    target: https://www.sciencesetavenir.fr/high-tech/comment-les-autorites-peuvent-bloquer-un-site-internet_35828
+    title: "Comment les autorités peuvent bloquer un site Internet"
+    author:
+      name: Olivier Hertel
+      ins: O. Hertel
+    date: 2015
+
+  Eneman-2010:
+    target: https://www.gu.se/forskning/publikation/?publicationId=96592
+    title: "ISPs filtering of child abusive material: A critical reflection of its effectiveness"
+    author:
+      name: Marie Eneman
+      ins: M. Eneman
+    date: 2010
 
   Gatlan-2019:
     target: https://www.bleepingcomputer.com/news/security/south-korea-is-censoring-the-internet-by-snooping-on-sni-traffic/
@@ -86,6 +124,30 @@ informative:
       name: Jo Glanville
       ins: J. Glanville
     date: 2008
+
+  Wright-2013:
+    target: https://policyreview.info/articles/analysis/internet-filtering-trends-liberal-democracies-french-and-german-regulatory-debates
+    title: "Internet filtering trends in liberal democracies: French and German regulatory debates"
+    author:
+    -
+      name: Joss Wright
+      ins: J. Wright
+    -
+      name: Yana Breindl
+      ins: Y. Breindl
+    date: 2013
+
+  Dada-2017:
+    target: https://www.accessnow.org/keepiton-shutdown-tracker/
+    title: "Launching STOP: the #KeepItOn internet shutdown tracker"
+    author:
+    -
+      name: Tinuola Dada
+      ins: T. Dada
+    -
+      name: Peter Micek
+      ins: P. Micek
+    date: 2017
 
   Verkamp-2012:
     target: https://www.usenix.org/system/files/conference/foci12/foci12-final1.pdf
@@ -1256,7 +1318,7 @@ analyze, like VoIP or SSL, because the censor can assume that this
 traffic should be blocked. However, this can lead to over-blocking
 problems when used with popular protocols.  These methods are
 expensive, both computationally and financially, due to the use of
-statistical analysis, and can be ineffective due to its imprecise
+statistical analysis, and can be ineffective due to their imprecise
 nature.
 
 Empirical Examples: Protocol identification can be easy to detect if
@@ -1337,9 +1399,9 @@ require the censor to force a user to traverse a controlled DNS
 hierarchy (or intervening network on which the censor serves as a
 Active Pervasive Attacker {{RFC7624}} to rewrite DNS responses)
 for the mechanism to be effective. It can be circumvented
-by a technical savvy user that opts to use alternative DNS resolvers
+by using alternative DNS resolvers
 (such as the public DNS resolvers provided by
-Google, OpenDNS, Telcomix, or FDN) or Virtual Private Network technology. DNS mangling and cache poisoning
+Google, OpenDNS, Telcomix, or FDN) that may fall outside of the jurisdictional control of the censor, or Virtual Private Network (VPN) technology. DNS mangling and cache poisoning
 also imply returning an incorrect IP to
 those attempting to resolve a domain name, but in some cases the destination
 may be
@@ -1358,23 +1420,33 @@ partial, difficult, and less than ideal censorship mechanism. Additionally, the 
 
 Empirical Examples: DNS interference, when properly implemented, is
 easy to identify based on the shortcomings identified above. Turkey
-relied on DNS interference for its country-wide block of websites
-such Twitter and YouTube for almost week in March of 2014 but the ease
-of circumvention resulted in an increase in the popularity of Twitter
+relied on DNS interference for its country-wide block of websites such
+Twitter and YouTube for almost week in March of 2014 but the ease of
+circumvention resulted in an increase in the popularity of Twitter
 until Turkish ISPs implementing an IP blocklist to achieve the
-governmental mandate {{Zmijewki-2014}}.
-Ultimately, Turkish ISPs started hijacking all requests to Google and
-Level 3's international DNS resolvers {{Zmijewki-2014}}. DNS
-interference, when incorrectly implemented, has resulted in some
-of the largest "censorship disasters".  In January 2014, China started
-directing all requests passing through the Great Fire Wall to a single
-domain, dongtaiwang.com, due to an improperly configured DNS
-poisoning attempt; this incident is thought to be the largest
-Internet-service outage in history
-{{AFP-2014}} {{Anon-SIGCOMM12}}. Countries such as China, Iran, Turkey,
-and the United States have discussed blocking entire TLDs as well, but
-only Iran has acted by blocking all Israeli (.il) domains
-{{Albert-2011}}.
+governmental mandate {{Zmijewki-2014}}.  Ultimately, Turkish ISPs
+started hijacking all requests to Google and Level 3's international
+DNS resolvers {{Zmijewki-2014}}. DNS interference, when incorrectly
+implemented, has resulted in some of the largest "censorship
+disasters".  In January 2014, China started directing all requests
+passing through the Great Fire Wall to a single domain,
+dongtaiwang.com, due to an improperly configured DNS poisoning
+attempt; this incident is thought to be the largest Internet-service
+outage in history {{AFP-2014}} {{Anon-SIGCOMM12}}. Countries such as
+China, Iran, Turkey, and the United States have discussed blocking
+entire TLDs as well, but only Iran has acted by blocking all Israeli
+(.il) domains {{Albert-2011}}. DNS-blocking is commonly deployed in
+European countries to deal with undesirable content, such as child
+abuse content (Norway, United Kingdom, Belgium, Denmark, Finland,
+France, Germany, Ireland, Italy, Malta, the Netherlands, Poland, Spain
+and Sweden {{Wright-2013}} {{Eneman-2010}}), online gambling (Belgium,
+Bulgaria, Czech Republic, Cyprus, Denmark, Estonia, France, Greece,
+Hungary, Italy, Latvia, Lithuania, Poland, Portugal, Romania,
+Slovakia, Slovenia, Spain (see Section 6.3.2 of: {{EC-gambling-2012}},
+{{EC-gambling-2019}})), copyright infringement (all EEA countries),
+hate-speech and extremism (France {{Hertel-2015}}) and terrorism
+content (France {{Hertel-2015}}). Many European DNS filtering systems
+function as described in section 6.2.
 
 
 Transport Layer
@@ -1564,7 +1636,13 @@ during unrest in 2009 in an effort to prevent the protests from
 spreading to other regions {{Heacock-2009}}. The Arab Spring saw the
 the most frequent usage of Network Disconnection, with events in Egypt
 and Libya in 2011 {{Cowie-2011}} {{Cowie-2011b}}, and Syria in 2012
-{{Thomson-2012}}. Russia has indicated that it will attempt to disconnect all Russian networks from the global internet in April 2019 as part of a test of the nation's network independence. Reports also indicate that, as part of the test disconnect, Russian telecom firms must route all traffic to state-operated monitoring points. cite ZD Net https://www.zdnet.com/article/russia-to-disconnect-from-the-internet-as-part-of-a-planned-test/
+{{Thomson-2012}}. Russia has indicated that it will attempt to
+disconnect all Russian networks from the global internet in April 2019
+as part of a test of the nation's network independence. Reports also
+indicate that, as part of the test disconnect, Russian telecom firms
+must now route all traffic to state-operated monitoring points
+{{Cimpanu-2019}}. India was the country that saw the largest number of
+internet shutdowns per year in 2016 and 2017 {{Dada-2017}}.
 
 
 Non-Technical Prescription {#nontechag}
@@ -1643,13 +1721,15 @@ prevent access {{Anderson-2011}}.
 Notice and Takedown {#notice}
 -------------------
 
-In some countries, legal mechanisms exist where an individual can
-issue a legal request to a content host that requires the host to take
-down content. Examples include the voluntary systems employed by
-companies like Google to comply with "Right to be Forgotten" policies
-in the European Union {{Google-RTBF}} and the copyright-oriented
-notice and takedown regime of the United States Digital Millennium
-Copyright Act (DMCA) Section 512 {{DMLP-512}}.
+In many countries, legal mechanisms exist where an individual or other
+content provider can issue a legal request to a content host that
+requires the host to take down content. Examples include the systems
+employed by companies like Google to comply with "Right to be
+Forgotten" policies in the European Union {{Google-RTBF}},
+intermediary liability rules for electronic platform providers
+{{EC-2012}}, or the copyright-oriented notice and takedown regime of
+the United States Digital Millennium Copyright Act (DMCA) Section 512
+{{DMLP-512}}.
 
 Contributors {#Contributors}
 ============
