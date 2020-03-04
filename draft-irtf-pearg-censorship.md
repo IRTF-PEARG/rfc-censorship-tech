@@ -48,6 +48,37 @@ informative:
   RFC7624:
   RFC6066:
 
+  EC-2012:
+    target: https://ec.europa.eu/information_society/newsroom/image/document/2017-4/consultation_summary_report_en_2010_42070.pdf
+    title: "Summary of the results of the Public Consultation on the future of electronic commerce in the Internal Market and the implementation of the Directive on electronic commerce (2000/31/EC)"
+    author:
+      org: European Commission
+    date: 2000
+
+  Gatlan-2019:
+    target: https://www.bleepingcomputer.com/news/security/south-korea-is-censoring-the-internet-by-snooping-on-sni-traffic/
+    title: "South Korea is Censoring the Internet by Snooping on SNI Traffic"
+    author:
+      name: Sergiu Gatlan
+      ins: S. Gatlan
+    date: 2019
+
+  Lomas-2019:
+    target: https://techcrunch.com/2019/10/30/github-removes-tsunami-democratics-apk-after-a-takedown-order-from-spain/
+    title: "Github removes Tsunami Democràtic’s APK after a takedown order from Spain"
+    author:
+      name: Natasha Lomas
+      ins: N. Lomas
+    date: 2019
+
+  Victor-2019:
+    target: https://www.nytimes.com/2019/10/09/world/asia/blizzard-hearthstone-hong-kong.html
+    title: "Blizzard Sets Off Backlash for Penalizing Hearthstone Gamer in Hong Kong"
+    author:
+      name: Daniel Victor
+      ins: D. Victor
+    date: 2019
+
   Glanville-2008:
     target: http://www.theguardian.com/commentisfree/2008/nov/17/censorship-internet
     title: The Big Business of Net Censorship
@@ -164,6 +195,14 @@ informative:
       name: Jacqui Cheng
       ins: J. Cheng
     date: 2010
+
+  Boyle-1997:
+    target: https://scholarship.law.duke.edu/faculty_scholarship/619/
+    title: "Foucault in Cyberspace: Surveillance, Sovereignty, and Hardwired Censors"
+    author:
+      name: James Boyle
+      ins: J. Boyle
+    date: 1997
 
   Whittaker-2013:
     target: http://www.zdnet.com/1168-keywords-skype-uses-to-censor-monitor-its-chinese-users-7000012328/
@@ -966,28 +1005,38 @@ the overlap in HTTP response filtering and keyword filtering (see
 filtering over TCP streams instead of HTTP response filtering.
 
 
-### Instrumenting Content Providers {#kw-filt}
+### Instrumenting Content Distributors {#kw-filt}
 
-In addition to censorship by the state, many governments pressure
-content providers to censor themselves. Due to the extensive reach of
-government censorship, we need to define content provider as any
-service that provides utility to users, including everything from web
-sites to locally installed programs. The defining factor of keyword
-identification by content providers is the choice of content providers
-to detect restricted terms on their platform. The terms to look for
-may be provided by the government or the content provider may be
-expected to come up with their own list.
+Many governments pressure content providers to censor themselves, or
+provide the legal framework within which content distributors are
+incentivised to follow the content restriction preferences of agents
+external to the content distributor {{Boyle-1997}}. Due to the
+extensive reach of such censorship, we need to define content
+distributor as any service that provides utility to users, including
+everything from web sites to locally installed programs. A commonly
+used method of instrumenting content distributors consists of keyword
+identification to detect restricted terms on their platform. The terms
+on such keyword lists may be provided by the government or the content
+provider may be expected to come up with their own list. A different
+method of instrumenting content distributors consists in requiring a
+distributor to disassociate with some categories of users. (See also
+{{notice}}.)
 
-Tradeoffs: By instrumenting content providers to identify restricted
-content, the censor can gain new information at the cost of political
-capital with the companies it forces or encourages to participate in
-censorship. For example, the censor can gain insight about the content
-of encrypted traffic by coercing web sites to identify restricted
-content, but this may drive away potential investment. Coercing
-content providers may encourage self-censorship, an additional
-advantage for censors. The tradeoffs for instrumenting content
-providers are highly dependent on the content provider and the
-requested assistance.
+Tradeoffs: By instrumenting content distributors to identify
+restricted content or content providers, the censor can gain new
+information at the cost of political capital with the companies it
+forces or encourages to participate in censorship. For example, the
+censor can gain insight about the content of encrypted traffic by
+coercing web sites to identify restricted content. Coercing content
+distributors to regulate users, categories of users, content and
+content providers may encourage users and content providers to exhibit
+self-censorship, an additional advantage for censors. The tradeoffs
+for instrumenting content distributors are highly dependent on the
+content provider and the requested assistance. The typical concern is
+that the targeted keywords or categories of users are too broad, risk
+being too broadly applied or are not subjected to a sufficiently
+robust legal process prior to their mandatory application (see p. 8 of
+{{EC-2012}}).
 
 Empirical Examples: Researchers have discovered keyword identification
 by content providers on platforms ranging from instant messaging
@@ -1000,16 +1049,19 @@ Search engine censorship demonstrates keyword identification by
 content providers and can be regional or worldwide.  Implementation is
 occasionally voluntary, but normally is based on laws and regulations
 of the country a search engine is operating in. The keyword blocklists
-are most likely maintained by the search engine provider. China is known to
-require search engine providers to "voluntarily" maintain search term
-blocklists to acquire/keep an Internet content provider (ICP) license
-{{Cheng-2010}}.  It is clear these blocklists are maintained by each
-search engine provider based on the slight variations in the
-intercepted searches {{Zhu-2011}} {{Whittaker-2013}}. The United
-Kingdom has been pushing search engines to self-censor with the threat
-of litigation if they don't do it themselves: Google and Microsoft
-have agreed to block more than 100,000 queries in U.K. to help combat
-abuse {{BBC-2013}} {{Condliffe-2013}}.
+are most likely maintained by the search engine provider. China is
+known to require search engine providers to "voluntarily" maintain
+search term blocklists to acquire/keep an Internet content provider
+(ICP) license {{Cheng-2010}}.  It is clear these blocklists are
+maintained by each search engine provider based on the slight
+variations in the intercepted searches {{Zhu-2011}}
+{{Whittaker-2013}}. The United Kingdom has been pushing search engines
+to self-censor with the threat of litigation if they don't do it
+themselves: Google and Microsoft have agreed to block more than
+100,000 queries in U.K. to help combat abuse {{BBC-2013}}
+{{Condliffe-2013}}.  European Union law, as well as US law, requires
+modification of search engine results in response to either copyright,
+trademark, data protection or defamation concerns {{EC-2012}}.
 
 Depending on the output, search engine keyword identification may be
 difficult or easy to detect. In some cases specialized or blank
@@ -1023,6 +1075,13 @@ Bing's results so that the more popular results in China (the
 uncensored results) were also more popular for Chinese speakers
 outside of China.
 
+Disassociation by content distributors from certain categories of
+users has happened for instance in Spain, as a result of the conflict
+between the Catalunyan independence movement and the Spanish legal
+presumption of a unitary state {{Lomas-2019}}. E-sport event
+organizers have also disassociated themselves from top players who
+expressed political opinions in relation to the 2019 Hong Kong
+protests {{Victor-2019}}. See also {{discon}}.
 
 ### Deep Packet Inspection (DPI) Identification {#dpi}
 
@@ -1117,7 +1176,8 @@ transfer to other points of intervention, such as content and application provid
 
 Empirical Examples: While there are many examples of security firms
 that offer SNI-based filtering {{Trustwave-2015}} {{Sophos-2015}}
-{{Shbair-2015}}, the government of South Korea was recently observed using SNI-based filtering. Cite to Gatlan https://www.bleepingcomputer.com/news/security/south-korea-is-censoring-the-internet-by-snooping-on-sni-traffic/
+{{Shbair-2015}}, the government of South Korea was recently observed
+using SNI-based filtering {{Gatlan-2019}}.
 
 
 Transport Layer {#transport}
