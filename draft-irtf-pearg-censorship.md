@@ -1026,8 +1026,11 @@ cheap and easy-to-acquire, making it desirable when budget and scope
 are a concern. HTTPS will encrypt the relevant request and response
 fields, so pairing with TCP/IP identification (see [](#sec_tcpid)) is
 necessary for filtering of HTTPS. However, some countermeasures such
-as URL obfuscation {{RSF-2005}} can trivially defeat simple forms of
-HTTP Request Header Identification.
+as URL obfuscation can trivially defeat simple forms of HTTP Request
+Header Identification (for example, using a simple character rotation
+technique, ROT-13, where the current letter is replaced by the one 13
+characters ahead of it in the alphabet, a URL such as
+http://ice.citizenlab.org becomes uggc://vpr.pvgvmrayno.bet).
 
 Empirical Examples: Studies exploring censorship mechanisms have found
 evidence of HTTP header/ URL filtering in many countries, including
