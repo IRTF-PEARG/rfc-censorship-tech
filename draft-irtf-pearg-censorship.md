@@ -16,8 +16,8 @@ author:
  -
     ins: J.L. Hall
     name: Joseph Lorenzo Hall
-    organization: CDT
-    email: joe@cdt.org
+    organization: Internet Society
+    email: hall@isoc.org
  -
     ins: M.D. Aaron
     name: Michael D. Aaron
