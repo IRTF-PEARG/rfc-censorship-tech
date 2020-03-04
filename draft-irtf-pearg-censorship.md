@@ -137,6 +137,68 @@ informative:
       ins: Y. Breindl
     date: 2013
 
+  NA-SK-2019:
+    target: https://www.newamerica.org/cybersecurity-initiative/c2b/c2b-log/analysis-south-koreas-sni-monitoring/
+    title: "Analysis: South Korea's New Tool for Filtering Illegal Internet Content"
+    author:
+    -
+      name: Robert Morgus
+      ins: R. Morgus
+    -
+      name: Justin Sherman
+      ins: J. Sherman
+    -
+      name: Seonghyun Nam
+      ins: S. Nam
+    date: 2019
+
+  CitizenLab-2018:
+    target: https://citizenlab.ca/2018/03/bad-traffic-sandvines-packetlogic-devices-deploy-government-spyware-turkey-syria/
+    title: "Bad Traffic: Sandvine’s PacketLogic Devices Used to Deploy Government Spyware in Turkey and Redirect Egyptian Users to Affiliate Ads?"
+    author:
+    -
+      name: Bill Marczak
+      ins: B. Marczak
+    -
+      name: Jakub Dalek
+      ins: J. Dalek
+    -
+      name: Sarah McKune
+      ins: S. McKune
+    -
+      name: Adam Senft
+      ins: A. Senft
+    -
+      name: John Scott-Railton
+      ins: J. Scott-Railton
+    -
+      name: Ron Deibert
+      ins: R. Deibert
+    date: 2018
+
+  OONI-2019:
+    target: https://ooni.org/post/2019-china-wikipedia-blocking/
+    title: "China is now blocking all language editions of Wikipedia"
+    author:
+    -
+      name: Sukhbir Singh
+      ins: S. Singh
+    -
+      name: Arturo Filastò
+      ins: A. Filastò
+    -
+      name: Maria Xynou
+      ins: M. Xynou
+    date: 2019
+
+  OONI-2018:
+    target: https://ooni.org/post/2018-iran-protests-pt2/
+    title: "Iran Protests: DPI blocking of Instagram (Part 2)"
+    author:
+      name: Leonid Evdokimov
+      ins: L. Evdokimov
+    date: 2018
+
   Dada-2017:
     target: https://www.accessnow.org/keepiton-shutdown-tracker/
     title: "Launching STOP: the #KeepItOn internet shutdown tracker"
@@ -1243,10 +1305,12 @@ overblocking, e.g., when a second-level domain like populardomain.example is
 inadvertently blocked. In the case of encrypted SNI, pressure to censor may
 transfer to other points of intervention, such as content and application providers.
 
-Empirical Examples: While there are many examples of security firms
-that offer SNI-based filtering {{Trustwave-2015}} {{Sophos-2015}}
-{{Shbair-2015}}, the government of South Korea was recently observed
-using SNI-based filtering {{Gatlan-2019}}.
+Empirical Examples: There are many examples of security firms that
+offer SNI-based filtering products {{Trustwave-2015}} {{Sophos-2015}}
+{{Shbair-2015}}, and the governments of China, Egypt, Iran, Qatar,
+South Korea, Turkey, Turkmenistan, and the UAE all do widespread SNI
+filtering or blocking {{OONI-2018}} {{OONI-2019}} {{NA-SK-2019}}
+{{CitizenLab-2018}} {{Gatlan-2019}}.
 
 
 Transport Layer {#transport}
@@ -1742,7 +1806,7 @@ Contributors {#Contributors}
 ============
 
 This document benefited from discussions with Amelia Andersdotter,
-Stephane Bortzmeyer, Martin Nilsson, Michael Richardson, and Patrick
-Vacek.
+Stephane Bortzmeyer, Vinicius Fortuna, Martin Nilsson, Michael
+Richardson, and Patrick Vacek.
 
 --- back
