@@ -1192,7 +1192,7 @@ to be successfully routed: destination and source IP address and port.
 Destination and Source IP are doubly useful, as not only does it allow
 a censor to block undesirable content via IP blocklisting, but also
 allows a censor to identify the IP of the user making the
-request. Port is useful for whitelisting certain applications.
+request. Port is useful for allowlisting certain applications.
 
 Trade-offs: TCP/IP identification is popular due to its simplicity,
 availability, and robustness.
@@ -1213,7 +1213,7 @@ Port-blocking is generally not useful because many types of content
 share the same port and it is possible for censored applications to
 change their port. For example, most HTTP traffic goes over port 80,
 so the censor cannot differentiate between restricted and allowed
-content solely on the basis of port. Port whitelisting is occasionally
+content solely on the basis of port. Port allowlisting is occasionally
 used, where a censor limits communication to approved ports, such as
 80 for HTTP traffic and is most effective when used in conjunction with
 other identification mechanisms. For example, a censor could block the
