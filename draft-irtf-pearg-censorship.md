@@ -861,8 +861,11 @@ regimes around the world use to block or degrade Internet traffic (see
 {{RFC7754}} for a discussion of Internet blocking and filtering
 in terms of implications for Internet architecture, rather than end-user access to content and services).
 
-We describe three elements of Internet censorship: prescription,
-identification, and interference. Prescription is the process by which
+## Terminology {#terms}
+
+We describe three elements of Internet censorship -- prescription,
+identification, and interference -- and structure the document
+in three major sections corresponding to each. Prescription is the process by which
 censors determine what types of material they should block, i.e. they
 decide to block a
 list of pornographic websites. Identification is the process by which
@@ -886,7 +889,7 @@ are starting to use machine learning techniques as well {{Tang-2016}}.
 There are typically three types of blocklists: Keyword, domain name,
 or Internet Protocol (IP) address. Keyword and domain name blocking take place at the application
 level (e.g. HTTP), whereas IP blocking tends to take place using
-routing data in TCP/IP headers. The mechanisms for building up these
+routing data in IPv4/IPv6 headers. The mechanisms for building up these
 blocklists are varied. Censors can purchase from private industry
 "content control" software, such as SmartFilter, which allows
 filtering from broad categories that they would like to block, such as
@@ -964,16 +967,17 @@ general points-of-control:
   censorship discussions, as well as the focus of discussions of moral
   imperatives to use censorship tools.
 
-* Certificate Authorities: Authorities that issue cryptographically
-  secured resources can be a significant point of control. Certificate
-  Authorities that issue certificates to domain holders for TLS/HTTPS
-  or Regional/Local Internet Registries that issue Route Origination
-  Authorizations to BGP operators can be forced to issue rogue
-  certificates that may allow compromises in confidentiality
-  guarantees -- allowing censorship software to engage in
-  identification and interference where not possible before -- or
-  integrity guarantees -- allowing, for example, adversarial routing of
-  traffic.
+* Certificate Authorities for Public-Key Infrastructures (PKIs):
+  Authorities that issue cryptographically secured resources can be a
+  significant point of control. Certificate Authorities that issue
+  certificates to domain holders for TLS/HTTPS (the Web PKI) or
+  Regional/Local Internet Registries (RIRs) that issue Route
+  Origination Authorizations (ROAs) to BGP operators can be forced to
+  issue rogue certificates that may allow compromises in
+  confidentiality guarantees -- allowing censorship software to engage
+  in identification and interference where not possible before -- or
+  integrity guarantees -- allowing, for example, adversarial routing
+  of traffic.
 
 * Content Distribution Networks (CDNs): CDNs seek to collapse network
   topology in order to better locate content closer to the service's
@@ -1520,7 +1524,7 @@ an established stream by sending RST packets to both sides of a TCP
 connection; as each receiver thinks the other has dropped the
 connection, the session is terminated.
 
-Trade-offs: RST Packet Injection has a few advantages that make it
+Trade-offs: Although ineffective against non-TCP protocols (QUIC, IPSec), RST Packet Injection has a few advantages that make it
 extremely popular as a censorship technique. RST Packet Injection is
 an out-of-band interference mechanism, allowing the avoidance of the the
 QoS bottleneck one can encounter with inline techniques such as Packet
@@ -1735,6 +1739,7 @@ Contributors {#Contributors}
 ============
 
 This document benefited from discussions with Amelia Andersdotter,
-Stephane Bortzmeyer, Martin Nilsson, and Patrick Vacek.
+Stephane Bortzmeyer, Martin Nilsson, Michael Richardson, and Patrick
+Vacek.
 
 --- back
