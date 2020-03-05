@@ -137,6 +137,51 @@ informative:
       ins: Y. Breindl
     date: 2013
 
+  Grover-2019:
+    target: https://cis-india.org/internet-governance/blog/reliance-jio-is-using-sni-inspection-to-block-websites
+    title: "Reliance Jio is using SNI inspection to block websites"
+    author:
+    -
+      name: Gurshabad Grover
+      ins: G. Grover
+    -
+      name: Kushagra Singh
+      ins: K. Singh
+    -
+      name: Elonnai Hickok
+      ins: E. Hickok
+    date: 2019
+
+  Singh-2019:
+    target: https://arxiv.org/abs/1912.08590
+    title: "How India Censors the Web"
+    author:
+    -
+      name: Kushagra Singh
+      ins: K. Singh
+    -
+      name: Gurshabad Grover
+      ins: G. Grover
+    -
+      name: Varun Bansal
+      ins: V. Bansal
+    date: 2019
+
+  Chai-2019:
+    target: https://www.usenix.org/system/files/foci19-paper_chai_0.pdf
+    title: "On the Importance of Encrypted-SNI (ESNI) to Censorship Circumvention"
+    author:
+    -
+      name: Zimo Chai
+      ins: Z. Chai
+    -
+      name: Amirhossein Ghafari
+      ins: A. Ghafari
+    -
+      name: Amir Houmansadr
+      ins: A. Houmansadr
+    date: 2019
+
   NA-SK-2019:
     target: https://www.newamerica.org/cybersecurity-initiative/c2b/c2b-log/analysis-south-koreas-sni-monitoring/
     title: "Analysis: South Korea's New Tool for Filtering Illegal Internet Content"
@@ -1313,7 +1358,8 @@ offer SNI-based filtering products {{Trustwave-2015}} {{Sophos-2015}}
 {{Shbair-2015}}, and the governments of China, Egypt, Iran, Qatar,
 South Korea, Turkey, Turkmenistan, and the UAE all do widespread SNI
 filtering or blocking {{OONI-2018}} {{OONI-2019}} {{NA-SK-2019}}
-{{CitizenLab-2018}} {{Gatlan-2019}}.
+{{CitizenLab-2018}} {{Gatlan-2019}} {{Chai-2019}} {{Grover-2019}}
+{{Singh-2019}}.
 
 
 Transport Layer {#transport}
@@ -1810,6 +1856,7 @@ Contributors {#Contributors}
 
 This document benefited from discussions with and input from Amelia
 Andersdotter, David Belson, Stephane Bortzmeyer, Vinicius Fortuna,
-Martin Nilsson, Michael Richardson, and Patrick Vacek.
+Gurshabad Grover, Martin Nilsson, Michael Richardson, and Patrick
+Vacek.
 
 --- back
