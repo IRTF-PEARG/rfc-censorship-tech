@@ -512,12 +512,12 @@ informative:
       ins: B. Halley
     date: 2014
 
-  Zmijewki-2014:
+  Zmijewski-2014:
     target: http://www.renesys.com/2014/03/turkish-internet-censorship/
     title: Turkish Internet Censorship Takes a New Turn
     author:
-      name: Earl Zmijewki
-      ins: E. Zmijewki
+      name: Earl Zmijewski
+      ins: E. Zmijewski
     date: 2014
 
   AFP-2014:
@@ -1008,7 +1008,7 @@ general points-of-control:
   place. These mechanisms are occasionally at the request of a
   government censor, but can also be implemented to help achieve
   institutional goals, such as fostering a particular moral outlook on
-  life by school-children, independent y of broader society or
+  life by school-children, independent of broader society or
   government goals.
 
 * Personal Devices: Censors can mandate censorship software be
@@ -1078,7 +1078,7 @@ useful. As such, "method" and "host" are the two fields used
 most often for ubiquitous censorship. A censor can sniff traffic and
 identify a specific domain name (host) and usually a page name (GET
 /page) as well. This identification technique is usually paired with
-TCP/IP header identification (see [](#sec_tcpid)) for a more robust
+TCP/IP header identification (see {{sec_tcpid}}) for a more robust
 method.
 
 Tradeoffs: Request Identification is a technically straight-forward
@@ -1086,13 +1086,16 @@ identification method that can be easily implemented at the Backbone
 or ISP level. The hardware needed for this sort of identification is
 cheap and easy-to-acquire, making it desirable when budget and scope
 are a concern. HTTPS will encrypt the relevant request and response
-fields, so pairing with TCP/IP identification (see [](#sec_tcpid)) is
+fields, so pairing with TCP/IP identification (see {{sec_tcpid}}) is
 necessary for filtering of HTTPS. However, some countermeasures such
 as URL obfuscation can trivially defeat simple forms of HTTP Request
-Header Identification (for example, using a simple character rotation
-technique, ROT-13, where the current letter is replaced by the one 13
-characters ahead of it in the alphabet, a URL such as
-http://ice.citizenlab.org becomes uggc://vpr.pvgvmrayno.bet).
+Header Identification (for example, two cooperating endpoints -- an
+instrumented web server and client -- could use a simple character
+rotation technique to obfuscate the "host" in an HTTP request. E.g., a
+given letter in a URL can be replaced by one 13 characters ahead of it
+in the alphabet, such that a URL http://example.com becomes
+uggc://rknzcyr.pbz, potentially thwarting techniques that match
+against "host" header values.).
 
 Empirical Examples: Studies exploring censorship mechanisms have found
 evidence of HTTP header/ URL filtering in many countries, including
@@ -1495,9 +1498,9 @@ relied on DNS interference for its country-wide block of websites such
 Twitter and YouTube for almost week in March of 2014 but the ease of
 circumvention resulted in an increase in the popularity of Twitter
 until Turkish ISPs implementing an IP blocklist to achieve the
-governmental mandate {{Zmijewki-2014}}.  Ultimately, Turkish ISPs
+governmental mandate {{Zmijewski-2014}}.  Ultimately, Turkish ISPs
 started hijacking all requests to Google and Level 3's international
-DNS resolvers {{Zmijewki-2014}}. DNS interference, when incorrectly
+DNS resolvers {{Zmijewski-2014}}. DNS interference, when incorrectly
 implemented, has resulted in some of the largest "censorship
 disasters".  In January 2014, China started directing all requests
 passing through the Great Fire Wall to a single domain,
@@ -1805,8 +1808,8 @@ the United States Digital Millennium Copyright Act (DMCA) Section 512
 Contributors {#Contributors}
 ============
 
-This document benefited from discussions with Amelia Andersdotter,
-Stephane Bortzmeyer, Vinicius Fortuna, Martin Nilsson, Michael
-Richardson, and Patrick Vacek.
+This document benefited from discussions with and input from Amelia
+Andersdotter, David Belson, Stephane Bortzmeyer, Vinicius Fortuna,
+Martin Nilsson, Michael Richardson, and Patrick Vacek.
 
 --- back
