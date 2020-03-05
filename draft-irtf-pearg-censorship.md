@@ -22,7 +22,7 @@ author:
     ins: M.D. Aaron
     name: Michael D. Aaron
     organization: CU Boulder
-    email: michael.aaron@colorado.edu
+    email: michael.drew.aaron@gmail.com
  -
     ins: S. Adams
     name: Stan Adams
@@ -36,8 +36,8 @@ author:
  -
     ins: N. Feamster
     name: Nick Feamster
-    organization: Princeton
-    email: feamster@cs.princeton.edu
+    organization: U Chicago
+    email: feamster@uchicago.edu
 
 normative:
 
