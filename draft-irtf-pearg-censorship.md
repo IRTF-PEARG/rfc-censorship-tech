@@ -1103,7 +1103,7 @@ general points-of-control:
   voluntary/coercive influence.
 
 * Institutions: Private institutions such as corporations,
-  schools, and cyber cafes can put filtration mechanisms in
+  schools, and Internet cafes can put filtration mechanisms in
   place. These mechanisms are occasionally at the request of a
   government censor, but can also be implemented to help achieve
   institutional goals, such as fostering a particular moral outlook on
@@ -1149,7 +1149,7 @@ general points-of-control:
   thereby improve quality of service. The CDN service's content
   servers, located "close" to the user in a network-sense, can be
   powerful points of control for censors, especially if the location
-  of CDN content respositories allow for easier interference.
+  of CDN content repositories allow for easier interference.
 
 At all levels of the network hierarchy, the filtration mechanisms used
 to detect undesirable traffic are essentially the same: a censor
