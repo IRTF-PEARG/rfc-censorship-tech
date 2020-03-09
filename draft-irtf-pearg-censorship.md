@@ -6,7 +6,7 @@ category: info
 
 ipr: trust200902
 area: General
-workgroup:
+workgroup: pearg
 keyword: Internet-Draft
 
 stand_alone: yes
@@ -87,6 +87,14 @@ informative:
     author:
       org: European Commission
     date: 2012
+
+  Bentham-1791:
+    target: https://books.google.com/books/about/Panopticon_Or_the_Inspection_House.html
+    title: "Panopticon Or the Inspection House"
+    author:
+      name: Jeremy Bentham
+      ins: J. Bentham
+    date: 1791
 
   Reda-2017:
     target: https://juliareda.eu/2017/11/eu-website-blocking/
@@ -1254,7 +1262,7 @@ used method of instrumenting content distributors consists of keyword
 identification to detect restricted terms on their platform. The terms
 on such keyword lists may be provided by the government or the content
 provider may be expected to come up with their own list. A different
-method of instrumenting content distributors consists in requiring a
+method of instrumenting content distributors consists of requiring a
 distributor to disassociate with some categories of users. (See also
 {{notice}}.)
 
@@ -1266,7 +1274,7 @@ censor can gain insight about the content of encrypted traffic by
 coercing web sites to identify restricted content. Coercing content
 distributors to regulate users, categories of users, content and
 content providers may encourage users and content providers to exhibit
-self-censorship, an additional advantage for censors. The tradeoffs
+self-censorship, an additional advantage for censors (see {{selfcensor}}). The tradeoffs
 for instrumenting content distributors are highly dependent on the
 content provider and the requested assistance. The typical concern is
 that the targeted keywords or categories of users are too broad, risk
@@ -1276,14 +1284,14 @@ robust legal process prior to their mandatory application (see p. 8 of
 
 Empirical Examples: Researchers have discovered keyword identification
 by content providers on platforms ranging from instant messaging
-applications {{Senft-2013}} to search engines
-{{Rushe-2015}} {{Cheng-2010}} {{Whittaker-2013}} {{BBC-2013}} {{Condliffe-2013}}. To
+applications {{Senft-2013}} to search engines {{Rushe-2015}}
+{{Cheng-2010}} {{Whittaker-2013}} {{BBC-2013}} {{Condliffe-2013}}. To
 demonstrate the prevalence of this type of keyword identification, we
 look to search engine censorship.
 
 Search engine censorship demonstrates keyword identification by
 content providers and can be regional or worldwide.  Implementation is
-occasionally voluntary, but normally is based on laws and regulations
+occasionally voluntary, but normally it is based on laws and regulations
 of the country a search engine is operating in. The keyword blocklists
 are most likely maintained by the search engine provider. China is
 known to require search engine providers to "voluntarily" maintain
@@ -1458,7 +1466,7 @@ used, where a censor limits communication to approved ports, such as
 with other identification mechanisms. For example, a censor could
 block the default HTTPS port, port 443, thereby forcing most users to
 fall back to HTTP. An important counter-example is that port 25 (SMTP)
-has long been blocked on residential ISPs networks, ostensibly to
+has long been blocked on residential ISPs' networks, ostensibly to
 reduce the potential for email spam, but also prohibiting residential
 ISP customers to run their own email servers.
 
@@ -1489,7 +1497,7 @@ negotiate a connection, then the censor conclusively knows that host
 is running a circumvention tool. China has used active scanning to
 great effect to block Tor {{Winter-2012}}.
 
-Trade-offs: Protocol Identification necessarily only provides insight
+Trade-offs: Protocol identification necessarily only provides insight
 into the way information is traveling, and not the information itself.
 
 Protocol identification is useful for detecting and blocking
@@ -1507,7 +1515,7 @@ blocked, but some types of protocol identification, like active
 scanning, are much more difficult to detect. Protocol identification
 has been used by Iran to identify and throttle SSH traffic to make it
 unusable {{Anonymous-2007}} and by China to identify and block Tor
-relays {{Winter-2012}}. Protocol Identification has also been used for
+relays {{Winter-2012}}. Protocol identification has also been used for
 traffic management, such as the 2007 case where Comcast in the United
 States used RST injection to interrupt BitTorrent Traffic
 {{Winter-2012}}.
@@ -1580,8 +1588,8 @@ hierarchy (or intervening network on which the censor serves as a
 Active Pervasive Attacker {{RFC7624}} to rewrite DNS responses)
 for the mechanism to be effective. It can be circumvented
 by using alternative DNS resolvers
-(such as the public DNS resolvers provided by
-Google, OpenDNS, Telcomix, or FDN) that may fall outside of the jurisdictional control of the censor, or Virtual Private Network (VPN) technology. DNS mangling and cache poisoning
+(such as any of the public DNS resolvers)
+that may fall outside of the jurisdictional control of the censor, or Virtual Private Network (VPN) technology. DNS mangling and cache poisoning
 also imply returning an incorrect IP to
 those attempting to resolve a domain name, but in some cases the destination
 may be
@@ -1623,7 +1631,7 @@ and Sweden {{Wright-2013}} {{Eneman-2010}}), online gambling (Belgium,
 Bulgaria, Czech Republic, Cyprus, Denmark, Estonia, France, Greece,
 Hungary, Italy, Latvia, Lithuania, Poland, Portugal, Romania,
 Slovakia, Slovenia, Spain (see Section 6.3.2 of: {{EC-gambling-2012}},
-{{EC-gambling-2019}})), copyright infringement (all EEA countries),
+{{EC-gambling-2019}})), copyright infringement (all European Economic Area countries),
 hate-speech and extremism (France {{Hertel-2015}}) and terrorism
 content (France {{Hertel-2015}}). Many European DNS filtering systems
 function as described in section 6.2.
@@ -1706,7 +1714,7 @@ an out-of-band interference mechanism, allowing the avoidance of the the
 QoS bottleneck one can encounter with inline techniques such as Packet
 Dropping. This out-of-band property allows a censor to inspect a copy
 of the information, usually mirrored by an optical splitter, making it
-an ideal pairing for DPI and Protocol Identification
+an ideal pairing for DPI and protocol identification
 {{Weaver-2009}} (this asynchronous version of a MITM is often called a
 Man-on-the-Side (MOTS)).
 RST Packet Injection also has the advantage of only
@@ -1735,7 +1743,7 @@ against all types of TCP traffic.
 
 Empirical Examples: RST Packet Injection, as mentioned above, is most
 often paired with identification techniques that require splitting,
-such as DPI or Protocol Identification. In 2007, Comcast was accused of
+such as DPI or protocol identification. In 2007, Comcast was accused of
 using RST Packet Injection to interrupt traffic it identified as
 BitTorrent {{Schoen-2007}}, this later led to a US Federal
 Communications Commission ruling against Comcast
@@ -1854,12 +1862,12 @@ Self-Censorship {#selfcensor}
 ---------------
 
 Self-censorship is one of the most interesting and effective types of
-censorship; a mix of Bentham's Panopticon, cultural manipulation,
+censorship: a mix of Bentham's Panopticon {{Bentham-1791}}, cultural manipulation,
 intelligence gathering, and offline enforcement. Simply put, self-censorship is when a censor creates an atmosphere where users censor
 themselves. This can be achieved through controlling information,
 intimidating would-be dissidents, swaying public thought, and creating
 apathy. Self-censorship is difficult to document, as when it is
-implemented effectively the only noticeable tracing is a lack of
+implemented effectively the only noticeable evidence is a lack of
 undesirable content; instead one must look at the tools and techniques
 used by censors to encourage self-censorship. Controlling Information
 relies on traditional censorship techniques, or by forcing all users
