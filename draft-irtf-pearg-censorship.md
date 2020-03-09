@@ -53,6 +53,13 @@ informative:
   RFC7624:
   RFC6066:
 
+  HADOPI-2020:
+    target: https://www.hadopi.fr/en/node/3668
+    title: "Présentation"
+    author:
+      org: Haute Autorité pour la Diffusion des oeuvres et la Protection des Droits sur Internet
+    date: 2020
+
   WP-Def-2020:
     target: https://en.wikipedia.org/w/index.php?title=Censorship&oldid=943938595
     title: "Censorship"
@@ -80,6 +87,14 @@ informative:
     author:
       org: European Commission
     date: 2012
+
+  Reda-2017:
+    target: https://juliareda.eu/2017/11/eu-website-blocking/
+    title: "New EU law prescribes website blocking in the name of 'consumer protection'"
+    author:
+      name: Julia Reda
+      ins: J. Reda
+    date: 2017
 
   Cimpanu-2019:
     target: https://www.zdnet.com/article/russia-to-disconnect-from-the-internet-as-part-of-a-planned-test/
@@ -136,6 +151,27 @@ informative:
       name: Jo Glanville
       ins: J. Glanville
     date: 2008
+
+  Leyba-2019:
+    target: https://forrest.biodesign.asu.edu/data/publications/2019-compass-chokepoints.pdf
+    title: "Borders and Gateways: Measuring and Analyzing National AS Chokepoints"
+    author:
+    -
+      name: Kirtus G. Leyba
+      ins: K. Leyba
+    -
+      name: Benjamin Edwards
+      ins: B. Edwards
+    -
+      name: Cynthia Freeman
+      ins: C. Freeman
+    -
+      name: Jedidiah R. Crandall
+      ins: J. Crandall
+    -
+      name: Stephanie Forrest
+      ins: S. Forrest
+    date: 2019
 
   Wright-2013:
     target: https://policyreview.info/articles/analysis/internet-filtering-trends-liberal-democracies-french-and-german-regulatory-debates
@@ -1000,29 +1036,33 @@ Technical Prescription {#tech-prescrip}
 =====================
 
 Prescription is the process of figuring out what censors would like to
-block {{Glanville-2008}}. Generally, censors aggregate
-information "to block" in blocklists or using real-time heuristic assessment of
-content {{Ding-1999}}. There are indications that online censors
-are starting to use machine learning techniques as well {{Tang-2016}}.
+block {{Glanville-2008}}. Generally, censors aggregate information "to
+block" in blocklists or using real-time heuristic assessment of
+content {{Ding-1999}}. Some national networks are designed to more
+naturally to serve as points of control {{Leyba-2019}} and there are
+indications that online censors are starting to use probabilistic machine learning
+techniques as well {{Tang-2016}}.
 
 There are typically three types of blocklists: Keyword, domain name,
-or Internet Protocol (IP) address. Keyword and domain name blocking take place at the application
-level (e.g. HTTP), whereas IP blocking tends to take place using
-IP addresses in IPv4/IPv6 headers. The mechanisms for building up these
-blocklists are varied. Censors can purchase from private industry
-"content control" software, such as SmartFilter, which allows
-filtering from broad categories that they would like to block, such as
-gambling or pornography.  In these cases, these private services
-attempt to categorize every semi-questionable website as to allow for
-meta-tag blocking (similarly, they tune real-time content heuristic
-systems to map their assessments onto categories of objectionable
-content).
+or Internet Protocol (IP) address. Keyword and domain name blocking
+take place at the application level (e.g. HTTP), whereas IP blocking
+tends to take place using IP addresses in IPv4/IPv6 headers. The
+mechanisms for building up these blocklists are varied. Censors can
+purchase from private industry "content control" software, such as
+SmartFilter, which allows filtering from broad categories that they
+would like to block, such as gambling or pornography.  In these cases,
+these private services attempt to categorize every semi-questionable
+website as to allow for meta-tag blocking (similarly, they tune
+real-time content heuristic systems to map their assessments onto
+categories of objectionable content).
 
 Countries that are more interested in
 retaining specific political control, a desire which requires swift
 and decisive action, often have ministries or organizations, such as
-the Ministry of Industry and Information Technology in China or the
-Ministry of Culture and Islamic Guidance in Iran, which maintain their
+the Ministry of Industry and Information Technology in China, the
+Ministry of Culture and Islamic Guidance in Iran, specific to copyright
+in France {{HADOPI-2020}} and across the EU for consumer protection law {{Reda-2017}},  all of
+which maintain their
 own blocklists.
 
 
@@ -1044,11 +1084,13 @@ general points-of-control:
 
 * Internet Backbone: If a censor controls the gateways into a region,
   they can filter undesirable traffic that is traveling into and out
-  of the region by packet sniffing and port mirroring at the relevant exchange
-  points. Censorship at this point of control is most effective at
-  controlling the flow of information between a region and the rest of
-  the Internet, but is ineffective at identifying content traveling
-  between the users within a region.
+  of the region by packet sniffing and port mirroring at the relevant
+  exchange points. Censorship at this point of control is most
+  effective at controlling the flow of information between a region
+  and the rest of the Internet, but is ineffective at identifying
+  content traveling between the users within a region. Some national
+  network designs naturally serve as more effective chokepoints and
+  points of control {{Leyba-2019}}.
 
 * Internet Service Providers: Internet Service Providers have
   until now been the most frequently exploited point of control. They
@@ -1071,10 +1113,13 @@ general points-of-control:
 * Personal Devices: Censors can mandate censorship software be
   installed on the device level. This has many disadvantages in terms
   of scalability, ease-of-circumvention, and operating system
-  requirements. The emergence of mobile devices exacerbate these
-  feasibility problems. This software can also be mandated by
-  institutional actors acting on non-governmentally mandated moral
-  imperatives.
+  requirements. (Of course, if a personal device is treated with
+  censorship software before sale and this software is difficult to
+  reconfigure, this may work in favor of those seeking to control
+  information, say for children, students, customers, or employees.)
+  The emergence of mobile devices exacerbate these feasibility
+  problems. This software can also be mandated by institutional actors
+  acting on non-governmentally mandated moral imperatives.
 
 * Services: Application service providers can be pressured,
   coerced, or legally required to censor specific content or flows of
@@ -1113,19 +1158,19 @@ content, and then uses a blocking or shaping mechanism to prevent or
 impair access, or requests that an actor ancillary to the censor, such
 as a private entity, performs these functions.  Identification of
 undesirable traffic can occur at the application, transport, or
-network layer of the IP stack. Censors are almost always concerned
-with web traffic, so the relevant protocols tend to be filtered in
-predictable ways. For example, a subversive image would always make it
-past a keyword filter, but the IP address of the site serving the
-image may be blocklisted when identified as a provider of undesirable
-content.
+network layer of the IP stack. Censors often focus on web traffic, so
+the relevant protocols tend to be filtered in predictable ways (see
+{{http-req}} and {{http-resp}}). For example, a subversive image would
+always make it past a keyword filter, but the IP address of the site
+serving the image may be blocklisted when identified as a provider of
+undesirable content.
 
 
 Application Layer {#app-layer}
 -----------------
 
 
-### HTTP Request Header Identification
+### HTTP Request Header Identification {#http-req}
 
 An HTTP header contains a lot of useful information for traffic
 identification; although "host" is the only required field in an HTTP
@@ -1167,7 +1212,7 @@ al. identified the use of these products in the wild
 {{Dalek-2013}} {{Jones-2014}}.
 
 
-### HTTP Response Header Identification
+### HTTP Response Header Identification  {#http-resp}
 
 While HTTP Request Header Identification relies on the information
 contained in the HTTP request from client to server, response
@@ -1409,10 +1454,13 @@ change their port. For example, most HTTP traffic goes over port 80,
 so the censor cannot differentiate between restricted and allowed
 content solely on the basis of port. Port allowlisting is occasionally
 used, where a censor limits communication to approved ports, such as
-80 for HTTP traffic and is most effective when used in conjunction with
-other identification mechanisms. For example, a censor could block the
-default HTTPS port, port 443, thereby forcing most users to fall back
-to HTTP.
+80 for HTTP traffic and is most effective when used in conjunction
+with other identification mechanisms. For example, a censor could
+block the default HTTPS port, port 443, thereby forcing most users to
+fall back to HTTP. An important counter-example is that port 25 (SMTP)
+has long been blocked on residential ISPs networks, ostensibly to
+reduce the potential for email spam, but also prohibiting residential
+ISP customers to run their own email servers.
 
 ### Protocol Identification {#prot-id}
 
