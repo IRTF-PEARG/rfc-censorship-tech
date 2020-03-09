@@ -29,6 +29,11 @@ author:
     organization: CDT
     email: sadams@cdt.org
  -
+    ins: A. Andersdotter
+    name: Amelia Andersdotter
+    organization:
+    email: amelia.ietf@andersdotter.cc
+ -
     ins: B. Jones
     name: Ben Jones
     organization: Princeton
@@ -1849,8 +1854,8 @@ the United States Digital Millennium Copyright Act (DMCA) Section 512
 Contributors {#Contributors}
 ============
 
-This document benefited from discussions with and input from Amelia
-Andersdotter, David Belson, Stephane Bortzmeyer, Vinicius Fortuna,
+This document benefited from discussions with and input from
+David Belson, Stephane Bortzmeyer, Vinicius Fortuna,
 Gurshabad Grover, Andrew McConachie, Martin Nilsson, Michael
 Richardson, and Patrick Vacek.
 
