@@ -48,6 +48,13 @@ informative:
   RFC7624:
   RFC6066:
 
+  WP-Def-2020:
+    target: https://en.wikipedia.org/w/index.php?title=Censorship&oldid=943938595
+    title: "Censorship"
+    author:
+      org: Wikipedia contributors
+    date: 2020
+
   EC-gambling-2012:
     target: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52012SC0345
     title: "Online gambling in the Internal Market"
@@ -958,7 +965,7 @@ Introduction {#intro}
 Censorship is where an entity in a position of power -- such as a
 government, organization, or individual -- suppresses communication
 that it considers objectionable, harmful, sensitive, politically
-incorrect or inconvenient. (Although censors that engage in censorship
+incorrect or inconvenient {{WP-Def-2020}}. (Although censors that engage in censorship
 must do so through legal, military, or
 other means, this document focuses largely on technical
 mechanisms used to achieve network censorship.)
@@ -996,7 +1003,7 @@ are starting to use machine learning techniques as well {{Tang-2016}}.
 There are typically three types of blocklists: Keyword, domain name,
 or Internet Protocol (IP) address. Keyword and domain name blocking take place at the application
 level (e.g. HTTP), whereas IP blocking tends to take place using
-routing data in IPv4/IPv6 headers. The mechanisms for building up these
+IP addresses in IPv4/IPv6 headers. The mechanisms for building up these
 blocklists are varied. Censors can purchase from private industry
 "content control" software, such as SmartFilter, which allows
 filtering from broad categories that they would like to block, such as
@@ -1477,12 +1484,12 @@ by network inspection technologies such as DPI) and, if it matches a
 censored domain, a false response is injected. End users can see this
 technique in action by simply sending DNS requests to any unused IP
 address in China (see example below). If it is not a censored name,
-there will be no response. If it is censored, an erroneous response
+there will be no response. If it is censored, a forged response
 will be returned. For example, using the command-line dig utility to
 query an unused IP address in China of 192.0.2.2 for the name
 "www.uncensored.example"  compared with
-"www.censored.example" (censored at the time of writing), we get an
-erroneous IP address "198.51.100.0" as a response:
+"www.censored.example" (censored at the time of writing), we get a
+forged IP address "198.51.100.0" as a response:
 
     % dig +short +nodnssec @192.0.2.2 A www.uncensored.example
     ;; connection timed out; no servers could be reached
@@ -1507,7 +1514,7 @@ return route the resolved IP is recursively cached by each DNS server
 that initially forwarded the request. During this caching process if
 an undesirable keyword is recognized, the resolved IP is "poisoned"
 and an alternative IP (or NXDOMAIN error) is returned more quickly
-than the upstream resolver can respond, causing an erroneous IP
+than the upstream resolver can respond, causing a forged IP
 address to be cached (and potentially recursively so). The alternative
 IPs usually direct to a nonsense domain or a warning page.
 Alternatively, Iranian censorship appears to prevent the communication
@@ -1817,18 +1824,6 @@ controlling information over time and is ideal for a censorship regime
 {{Gao-2014}}.
 
 
-Domain Name Reallocation {#dnrealloc}
-------------------------
-
-Because domain names are resolved recursively, if a root name server reassigns or delists a
-domain, all other DNS servers will be unable to properly forward and
-cache the site. Domain name registration is only really a risk where
-undesirable content is hosted on TLD controlled by the censoring
-country, such as .cn or .ru {{Anderson-2011}} or where legal processes
-in countries like the United States result in domain name seizures
-and/or DNS redirection by the government {{Kopel-2013}}.
-
-
 Server Takedown {#serverko}
 ---------------
 
@@ -1856,7 +1851,7 @@ Contributors {#Contributors}
 
 This document benefited from discussions with and input from Amelia
 Andersdotter, David Belson, Stephane Bortzmeyer, Vinicius Fortuna,
-Gurshabad Grover, Martin Nilsson, Michael Richardson, and Patrick
-Vacek.
+Gurshabad Grover, Andrew McConachie, Martin Nilsson, Michael
+Richardson, and Patrick Vacek.
 
 --- back
