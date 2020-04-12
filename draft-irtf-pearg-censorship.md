@@ -997,13 +997,13 @@ informative:
 
 --- abstract
 
-This document describes the technical mechanisms used by censorship
-regimes around the world to block or impair Internet traffic. It aims
+This document describes technical mechanisms censorship regimes around 
+the world use for blocking or impairing Internet traffic. It aims
 to make designers, implementers, and users of Internet protocols aware
-of the properties being exploited and mechanisms used to censor
+of the properties exploited and mechanisms used for censoring
 end-user access to information.  This document makes no suggestions on
 individual protocol considerations, and is purely informational,
-intended to be a reference.
+intended as a reference.
 
 --- middle
 
@@ -1014,30 +1014,28 @@ Introduction {#intro}
 Censorship is where an entity in a position of power -- such as a
 government, organization, or individual -- suppresses communication
 that it considers objectionable, harmful, sensitive, politically
-incorrect or inconvenient {{WP-Def-2020}}. (Although censors that engage in censorship
+incorrect or inconvenient {{WP-Def-2020}}. Although censors that engage in censorship
 must do so through legal, military, or
 other means, this document focuses largely on technical
-mechanisms used to achieve network censorship.)
+mechanisms used to achieve network censorship.
 
-This document describes the technical mechanisms that censorship
-regimes around the world use to block or degrade Internet traffic (see
-{{RFC7754}} for a discussion of Internet blocking and filtering
-in terms of implications for Internet architecture, rather than end-user access to content and services).
+This document describes technical mechanisms that censorship
+regimes around the world use for blocking or impairing Internet traffic. 
+See {{RFC7754}} for a discussion of Internet blocking and filtering
+in terms of implications for Internet architecture, rather than end-user 
+access to content and services.
 
 ## Terminology {#terms}
 
-We describe three elements of Internet censorship -- prescription,
-identification, and interference -- and structure the document
-in three major sections corresponding to each. Prescription is the process by which
-censors determine what types of material they should block, i.e. they
-decide to block a
-list of pornographic websites. Identification is the process by which
-censors classify specific traffic to be blocked or impaired, i.e. the
-censor blocks or impairs
-all webpages containing "sex" in the title or traffic to www.sex.example.
-Interference is the process
-by which the censor intercedes in communication and prevents access to
-censored materials by blocking access or impairing the connection.
+We describe three elements of Internet censorship: prescription,
+identification, and interference. The document contains three major sections,
+each corresponding to one of these elements. Prescription is the process by which
+censors determine what types of material they should block, i.e., deciding 
+to block a list of pornographic websites. Identification is the process by which
+censors classify specific traffic to be blocked or impaired, i.e., blocking
+or impairing all webpages containing "sex" in the title or traffic to www.sex.example.
+Interference is the process by which censors intercede in communication and 
+prevents access to censored materials by blocking access or impairing the connection.
 
 
 Technical Prescription {#tech-prescrip}
@@ -1045,33 +1043,30 @@ Technical Prescription {#tech-prescrip}
 
 Prescription is the process of figuring out what censors would like to
 block {{Glanville-2008}}. Generally, censors aggregate information "to
-block" in blocklists or using real-time heuristic assessment of
+block" in blocklists or use real-time heuristic assessment of
 content {{Ding-1999}}. Some national networks are designed to more
-naturally to serve as points of control {{Leyba-2019}} and there are
-indications that online censors are starting to use probabilistic machine learning
-techniques as well {{Tang-2016}}.
+naturally serve as points of control {{Leyba-2019}}. There are also
+indications that online censors use probabilistic machine learning
+techniques {{Tang-2016}}.
 
-There are typically three types of blocklists: Keyword, domain name,
+There are typically three types of blocklist elements: Keyword, domain name,
 or Internet Protocol (IP) address. Keyword and domain name blocking
-take place at the application level (e.g. HTTP), whereas IP blocking
+take place at the application level, e.g., HTTP, whereas IP blocking
 tends to take place using IP addresses in IPv4/IPv6 headers. The
-mechanisms for building up these blocklists are varied. Censors can
+mechanisms for building up these blocklists vary. Censors can
 purchase from private industry "content control" software, such as
-SmartFilter, which allows filtering from broad categories that they
+SmartFilter, which lets censors filter traffic from broad categories they
 would like to block, such as gambling or pornography.  In these cases,
 these private services attempt to categorize every semi-questionable
-website as to allow for meta-tag blocking (similarly, they tune
+website as to allow for meta-tag blocking. Similarly, they tune
 real-time content heuristic systems to map their assessments onto
-categories of objectionable content).
+categories of objectionable content.
 
-Countries that are more interested in
-retaining specific political control, a desire which requires swift
-and decisive action, often have ministries or organizations, such as
-the Ministry of Industry and Information Technology in China, the
-Ministry of Culture and Islamic Guidance in Iran, specific to copyright
-in France {{HADOPI-2020}} and across the EU for consumer protection law {{Reda-2017}},  all of
-which maintain their
-own blocklists.
+Countries that are more interested in retaining specific political control
+typically have ministries or organizations that maintain blocklists. Examples 
+include the Ministry of Industry and Information Technology in China, Ministry of 
+Culture and Islamic Guidance in Iran, and specific to copyright in France {{HADOPI-2020}} 
+and across the EU for consumer protection law {{Reda-2017}}.
 
 
 Technical Identification {#tech-id}
@@ -1081,14 +1076,14 @@ Technical Identification {#tech-id}
 Points of Control {#poc}
 -----------------
 
-Internet censorship, necessarily, takes place over a network. Network
+Internet censorship necessarily takes place over a network. Network
 design gives censors a number of different points-of-control where
 they can identify the content they are interested in filtering. An
 important aspect of pervasive technical interception is the necessity
 to rely on software or hardware to intercept the content the censor is
-interested in. This requirement, the need to have the interception
-mechanism located somewhere, logically or physically, implicates various
-general points-of-control:
+interested in. There are various logical and physical points-of-control 
+censors may use for interception mechanisms, including, though not
+limited to, the following.
 
 * Internet Backbone: If a censor controls the gateways into a region,
   they can filter undesirable traffic that is traveling into and out
@@ -1105,18 +1100,46 @@ general points-of-control:
   have the benefit of being easily enumerable by a censor -- often
   falling under the jurisdictional or operational control of a censor
   in an indisputable way -- with the additional feature that an ISP
-  has the ability to identify the regional and international traffic
+  can identify the regional and international traffic
   of all their users. The censor's filtration mechanisms can be placed
-  on an ISP via governmental mandates, ownership, or
-  voluntary/coercive influence.
+  on an ISP via governmental mandates, ownership, or voluntary/coercive influence.
 
 * Institutions: Private institutions such as corporations,
-  schools, and Internet cafes can put filtration mechanisms in
-  place. These mechanisms are occasionally at the request of a
+  schools, and Internet cafes can use filtration mechanisms.
+  These mechanisms are occasionally at the request of a
   government censor, but can also be implemented to help achieve
   institutional goals, such as fostering a particular moral outlook on
   life by school-children, independent of broader society or
   government goals.
+
+* Content Distribution Networks (CDNs): CDNs seek to collapse network
+  topology in order to better locate content closer to the service's
+  users. This reduces content transmission latenct and improves quality 
+  of service. The CDN service's content
+  servers, located "close" to the user in a network-sense, can be
+  powerful points of control for censors, especially if the location
+  of CDN content repositories allow for easier interference.
+
+* Certificate Authorities for Public-Key Infrastructures (PKIs):
+  Authorities that issue cryptographically secured resources can be a
+  significant point of control. Certificate Authorities that issue
+  certificates to domain holders for TLS/HTTPS (the Web PKI) or
+  Regional/Local Internet Registries (RIRs) that issue Route
+  Origination Authorizations (ROAs) to BGP operators can be forced to
+  issue rogue certificates that may allow compromise, i.e., by allowing 
+  censorship software to engage in identification and interference where 
+  not possible before. This may allow, for example, adversarial traffic 
+  routing or TLS interception.
+
+* Services: Application service providers can be pressured,
+  coerced, or legally required to censor specific content or data flows. 
+  Service providers naturally face incentives to maximize their
+  potential customer base and potential service shutdowns or legal
+  liability due to censorship efforts may seem much less attractive
+  than potentially excluding content, users, or uses of their
+  service. Services have increasingly become focal points of
+  censorship discussions, as well as the focus of discussions of moral
+  imperatives to use censorship tools.
 
 * Personal Devices: Censors can mandate censorship software be
   installed on the device level. This has many disadvantages in terms
@@ -1129,59 +1152,32 @@ general points-of-control:
   problems. This software can also be mandated by institutional actors
   acting on non-governmentally mandated moral imperatives.
 
-* Services: Application service providers can be pressured,
-  coerced, or legally required to censor specific content or flows of
-  data. Service providers naturally face incentives to maximize their
-  potential customer base and potential service shutdowns or legal
-  liability due to censorship efforts may seem much less attractive
-  than potentially excluding content, users, or uses of their
-  service. Services have increasingly become focal points of
-  censorship discussions, as well as the focus of discussions of moral
-  imperatives to use censorship tools.
-
-* Certificate Authorities for Public-Key Infrastructures (PKIs):
-  Authorities that issue cryptographically secured resources can be a
-  significant point of control. Certificate Authorities that issue
-  certificates to domain holders for TLS/HTTPS (the Web PKI) or
-  Regional/Local Internet Registries (RIRs) that issue Route
-  Origination Authorizations (ROAs) to BGP operators can be forced to
-  issue rogue certificates that may allow compromises in
-  confidentiality guarantees -- allowing censorship software to engage
-  in identification and interference where not possible before -- or
-  integrity guarantees -- allowing, for example, adversarial routing
-  of traffic.
-
-* Content Distribution Networks (CDNs): CDNs seek to collapse network
-  topology in order to better locate content closer to the service's
-  users in order to reduce the latency of content transmissions and
-  thereby improve quality of service. The CDN service's content
-  servers, located "close" to the user in a network-sense, can be
-  powerful points of control for censors, especially if the location
-  of CDN content repositories allow for easier interference.
-
 At all levels of the network hierarchy, the filtration mechanisms used
 to detect undesirable traffic are essentially the same: a censor
 either directly sniffs transmitting packets and identifies undesirable
 content, and then uses a blocking or shaping mechanism to prevent or
 impair access, or requests that an actor ancillary to the censor, such
-as a private entity, performs these functions.  Identification of
+as a private entity, perform these functions.  Identification of
 undesirable traffic can occur at the application, transport, or
 network layer of the IP stack. Censors often focus on web traffic, so
 the relevant protocols tend to be filtered in predictable ways (see
-{{http-req}} and {{http-resp}}). For example, a subversive image would
-always make it past a keyword filter, but the IP address of the site
-serving the image may be blocklisted when identified as a provider of
-undesirable content.
+{{http-req}} and {{http-resp}}). For example, a subversive image might
+make it past a keyword filter. However, if later the image is deemed 
+undesirable, a censor may then blacklist the provider site's IP address.
 
 
 Application Layer {#app-layer}
 -----------------
 
+The following subsections describe properties and tradeoffs of common ways in 
+which censors filter using application-layer information. Each subsection 
+includes empirical examples describing these common behaviors for further reference.
+
 
 ### HTTP Request Header Identification {#http-req}
 
 An HTTP header contains a lot of useful information for traffic
-identification; although "host" is the only required field in an HTTP
+identification. Although "host" is the only required field in an HTTP
 request header (for HTTP/1.1 and later), an HTTP method field is necessary
 to do anything
 useful. As such, "method" and "host" are the two fields used
@@ -1197,15 +1193,11 @@ or ISP level. The hardware needed for this sort of identification is
 cheap and easy-to-acquire, making it desirable when budget and scope
 are a concern. HTTPS will encrypt the relevant request and response
 fields, so pairing with TCP/IP identification (see {{sec_tcpid}}) is
-necessary for filtering of HTTPS. However, some countermeasures such
-as URL obfuscation can trivially defeat simple forms of HTTP Request
-Header Identification (for example, two cooperating endpoints -- an
-instrumented web server and client -- could use a simple character
-rotation technique to obfuscate the "host" in an HTTP request. E.g., a
-given letter in a URL can be replaced by one 13 characters ahead of it
-in the alphabet, such that a URL http://example.com becomes
-uggc://rknzcyr.pbz, potentially thwarting techniques that match
-against "host" header values.).
+necessary for HTTPS filtering. However, some countermeasures such can 
+trivially defeat simple forms of HTTP Request Header Identification. 
+For example, two cooperating endpoints -- an instrumented web server 
+and client -- could enrypt or otherwise obfuscate the "host" header in 
+a request, potentially thwarting techniques that match against "host" header values.
 
 Empirical Examples: Studies exploring censorship mechanisms have found
 evidence of HTTP header/ URL filtering in many countries, including
@@ -1229,8 +1221,8 @@ client to identify undesirable content.
 
 Tradeoffs: As with HTTP Request Header Identification, the techniques
 used to identify HTTP traffic are well-known, cheap, and relatively
-easy to implement, but is made useless by HTTPS, because the response
-in HTTPS is encrypted, including headers.
+easy to implement. However, they are made useless by HTTPS because 
+HTTPS encrypts the response and its headers.
 
 The response fields are also less helpful for identifying content than
 request fields, as "Server" could easily be identified using HTTP
@@ -1255,16 +1247,16 @@ Many governments pressure content providers to censor themselves, or
 provide the legal framework within which content distributors are
 incentivised to follow the content restriction preferences of agents
 external to the content distributor {{Boyle-1997}}. Due to the
-extensive reach of such censorship, we need to define content
+extensive reach of such censorship, we define content
 distributor as any service that provides utility to users, including
 everything from web sites to locally installed programs. A commonly
 used method of instrumenting content distributors consists of keyword
-identification to detect restricted terms on their platform. The terms
-on such keyword lists may be provided by the government or the content
+identification to detect restricted terms on their platform. Governments
+may provide the terms on such keyword lists. Alternatively, the content
 provider may be expected to come up with their own list. A different
 method of instrumenting content distributors consists of requiring a
-distributor to disassociate with some categories of users. (See also
-{{notice}}.)
+distributor to disassociate with some categories of users. See also
+{{notice}}.
 
 Tradeoffs: By instrumenting content distributors to identify
 restricted content or content providers, the censor can gain new
@@ -1276,13 +1268,13 @@ distributors to regulate users, categories of users, content and
 content providers may encourage users and content providers to exhibit
 self-censorship, an additional advantage for censors (see {{selfcensor}}). The tradeoffs
 for instrumenting content distributors are highly dependent on the
-content provider and the requested assistance. The typical concern is
-that the targeted keywords or categories of users are too broad, risk
-being too broadly applied or are not subjected to a sufficiently
+content provider and the requested assistance. A typical concern is
+that the targeted keywords or cataegories of users are too broad, risk
+being too broadly applied, or are not subjected to a sufficiently
 robust legal process prior to their mandatory application (see p. 8 of
 {{EC-2012}}).
 
-Empirical Examples: Researchers have discovered keyword identification
+Empirical Examples: Researchers discovered keyword identification
 by content providers on platforms ranging from instant messaging
 applications {{Senft-2013}} to search engines {{Rushe-2015}}
 {{Cheng-2010}} {{Whittaker-2013}} {{BBC-2013}} {{Condliffe-2013}}. To
@@ -1295,12 +1287,12 @@ occasionally voluntary, but normally it is based on laws and regulations
 of the country a search engine is operating in. The keyword blocklists
 are most likely maintained by the search engine provider. China is
 known to require search engine providers to "voluntarily" maintain
-search term blocklists to acquire/keep an Internet content provider
+search term blocklists to acquire and keep an Internet content provider
 (ICP) license {{Cheng-2010}}.  It is clear these blocklists are
 maintained by each search engine provider based on the slight
 variations in the intercepted searches {{Zhu-2011}}
 {{Whittaker-2013}}. The United Kingdom has been pushing search engines
-to self-censor with the threat of litigation if they don't do it
+to self-censor with the threat of litigation if they do not do it
 themselves: Google and Microsoft have agreed to block more than
 100,000 queries in U.K. to help combat abuse {{BBC-2013}}
 {{Condliffe-2013}}.  European Union law, as well as US law, requires
@@ -1332,10 +1324,10 @@ protests {{Victor-2019}}. See also {{discon}}.
 Deep Packet Inspection has become computationally feasible as a
 censorship mechanism in recent years {{Wagner-2009}}. Unlike other
 techniques, DPI reassembles network flows to examine the application
-"data" section, as opposed to only the header, and is therefore often
+"data" section, as opposed to only headers, and is therefore often
 used for keyword identification. DPI also differs from other
 identification technologies because it can leverage additional packet
-and flow characteristics, i.e. packet sizes and timings, to identify
+and flow characteristics, e.g., packet sizes and timings, when identifying
 content. To prevent substantial quality of service (QoS) impacts, DPI
 normally analyzes a copy of data while the original packets continue
 to be routed. Typically, the traffic is split using either a mirror
@@ -1347,10 +1339,10 @@ and can have a large QoS impact {{Porter-2010}}.  When used as a
 keyword filter for TCP flows, DPI systems can cause also major
 overblocking problems. Like other techniques, DPI is less useful
 against encrypted data, though DPI can leverage unencrypted elements
-of an encrypted data flow (e.g., the Server Name Indicator (SNI) sent
-in the clear for TLS) or statistical information about an encrypted
-flow (e.g., video takes more bandwidth than audio or textual forms of
-communication) to identify traffic.
+of an encrypted data flow, e.g., the Server Name Indicator (SNI) sent
+in the clear for TLS, or metadata about an encrypted flow, e.g., packet
+sizes, which differ across video and textual flows, to identify traffic.
+See {{sni}} for more information about SNI-based filtration mechanisms.
 
 Other kinds of information can be inferred by comparing certain unencrypted elements
 exchanged during TLS handshakes to similar data points from known sources.
@@ -1361,21 +1353,19 @@ sent in the ClientHello message to similar signatures found in unencrypted traff
 
 Despite these problems, DPI is the most powerful identification method
 and is widely used in practice. The Great Firewall of China (GFW), the
-largest censorship system in the world, has used DPI to identify
+largest censorship system in the world, uses DPI to identify
 restricted content over HTTP and DNS and inject TCP RSTs and bad DNS
-responses, respectively, into connections
-{{Crandall-2010}} {{Clayton-2006}} {{Anonymous-2014}}.
+responses, respectively, into connections {{Crandall-2010}} {{Clayton-2006}} {{Anonymous-2014}}.
 
-Empirical Examples: Several studies have found evidence of DPI being
-used to censor content and tools. Clayton et al. Crandal et al.,
-Anonymous, and Khattak et al., all explored the GFW and Khattak et
-al. even probed the firewall to discover implementation details like
-how much state it stores
-{{Crandall-2010}} {{Clayton-2006}} {{Anonymous-2014}} {{Khattak-2013}}. The
-Tor project claims that China, Iran, Ethiopia, and others must have used
+Empirical Examples: Several studies have found evidence of censors
+using DPI for censoring content and tools. Clayton et al., Crandal et al.,
+Anonymous, and Khattak et al., all explored the GFW {{Crandall-2010}} 
+{{Clayton-2006}} {{Anonymous-2014}}. Khattak et al. even probed the 
+firewall to discover implementation details like how much state it stores {{Khattak-2013}}. 
+The Tor project claims that China, Iran, Ethiopia, and others must have used
 DPI to block the obfs2 protocol {{Wilde-2012}}.  Malaysia has
 been accused of using targeted DPI, paired with DDoS, to identify and
-subsequently knockout pro-opposition material {{Wagstaff-2013}}.  It
+subsequently attack pro-opposition material {{Wagstaff-2013}}.  It
 also seems likely that organizations not so worried about blocking
 content in real-time could use DPI to sort and categorically search
 gathered traffic using technologies such as NarusInsight
@@ -1447,10 +1437,10 @@ availability, and robustness.
 TCP/IP identification is trivial to implement, but is difficult to
 implement in backbone or ISP routers at scale, and is therefore
 typically implemented with DPI. Blocklisting an IP is equivalent to
-installing a /32 route on a router and due to limited flow table
+installing a /32 route on a router. However, due to limited flow table
 space, this cannot scale beyond a few thousand IPs at most. IP
-blocking is also relatively crude, leading to overblocking, and cannot
-deal with some services like Content Distribution Networks (CDN), that
+blocking is also relatively crude. It often leads to overblocking and cannot
+deal with some services like Content Distribution Networks (CDN) that
 host content at hundreds or thousands of IP addresses. Despite these
 limitations, IP blocking is extremely effective because the user needs
 to proxy their traffic through another destination to circumvent this
@@ -1724,7 +1714,7 @@ the connection to be interrupted.
 The difficult part of RST Packet
 Injection is spoofing "enough" correct information to ensure one
 end-point accepts a RST packet as legitimate; this generally implies a
-correct IP, port, and (TCP) sequence number. Sequence number is the
+correct IP, port, and TCP sequence number. Sequence number is the
 hardest to get correct, as {{RFC0793}} specifies an RST Packet should
 be in-sequence to be accepted, although the RFC also recommends
 allowing in-window packets as "good enough". This in-window
