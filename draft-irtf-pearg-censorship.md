@@ -76,7 +76,7 @@ informative:
 
   EC-gambling-2019:
     target: https://ec.europa.eu/growth/content/evaluation-regulatory-tools-enforcing-online-gambling-rules-and-channelling-demand-towards-1_en
-    title: "Evaluation of regulatory tools for enforcing online gambling rules and channelling demand towards controlled offers"
+    title: "Evaluation of regulatory tools for enforcing online gambling rules and channeling demand towards controlled offers"
     author:
       org: European Commission
     date: 2019
@@ -997,7 +997,7 @@ informative:
 
 --- abstract
 
-This document describes technical mechanisms censorship regimes around 
+This document describes technical mechanisms censorship regimes around
 the world use for blocking or impairing Internet traffic. It aims
 to make designers, implementers, and users of Internet protocols aware
 of the properties exploited and mechanisms used for censoring
@@ -1020,9 +1020,9 @@ other means, this document focuses largely on technical
 mechanisms used to achieve network censorship.
 
 This document describes technical mechanisms that censorship
-regimes around the world use for blocking or impairing Internet traffic. 
+regimes around the world use for blocking or impairing Internet traffic.
 See {{RFC7754}} for a discussion of Internet blocking and filtering
-in terms of implications for Internet architecture, rather than end-user 
+in terms of implications for Internet architecture, rather than end-user
 access to content and services.
 
 ## Terminology {#terms}
@@ -1030,11 +1030,11 @@ access to content and services.
 We describe three elements of Internet censorship: prescription,
 identification, and interference. The document contains three major sections,
 each corresponding to one of these elements. Prescription is the process by which
-censors determine what types of material they should block, i.e., deciding 
+censors determine what types of material they should block, i.e., deciding
 to block a list of pornographic websites. Identification is the process by which
 censors classify specific traffic to be blocked or impaired, i.e., blocking
 or impairing all webpages containing "sex" in the title or traffic to www.sex.example.
-Interference is the process by which censors intercede in communication and 
+Interference is the process by which censors intercede in communication and
 prevents access to censored materials by blocking access or impairing the connection.
 
 
@@ -1063,9 +1063,9 @@ real-time content heuristic systems to map their assessments onto
 categories of objectionable content.
 
 Countries that are more interested in retaining specific political control
-typically have ministries or organizations that maintain blocklists. Examples 
-include the Ministry of Industry and Information Technology in China, Ministry of 
-Culture and Islamic Guidance in Iran, and specific to copyright in France {{HADOPI-2020}} 
+typically have ministries or organizations that maintain blocklists. Examples
+include the Ministry of Industry and Information Technology in China, Ministry of
+Culture and Islamic Guidance in Iran, and specific to copyright in France {{HADOPI-2020}}
 and across the EU for consumer protection law {{Reda-2017}}.
 
 
@@ -1081,7 +1081,7 @@ design gives censors a number of different points-of-control where
 they can identify the content they are interested in filtering. An
 important aspect of pervasive technical interception is the necessity
 to rely on software or hardware to intercept the content the censor is
-interested in. There are various logical and physical points-of-control 
+interested in. There are various logical and physical points-of-control
 censors may use for interception mechanisms, including, though not
 limited to, the following.
 
@@ -1114,7 +1114,7 @@ limited to, the following.
 
 * Content Distribution Networks (CDNs): CDNs seek to collapse network
   topology in order to better locate content closer to the service's
-  users. This reduces content transmission latenct and improves quality 
+  users. This reduces content transmission latency and improves quality
   of service. The CDN service's content
   servers, located "close" to the user in a network-sense, can be
   powerful points of control for censors, especially if the location
@@ -1126,13 +1126,13 @@ limited to, the following.
   certificates to domain holders for TLS/HTTPS (the Web PKI) or
   Regional/Local Internet Registries (RIRs) that issue Route
   Origination Authorizations (ROAs) to BGP operators can be forced to
-  issue rogue certificates that may allow compromise, i.e., by allowing 
-  censorship software to engage in identification and interference where 
-  not possible before. This may allow, for example, adversarial traffic 
+  issue rogue certificates that may allow compromise, i.e., by allowing
+  censorship software to engage in identification and interference where
+  not possible before. This may allow, for example, adversarial traffic
   routing or TLS interception.
 
 * Services: Application service providers can be pressured,
-  coerced, or legally required to censor specific content or data flows. 
+  coerced, or legally required to censor specific content or data flows.
   Service providers naturally face incentives to maximize their
   potential customer base and potential service shutdowns or legal
   liability due to censorship efforts may seem much less attractive
@@ -1162,15 +1162,15 @@ undesirable traffic can occur at the application, transport, or
 network layer of the IP stack. Censors often focus on web traffic, so
 the relevant protocols tend to be filtered in predictable ways (see
 {{http-req}} and {{http-resp}}). For example, a subversive image might
-make it past a keyword filter. However, if later the image is deemed 
+make it past a keyword filter. However, if later the image is deemed
 undesirable, a censor may then blacklist the provider site's IP address.
 
 
 Application Layer {#app-layer}
 -----------------
 
-The following subsections describe properties and tradeoffs of common ways in 
-which censors filter using application-layer information. Each subsection 
+The following subsections describe properties and tradeoffs of common ways in
+which censors filter using application-layer information. Each subsection
 includes empirical examples describing these common behaviors for further reference.
 
 
@@ -1193,10 +1193,10 @@ or ISP level. The hardware needed for this sort of identification is
 cheap and easy-to-acquire, making it desirable when budget and scope
 are a concern. HTTPS will encrypt the relevant request and response
 fields, so pairing with TCP/IP identification (see {{sec_tcpid}}) is
-necessary for HTTPS filtering. However, some countermeasures such can 
-trivially defeat simple forms of HTTP Request Header Identification. 
-For example, two cooperating endpoints -- an instrumented web server 
-and client -- could enrypt or otherwise obfuscate the "host" header in 
+necessary for HTTPS filtering. However, some countermeasures such can
+trivially defeat simple forms of HTTP Request Header Identification.
+For example, two cooperating endpoints -- an instrumented web server
+and client -- could encrypt or otherwise obfuscate the "host" header in
 a request, potentially thwarting techniques that match against "host" header values.
 
 Empirical Examples: Studies exploring censorship mechanisms have found
@@ -1221,7 +1221,7 @@ client to identify undesirable content.
 
 Tradeoffs: As with HTTP Request Header Identification, the techniques
 used to identify HTTP traffic are well-known, cheap, and relatively
-easy to implement. However, they are made useless by HTTPS because 
+easy to implement. However, they are made useless by HTTPS because
 HTTPS encrypts the response and its headers.
 
 The response fields are also less helpful for identifying content than
@@ -1245,7 +1245,7 @@ filtering over TCP streams instead of HTTP response filtering.
 
 Many governments pressure content providers to censor themselves, or
 provide the legal framework within which content distributors are
-incentivised to follow the content restriction preferences of agents
+incentivized to follow the content restriction preferences of agents
 external to the content distributor {{Boyle-1997}}. Due to the
 extensive reach of such censorship, we define content
 distributor as any service that provides utility to users, including
@@ -1269,7 +1269,7 @@ content providers may encourage users and content providers to exhibit
 self-censorship, an additional advantage for censors (see {{selfcensor}}). The tradeoffs
 for instrumenting content distributors are highly dependent on the
 content provider and the requested assistance. A typical concern is
-that the targeted keywords or cataegories of users are too broad, risk
+that the targeted keywords or categories of users are too broad, risk
 being too broadly applied, or are not subjected to a sufficiently
 robust legal process prior to their mandatory application (see p. 8 of
 {{EC-2012}}).
@@ -1359,9 +1359,9 @@ responses, respectively, into connections {{Crandall-2010}} {{Clayton-2006}} {{A
 
 Empirical Examples: Several studies have found evidence of censors
 using DPI for censoring content and tools. Clayton et al., Crandal et al.,
-Anonymous, and Khattak et al., all explored the GFW {{Crandall-2010}} 
-{{Clayton-2006}} {{Anonymous-2014}}. Khattak et al. even probed the 
-firewall to discover implementation details like how much state it stores {{Khattak-2013}}. 
+Anonymous, and Khattak et al., all explored the GFW {{Crandall-2010}}
+{{Clayton-2006}} {{Anonymous-2014}}. Khattak et al. even probed the
+firewall to discover implementation details like how much state it stores {{Khattak-2013}}.
 The Tor project claims that China, Iran, Ethiopia, and others must have used
 DPI to block the obfs2 protocol {{Wilde-2012}}.  Malaysia has
 been accused of using targeted DPI, paired with DDoS, to identify and
@@ -1817,7 +1817,7 @@ and Libya in 2011 {{Cowie-2011}} {{Cowie-2011b}}, and Syria in 2012
 {{Thomson-2012}}. Russia has indicated that it will attempt to
 disconnect all Russian networks from the global internet in April 2019
 as part of a test of the nation's network independence. Reports also
-indicate that, as part of the test disconnect, Russian telecom firms
+indicate that, as part of the test disconnect, Russian telecommunications firms
 must now route all traffic to state-operated monitoring points
 {{Cimpanu-2019}}. India was the country that saw the largest number of
 internet shutdowns per year in 2016 and 2017 {{Dada-2017}}.
