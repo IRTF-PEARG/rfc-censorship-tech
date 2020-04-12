@@ -52,12 +52,30 @@ informative:
   RFC7754:
   RFC7624:
   RFC6066:
+  RFC8484:
+  RFC7858:
+  I-D.ietf-tls-sni-encryption:
+  I-D.ietf-tls-esni:
 
   HADOPI-2020:
     target: https://www.hadopi.fr/en/node/3668
     title: "Présentation"
     author:
       org: Haute Autorité pour la Diffusion des oeuvres et la Protection des Droits sur Internet
+    date: 2020
+
+  SSAC-109-2020:
+    target: https://www.icann.org/en/system/files/files/sac-109-en.pdf
+    title: "SAC109: The Implications of DNS over HTTPS and DNS over TLS"
+    author:
+      org: ICANN Security and Stability Advisory Committee
+    date: 2020
+
+  Tor-2020:
+    target: https://2019.www.torproject.org/docs/pluggable-transports.html.en
+    title: "Tor: Pluggable Transports"
+    author:
+      org: The Tor Project
     date: 2020
 
   WP-Def-2020:
@@ -111,6 +129,14 @@ informative:
       name: Julia Reda
       ins: J. Reda
     date: 2017
+
+  Knight-2005:
+    target: https://www.newscientist.com/article/dn7589-iranian-net-censorship-powered-by-us-technology/
+    title: "Iranian net censorship powered by US technology"
+    author:
+      name: Will Knight
+      ins: W. Knight
+    date: 2005
 
   Cimpanu-2019:
     target: https://www.zdnet.com/article/russia-to-disconnect-from-the-internet-as-part-of-a-planned-test/
@@ -168,6 +194,48 @@ informative:
       ins: J. Glanville
     date: 2008
 
+  Tschantz-2016:
+    target: https://oaklandsok.github.io/papers/tschantz2016.pdf
+    title: "SoK: Towards Grounding Censorship Circumvention in Empiricism"
+    author:
+    -
+      name: Michael Carl Tschantz
+      ins: M. Tschantz
+    -
+      name: Sadia Afroz
+      ins: S. Afroz
+    -
+      name: Anonymous
+      ins: A. Anonymous
+    -
+      name: Vern Paxson
+      ins: V. Paxson
+    date: 2016
+
+  Cao-2016:
+    target: https://www.usenix.org/system/files/conference/usenixsecurity16/sec16_paper_cao.pdf
+    title: "Off-Path TCP Exploits: Global Rate Limit Considered Dangerous"
+    author:
+    -
+      name: Yue Cao
+      ins: Y. Cao
+    -
+      name: Zhiyun Qian
+      ins: Z. Qian
+    -
+      name: Zhongjie Wang
+      ins: Z. Wang
+    -
+      name: Tuan Dao
+      ins: T. Dao
+    -
+      name: Srikanth V. Krishnamurthy
+      ins: S. Krishnamurthy
+    -
+      name: Lisa M. Marvel
+      ins:  L. Marvel
+    date: 2016
+
   Leyba-2019:
     target: https://forrest.biodesign.asu.edu/data/publications/2019-compass-chokepoints.pdf
     title: "Borders and Gateways: Measuring and Analyzing National AS Chokepoints"
@@ -187,6 +255,33 @@ informative:
     -
       name: Stephanie Forrest
       ins: S. Forrest
+    date: 2019
+
+  Chai-2019:
+    target: https://www.usenix.org/system/files/foci19-paper_chai_update.pdf
+    title: "On the Importance of Encrypted-SNI (ESNI) to Censorship Circumvention"
+    author:
+    -
+      name: Zimo Chai
+      ins: Z. Chai
+    -
+      name: Amirhossein Ghafari
+      ins: A. Ghafari
+    -
+      name: Amir Houmansadr
+      ins: A. Houmansadr
+    date: 2019
+
+  Patil-2019:
+    target: https://irtf.org/anrw/2019/anrw2019-final44-acmpaginated.pdf
+    title: "What Can You Learn from an IP?"
+    author:
+    -
+      name: Simran Patil
+      ins: S. Patil
+    -
+      name: Nikita Borisov
+      ins: N. Borisov
     date: 2019
 
   Wright-2013:
@@ -229,21 +324,6 @@ informative:
     -
       name: Varun Bansal
       ins: V. Bansal
-    date: 2019
-
-  Chai-2019:
-    target: https://www.usenix.org/system/files/foci19-paper_chai_0.pdf
-    title: "On the Importance of Encrypted-SNI (ESNI) to Censorship Circumvention"
-    author:
-    -
-      name: Zimo Chai
-      ins: Z. Chai
-    -
-      name: Amirhossein Ghafari
-      ins: A. Ghafari
-    -
-      name: Amir Houmansadr
-      ins: A. Houmansadr
     date: 2019
 
   NA-SK-2019:
@@ -1027,11 +1107,14 @@ must do so through legal, military, or
 other means, this document focuses largely on technical
 mechanisms used to achieve network censorship.
 
-This document describes technical mechanisms that censorship
-regimes around the world use for blocking or impairing Internet traffic.
-See {{RFC7754}} for a discussion of Internet blocking and filtering
-in terms of implications for Internet architecture, rather than end-user
-access to content and services.
+This document describes technical mechanisms that censorship regimes
+around the world use for blocking or impairing Internet traffic.  See
+{{RFC7754}} for a discussion of Internet blocking and filtering in
+terms of implications for Internet architecture, rather than end-user
+access to content and services. There is also a growing field of
+academic study of censorship circumvention (see the review article of
+{{Tschantz-2016}}), results from which we seek to make relevant here
+for protocol designers and implementers.
 
 ## Terminology {#terms}
 
@@ -1064,7 +1147,7 @@ tends to take place using IP addresses in IPv4/IPv6 headers. The
 mechanisms for building up these blocklists vary. Censors can
 purchase from private industry "content control" software, such as
 SmartFilter, which lets censors filter traffic from broad categories they
-would like to block, such as gambling or pornography.  In these cases,
+would like to block, such as gambling or pornography {{Knight-2005}}.  In these cases,
 these private services attempt to categorize every semi-questionable
 website as to allow for meta-tag blocking. Similarly, they tune
 real-time content heuristic systems to map their assessments onto
@@ -1103,8 +1186,8 @@ limited to, the following.
   network designs naturally serve as more effective chokepoints and
   points of control {{Leyba-2019}}.
 
-* Internet Service Providers: Internet Service Providers have
-  until now been the most frequently exploited point of control. They
+* Internet Service Providers: Internet Service Providers are
+  frequently exploited points of control. They
   have the benefit of being easily enumerable by a censor -- often
   falling under the jurisdictional or operational control of a censor
   in an indisputable way -- with the additional feature that an ISP
@@ -1177,10 +1260,10 @@ undesirable, a censor may then blacklist the provider site's IP address.
 Application Layer {#app-layer}
 -----------------
 
-The following subsections describe properties and tradeoffs of common ways in
-which censors filter using application-layer information. Each subsection
-includes empirical examples describing these common behaviors for further reference.
-
+The following subsections describe properties and tradeoffs of common
+ways in which censors filter using application-layer information. Each
+subsection includes empirical examples describing these common
+behaviors for further reference.
 
 ### HTTP Request Header Identification {#http-req}
 
@@ -1192,7 +1275,7 @@ useful. As such, "method" and "host" are the two fields used
 most often for ubiquitous censorship. A censor can sniff traffic and
 identify a specific domain name (host) and usually a page name (GET
 /page) as well. This identification technique is usually paired with
-TCP/IP header identification (see {{sec_tcpid}}) for a more robust
+transport header identification (see {{sec_thid}}) for a more robust
 method.
 
 Tradeoffs: Request Identification is a technically straight-forward
@@ -1200,7 +1283,7 @@ identification method that can be easily implemented at the Backbone
 or ISP level. The hardware needed for this sort of identification is
 cheap and easy-to-acquire, making it desirable when budget and scope
 are a concern. HTTPS will encrypt the relevant request and response
-fields, so pairing with TCP/IP identification (see {{sec_tcpid}}) is
+fields, so pairing with transport identification (see {{sec_thid}}) is
 necessary for HTTPS filtering. However, some countermeasures such can
 trivially defeat simple forms of HTTP Request Header Identification.
 For example, two cooperating endpoints -- an instrumented web server
@@ -1214,7 +1297,7 @@ Saudi Arabia, South Korea, Thailand, and Turkey
 {{Verkamp-2012}} {{Nabi-2013}} {{Aryan-2012}}. Commercial technologies
 such as the McAfee SmartFilter and NetSweeper are often purchased by
 censors {{Dalek-2013}}.  These commercial technologies use a
-combination of HTTP Request Identification and TCP/IP Header
+combination of HTTP Request Identification and Transport Header
 Identification to filter specific URLs. Dalek et al. and Jones et
 al. identified the use of these products in the wild
 {{Dalek-2013}} {{Jones-2014}}.
@@ -1347,7 +1430,7 @@ and can have a large QoS impact {{Porter-2010}}.  When used as a
 keyword filter for TCP flows, DPI systems can cause also major
 overblocking problems. Like other techniques, DPI is less useful
 against encrypted data, though DPI can leverage unencrypted elements
-of an encrypted data flow, e.g., the Server Name Indicator (SNI) sent
+of an encrypted data flow, e.g., the Server Name Indication (SNI) sent
 in the clear for TLS, or metadata about an encrypted flow, e.g., packet
 sizes, which differ across video and textual flows, to identify traffic.
 See {{sni}} for more information about SNI-based filtration mechanisms.
@@ -1382,16 +1465,20 @@ gathered traffic using technologies such as NarusInsight
 
 #### Server Name Indication {#sni}
 
-In encrypted connections using Transport Layer Security (TLS), there may be
-servers that host multiple "virtual servers" at a given network
+In encrypted connections using Transport Layer Security (TLS), there
+may be servers that host multiple "virtual servers" at a given network
 address, and the client will need to specify in the (unencrypted)
 Client Hello message which domain name it seeks to connect to (so that
 the server can respond with the appropriate TLS certificate) using the
 Server Name Indication (SNI) TLS extension {{RFC6066}}. Since SNI is
-sent in the clear, censors and filtering software can use it as a
-basis for blocking, filtering, or impairment by dropping connections
+often sent in the clear, censors and filtering software can use it as
+a basis for blocking, filtering, or impairment by dropping connections
 to domains that match prohibited content (e.g., bad.foo.example may be
-censored while good.foo.example is not) {{Shbair-2015}}.
+censored while good.foo.example is not) {{Shbair-2015}}. There are
+undergoing standardization efforts in the TLS Working Group to encrypt
+SNI {{I-D.ietf-tls-sni-encryption}} {{I-D.ietf-tls-esni}} and recent
+research shows promising results in the use of encrypted SNI in the
+face of SNI-based filtering {{Chai-2019}}.
 
 Domain fronting has been one popular way to avoid identification by censors {{Fifield-2015}}.
 To avoid identification by censors, applications using domain fronting put a different
@@ -1403,12 +1490,11 @@ provision in countries employing SNI-based filtering. These services used the
 cover provided by domains for which blocking at the domain level would be
 undesirable to hide their true domain names. However, the companies holding the
 most popular domains have since reconfigured their software to prevent this practice.
-It may be possible to achieve similar results using potential future options to encrypt SNI in
-TLS 1.3.
+It may be possible to achieve similar results using potential future options to encrypt SNI.
 
 Tradeoffs: Some clients do not send the SNI extension (e.g., clients
-that only support versions of SSL and not TLS) or will fall back to
-SSL if a TLS connection fails, rendering this method ineffective. In
+that only support versions of SSL and not TLS), rendering this method
+ineffective. In
 addition, this technique requires deep packet inspection techniques
 that can be computationally and infrastructurally expensive and
 improper configuration of an SNI-based block can result in significant
@@ -1428,21 +1514,24 @@ filtering or blocking {{OONI-2018}} {{OONI-2019}} {{NA-SK-2019}}
 Transport Layer {#transport}
 ---------------
 
-### Shallow Packet Inspection and TCP/IP Header Identification {#sec_tcpid}
+### Shallow Packet Inspection and Transport Header Identification {#sec_thid}
 
-Of the various shallow packet inspection methods, TCP/IP Header Identification is the most pervasive, reliable, and
-predictable type of identification.  TCP/IP headers contain a few
+Of the various shallow packet inspection methods, Transport Header
+Identification is the most pervasive, reliable, and predictable type
+of identification.  Transport headers in TCP/IP or QUIC contain a few
 invaluable pieces of information that must be transparent for traffic
 to be successfully routed: destination and source IP address and port.
 Destination and Source IP are doubly useful, as not only does it allow
 a censor to block undesirable content via IP blocklisting, but also
-allows a censor to identify the IP of the user making the
-request. Port is useful for allowlisting certain applications.
+allows a censor to identify the IP of the user making the request and
+the IP address of the destination being visited, which in most cases
+can be used to infer the domain being visited {{Patil-2019}}. Port is
+useful for allowlisting certain applications.
 
-Trade-offs: TCP/IP identification is popular due to its simplicity,
+Trade-offs: header identification is popular due to its simplicity,
 availability, and robustness.
 
-TCP/IP identification is trivial to implement, but is difficult to
+Header identification is trivial to implement, but is difficult to
 implement in backbone or ISP routers at scale, and is therefore
 typically implemented with DPI. Blocklisting an IP is equivalent to
 installing a /32 route on a router. However, due to limited flow table
@@ -1457,8 +1546,12 @@ type of identification.
 Port-blocking is generally not useful because many types of content
 share the same port and it is possible for censored applications to
 change their port. For example, most HTTP traffic goes over port 80,
-so the censor cannot differentiate between restricted and allowed
-content solely on the basis of port. Port allowlisting is occasionally
+so the censor cannot differentiate between restricted and allowed web
+content solely on the basis of port. Another example is HTTPS port
+443, which in addition to handling secure web traffic now also carries
+DNS-over-HTTPS {{RFC8484}} traffic; this can frustrate techniques that
+rely on cleartext DNS over port 53 for censorship, parental control,
+and other uses {{SSAC-109-2020}}. Port allowlisting is occasionally
 used, where a censor limits communication to approved ports, such as
 80 for HTTP traffic and is most effective when used in conjunction
 with other identification mechanisms. For example, a censor could
@@ -1505,7 +1598,10 @@ traffic should be blocked. However, this can lead to over-blocking
 problems when used with popular protocols.  These methods are
 expensive, both computationally and financially, due to the use of
 statistical analysis, and can be ineffective due to their imprecise
-nature.
+nature. Moreover, censorship circumvention groups like the Tor Project
+have developed "pluggable transports" which seek to make the traffic
+of censorship circumvention tools appear indistinguishable from other
+kinds of traffic {{Tor-2020}}.
 
 Empirical Examples: Protocol identification can be easy to detect if
 it is conducted in real time and only a particular protocol is
@@ -1531,8 +1627,11 @@ Application Layer
 There are a variety of mechanisms that censors can use to block or
 filter access to content by altering responses from the DNS
 {{AFNIC-2013}} {{ICANN-SSAC-2012}}, including blocking the response,
-replying with an error message, or responding with an
-incorrect address.
+replying with an error message, or responding with an incorrect
+address. Note that there are now encrypted transports for DNS queries
+in DNS-over-HTTPS {{RFC8484}} and DNS-over-TLS {{RFC7858}} that can
+mitigate interference with DNS queries between the stub and the
+resolver.
 
 "DNS mangling" is a network-level technique where an incorrect IP
 address is returned in response to a DNS query to a censored
@@ -1602,7 +1701,7 @@ directed through DNS servers or DNS-rewriting network equipment
 controlled by a censor, causing the
 request to fail. The ease of circumvention paired with the large risk
 of content blocking and target blocking make DNS interference a
-partial, difficult, and less than ideal censorship mechanism. Additionally, the above mechanisms rely on DNSSEC not being deployed or DNSSEC validation not being active on the client or recursive resolver.
+partial, difficult, and less than ideal censorship mechanism. Additionally, the above mechanisms rely on DNSSEC not being deployed or DNSSEC validation not being active on the client or recursive resolver (neither of which are hard to imagine given limited deployment of DNSSEC and limited client support for DNSSEC validation).
 
 Empirical Examples: DNS interference, when properly implemented, is
 easy to identify based on the shortcomings identified above. Turkey
@@ -1719,25 +1818,26 @@ RST Packet Injection also has the advantage of only
 requiring one of the two endpoints to accept the spoofed packet for
 the connection to be interrupted.
 
-The difficult part of RST Packet
-Injection is spoofing "enough" correct information to ensure one
-end-point accepts a RST packet as legitimate; this generally implies a
-correct IP, port, and TCP sequence number. Sequence number is the
-hardest to get correct, as {{RFC0793}} specifies an RST Packet should
-be in-sequence to be accepted, although the RFC also recommends
-allowing in-window packets as "good enough". This in-window
-recommendation is important, as if it is implemented it allows for
-successful Blind RST Injection attacks {{Netsec-2011}}.  When
-in-window sequencing is allowed, It is trivial to conduct a Blind RST
-Injection, a blind injection implies the censor doesn't know any
-sensitive (encrypted) sequencing information about the TCP stream they
-are injecting into, they can simply enumerate the ~70000 possible
-windows; this is particularly useful for interrupting
+The difficult part of RST Packet Injection is spoofing "enough"
+correct information to ensure one end-point accepts a RST packet as
+legitimate; this generally implies a correct IP, port, and TCP
+sequence number. Sequence number is the hardest to get correct, as
+{{RFC0793}} specifies an RST Packet should be in-sequence to be
+accepted, although the RFC also recommends allowing in-window packets
+as "good enough". This in-window recommendation is important, as if it
+is implemented it allows for successful Blind RST Injection attacks
+{{Netsec-2011}}.  When in-window sequencing is allowed, It is trivial
+to conduct a Blind RST Injection, a blind injection implies the censor
+doesn't know any sensitive (encrypted) sequencing information about
+the TCP stream they are injecting into, they can simply enumerate the
+~70000 possible windows; this is particularly useful for interrupting
 encrypted/obfuscated protocols such as SSH or Tor. RST Packet
 Injection relies on a stateful network, making it useless against UDP
 connections. RST Packet Injection is among the most popular censorship
 techniques used today given its versatile nature and effectiveness
-against all types of TCP traffic.
+against all types of TCP traffic. Recent research shows that a TCP RST
+packet injection attack can even work in the case of an off-path
+attacker {{Cao-2016}}.
 
 Empirical Examples: RST Packet Injection, as mentioned above, is most
 often paired with identification techniques that require splitting,
@@ -1917,6 +2017,6 @@ Contributors {#Contributors}
 This document benefited from discussions with and input from
 David Belson, Stephane Bortzmeyer, Vinicius Fortuna,
 Gurshabad Grover, Andrew McConachie, Martin Nilsson, Michael
-Richardson, and Patrick Vacek.
+Richardson, Patrick Vacek and Chris Wood.
 
 --- back
