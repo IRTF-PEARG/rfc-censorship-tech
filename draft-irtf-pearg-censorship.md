@@ -56,6 +56,7 @@ informative:
   RFC7858:
   I-D.ietf-tls-sni-encryption:
   I-D.ietf-tls-esni:
+  I-D.ietf-quic-transport:
 
   HADOPI-2020:
     target: https://www.hadopi.fr/en/node/3668
@@ -1804,6 +1805,8 @@ a specific type of packet injection attack that is used to interrupt
 an established stream by sending RST packets to both sides of a TCP
 connection; as each receiver thinks the other has dropped the
 connection, the session is terminated.
+QUIC is not vulnerable to these types of injection attacks (See
+{{I-D.ietf-quic-transport}} for more details).
 
 Trade-offs: Although ineffective against non-TCP protocols (QUIC, IPSec), RST Packet Injection has a few advantages that make it
 extremely popular as a censorship technique. RST Packet Injection is
