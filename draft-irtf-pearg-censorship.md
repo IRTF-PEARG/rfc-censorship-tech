@@ -1829,7 +1829,7 @@ sequence number. Sequence number is the hardest to get correct, as
 accepted, although the RFC also recommends allowing in-window packets
 as "good enough". This in-window recommendation is important, as if it
 is implemented it allows for successful Blind RST Injection attacks
-{{Netsec-2011}}.  When in-window sequencing is allowed, It is trivial
+{{Netsec-2011}}.  When in-window sequencing is allowed, it is trivial
 to conduct a Blind RST Injection, a blind injection implies the censor
 doesn't know any sensitive (encrypted) sequencing information about
 the TCP stream they are injecting into, they can simply enumerate the
