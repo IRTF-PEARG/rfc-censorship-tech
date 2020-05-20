@@ -1127,7 +1127,7 @@ to block a list of pornographic websites. Identification is the process by which
 censors classify specific traffic to be blocked or impaired, i.e., blocking
 or impairing all webpages containing "sex" in the title or traffic to www.sex.example.
 Interference is the process by which censors intercede in communication and
-prevents access to censored materials by blocking access or impairing the connection.
+prevent access to censored materials by blocking access or impairing the connection.
 
 
 Technical Prescription {#tech-prescrip}
