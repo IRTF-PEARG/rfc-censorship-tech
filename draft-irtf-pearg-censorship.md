@@ -1285,7 +1285,7 @@ or ISP level. The hardware needed for this sort of identification is
 cheap and easy-to-acquire, making it desirable when budget and scope
 are a concern. HTTPS will encrypt the relevant request and response
 fields, so pairing with transport identification (see {{sec_thid}}) is
-necessary for HTTPS filtering. However, some countermeasures such can
+necessary for HTTPS filtering. However, some countermeasures can
 trivially defeat simple forms of HTTP Request Header Identification.
 For example, two cooperating endpoints -- an instrumented web server
 and client -- could encrypt or otherwise obfuscate the "host" header in
