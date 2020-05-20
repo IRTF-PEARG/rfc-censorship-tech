@@ -1865,7 +1865,7 @@ Multi-layer and Non-layer
 Distributed Denial of Service attacks are a common attack mechanism
 used by "hacktivists" and malicious hackers, but censors have used
 DDoS in the past for a variety of reasons. There is a huge variety of
-DDoS attacks {{Wikip-DoS}}, but on a high level two possible impacts
+DDoS attacks {{Wikip-DoS}}, but at a high level two possible impacts
 tend to occur; a flood attack results in the service being unusable
 while resources are being spent to flood the service, a crash attack
 aims to crash the service so resources can be reallocated elsewhere
