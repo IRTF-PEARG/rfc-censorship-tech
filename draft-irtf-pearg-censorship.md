@@ -913,16 +913,16 @@ informative:
       ins: H. Gao
     date: 2014
 
-  Anderson-2011:
+  Murdoch-2011:
     target: http://access.opennet.net/wp-content/uploads/2011/12/accessdenied-chapter-3.pdf
     title: "Access Denied: Tools and Technology of Internet Filtering"
     author:
     -
-      name: Ross Anderson
-      ins: R. Anderson
-    -
       name: Steven J. Murdoch
       ins: S.J. Murdoch
+    -
+      name: Ross Anderson
+      ins: R. Anderson
     date: 2011
 
   AFNIC-2013:
@@ -1996,10 +1996,12 @@ over time and is ideal for a censorship regime {{Gao-2014}}.
 Server Takedown {#serverko}
 ---------------
 
-Servers must have a physical location somewhere in the world. If
-undesirable content is hosted in the censoring country the servers can
-be physically seized or the hosting provider can be required to
-prevent access {{Anderson-2011}}.
+As mentioned in passing by {{Murdoch-2011}}, servers must have a
+physical location somewhere in the world. If undesirable content is
+hosted in the censoring country the servers can be physically seized
+or -- in cases where a server is virtualized in a cloud infrastructure
+where it may not necessarily have a fixed physical location -- the
+hosting provider can be required to prevent access.
 
 
 Notice and Takedown {#notice}
