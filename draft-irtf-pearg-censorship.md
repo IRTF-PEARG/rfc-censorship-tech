@@ -1181,14 +1181,18 @@ Technical Identification {#tech-id}
 Points of Control {#poc}
 -----------------
 
-Internet censorship necessarily takes place over a network. Network
-design gives censors a number of different points-of-control where
-they can identify the content they are interested in filtering. An
-important aspect of pervasive technical interception is the necessity
-to rely on software or hardware to intercept the content the censor is
-interested in. There are various logical and physical points-of-control
-censors may use for interception mechanisms, including, though not
-limited to, the following.
+Internet censorship takes place in all parts of the network
+topology. It may be implemented in the network itself (e.g. local loop
+or backhaul), on the services side of communication (e.g. web hosts,
+cloud providers or content delivery networks), in the ancillary
+services eco-system (e.g. domain name system or certificate
+authorities) or on the end-client side (e.g. in an end-user device
+such as a smartphone, laptop or desktop or software executed on such
+devices).  An important aspect of pervasive technical interception is
+the necessity to rely on software or hardware to intercept the content
+the censor is interested in. There are various logical and physical
+points-of-control censors may use for interception mechanisms,
+including, though not limited to, the following.
 
 * Internet Backbone: If a censor controls the gateways into a region,
   they can filter undesirable traffic that is traveling into and out
@@ -1258,17 +1262,18 @@ limited to, the following.
   acting on non-governmentally mandated moral imperatives.
 
 At all levels of the network hierarchy, the filtration mechanisms used
-to detect undesirable traffic are essentially the same: a censor
-either directly sniffs transmitting packets and identifies undesirable
-content, and then uses a blocking or shaping mechanism to prevent or
-impair access, or requests that an actor ancillary to the censor, such
-as a private entity, perform these functions.  Identification of
-undesirable traffic can occur at the application, transport, or
-network layer of the IP stack. Censors often focus on web traffic, so
-the relevant protocols tend to be filtered in predictable ways (see
-{{http-req}} and {{http-resp}}). For example, a subversive image might
-make it past a keyword filter. However, if later the image is deemed
-undesirable, a censor may then blacklist the provider site's IP address.
+to censor undesirable traffic are essentially the same: a censor
+either directly identifies undesirable content using the identifiers
+described below and then uses a blocking or shaping mechanism such as
+the ones exemplified below to prevent or impair access, or requests
+that an actor ancillary to the censor, such as a private entity,
+perform these functions.  Identification of undesirable traffic can
+occur at the application, transport, or network layer of the IP
+stack. Censors often focus on web traffic, so the relevant protocols
+tend to be filtered in predictable ways (see {{http-req}} and
+{{http-resp}}). For example, a subversive image might make it past a
+keyword filter. However, if later the image is deemed undesirable, a
+censor may then blacklist the provider site's IP address.
 
 
 Application Layer {#app-layer}
