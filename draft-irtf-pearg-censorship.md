@@ -1714,30 +1714,34 @@ IPs usually direct to a nonsense domain or a warning page.
 Alternatively, Iranian censorship appears to prevent the communication
 en-route, preventing a response from ever being sent {{Aryan-2012}}.
 
-Trade-offs:
-These forms of DNS interference
-require the censor to force a user to traverse a controlled DNS
-hierarchy (or intervening network on which the censor serves as a
-Active Pervasive Attacker {{RFC7624}} to rewrite DNS responses)
-for the mechanism to be effective. It can be circumvented
-by using alternative DNS resolvers
-(such as any of the public DNS resolvers)
-that may fall outside of the jurisdictional control of the censor, or Virtual Private Network (VPN) technology. DNS mangling and cache poisoning
-also imply returning an incorrect IP to
-those attempting to resolve a domain name, but in some cases the destination
-may be
-technically accessible;  over HTTP, for example, the user may have another
-method of obtaining the IP
-address of the desired site and may be able to access it if the site
-is configured to be the
-default server listening at this IP address.  Target blocking has
-also been a
-problem, as occasionally users outside of the censors region will be
-directed through DNS servers or DNS-rewriting network equipment
-controlled by a censor, causing the
+Trade-offs: These forms of DNS interference require the censor to
+force a user to traverse a controlled DNS hierarchy (or intervening
+network on which the censor serves as a Active Pervasive Attacker
+{{RFC7624}} to rewrite DNS responses) for the mechanism to be
+effective. It can be circumvented by using alternative DNS resolvers
+(such as any of the public DNS resolvers) that may fall outside of the
+jurisdictional control of the censor, or Virtual Private Network (VPN)
+technology. DNS mangling and cache poisoning also imply returning an
+incorrect IP to those attempting to resolve a domain name, but in some
+cases the destination may be technically accessible; over HTTP, for
+example, the user may have another method of obtaining the IP address
+of the desired site and may be able to access it if the site is
+configured to be the default server listening at this IP address.
+Target blocking has also been a problem, as occasionally users outside
+of the censors region will be directed through DNS servers or
+DNS-rewriting network equipment controlled by a censor, causing the
 request to fail. The ease of circumvention paired with the large risk
 of content blocking and target blocking make DNS interference a
-partial, difficult, and less than ideal censorship mechanism. Additionally, the above mechanisms rely on DNSSEC not being deployed or DNSSEC validation not being active on the client or recursive resolver (neither of which are hard to imagine given limited deployment of DNSSEC and limited client support for DNSSEC validation).
+partial, difficult, and less than ideal censorship
+mechanism.
+
+Additionally, the above mechanisms rely on DNSSEC not being deployed
+or DNSSEC validation not being active on the client or recursive
+resolver (neither of which are hard to imagine given limited
+deployment of DNSSEC and limited client support for DNSSEC
+validation). Note that an adversary seeking to merely block resolution
+can serve a DNSSEC record that doesn't validate correctly, assuming of
+course that the client/recursive resolver validates.
 
 Previously, techniques were used for e.g. censorship that relied on
 DNS requests being passed in cleartext over port 53
