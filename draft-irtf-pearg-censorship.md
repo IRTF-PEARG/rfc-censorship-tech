@@ -1560,14 +1560,15 @@ availability, and robustness.
 Header identification is trivial to implement, but is difficult to
 implement in backbone or ISP routers at scale, and is therefore
 typically implemented with DPI. Blocklisting an IP is equivalent to
-installing a /32 route on a router. However, due to limited flow table
-space, this cannot scale beyond a few thousand IPs at most. IP
-blocking is also relatively crude. It often leads to overblocking and cannot
-deal with some services like Content Distribution Networks (CDN) that
-host content at hundreds or thousands of IP addresses. Despite these
-limitations, IP blocking is extremely effective because the user needs
-to proxy their traffic through another destination to circumvent this
-type of identification.
+installing a specific route on a router (such as a /32 route for IPv4
+addresses and a /128 route for IPv6 addresses). However, due to
+limited flow table space, this cannot scale beyond a few thousand IPs
+at most. IP blocking is also relatively crude. It often leads to
+overblocking and cannot deal with some services like Content
+Distribution Networks (CDN) that host content at hundreds or thousands
+of IP addresses. Despite these limitations, IP blocking is extremely
+effective because the user needs to proxy their traffic through
+another destination to circumvent this type of identification.
 
 Port-blocking is generally not useful because many types of content
 share the same port and it is possible for censored applications to
