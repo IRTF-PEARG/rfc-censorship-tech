@@ -1850,7 +1850,8 @@ a specific type of packet injection attack that is used to interrupt
 an established stream by sending RST packets to both sides of a TCP
 connection; as each receiver thinks the other has dropped the
 connection, the session is terminated.
-QUIC is not vulnerable to these types of injection attacks (See
+QUIC is not vulnerable to these types of injection attacks once the
+connection has been setup, but is vulnerable during setup (See
 {{I-D.ietf-quic-transport}} for more details).
 
 Trade-offs: Although ineffective against non-TCP protocols (QUIC, IPSec), RST Packet Injection has a few advantages that make it
