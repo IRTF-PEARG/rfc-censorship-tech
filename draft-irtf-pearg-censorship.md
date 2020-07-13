@@ -79,6 +79,13 @@ informative:
       org: ICANN Security and Stability Advisory Committee
     date: 2020
 
+  ICANN2012:
+    target: https://www.icann.org/en/system/files/files/guidance-domain-seizures-07mar12-en.pdf
+    title: "Guidance for Preparing Domain Name Orders, Seizures & Takedowns"
+    author:
+      org: ICANN Security and Stability Advisory Committee
+    date: 2012
+
   Tor-2020:
     target: https://2019.www.torproject.org/docs/pluggable-transports.html.en
     title: "Tor: Pluggable Transports"
@@ -209,6 +216,24 @@ informative:
       name: Jo Glanville
       ins: J. Glanville
     date: 2008
+
+  EFF2017:
+    target: https://www.eff.org/files/2017/08/02/domain_registry_whitepaper.pdf
+    title: "Which Internet registries offer the best protection for domain owners?"
+    author:
+    -
+      name: Jeremy Malcolm
+      ins: J. Malcom
+    -
+      name: Mitch Stoltz
+      ins: M. Stoltz
+    -
+      name: Gus Rossi
+      ins: G. Rossi
+    -
+      name: Vern Paxson
+      ins: V. Paxson
+    date: 2017
 
   Tschantz-2016:
     target: https://oaklandsok.github.io/papers/tschantz2016.pdf
@@ -2042,6 +2067,17 @@ intermediary liability rules for electronic platform providers
 {{EC-2012}}, or the copyright-oriented notice and takedown regime of
 the United States Digital Millennium Copyright Act (DMCA) Section 512
 {{DMLP-512}}.
+
+Domain-Name Seizures {#dns-seizures}
+--------------------
+
+Domain names are catalogued in so-called name-servers operated by
+legal entities called registries. These registries can be made to cede
+control over a domain name to someone other than the entity which
+registered the domain name through a legal procedure grounded in either
+private contracts or public law. Domain name seizures is increasingly
+used by both public authorities and private entities to deal with
+undesired content dissemination {{ICANN2012}} {{EFF2017}}.
 
 Contributors {#Contributors}
 ============
