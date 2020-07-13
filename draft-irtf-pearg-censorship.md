@@ -1505,14 +1505,16 @@ address, and the client will need to specify in the (unencrypted)
 Client Hello message which domain name it seeks to connect to (so that
 the server can respond with the appropriate TLS certificate) using the
 Server Name Indication (SNI) TLS extension {{RFC6066}}. Since SNI is
-often sent in the clear, censors and filtering software can use it as
-a basis for blocking, filtering, or impairment by dropping connections
-to domains that match prohibited content (e.g., bad.foo.example may be
-censored while good.foo.example is not) {{Shbair-2015}}. There are
-undergoing standardization efforts in the TLS Working Group to encrypt
-SNI {{I-D.ietf-tls-sni-encryption}} {{I-D.ietf-tls-esni}} and recent
-research shows promising results in the use of encrypted SNI in the
-face of SNI-based filtering {{Chai-2019}}.
+often sent in the clear (as are the cert fields sent in response),
+censors and filtering software can use it (and response cert fields)
+as a basis for blocking, filtering, or impairment by dropping
+connections to domains that match prohibited content (e.g.,
+bad.foo.example may be censored while good.foo.example is not)
+{{Shbair-2015}}. There are undergoing standardization efforts in the
+TLS Working Group to encrypt SNI {{I-D.ietf-tls-sni-encryption}}
+{{I-D.ietf-tls-esni}} and recent research shows promising results in
+the use of encrypted SNI in the face of SNI-based filtering
+{{Chai-2019}}.
 
 Domain fronting has been one popular way to avoid identification by
 censors {{Fifield-2015}}.  To avoid identification by censors,
