@@ -1574,11 +1574,9 @@ Port-blocking is generally not useful because many types of content
 share the same port and it is possible for censored applications to
 change their port. For example, most HTTP traffic goes over port 80,
 so the censor cannot differentiate between restricted and allowed web
-content solely on the basis of port. Another example is HTTPS port
-443, which in addition to handling secure web traffic now also carries
-DNS-over-HTTPS {{RFC8484}} traffic; this can frustrate techniques that
-rely on cleartext DNS over port 53 for censorship, parental control,
-and other uses {{SSAC-109-2020}}. Port allowlisting is occasionally
+content solely on the basis of port. HTTPS goes over port 443, with
+similar consequences for the censor except only partial metadata may
+now be available to the censor. Port allowlisting is occasionally
 used, where a censor limits communication to approved ports, such as
 80 for HTTP traffic and is most effective when used in conjunction
 with other identification mechanisms. For example, a censor could
@@ -1730,6 +1728,13 @@ request to fail. The ease of circumvention paired with the large risk
 of content blocking and target blocking make DNS interference a
 partial, difficult, and less than ideal censorship mechanism. Additionally, the above mechanisms rely on DNSSEC not being deployed or DNSSEC validation not being active on the client or recursive resolver (neither of which are hard to imagine given limited deployment of DNSSEC and limited client support for DNSSEC validation).
 
+Previously, techniques were used for e.g. censorship that relied on
+DNS requests being passed in cleartext over port 53
+{{SSAC-109-2020}}. With the deployment of encrypted DNS (e.g.,
+DNS-over-HTTPS {{RFC8484}}) these requests are now increasingly passed
+on port 443 with other HTTPS traffic, or in the case of DNS-over-TLS
+{{RFC7858}} no longer passed in the clear (see also {{sec_thid}}).
+
 Empirical Examples: DNS interference, when properly implemented, is
 easy to identify based on the shortcomings identified above. Turkey
 relied on DNS interference for its country-wide block of websites such
@@ -1757,8 +1762,7 @@ Hungary, Italy, Latvia, Lithuania, Poland, Portugal, Romania,
 Slovakia, Slovenia, Spain (see Section 6.3.2 of: {{EC-gambling-2012}},
 {{EC-gambling-2019}})), copyright infringement (all European Economic Area countries),
 hate-speech and extremism (France {{Hertel-2015}}) and terrorism
-content (France {{Hertel-2015}}). Many European DNS filtering systems
-function as described in section 6.2.
+content (France {{Hertel-2015}}).
 
 
 Transport Layer
