@@ -1581,10 +1581,10 @@ used, where a censor limits communication to approved ports, such as
 80 for HTTP traffic and is most effective when used in conjunction
 with other identification mechanisms. For example, a censor could
 block the default HTTPS port, port 443, thereby forcing most users to
-fall back to HTTP. An important counter-example is that port 25 (SMTP)
-has long been blocked on residential ISPs' networks, ostensibly to
-reduce the potential for email spam, but also prohibiting residential
-ISP customers to run their own email servers.
+fall back to HTTP. A counter-example is that port 25 (SMTP) has long
+been blocked on residential ISPs' networks to reduce the risk for
+email spam, but in doing so also prohibits residential ISP customers
+from running their own email servers.
 
 ### Protocol Identification {#prot-id}
 
