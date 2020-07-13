@@ -1942,8 +1942,12 @@ must now route all traffic to state-operated monitoring points
 internet shutdowns per year in 2016 and 2017 {{Dada-2017}}.
 
 
-Non-Technical Prescription {#nontechag}
-=========================
+Non-Technical Interference {#nontechint}
+========================
+
+
+Manual Filtering {#manualfiltering}
+----------------
 
 As the name implies, sometimes manpower is the easiest way to figure
 out which content to block.  Manual Filtering differs from the common
@@ -1961,11 +1965,6 @@ of the prerequisites for a business license is an agreement to sign a
 the Chinese Internet Industry".  The failure to "energetically
 uphold" the pledged values can lead to the ICPs being held liable for
 the offending content by the Chinese government {{BBC-2013b}}.
-
-
-Non-Technical Interference {#nontechint}
-========================
-
 
 Self-Censorship {#selfcensor}
 ---------------
