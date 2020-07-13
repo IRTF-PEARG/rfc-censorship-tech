@@ -1420,8 +1420,10 @@ protests {{Victor-2019}}. See also {{discon}}.
 
 ### Deep Packet Inspection (DPI) Identification {#dpi}
 
-Deep Packet Inspection has become computationally feasible as a
-censorship mechanism in recent years {{Wagner-2009}}. Unlike other
+DPI (deep packet inspection) technically is any kind of packet
+analysis beyond IP address and port number and has become
+computationally feasible as a component of censorship mechanisms
+in recent years {{Wagner-2009}}. Unlike other
 techniques, DPI reassembles network flows to examine the application
 "data" section, as opposed to only headers, and is therefore often
 used for keyword identification. DPI also differs from other
