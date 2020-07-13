@@ -1503,17 +1503,20 @@ SNI {{I-D.ietf-tls-sni-encryption}} {{I-D.ietf-tls-esni}} and recent
 research shows promising results in the use of encrypted SNI in the
 face of SNI-based filtering {{Chai-2019}}.
 
-Domain fronting has been one popular way to avoid identification by censors {{Fifield-2015}}.
-To avoid identification by censors, applications using domain fronting put a different
-domain name in the SNI extension than the one encrypted by HTTPS. The visible
-SNI would indicate an unblocked domain, while the blocked domain remains hidden
-in the encrypted application header.
-Some encrypted messaging services relied on domain fronting to enable their
-provision in countries employing SNI-based filtering. These services used the
-cover provided by domains for which blocking at the domain level would be
-undesirable to hide their true domain names. However, the companies holding the
-most popular domains have since reconfigured their software to prevent this practice.
-It may be possible to achieve similar results using potential future options to encrypt SNI.
+Domain fronting has been one popular way to avoid identification by
+censors {{Fifield-2015}}.  To avoid identification by censors,
+applications using domain fronting put a different domain name in the
+SNI extension than in the Host: header, which is protected by
+HTTPS. The visible SNI would indicate an unblocked domain, while the
+blocked domain remains hidden in the encrypted application header.
+Some encrypted messaging services relied on domain fronting to enable
+their provision in countries employing SNI-based filtering. These
+services used the cover provided by domains for which blocking at the
+domain level would be undesirable to hide their true domain
+names. However, the companies holding the most popular domains have
+since reconfigured their software to prevent this practice.  It may be
+possible to achieve similar results using potential future options to
+encrypt SNI.
 
 Tradeoffs: Some clients do not send the SNI extension (e.g., clients
 that only support versions of SSL and not TLS), rendering this method
@@ -1541,15 +1544,15 @@ Transport Layer {#transport}
 
 Of the various shallow packet inspection methods, Transport Header
 Identification is the most pervasive, reliable, and predictable type
-of identification.  Transport headers in TCP/IP or QUIC contain a few
-invaluable pieces of information that must be transparent for traffic
-to be successfully routed: destination and source IP address and port.
-Destination and Source IP are doubly useful, as not only does it allow
-a censor to block undesirable content via IP blocklisting, but also
-allows a censor to identify the IP of the user making the request and
-the IP address of the destination being visited, which in most cases
-can be used to infer the domain being visited {{Patil-2019}}. Port is
-useful for allowlisting certain applications.
+of identification.  Transport headers contain a few invaluable pieces
+of information that must be transparent for traffic to be successfully
+routed: destination and source IP address and port.  Destination and
+Source IP are doubly useful, as not only does it allow a censor to
+block undesirable content via IP blocklisting, but also allows a
+censor to identify the IP of the user making the request and the IP
+address of the destination being visited, which in most cases can be
+used to infer the domain being visited {{Patil-2019}}. Port is useful
+for allowlisting certain applications.
 
 Trade-offs: header identification is popular due to its simplicity,
 availability, and robustness.
