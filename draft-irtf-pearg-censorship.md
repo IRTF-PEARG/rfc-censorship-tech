@@ -58,6 +58,13 @@ informative:
   I-D.ietf-tls-esni:
   I-D.ietf-quic-transport:
 
+  RWB2020:
+    target: https://rsf.org/en/2020-world-press-freedom-index-entering-decisive-decade-journalism-exacerbated-coronavirus
+    title: "2020 World Press Freedom Index: Entering a decisive decade for journalism, exacerbated by coronavirus"
+    author:
+      org: Reporters Without Borders
+    date: 2020
+
   HADOPI-2020:
     target: https://www.hadopi.fr/en/node/3668
     title: "Présentation"
@@ -1963,35 +1970,14 @@ Non-Technical Interference {#nontechint}
 Self-Censorship {#selfcensor}
 ---------------
 
-Self-censorship is one of the most interesting and effective types of
-censorship: a mix of the effects of surveillance (e.g., on the
-proverbial prisoners in Bentham's Panopticon {{Bentham-1791}}),
-cultural manipulation, intelligence gathering, and offline
-enforcement. Simply put, self-censorship is when a censor creates an
-atmosphere where users censor themselves.
-
-This can be achieved through controlling information, intimidating
-would-be dissidents, swaying public thought, and creating apathy.
-Moreover, regimes can manipulate public opinion in ways that result in
-self-censorship {{Ellul-1973}}.  Self-censorship is difficult to
-document, as when it is implemented effectively the only noticeable
-evidence is a lack of undesirable content; instead one must look at
-the tools and techniques used by censors to encourage
-self-censorship. Controlling information relies heavily on
-surveillance -- e.g., by forcing all users to connect through an
-intranet, such as in North Korea -- and traditional censorship
-techniques.  Intimidation is often achieved through allowing Internet
-users to post "whatever they want," but arresting or otherwise putting
-pressure on those who post about dissenting views.  This technique is
-incredibly common {{Calamur-2013}} {{AP-2012}} {{Hopkins-2011}}
-{{Guardian-2014}} {{Johnson-2010}}.  A good example of swaying public
-thought is China's "50-Cent Party," reported to be composed of
-somewhere between 20,000 {{Bristow-2013}} and 300,000 {{Fareed-2008}}
-contributors who are paid to "guide public thought" on local and
-regional issues as directed by the Ministry of Culture. Creating
-apathy can be a side-effect of successfully controlling information
-over time and is ideal for a censorship regime {{Gao-2014}}.
-
+Self-censorship is difficult to document, as it manifests primarily
+through a lack of undesirable content. Tools which encourage
+self-censorship are those which may lead a prospective speaker to
+believe that speaking increases the risk of unfavourable outcomes for
+the speaker (technical monitoring, identification requirements,
+etc.). Reporters Without Borders exemplify methods of imposing
+self-censorship in their annual World Press Freedom Index reports
+{{RWB2020}}.
 
 Server Takedown {#serverko}
 ---------------
