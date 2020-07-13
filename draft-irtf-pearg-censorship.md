@@ -1126,15 +1126,21 @@ for protocol designers and implementers.
 
 ## Terminology {#terms}
 
+
 We describe three elements of Internet censorship: prescription,
-identification, and interference. The document contains three major sections,
-each corresponding to one of these elements. Prescription is the process by which
-censors determine what types of material they should block, i.e., deciding
-to block a list of pornographic websites. Identification is the process by which
-censors classify specific traffic to be blocked or impaired, i.e., blocking
-or impairing all webpages containing "sex" in the title or traffic to www.sex.example.
-Interference is the process by which censors intercede in communication and
-prevent access to censored materials by blocking access or impairing the connection.
+identification, and interference. The document contains three major
+sections, each corresponding to one of these elements. Prescription is
+the process by which censors determine what types of material they
+should censor, e.g., classifying pornographic websites as undesirable.
+Identification is the process by which censors classify specific
+traffic or traffic identifiers to be blocked or impaired, e.g.,
+deciding that webpages containing "sex" in an HTTP Header or that
+accept traffic through the URL wwww.sex.example are likely to be
+undesirable.  Interference is the process by which censors intercede
+in communication and prevents access to censored materials by blocking
+access or impairing the connection, e.g., implementing a technical
+solution capable of identifying HTTP headers or URLs and ensuring they
+are rendered wholly or partially inaccessible.
 
 
 Technical Prescription {#tech-prescrip}
