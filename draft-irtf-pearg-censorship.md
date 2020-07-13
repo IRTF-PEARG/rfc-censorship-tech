@@ -146,6 +146,14 @@ informative:
       ins: W. Knight
     date: 2005
 
+  SIDN2020:
+    target: https://labs.ripe.net/Members/giovane_moura/detecting-and-taking-down-fraudulent-webshops-at-a-cctld
+    title: "Detecting and Taking Down Fraudulent Webshops at the .nl ccTLD"
+    author:
+      name: Giovane Moura
+      ins: G. Moura
+    date: 2020
+
   Cimpanu-2019:
     target: https://www.zdnet.com/article/russia-to-disconnect-from-the-internet-as-part-of-a-planned-test/
     title: "Russia to disconnect from the internet as part of a planned test"
@@ -1124,8 +1132,8 @@ academic study of censorship circumvention (see the review article of
 {{Tschantz-2016}}), results from which we seek to make relevant here
 for protocol designers and implementers.
 
-## Terminology {#terms}
-
+Terminology {#terms}
+===========
 
 We describe three elements of Internet censorship: prescription,
 identification, and interference. The document contains three major
@@ -1148,11 +1156,14 @@ Technical Prescription {#tech-prescrip}
 
 Prescription is the process of figuring out what censors would like to
 block {{Glanville-2008}}. Generally, censors aggregate information "to
-block" in blocklists or use real-time heuristic assessment of
-content {{Ding-1999}}. Some national networks are designed to more
-naturally serve as points of control {{Leyba-2019}}. There are also
-indications that online censors use probabilistic machine learning
-techniques {{Tang-2016}}.
+block" in blocklists or use real-time heuristic assessment of content
+{{Ding-1999}}. Some national networks are designed to more naturally
+serve as points of control {{Leyba-2019}}. There are also indications
+that online censors use probabilistic machine learning techniques
+{{Tang-2016}}. Indeed, web crawling and machine learning techniques
+are an active research idea in the effort to identify content deemed
+as morally or commercially harmful to companies or consumers in some
+jurisdictions {{SIDN2020}}.
 
 There are typically three types of blocklist elements: Keyword, domain name,
 or Internet Protocol (IP) address. Keyword and domain name blocking
