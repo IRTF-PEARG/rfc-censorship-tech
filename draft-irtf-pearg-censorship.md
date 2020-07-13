@@ -1229,16 +1229,18 @@ including, though not limited to, the following.
   powerful points of control for censors, especially if the location
   of CDN content repositories allow for easier interference.
 
-* Certificate Authorities for Public-Key Infrastructures (PKIs):
+* Certificate Authorities (CAs) for Public-Key Infrastructures (PKIs):
   Authorities that issue cryptographically secured resources can be a
-  significant point of control. Certificate Authorities that issue
-  certificates to domain holders for TLS/HTTPS (the Web PKI) or
-  Regional/Local Internet Registries (RIRs) that issue Route
-  Origination Authorizations (ROAs) to BGP operators can be forced to
-  issue rogue certificates that may allow compromise, i.e., by allowing
-  censorship software to engage in identification and interference where
-  not possible before. This may allow, for example, adversarial traffic
-  routing or TLS interception.
+  significant point of control. CAs that issue certificates to domain
+  holders for TLS/HTTPS (the Web PKI) or Regional/Local Internet
+  Registries (RIRs) that issue Route Origination Authorizations (ROAs)
+  to BGP operators can be forced to issue rogue certificates that may
+  allow compromise, i.e., by allowing censorship software to engage in
+  identification and interference where not possible before. CAs may
+  also be forced to revoke certificates. This may lead to adversarial
+  traffic routing or TLS interception being allowed, or an otherwise
+  rightful origin or destination point of traffic flows being unable
+  to communicate in a secure way.
 
 * Services: Application service providers can be pressured,
   coerced, or legally required to censor specific content or data flows.
