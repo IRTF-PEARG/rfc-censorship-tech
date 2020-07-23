@@ -122,7 +122,7 @@ informative:
     date: 2012
 
   Bentham-1791:
-    target: https://books.google.com/books/about/Panopticon_Or_the_Inspection_House.html
+    target: https://www.google.com/books/edition/_/Ec4TAAAAQAAJ?hl=en
     title: "Panopticon Or the Inspection House"
     author:
       name: Jeremy Bentham
@@ -503,7 +503,7 @@ informative:
     date: 2016
 
   Dalek-2013:
-    target: http://www.cs.stonybrook.edu/~phillipa/papers/imc112s-dalek.pdf
+    target: http://conferences.sigcomm.org/imc/2013/papers/imc112s-dalekA.pdf
     title: A Method for Identifying and Confirming the Use of URL Filtering Products for Censorship
     author:
       name: Jakub Dalek
@@ -743,7 +743,7 @@ informative:
     date: 2014
 
   Zmijewski-2014:
-    target: http://www.renesys.com/2014/03/turkish-internet-censorship/
+    target: https://blogs.oracle.com/internetintelligence/turkish-internet-censorship-takes-a-new-turn
     title: Turkish Internet Censorship Takes a New Turn
     author:
       name: Earl Zmijewski
@@ -852,16 +852,8 @@ informative:
       ins: R. Heacock
     date: 2009
 
-  Cowie-2011b:
-    target: http://www.renesys.com/2011/02/libyan-disconnect-1/
-    title: Libyan Disconnect
-    author:
-      name: Jim Cowie
-      ins: J. Cowie
-    date: 2011
-
   Cowie-2011:
-    target: http://www.renesys.com/2011/01/egypt-leaves-the-internet/
+    target: https://archive.nanog.org/meetings/nanog51/presentations/Tuesday/LT-Cowie-Egypt%20Leaves%20The%20Internet.pdf
     title: Egypt Leaves the Internet
     author:
       name: Jim Cowie
@@ -920,14 +912,6 @@ informative:
     author:
       org: The Gaurdian
     date: 2014
-
-  Johnson-2010:
-    target: http://seattlepostglobe.org/2010/02/05/torture-feared-in-arrest-of-iraqi-blogger/
-    title: Torture feared in arrest of Iraqi blogger
-    author:
-      name: Larry Johnson
-      ins: L. Johnson
-    date: 2011
 
   Bristow-2013:
     target: http://news.bbc.co.uk/2/hi/asia-pacific/7783640.stm
@@ -1115,12 +1099,12 @@ informative:
       ins: K. Kopel
     date: 2013
 
-  Bortzmayer-2015:
+  Bortzmeyer-2015:
     target: https://labs.ripe.net/Members/stephane_bortzmeyer/dns-censorship-dns-lies-seen-by-atlas-probes
     title: "DNS Censorship (DNS Lies) As Seen By RIPE Atlas"
     author:
-      name: Stephane Bortzmayer
-      ins: S. Bortzmayer
+      name: Stephane Bortzmeyer
+      ins: S. Bortzmeyer
     date: 2015
 
 
@@ -1721,12 +1705,12 @@ forged IP address "198.51.100.0" as a response:
 There are also cases of what is colloquially called "DNS lying", where
 a censor mandates that the DNS responses provided -- by an operator of
 a recursive resolver such as an Internet access provider -- be
-different than what authoritative resolvers would provide
-{{Bortzmayer-2015}}.
+different than what authoritative name server would provide
+{{Bortzmeyer-2015}}.
 
 DNS cache poisoning refers to a mechanism where a censor interferes
-with the response sent by an authoritative DNS resolver to a recursive
-resolver by responding more quickly than the authoritative resolver
+with the response sent by an authoritative DNS name server to a recursive
+resolver by responding more quickly than the authoritative name server
 can respond with an alternative IP address {{Halley-2008}}.
 Cache poisoning occurs
 after the requested site's name servers resolve the request and
@@ -1905,7 +1889,7 @@ is implemented it allows for successful Blind RST Injection attacks
 {{Netsec-2011}}.  When in-window sequencing is allowed, it is trivial
 to conduct a Blind RST Injection: while the term "blind" injection
 implies the censor
-doesn't know any sensitive (encrypted) sequencing information about
+doesn't know any sensitive sequencing information about
 the TCP stream they are injecting into, they can simply enumerate all
 ~70000 possible windows; this is particularly useful for interrupting
 encrypted/obfuscated protocols such as SSH or Tor. RST Packet
@@ -1998,7 +1982,7 @@ Network Disconnection to help Junta forces quash a rebellion in 2007
 during unrest in 2009 in an effort to prevent the protests from
 spreading to other regions {{Heacock-2009}}. The Arab Spring saw the
 the most frequent usage of Network Disconnection, with events in Egypt
-and Libya in 2011 {{Cowie-2011}} {{Cowie-2011b}}, and Syria in 2012
+and Libya in 2011 {{Cowie-2011}}, and Syria in 2012
 {{Thomson-2012}}. Russia has indicated that it will attempt to
 disconnect all Russian networks from the global internet in April 2019
 as part of a test of the nation's network independence. Reports also
