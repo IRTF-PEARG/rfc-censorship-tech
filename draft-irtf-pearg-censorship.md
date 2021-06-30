@@ -26,8 +26,8 @@ author:
  -
     ins: S. Adams
     name: Stan Adams
-    organization: CDT
-    email: sadams@cdt.org
+    organization: 
+    email: 
  -
     ins: A. Andersdotter
     name: Amelia Andersdotter
@@ -43,6 +43,12 @@ author:
     name: Nick Feamster
     organization: U Chicago
     email: feamster@uchicago.edu
+ -
+    ins: M. Knodel
+    name: Mallory Knodel
+    organization: Center for Democracy & Technology
+    email: mknodel@cdt.org
+
 
 normative:
 
@@ -1110,7 +1116,7 @@ informative:
 
 --- abstract
 
-This document describes technical mechanisms censorship regimes around
+This document describes technical mechanisms employed in network censorship that regimes around
 the world use for blocking or impairing Internet traffic. It aims
 to make designers, implementers, and users of Internet protocols aware
 of the properties exploited and mechanisms used for censoring
@@ -1960,7 +1966,7 @@ various sites {{Marczak-2015}}.
 ### Network Disconnection or Adversarial Route Announcement {#discon}
 
 
-While it is perhaps the crudest of all censorship techniques, there is
+While it is perhaps the crudest of all techniques employed for censorship, there is
 no more effective way of making sure undesirable information isn't
 allowed to propagate on the web than by shutting off the network. The
 network can be logically cut off in a region when a censoring body
