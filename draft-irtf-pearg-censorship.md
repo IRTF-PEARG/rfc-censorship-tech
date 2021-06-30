@@ -1872,7 +1872,7 @@ connection has been setup, but is vulnerable during setup (See
 {{I-D.ietf-quic-transport}} for more details).
 
 Trade-offs: Although ineffective against non-TCP protocols (QUIC, IPSec), RST Packet Injection has a few advantages that make it
-extremely popular as a censorship technique. RST Packet Injection is
+extremely popular as a technique employed for censorship. RST Packet Injection is
 an out-of-band interference mechanism, allowing the avoidance of the the
 QoS bottleneck one can encounter with inline techniques such as Packet
 Dropping. This out-of-band property allows a censor to inspect a copy
@@ -1937,7 +1937,7 @@ without "releasing" the service.
 Trade-offs: DDoS is an appealing mechanism when a censor would like to
 prevent all access to undesirable content, instead of only access in
 their region for a limited period of time, but this is really the only
-uniquely beneficial feature for DDoS as a censorship technique. The
+uniquely beneficial feature for DDoS as a technique employed for censorship. The
 resources required to carry out a successful DDoS against major
 targets are computationally expensive, usually requiring renting or
 owning a malicious distributed platform such as a botnet, and
