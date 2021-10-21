@@ -1295,7 +1295,7 @@ Internet Protocol (IP) address. Keyword and domain name blocking take place at
 the application level, e.g., HTTP, whereas IP blocking tends to take place using
 IP addresses in IPv4/IPv6 headers. Some censors use the presence of certain
 keywords to enable more aggressive blocklists {{Rambert-2021}} or to be more
-permissive with content{{Knockel-2021}}. The mechanisms for building up these
+permissive with content {{Knockel-2021}}. The mechanisms for building up these
 blocklists vary. Censors can purchase from private industry "content control"
 software, such as SmartFilter, which lets censors filter traffic from broad
 categories they would like to block, such as gambling or pornography
@@ -1493,8 +1493,10 @@ filtering over TCP streams instead of HTTP response filtering.
 ### Transport Layer Security {#tls}
 
 Similar to HTTP, censors have deployed a variety of techniques towards
-censoring TLS (and by extension HTTPS): the Server Name Indication
-Field, Server Certificates, Encrypted SNI, and Omitted SNI.
+censoring TLS (and by extension HTTPS). Most of these techniques relate to
+the Server Name Indication (SNI) field, including censoring SNI, Encrypted 
+SNI, or omitted SNI. Censors can also censor HTTPS content via server 
+certificates. 
 
 
 #### Server Name Indication {#sni}
@@ -1841,7 +1843,7 @@ traffic management, such as the 2007 case where Comcast in the United
 States used RST injection to interrupt BitTorrent Traffic
 {{Winter-2012}}. In 2020, Iran deployed an allowlist protocol filter,
 which only allowed three protocols to be used (DNS, TLS, and HTTP) on
-specific ports and censored any connection it could not identify{{Bock-2020}}. 
+specific ports and censored any connection it could not identify {Bock-2020}}. 
 
 
 Technical Interference {#tech-interference}
@@ -2184,18 +2186,19 @@ are innocuous {{Bock-2021}}. Residual censorship can take many forms
 and often relies on the methods of technical interference described in this
 section. 
 
-An important facet of residual censorship is precisely what the censor blocks
-after censorship is initially triggered. There are three common options available
-to an adversary: 2-tuple (client IP, server IP), 3-tuple (client IP, server
-IP+port), or 4-tuple (client IP+port, server IP+port). Future connections that
-match the tuple of information the censor records will be disrupted
-{{Bock-2021}}.
+An important facet of residual censorship is precisely what the censor
+continues to block after censorship is initially triggered. There are three
+common options available to an adversary: 2-tuple (client IP, server IP),
+3-tuple (client IP, server IP+port), or 4-tuple (client IP+port, server
+IP+port). Future connections that match the tuple of information the censor
+records will be disrupted {{Bock-2021}}.
 
 Residual censorship can sometimes be difficult to identify and can often complicate
 censorship measurement.
 
 Trade-offs: The impact of residual censorship is to provide users with further
-discouragement from trying to access forbidden content. 
+discouragement from trying to access forbidden content, though it is not
+clear how successful it is at accomplishing this. 
 
 Empirical Examples: China has used 3-tuple residual censorship in conjunction
 with their HTTP censorship for years and researchers have reported seeing similar
