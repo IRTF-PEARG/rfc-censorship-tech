@@ -1257,7 +1257,6 @@ informative:
       ins: D. Levin
     date: 2020
 
-
   Rambert-2021:
     target: https://www.andrew.cmu.edu/user/nicolasc/publications/Rambert-WWW21.pdf
     title: "Chinese Wall or Swiss Cheese? Keyword filtering in the Great Firewall of China"
@@ -1976,7 +1975,6 @@ specific ports and censored any connection it could not identify {{Bock-2020}}.
 
 
 ## Residual Censorship {#residualcensorship}
-
 
 Another feature of some modern censorship systems is residual censorship, a
 punitive form of censorship whereby after a censor disrupts a forbidden
