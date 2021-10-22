@@ -1414,6 +1414,11 @@ tend to be filtered in predictable ways (see {{http-req}} and
 keyword filter. However, if later the image is deemed undesirable, a
 censor may then blacklist the provider site's IP address.
 
+Often, censors implement multiple techniques in tandem, creating
+"censorship in depth". Censorship in depth can take many forms; some
+censors block the same content through multiple techniques (such as
+blocking a domain by DNS, IP blocking, and HTTP simultaneously).
+Two notable examples of censorship in depth 
 
 Application Layer {#app-layer}
 -----------------
