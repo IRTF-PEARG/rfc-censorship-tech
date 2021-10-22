@@ -1980,7 +1980,7 @@ Another feature of some modern censorship systems is residual censorship, a
 punitive form of censorship whereby after a censor disrupts a forbidden
 connection, the censor continues to target subsequent connections, even if they
 are innocuous {{Bock-2021}}. Residual censorship can take many forms
-and often relies on the methods of technical interference described in this
+and often relies on the methods of technical interference described in the next
 section. 
 
 An important facet of residual censorship is precisely what the censor
@@ -1995,7 +1995,7 @@ censorship measurement.
 
 Trade-offs: The impact of residual censorship is to provide users with further
 discouragement from trying to access forbidden content, though it is not
-clear how successful it is at accomplishing this. 
+clear how successful it is at accomplishing this.
 
 Empirical Examples: China has used 3-tuple residual censorship in conjunction
 with their HTTP censorship for years and researchers have reported seeing similar
