@@ -1848,7 +1848,7 @@ traffic management, such as the 2007 case where Comcast in the United
 States used RST injection to interrupt BitTorrent Traffic
 {{Winter-2012}}. In 2020, Iran deployed an allowlist protocol filter,
 which only allowed three protocols to be used (DNS, TLS, and HTTP) on
-specific ports and censored any connection it could not identify {Bock-2020}}. 
+specific ports and censored any connection it could not identify {{Bock-2020}}. 
 
 
 Technical Interference {#tech-interference}
