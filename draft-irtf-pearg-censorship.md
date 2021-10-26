@@ -2209,40 +2209,45 @@ QUIC is not vulnerable to these types of injection attacks once the
 connection has been setup, but is vulnerable during setup (See
 {{I-D.ietf-quic-transport}} for more details).
 
-Trade-offs: Although ineffective against non-TCP protocols (QUIC, IPSec), RST
-Packet Injection has a few advantages that make it extremely popular as a
-technique employed for censorship. RST Packet Injection is an out-of-band
-interference mechanism, allowing the avoidance of the the QoS bottleneck one can
-encounter with inline techniques such as Packet Dropping. This out-of-band
-property allows a censor to inspect a copy of the information, usually mirrored
-by an optical splitter, making it an ideal pairing for DPI and protocol
-identification {{Weaver-2009}} (this asynchronous version of a MITM is often
-called a Man-on-the-Side (MOTS)).  RST Packet Injection also has the advantage
-of only requiring one of the two endpoints to accept the spoofed packet for the
-connection to be interrupted.
+Trade-offs: Although ineffective against non-TCP protocols (QUIC, IPSec), RST Packet Injection has a few advantages that make it
+extremely popular as a technique employed for censorship. RST Packet Injection is
+an out-of-band interference mechanism, allowing the avoidance of the the
+QoS bottleneck one can encounter with inline techniques such as Packet
+Dropping. This out-of-band property allows a censor to inspect a copy
+of the information, usually mirrored by an optical splitter, making it
+an ideal pairing for DPI and protocol identification
+{{Weaver-2009}} (this asynchronous version of a MITM is often called a
+Man-on-the-Side (MOTS)).
+RST Packet Injection also has the advantage of only
+requiring one of the two endpoints to accept the spoofed packet for
+the connection to be interrupted.
 
 The difficult part of RST Packet Injection is spoofing "enough"
-correct information to ensure one end-point accepts a RST packet as legitimate;
-this generally implies a correct IP, port, and TCP sequence number. Sequence
-number is the hardest to get correct, as {{RFC0793}} specifies an RST Packet
-should be in-sequence to be accepted, although the RFC also recommends allowing
-in-window packets as "good enough". This in-window recommendation is important,
-as if it is implemented it allows for successful Blind RST Injection attacks
-{{Netsec-2011}}. When in-window sequencing is allowed, it is trivial to conduct
-a Blind RST Injection: while the term "blind" injection implies the censor
-doesn't know any sensitive sequencing information about the TCP stream they are
-injecting into, they can simply enumerate all ~70000 possible windows; this is
-particularly useful for interrupting encrypted/obfuscated protocols such as SSH
-or Tor. Some censorship evasion systems work by trying to confuse the censor
+correct information to ensure one end-point accepts a RST packet as
+legitimate; this generally implies a correct IP, port, and TCP
+sequence number. Sequence number is the hardest to get correct, as
+{{RFC0793}} specifies an RST Packet should be in-sequence to be
+accepted, although the RFC also recommends allowing in-window packets
+as "good enough". This in-window recommendation is important, as if it
+is implemented it allows for successful Blind RST Injection attacks
+{{Netsec-2011}}.  When in-window sequencing is allowed, it is trivial
+to conduct a Blind RST Injection: while the term "blind" injection
+implies the censor
+doesn't know any sensitive sequencing information about
+the TCP stream they are injecting into, they can simply enumerate all
+~70000 possible windows; this is particularly useful for interrupting
+encrypted/obfuscated protocols such as SSH or Tor.
+Some censorship evasion systems work by trying to confuse the censor
 into tracking incorrect information, rendering their RST Packet Injection
 useless {{Khattak-2013}}, {{Wang-2017}}, {{Li-2017}}, {{Bock-2019}},
 {{Wang-2020}}.
 
 RST Packet Injection relies on a stateful network, making it useless against UDP
 connections. RST Packet Injection is among the most popular censorship
-techniques used today given its versatile nature and effectiveness against all
-types of TCP traffic. Recent research shows that a TCP RST packet injection
-attack can even work in the case of an off-path attacker {{Cao-2016}}. 
+techniques used today given its versatile nature and effectiveness
+against all types of TCP traffic. Recent research shows that a TCP RST
+packet injection attack can even work in the case of an off-path
+attacker {{Cao-2016}}.
 
 Empirical Examples: RST Packet Injection, as mentioned above, is most
 often paired with identification techniques that require splitting,
