@@ -1113,6 +1113,18 @@ informative:
       ins: S. Bortzmeyer
     date: 2015
 
+  Gilad:
+    target: https://doi.org/10.1145/2597173
+    title: "Off-Path TCP Injection Attacks"
+    author:
+    -
+      name: Yossi Gilad
+      ins: Y. Gilad
+    -
+      name: Amir Herzberg
+      ins: A. Herzberg
+    date: 2014
+
 
 --- abstract
 
@@ -1898,7 +1910,7 @@ implies the censor
 doesn't know any sensitive sequencing information about
 the TCP stream they are injecting into, they can simply enumerate all
 ~70000 possible windows; this is particularly useful for interrupting
-encrypted/obfuscated protocols such as SSH or Tor. RST Packet
+encrypted/obfuscated protocols such as SSH or Tor {{Gilad}}. RST Packet
 Injection relies on a stateful network, making it useless against UDP
 connections. RST Packet Injection is among the most popular censorship
 techniques used today given its versatile nature and effectiveness
