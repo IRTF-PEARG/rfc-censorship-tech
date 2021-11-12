@@ -1335,6 +1335,17 @@ informative:
       ins: R. Chatterjee
     date: 2021
 
+  Gilad:
+    target: https://doi.org/10.1145/2597173
+    title: "Off-Path TCP Injection Attacks"
+    author:
+    -
+      name: Yossi Gilad
+      ins: Y. Gilad
+    -
+      name: Amir Herzberg
+      ins: A. Herzberg
+    date: 2014
 
 
 --- abstract
@@ -2236,7 +2247,7 @@ implies the censor
 doesn't know any sensitive sequencing information about
 the TCP stream they are injecting into, they can simply enumerate all
 ~70000 possible windows; this is particularly useful for interrupting
-encrypted/obfuscated protocols such as SSH or Tor.
+encrypted/obfuscated protocols such as SSH or Tor {{Gilad}}.
 Some censorship evasion systems work by trying to confuse the censor
 into tracking incorrect information, rendering their RST Packet Injection
 useless {{Khattak-2013}}, {{Wang-2017}}, {{Li-2017}}, {{Bock-2019}},
