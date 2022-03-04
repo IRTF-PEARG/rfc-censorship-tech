@@ -1,7 +1,7 @@
 ---
 title: A Survey of Worldwide Censorship Techniques
 abbrev: draft-irtf-pearg-censorship
-docname: draft-irtf-pearg-censorship-latest
+docname: draft-irtf-pearg-censorship-05
 category: info
 
 ipr: trust200902
@@ -23,11 +23,6 @@ author:
     name: Michael D. Aaron
     organization: CU Boulder
     email: michael.drew.aaron@gmail.com
- -
-    ins: S. Adams
-    name: Stan Adams
-    organization: 
-    email: 
  -
     ins: A. Andersdotter
     name: Amelia Andersdotter
