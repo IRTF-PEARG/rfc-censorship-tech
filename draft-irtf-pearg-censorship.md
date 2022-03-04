@@ -1289,6 +1289,14 @@ including, though not limited to, the following.
   service. Services have increasingly become focal points of
   censorship discussions, as well as the focus of discussions of moral
   imperatives to use censorship tools.
+  
+* Content sites: On the service side of communications lie many platforms that
+  publish user-generated content require terms of service compliance with all content
+  and user accounts in order to avoid intermediary liability for the web hosts.
+  In aggregate these policies, actions and remedies are known as content moderation.
+  Content moderation happens above the services or application layer, but
+  these mechanisms are built to filter, sort and block content and users
+  thus making them available to censors through direct pressure on the private entity.
 
 * Personal Devices: Censors can mandate censorship software be
   installed on the device level. This has many disadvantages in terms
@@ -1698,7 +1706,11 @@ in DNS-over-HTTPS {{RFC8484}} and DNS-over-TLS {{RFC7858}} that can
 mitigate interference with DNS queries between the stub and the
 resolver.
 
-"DNS mangling" is a network-level technique where an incorrect IP
+Responding to a DNS query with an incorrect address can be achieved
+with on-path interception, off-path cache poisoning, and lying by
+the nameserver.
+
+"DNS mangling" is a network-level technique of on-path interception where an incorrect IP
 address is returned in response to a DNS query to a censored
 destination. An example of this is what some Chinese networks do (we
 are not aware of any other wide-scale uses of mangling). On those
@@ -1720,13 +1732,7 @@ forged IP address "198.51.100.0" as a response:
     % dig +short +nodnssec @192.0.2.2 A www.censored.example
     198.51.100.0
 
-There are also cases of what is colloquially called "DNS lying", where
-a censor mandates that the DNS responses provided -- by an operator of
-a recursive resolver such as an Internet access provider -- be
-different than what authoritative name server would provide
-{{Bortzmeyer-2015}}.
-
-DNS cache poisoning refers to a mechanism where a censor interferes
+DNS cache poisoning happens off-path and refers to a mechanism where a censor interferes
 with the response sent by an authoritative DNS name server to a recursive
 resolver by responding more quickly than the authoritative name server
 can respond with an alternative IP address {{Halley-2008}}.
@@ -1742,6 +1748,12 @@ address to be cached (and potentially recursively so). The alternative
 IPs usually direct to a nonsense domain or a warning page.
 Alternatively, Iranian censorship appears to prevent the communication
 en-route, preventing a response from ever being sent {{Aryan-2012}}.
+
+There are also cases of what is colloquially called "DNS lying", where
+a censor mandates that the DNS responses provided -- by an operator of
+a recursive resolver such as an Internet access provider -- be
+different than what authoritative name server would provide
+{{Bortzmeyer-2015}}.
 
 Trade-offs: These forms of DNS interference require the censor to
 force a user to traverse a controlled DNS hierarchy (or intervening
