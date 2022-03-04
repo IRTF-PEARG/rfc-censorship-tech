@@ -1113,6 +1113,228 @@ informative:
       ins: S. Bortzmeyer
     date: 2015
 
+  Wang-2017:
+    target: https://www.cs.ucr.edu/~zhiyunq/pub/imc17_censorship_tcp.pdf
+    title: "Your State is Not Mine: A Closer Look at Evading Stateful Internet Censorship"
+    author:
+    -
+      name: Zhongjie Wang
+      ins: Z. Wang
+    - 
+      name: Yue Cao
+      ins: Y. Cao
+    -
+      name: Zhiyun Qian
+      ins: Z. Qian
+    - 
+      name: Chengyu Song
+      ins: C. Song
+    - 
+      name: Srikanth V. Krishnamurthy
+      ins: S. Krishnamurthy
+    date: 2017
+
+  Wang-2020:
+    target: https://www.cs.ucr.edu/~zhiyunq/pub/ndss20_symtcp.pdf
+    title: "SYMTCP: Eluding Stateful Deep Packet Inspection with Automated Discrepancy Discovery"
+    author:
+    -
+      name: Zhongjie Wang
+      ins: Z. Wang
+    - 
+      name: Shitong Zhu
+      ins: S. Zhu
+    - 
+      name: Yue Cao
+      ins: Y. Cao
+    -
+      name: Zhiyun Qian
+      ins: Z. Qian
+    - 
+      name: Chengyu Song
+      ins: C. Song
+    - 
+      name: Srikanth V. Krishnamurthy
+      ins: S. Krishnamurthy
+    - 
+      name: Kevin S. Chan
+      ins: K. Chan
+    - 
+      name: Tracy D. Braun
+      ins: T. Braun
+    date: 2020
+
+  Li-2017:
+    target: https://david.choffnes.com/pubs/liberate-imc17.pdf
+    title: "lib•erate, (n) : A library for exposing (traffic-classification) rules and avoiding them efficiently"
+    author:
+    -
+      name: Fangfan Li
+      ins: F. Li
+    - 
+      name: Abbas Razaghpanah
+      ins: A. Razaghpanah
+    -
+      name: Arash Molavi Kakhki
+      ins: A. Kakhki
+    - 
+      name: Arian Akhavan Niaki 
+      ins: A. Niaki
+    - 
+      name: David Choffnes
+      ins: D. Choffnes
+    - 
+      name: Phillipa Gill
+      ins: P. Gill
+    - 
+      name: Alan Mislove
+      ins: A. Mislove
+    date: 2017
+
+  Bock-2019:
+    target: https://geneva.cs.umd.edu/papers/geneva_ccs19.pdf
+    title: "Geneva: Evolving Censorship Evasion Strategies"
+    author:
+    -
+      name: Kevin Bock
+      ins: K. Bock
+    - 
+      name: George Hughey
+      ins: G. Hughey
+    - 
+      name: Xiao Qiang
+      ins: X. Qiang
+    - 
+      name: Dave Levin
+      ins: D. Levin
+    date: 2019
+
+  Bock-2020:
+    target: https://geneva.cs.umd.edu/papers/evading-censorship-in-depth.pdf
+    title: "Detecting and Evading Censorship-in-Depth: A Case Study of Iran’s Protocol Filter"
+    author:
+    -
+      name: Kevin Bock
+      ins: K. Bock
+    - 
+      name: Yair Fax
+      ins: Y. Fax
+    -
+      name: Kyle Reese
+      ins: K. Reese
+    - 
+      name: Jasraj Singh
+      ins: J. Singh
+    - 
+      name: Dave Levin
+      ins: D. Levin
+    date: 2020
+ 
+  Bock-2020b:
+    target: https://geneva.cs.umd.edu/posts/china-censors-esni/esni/
+    title: "Exposing and Circumventing China's Censorship of ESNI"
+    author:
+    -
+      name: Kevin Bock
+      ins: K. Bock
+    - 
+      name: iyouport
+      ins: iyouport
+    -
+      name: Anonymous
+      ins: Anonymous
+    - 
+      name: Louis-Henri Merino
+      ins: L. Merino
+    - 
+      name: David Fifield
+      ins: D. Fifield
+    - 
+      name: Amir Houmansadr
+      ins: A. Houmansadr
+    -
+      name: Dave Levin
+      ins: D. Levin
+    date: 2020
+
+  Rambert-2021:
+    target: https://www.andrew.cmu.edu/user/nicolasc/publications/Rambert-WWW21.pdf
+    title: "Chinese Wall or Swiss Cheese? Keyword filtering in the Great Firewall of China"
+    author:
+    -
+      name: Raymond Rampert
+      ins: R. Rampert
+    - 
+      name: Zachary Weinberg
+      ins: Z. Weinberg
+    -
+      name: Diogo Barradas
+      ins: D. Barradas
+    - 
+      name: Nicolas Christin
+      ins: N. Christin
+    date: 2021
+
+  Knockel-2021:
+    target: https://dl.acm.org/doi/10.1145/3473604.3474560
+    title: "Measuring QQMail's automated email censorship in China"
+    author:
+    -
+      name: Jeffery Knockel
+      ins: J. Knockel
+    - 
+      name: Lotus Ruan
+      ins: L. Ruan
+    date: 2021
+
+  Bock-2021:
+    target: https://geneva.cs.umd.edu/papers/woot21-weaponizing-availability.pdf
+    title: "Your Censor is My Censor: Weaponizing Censorship Infrastructure for Availability Attacks"
+    author:
+    -
+      name: Kevin Bock
+      ins: K. Bock
+    - 
+      name: Pranav Bharadwaj
+      ins: P. Bharadwaj
+    -
+      name: Jasraj Singh
+      ins: J. Singh
+    - 
+      name: Dave Levin
+      ins: D. Levin
+    date: 2021
+
+  Bock-2021b:
+    target: https://geneva.cs.umd.edu/papers/foci21.pdf
+    title: "Even Censors Have a Backup: Examining China’s Double HTTPS Censorship Middleboxes"
+    author:
+    -
+      name: Kevin Bock
+      ins: K. Bock
+    - 
+      name: Gabriel Naval
+      ins: G. Naval
+    -
+      name: Kyle Reese
+      ins: K. Reese
+    - 
+      name: Dave Levin
+      ins: D. Levin
+    date: 2021
+
+  Satija-2021:
+    target: https://sambhav.info/files/blindtls-foci21.pdf
+    title: "BlindTLS: Circumventing TLS-based HTTPS censorship"
+    author:
+    -
+      name: Sambhav Satija
+      ins: S. Satija
+    - 
+      name: Rahul Chatterjee
+      ins: R. Chatterjee
+    date: 2021
+
   Gilad:
     target: https://doi.org/10.1145/2597173
     title: "Off-Path TCP Injection Attacks"
@@ -1192,18 +1414,23 @@ are an active research idea in the effort to identify content deemed
 as morally or commercially harmful to companies or consumers in some
 jurisdictions {{SIDN2020}}.
 
-There are typically three types of blocklist elements: Keyword, domain name,
-or Internet Protocol (IP) address. Keyword and domain name blocking
-take place at the application level, e.g., HTTP, whereas IP blocking
-tends to take place using IP addresses in IPv4/IPv6 headers. The
-mechanisms for building up these blocklists vary. Censors can
-purchase from private industry "content control" software, such as
-SmartFilter, which lets censors filter traffic from broad categories they
-would like to block, such as gambling or pornography {{Knight-2005}}.  In these cases,
+There are typically a few types of blocklist elements: Keyword, domain
+name, protocol, or Internet Protocol (IP) address. Keyword and domain name
+blocking take place at the application level, e.g., HTTP; protocol blocking
+often occurs using Deep Packet Inspection to identify a forbidden protocol;
+IP blocking tends to take place using IP addresses in IPv4/IPv6 headers.
+Some censors also use the presence of certain keywords to enable more
+aggressive blocklists {{Rambert-2021}} or to be more permissive with
+content {{Knockel-2021}}. 
+
+The mechanisms for building up these blocklists vary. Censors can purchase
+from private industry "content control" software, such as SmartFilter,
+which lets censors filter traffic from broad categories they would like to
+block, such as gambling or pornography {{Knight-2005}}. In these cases,
 these private services attempt to categorize every semi-questionable
-website as to allow for meta-tag blocking. Similarly, they tune
-real-time content heuristic systems to map their assessments onto
-categories of objectionable content.
+website as to allow for meta-tag blocking. Similarly, they tune real-time
+content heuristic systems to map their assessments onto categories of
+objectionable content.
 
 Countries that are more interested in retaining specific political control
 typically have ministries or organizations that maintain blocklists. Examples
@@ -1399,6 +1626,127 @@ the overlap in HTTP response filtering and keyword filtering (see
 filtering over TCP streams instead of HTTP response filtering.
 
 
+### Transport Layer Security (TLS) {#tls}
+
+Similar to HTTP, censors have deployed a variety of techniques towards
+censoring Transport Layer Security (TLS) (and by extension HTTPS). Most of
+these techniques relate to the Server Name Indication (SNI) field,
+including censoring SNI, Encrypted SNI, or omitted SNI. Censors can also
+censor HTTPS content via server certificates. 
+
+
+#### Server Name Indication (SNI) {#sni}
+
+In encrypted connections using TLS, there
+may be servers that host multiple "virtual servers" at a given network
+address, and the client will need to specify in the (unencrypted)
+Client Hello message which domain name it seeks to connect to (so that
+the server can respond with the appropriate TLS certificate) using the
+Server Name Indication (SNI) TLS extension {{RFC6066}}. Since SNI is
+often sent in the clear (as are the cert fields sent in response),
+censors and filtering software can use it (and response cert fields)
+as a basis for blocking, filtering, or impairment by dropping
+connections to domains that match prohibited content (e.g.,
+bad.foo.example may be censored while good.foo.example is not)
+{{Shbair-2015}}. There are undergoing standardization efforts in the
+TLS Working Group to encrypt SNI {{I-D.ietf-tls-sni-encryption}}
+{{I-D.ietf-tls-esni}} and recent research shows promising results in
+the use of encrypted SNI in the face of SNI-based filtering
+{{Chai-2019}} in some countries.
+
+Domain fronting has been one popular way to avoid identification by
+censors {{Fifield-2015}}. To avoid identification by censors,
+applications using domain fronting put a different domain name in the
+SNI extension than in the Host: header, which is protected by
+HTTPS. The visible SNI would indicate an unblocked domain, while the
+blocked domain remains hidden in the encrypted application header.
+Some encrypted messaging services relied on domain fronting to enable
+their provision in countries employing SNI-based filtering. These
+services used the cover provided by domains for which blocking at the
+domain level would be undesirable to hide their true domain
+names. However, the companies holding the most popular domains have
+since reconfigured their software to prevent this practice.  It may be
+possible to achieve similar results using potential future options to
+encrypt SNI.
+
+Tradeoffs: Some clients do not send the SNI extension (e.g., clients
+that only support versions of SSL and not TLS), rendering this method
+ineffective (see {{omitsni}}). In addition, this technique requires deep packet
+inspection techniques that can be computationally and
+infrastructurally expensive and improper configuration of an SNI-based
+block can result in significant overblocking, e.g., when a
+second-level domain like populardomain.example is inadvertently
+blocked. In the case of encrypted SNI, pressure to censor may
+transfer to other points of intervention, such as content and application providers.
+
+Empirical Examples: There are many examples of security firms that
+offer SNI-based filtering products {{Trustwave-2015}} {{Sophos-2015}}
+{{Shbair-2015}}, and the governments of China, Egypt, Iran, Qatar,
+South Korea, Turkey, Turkmenistan, and the UAE all do widespread SNI
+filtering or blocking {{OONI-2018}} {{OONI-2019}} {{NA-SK-2019}}
+{{CitizenLab-2018}} {{Gatlan-2019}} {{Chai-2019}} {{Grover-2019}}
+{{Singh-2019}}. 
+
+
+#### Encrypted SNI (ESNI) {#esni}
+
+With the data leakage present with the SNI field, a natural response is to 
+encrypt it, which is forthcoming in TLS 1.3 with Encrypted Client Hello
+(ECH).  Prior to ECH, the Encrypted SNI (ESNI) extension is available to
+prevent the data leakage caused by SNI, which encrypts only the SNI field.
+Unfortunately, censors can target connections that use the ESNI extension
+specifically for censorship. This guarantees overblocking for the censor,
+but can be worth the cost if ESNI is not yet widely deployed within the
+country.  Encrypted Client Hello (ECH) is the emerging standard for protecting
+the entire TLS Client Hello, but it is not yet widely deployed. 
+
+Tradeoffs: The cost to censoring Encrypted SNI (ESNI) is significantly
+higher than SNI to a censor, as the censor can no longer target
+censorship to specific domains and guarantees over-blocking. In these
+cases, the censor uses the over-blocking to discourage the use of
+ESNI entirely.
+
+Empirical Examples: In 2020, China began censoring all uses of Encrypted
+ESNI (ESNI) {{Bock-2020b}}, even for innocuous connections. The
+censorship mechanism for China's ESNI censorship differs from how
+China censors SNI-based connections, suggesting that new middleboxes
+were deployed specifically to target ESNI connections. 
+
+
+#### Omitted-SNI {#omitsni}
+
+Researchers have observed that some clients omit the SNI extension
+entirely. This omitted-SNI approach limits the information available
+to a censor. Like with ESNI, censors can choose to block connections that
+omit the SNI, though this too risks over-blocking. 
+
+Tradeoffs: The approach of censoring all connections that omit the SNI field
+is guaranteed to over-block, though connections that omit the SNI field
+should be relatively rare in the wild. 
+
+Empirical Examples: In the past, researchers have observed censors in Russia
+blocking connections that omit the SNI field {{Bock-2020b}}.
+
+
+#### Server Response Certificate
+
+During the TLS handshake after the TLS Client Hello, the server will respond
+with the TLS certificate. This certificate also contains the domain
+the client is trying to access, creating another avenue that censors
+can use to perform censorship. This technique will not work in TLS 1.3, as the 
+certificate will be encrypted.
+
+Tradeoffs: Censoring based on the server certificate requires deep
+packet inspection techniques that can be more computationally
+expensive compared to other methods. Additionally, the certificate is
+sent later in the TLS Handshake compared to the SNI field, forcing
+the censor to track the connection for longer.
+
+Empirical Examples: Researchers have observed the Reliance Jio
+ISP in India using certificate response fields to censor connections
+{{Satija-2021}}.
+
+
 ### Instrumenting Content Distributors {#kw-filt}
 
 Many governments pressure content providers to censor themselves, or
@@ -1532,59 +1880,6 @@ gathered traffic using technologies such as NarusInsight
 {{Hepting-2011}}.
 
 
-#### Server Name Indication {#sni}
-
-In encrypted connections using Transport Layer Security (TLS), there
-may be servers that host multiple "virtual servers" at a given network
-address, and the client will need to specify in the (unencrypted)
-Client Hello message which domain name it seeks to connect to (so that
-the server can respond with the appropriate TLS certificate) using the
-Server Name Indication (SNI) TLS extension {{RFC6066}}. Since SNI is
-often sent in the clear (as are the cert fields sent in response),
-censors and filtering software can use it (and response cert fields)
-as a basis for blocking, filtering, or impairment by dropping
-connections to domains that match prohibited content (e.g.,
-bad.foo.example may be censored while good.foo.example is not)
-{{Shbair-2015}}. There are undergoing standardization efforts in the
-TLS Working Group to encrypt SNI {{I-D.ietf-tls-sni-encryption}}
-{{I-D.ietf-tls-esni}} and recent research shows promising results in
-the use of encrypted SNI in the face of SNI-based filtering
-{{Chai-2019}}.
-
-Domain fronting has been one popular way to avoid identification by
-censors {{Fifield-2015}}.  To avoid identification by censors,
-applications using domain fronting put a different domain name in the
-SNI extension than in the Host: header, which is protected by
-HTTPS. The visible SNI would indicate an unblocked domain, while the
-blocked domain remains hidden in the encrypted application header.
-Some encrypted messaging services relied on domain fronting to enable
-their provision in countries employing SNI-based filtering. These
-services used the cover provided by domains for which blocking at the
-domain level would be undesirable to hide their true domain
-names. However, the companies holding the most popular domains have
-since reconfigured their software to prevent this practice.  It may be
-possible to achieve similar results using potential future options to
-encrypt SNI.
-
-Tradeoffs: Some clients do not send the SNI extension (e.g., clients
-that only support versions of SSL and not TLS), rendering this method
-ineffective. In
-addition, this technique requires deep packet inspection techniques
-that can be computationally and infrastructurally expensive and
-improper configuration of an SNI-based block can result in significant
-overblocking, e.g., when a second-level domain like populardomain.example is
-inadvertently blocked. In the case of encrypted SNI, pressure to censor may
-transfer to other points of intervention, such as content and application providers.
-
-Empirical Examples: There are many examples of security firms that
-offer SNI-based filtering products {{Trustwave-2015}} {{Sophos-2015}}
-{{Shbair-2015}}, and the governments of China, Egypt, Iran, Qatar,
-South Korea, Turkey, Turkmenistan, and the UAE all do widespread SNI
-filtering or blocking {{OONI-2018}} {{OONI-2019}} {{NA-SK-2019}}
-{{CitizenLab-2018}} {{Gatlan-2019}} {{Chai-2019}} {{Grover-2019}}
-{{Singh-2019}}.
-
-
 Transport Layer {#transport}
 ---------------
 
@@ -1676,6 +1971,14 @@ have developed "pluggable transports" which seek to make the traffic
 of censorship circumvention tools appear indistinguishable from other
 kinds of traffic {{Tor-2020}}.
 
+Censors have also used protocol identification in the past in an
+'allowlist' filtering capacity, such as by only allowing specific,
+pre-vetted protocols to be used and blocking any unrecognized
+protocols {{Bock-2020}}. These protocol filtering approaches can also lead to
+over-blocking if the allowed lists of protocols is too small or
+incomplete, but can be cheap to implement, as many standard 'allowed' 
+protocols are simple to identify (such as HTTP).
+
 Empirical Examples: Protocol identification can be easy to detect if
 it is conducted in real time and only a particular protocol is
 blocked, but some types of protocol identification, like active
@@ -1685,7 +1988,40 @@ unusable {{Anonymous-2007}} and by China to identify and block Tor
 relays {{Winter-2012}}. Protocol identification has also been used for
 traffic management, such as the 2007 case where Comcast in the United
 States used RST injection to interrupt BitTorrent Traffic
-{{Winter-2012}}.
+{{Winter-2012}}. In 2020, Iran deployed an allowlist protocol filter,
+which only allowed three protocols to be used (DNS, TLS, and HTTP) on
+specific ports and censored any connection it could not identify {{Bock-2020}}. 
+
+
+## Residual Censorship {#residualcensorship}
+
+Another feature of some modern censorship systems is residual censorship, a
+punitive form of censorship whereby after a censor disrupts a forbidden
+connection, the censor continues to target subsequent connections, even if they
+are innocuous {{Bock-2021}}. Residual censorship can take many forms
+and often relies on the methods of technical interference described in the next
+section. 
+
+An important facet of residual censorship is precisely what the censor
+continues to block after censorship is initially triggered. There are three
+common options available to an adversary: 2-tuple (client IP, server IP),
+3-tuple (client IP, server IP+port), or 4-tuple (client IP+port, server
+IP+port). Future connections that match the tuple of information the censor
+records will be disrupted {{Bock-2021}}.
+
+Residual censorship can sometimes be difficult to identify and can often complicate
+censorship measurement.
+
+Trade-offs: The impact of residual censorship is to provide users with further
+discouragement from trying to access forbidden content, though it is not
+clear how successful it is at accomplishing this.
+
+Empirical Examples: China has used 3-tuple residual censorship in conjunction
+with their HTTP censorship for years and researchers have reported seeing similar
+residual censorship for HTTPS. China seems to use a mix of 3-tuple and 4-tuple
+residual censorship for their censorship of HTTPS with ESNI. Some censors that
+perform censorship via packet dropping often accidentally implement 4-tuple
+residual censorship, including Iran and Kazakhstan {{Bock-2021}}.
 
 
 Technical Interference {#tech-interference}
@@ -1891,6 +2227,7 @@ a specific type of packet injection attack that is used to interrupt
 an established stream by sending RST packets to both sides of a TCP
 connection; as each receiver thinks the other has dropped the
 connection, the session is terminated.
+
 QUIC is not vulnerable to these types of injection attacks once the
 connection has been setup, but is vulnerable during setup (See
 {{I-D.ietf-quic-transport}} for more details).
@@ -1922,8 +2259,13 @@ implies the censor
 doesn't know any sensitive sequencing information about
 the TCP stream they are injecting into, they can simply enumerate all
 ~70000 possible windows; this is particularly useful for interrupting
-encrypted/obfuscated protocols such as SSH or Tor {{Gilad}}. RST Packet
-Injection relies on a stateful network, making it useless against UDP
+encrypted/obfuscated protocols such as SSH or Tor {{Gilad}}.
+Some censorship evasion systems work by trying to confuse the censor
+into tracking incorrect information, rendering their RST Packet Injection
+useless {{Khattak-2013}}, {{Wang-2017}}, {{Li-2017}}, {{Bock-2019}},
+{{Wang-2020}}.
+
+RST Packet Injection relies on a stateful network, making it useless against UDP
 connections. RST Packet Injection is among the most popular censorship
 techniques used today given its versatile nature and effectiveness
 against all types of TCP traffic. Recent research shows that a TCP RST
@@ -2020,6 +2362,33 @@ indicate that, as part of the test disconnect, Russian telecommunications firms
 must now route all traffic to state-operated monitoring points
 {{Cimpanu-2019}}. India was the country that saw the largest number of
 internet shutdowns per year in 2016 and 2017 {{Dada-2017}}.
+
+
+### Censorship in Depth
+
+Often, censors implement multiple techniques in tandem, creating
+"censorship in depth". Censorship in depth can take many forms; some
+censors block the same content through multiple techniques (such as
+blocking a domain by DNS, IP blocking, and HTTP simultaneously), some deploy
+parallel systems to improve censorship reliability (such as deploying
+multiple different censorship systems to block the same domain), and others 
+can use complimentary systems to limit evasion (such as by blocking
+unwanted protocols entirely, forcing users to use other filtered protocols).
+
+Trade-offs: Censorship in depth can be attractive for censors to deploy,
+as it offers additional guarantees about censorship: even if someone evades 
+one type of censorship, they may still be blocked by another. The main
+drawback to this approach is the cost to initial deployment, as it requires
+the system to deploy multiple censorship systems in tandem.
+
+Empirical Examples: Censorship in depth is present in many large censoring
+nation states today. Researchers have observed China has deployed
+significant censorship in depth, often censoring the same resource across
+multiple protocols {{Chai-2019}}, {{Bock-2020b}} or deploying additional
+censorship systems to censor the same content and protocol {{Bock-2021b}}. 
+Iran also has deployed a complimentary protocol filter to limit which
+protocols can be used on certain ports, forcing users to rely on protocols
+their censorship system can filter {{Bock-2020}}.
 
 
 Non-Technical Interference {#nontechint}
