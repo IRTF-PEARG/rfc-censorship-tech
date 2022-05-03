@@ -1349,8 +1349,8 @@ informative:
     date: 2021
 
   Elmenhorst-2022:
-    target: https://github.com/kelmenhorst/quic-censorship/issues/4
-    title: "Broad blocking of HTTP/3 traffic in Russia (AS31213, AS12389)"
+    target: https://www.opentech.fund/news/a-quick-look-at-quic/
+    title: "A Quick Look at QUIC Censorship"
     author:
     -
       name: Kathrin Elmenhorst
