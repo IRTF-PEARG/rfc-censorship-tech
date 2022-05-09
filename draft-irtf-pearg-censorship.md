@@ -1369,6 +1369,23 @@ informative:
       ins: A. Herzberg
     date: 2014
 
+  MANRS:
+    target: https://www.manrs.org/2022/03/lesson-learned-twitter-shored-up-its-routing-security/
+    title: "Lesson Learned: Twitter Shored Up Its Routing Security"
+    author:
+    -
+      name: Aftab Siddiqui
+      ins: A. Siddiqui
+    date: 2022
+
+  Google-2018:
+    target: https://status.cloud.google.com/incident/cloud-networking/18018
+    title: "Google Cloud Networking Incident #18018"
+    author:
+    -
+      name:
+      ins:
+    date: 2018
 
 --- abstract
 
@@ -2322,6 +2339,55 @@ evident in the interruption of encrypted/obfuscated protocols, such as
 those used by Tor {{Winter-2012}}.
 
 
+Routing Layer
+----------------------
+
+
+### Network Disconnection {#discon}
+
+
+While it is perhaps the crudest of all techniques employed for censorship, there is
+no more effective way of making sure undesirable information isn't
+allowed to propagate on the web than by shutting off the network. The
+network can be logically cut off in a region when a censoring body
+withdraws all of the Boarder Gateway Protocol (BGP) prefixes routing
+through the censor's country.
+
+Trade-offs: The impact to a network disconnection in a region is huge
+and absolute; the censor pays for absolute control over digital
+information by losing all the benefits the Internet brings; this
+rarely a long-term solution for any censor and is normally only used
+as a last resort in times of substantial unrest.
+
+Empirical Examples: Network Disconnections tend to only happen in
+times of substantial unrest, largely due to the huge social,
+political, and economic impact such a move has. One of the first,
+highly covered occurrences was with the Junta in Myanmar employing
+Network Disconnection to help Junta forces quash a rebellion in 2007
+{{Dobie-2007}}. China disconnected the network in the Xinjiang region
+during unrest in 2009 in an effort to prevent the protests from
+spreading to other regions {{Heacock-2009}}. The Arab Spring saw the
+the most frequent usage of Network Disconnection, with events in Egypt
+and Libya in 2011 {{Cowie-2011}}, and Syria in 2012
+{{Thomson-2012}}. Russia indicated that it would attempt to
+disconnect all Russian networks from the global internet in April 2019
+as part of a test of the nation's network independence. Reports also
+indicate that, as part of the test disconnect, Russian telecommunications firms
+must now route all traffic to state-operated monitoring points
+{{Cimpanu-2019}}. India was the country that saw the largest number of
+internet shutdowns per year in 2016 and 2017 {{Dada-2017}}.
+
+
+### Adversarial Route Announcement {#advroute}
+
+
+More fine-grained and potentially wide-spread censorship can be achieved with BGP hijacking, which adversarially re-routes BGP IP prefixes incorrectly within a region and beyond. This restricts and effectively censors the correctly known location of information that flows into or out of a jurisdiction and will similarly prevent people from outside your jurisdiction from viewing content generated outside your jurisdiction as the adversarial route announcement propagates. The first can be achieved by an adversarial BGP announcement of incorrect routes that are not intended to leak beyond a jurisdiction, where the latter attacks traffic by deliberately introducing bogus BGP announcements that reach the global internet.
+
+Trade-offs: A global leak of a misrouted website can overwhelm an ISP if the website gets a lot of traffic. It is not a permanent solution because incorrect BGP routes that leak globally can be fixed, though within a jurisdiction only the ISP/IXP is in a position to correct them for local users. 
+
+Empirical examples: In 2008 Pakistan Telecom censored Youtube at the request of the Pakistan government by changing its BGP routes for the website. The new routes were announced to the ISP's upstream providers and beyond. The entire Internet began directing Youtube routes to Pakistan Telecom and continued doing so for many hours. In 2018 nearly all Google services and Google cloud customers like Spotify all lost more than one hour of service after it lost control of several million of its IP addresses. Those IP prefixes were being misdirected to China Telecom, a Chinese government-owned ISP {{Google-2018}}}, in a manner similar to the BGP hijacking of US government and military websites by China Telecom in 2010. ISPs in both Russia (2022) and Myanmar (2021) have tried to hijack the same Twitter prefix more than once {{MANRS}}.
+
+
 Multi-layer and Non-layer
 -------------------------
 
@@ -2365,41 +2431,6 @@ collocated with the Great Firewall, dubbed "Great Cannon", that was
 able to inject JavaScript code into web visits to a Chinese search
 engine that commandeered those user agents to send DDoS traffic to
 various sites {{Marczak-2015}}.
-
-
-### Network Disconnection or Adversarial Route Announcement {#discon}
-
-
-While it is perhaps the crudest of all techniques employed for censorship, there is
-no more effective way of making sure undesirable information isn't
-allowed to propagate on the web than by shutting off the network. The
-network can be logically cut off in a region when a censoring body
-withdraws all of the Boarder Gateway Protocol (BGP) prefixes routing
-through the censor's country.
-
-Trade-offs: The impact to a network disconnection in a region is huge
-and absolute; the censor pays for absolute control over digital
-information by losing all the benefits the Internet brings; this
-rarely a long-term solution for any censor and is normally only used
-as a last resort in times of substantial unrest.
-
-Empirical Examples: Network Disconnections tend to only happen in
-times of substantial unrest, largely due to the huge social,
-political, and economic impact such a move has. One of the first,
-highly covered occurrences was with the Junta in Myanmar employing
-Network Disconnection to help Junta forces quash a rebellion in 2007
-{{Dobie-2007}}. China disconnected the network in the Xinjiang region
-during unrest in 2009 in an effort to prevent the protests from
-spreading to other regions {{Heacock-2009}}. The Arab Spring saw the
-the most frequent usage of Network Disconnection, with events in Egypt
-and Libya in 2011 {{Cowie-2011}}, and Syria in 2012
-{{Thomson-2012}}. Russia has indicated that it will attempt to
-disconnect all Russian networks from the global internet in April 2019
-as part of a test of the nation's network independence. Reports also
-indicate that, as part of the test disconnect, Russian telecommunications firms
-must now route all traffic to state-operated monitoring points
-{{Cimpanu-2019}}. India was the country that saw the largest number of
-internet shutdowns per year in 2016 and 2017 {{Dada-2017}}.
 
 
 ### Censorship in Depth
