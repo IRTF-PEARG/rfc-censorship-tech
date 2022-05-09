@@ -1330,6 +1330,33 @@ informative:
       ins: R. Chatterjee
     date: 2021
 
+  Elmenhorst-2021:
+    target: https://dl.acm.org/doi/pdf/10.1145/3487552.3487836
+    title: "Web Censorship Measurements of HTTP/3 over QUIC"
+    author:
+    -
+      name: Kathrin Elmenhorst
+      ins: K. Elmenhorst
+    - 
+      name: Bertram Schuetz
+      ins: B. Schuetz
+    - 
+      name: Simone Basso
+      ins: S. Basso
+    -
+      name: Nils Aschenbruck
+      ins: N. Aschenbruck
+    date: 2021
+
+  Elmenhorst-2022:
+    target: https://www.opentech.fund/news/a-quick-look-at-quic/
+    title: "A Quick Look at QUIC Censorship"
+    author:
+    -
+      name: Kathrin Elmenhorst
+      ins: K. Elmenhorst
+    date: 2022
+
   Gilad:
     target: https://doi.org/10.1145/2597173
     title: "Off-Path TCP Injection Attacks"
@@ -1628,16 +1655,21 @@ censoring Transport Layer Security (TLS) (and by extension HTTPS). Most of
 these techniques relate to the Server Name Indication (SNI) field,
 including censoring SNI, Encrypted SNI, or omitted SNI. Censors can also
 censor HTTPS content via server certificates. 
+Note that TLS 1.3 acts as a security component of QUIC.
 
 
 #### Server Name Indication (SNI) {#sni}
 
 In encrypted connections using TLS, there
 may be servers that host multiple "virtual servers" at a given network
-address, and the client will need to specify in the (unencrypted)
+address, and the client will need to specify in the
 Client Hello message which domain name it seeks to connect to (so that
 the server can respond with the appropriate TLS certificate) using the
-Server Name Indication (SNI) TLS extension {{RFC6066}}. Since SNI is
+Server Name Indication (SNI) TLS extension {{RFC6066}}. 
+The Client Hello message is unencrypted for TCP-based TLS. 
+When using QUIC, the Client Hello message is encrypted but its 
+confidentiality is not effectively protected because the initial encryption 
+keys are derived using a value that is visible on the wire. Since SNI is
 often sent in the clear (as are the cert fields sent in response),
 censors and filtering software can use it (and response cert fields)
 as a basis for blocking, filtering, or impairment by dropping
@@ -1668,7 +1700,7 @@ Tradeoffs: Some clients do not send the SNI extension (e.g., clients
 that only support versions of SSL and not TLS), rendering this method
 ineffective (see {{omitsni}}). In addition, this technique requires deep packet
 inspection techniques that can be computationally and
-infrastructurally expensive and improper configuration of an SNI-based
+infrastructurally expensive, especially when applied to QUIC where deep packet inspection requires key extraction and decryption of the Client Hello in order to read the SNI. Improper configuration of an SNI-based
 block can result in significant overblocking, e.g., when a
 second-level domain like populardomain.example is inadvertently
 blocked. In the case of encrypted SNI, pressure to censor may
@@ -1680,7 +1712,7 @@ offer SNI-based filtering products {{Trustwave-2015}} {{Sophos-2015}}
 South Korea, Turkey, Turkmenistan, and the UAE all do widespread SNI
 filtering or blocking {{OONI-2018}} {{OONI-2019}} {{NA-SK-2019}}
 {{CitizenLab-2018}} {{Gatlan-2019}} {{Chai-2019}} {{Grover-2019}}
-{{Singh-2019}}. 
+{{Singh-2019}}. SNI blocking against QUIC traffic has been first observed in Russia in March 2022 {{Elmenhorst-2022}}.
 
 
 #### Encrypted SNI (ESNI) {#esni}
@@ -1892,6 +1924,8 @@ address of the destination being visited, which in most cases can be
 used to infer the domain being visited {{Patil-2019}}. Port is useful
 for allowlisting certain applications.
 
+Combining IP address, port and protocol information found in the transport header, shallow packet inspection can be used by a censor to identify specific TCP or UDP endpoints. UDP endpoint blocking has been observed in the context of QUIC blocking {{Elmenhorst-2021}}.
+
 Trade-offs: header identification is popular due to its simplicity,
 availability, and robustness.
 
@@ -1906,7 +1940,9 @@ overblocking and cannot deal with some services like Content
 Distribution Networks (CDN) that host content at hundreds or thousands
 of IP addresses. Despite these limitations, IP blocking is extremely
 effective because the user needs to proxy their traffic through
-another destination to circumvent this type of identification.
+another destination to circumvent this type of identification. 
+In addition, IP blocking is effective against all protocols above IP, e.g. 
+TCP and QUIC.
 
 Port-blocking is generally not useful because many types of content
 share the same port and it is possible for censored applications to
@@ -1986,6 +2022,8 @@ States used RST injection to interrupt BitTorrent Traffic
 {{Winter-2012}}. In 2020, Iran deployed an allowlist protocol filter,
 which only allowed three protocols to be used (DNS, TLS, and HTTP) on
 specific ports and censored any connection it could not identify {{Bock-2020}}. 
+In 2022, Russia seemed to have used protocol identification to block most
+HTTP/3 connections {{Elmenhorst-2022}}.
 
 
 ## Residual Censorship {#residualcensorship}
@@ -2207,7 +2245,7 @@ Firewall of China has been observed using packet dropping as one of its primary
 mechanisms of technical censorship {{Ensafi-2013}}. Iran has also used
 Packet Dropping as the mechanisms for throttling SSH
 {{Aryan-2012}}. These are but two examples of a ubiquitous censorship
-practice.
+practice. Notably, packet dropping during the handshake or working connection is the only interference technique observed for QUIC traffic so far, e.g. in India, Iran, Russia and Uganda {{Elmenhorst-2021}}{{Elmenhorst-2022}}.
 
 
 ### RST Packet Injection {#rst-inject}
@@ -2224,8 +2262,13 @@ connection; as each receiver thinks the other has dropped the
 connection, the session is terminated.
 
 QUIC is not vulnerable to these types of injection attacks once the
-connection has been setup, but is vulnerable during setup (See
-{{I-D.ietf-quic-transport}} for more details).
+connection has been setup. While QUIC implements a stateless reset mechanism, 
+such a reset is only accepted by a peer if the packet ends in a previously 
+issued stateless reset token which is hard to guess. 
+During the handshake, QUIC only provides effective protection
+against off-path attackers but is vulnerable to injection attacks by
+attackers that have parsed prior packets.
+(See {{I-D.ietf-quic-transport}} for more details.)
 
 Trade-offs: Although ineffective against non-TCP protocols (QUIC, IPSec), RST Packet Injection has a few advantages that make it
 extremely popular as a technique employed for censorship. RST Packet Injection is
