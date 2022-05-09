@@ -1420,6 +1420,8 @@ academic study of censorship circumvention (see the review article of
 {{Tschantz-2016}}), results from which we seek to make relevant here
 for protocol designers and implementers.
 
+Censorship circumvention also impacts the cost of implementation of a censorship measure and we include mentions of tradeoffs in relation to such costs in conjunction with each technical method identified below. We will only note here that the increase in protocols leveraging encryption is an effective counter-measure against some forms of censorship described in this document, but that thorough research on circumvention and encryption be left for another document.
+
 Terminology {#terms}
 ===========
 
