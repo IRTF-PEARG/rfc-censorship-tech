@@ -1,7 +1,7 @@
 ---
 title: A Survey of Worldwide Censorship Techniques
 abbrev: draft-irtf-pearg-censorship
-docname: draft-irtf-pearg-censorship-05
+docname: draft-irtf-pearg-censorship-06
 category: info
 
 ipr: trust200902
@@ -1420,7 +1420,7 @@ academic study of censorship circumvention (see the review article of
 {{Tschantz-2016}}), results from which we seek to make relevant here
 for protocol designers and implementers.
 
-Censorship circumvention also impacts the cost of implementation of a censorship measure and we include mentions of tradeoffs in relation to such costs in conjunction with each technical method identified below. We will only note here that the increase in protocols leveraging encryption is an effective counter-measure against some forms of censorship described in this document, but that thorough research on circumvention and encryption be left for another document.
+Censorship circumvention also impacts the cost of implementation of a censorship measure and we include mentions of tradeoffs in relation to such costs in conjunction with each technical method identified below.
 
 Terminology {#terms}
 ===========
@@ -2016,10 +2016,7 @@ traffic should be blocked. However, this can lead to over-blocking
 problems when used with popular protocols.  These methods are
 expensive, both computationally and financially, due to the use of
 statistical analysis, and can be ineffective due to their imprecise
-nature. Moreover, censorship circumvention groups like the Tor Project
-have developed "pluggable transports" which seek to make the traffic
-of censorship circumvention tools appear indistinguishable from other
-kinds of traffic {{Tor-2020}}.
+nature.
 
 Censors have also used protocol identification in the past in an
 'allowlist' filtering capacity, such as by only allowing specific,
@@ -2461,7 +2458,6 @@ Iran also has deployed a complimentary protocol filter to limit which
 protocols can be used on certain ports, forcing users to rely on protocols
 their censorship system can filter {{Bock-2020}}.
 
-
 Non-Technical Interference {#nontechint}
 ========================
 
@@ -2532,6 +2528,17 @@ registered the domain name through a legal procedure grounded in either
 private contracts or public law. Domain name seizures is increasingly
 used by both public authorities and private entities to deal with
 undesired content dissemination {{ICANN2012}} {{EFF2017}}.
+
+Future work {#future-work}
+============
+
+In addition to establishing a thorough resource for describing censorship techniques this document implicates critical areas for future work.
+
+Taken as a whole the apparent costs of implementation of censorship techniques indicate a need for better classification of censorship regimes as they evolve and mature and specifying censorship circumvention techniques themselves. Censors maturity refers to the technical maturity required of the censor to perform the specific censorship technique. Future work might classify techniques by essentially how hard a censor must work, including what infrastructure is required, in order to successfully censor content, users or services.
+
+On circumvention, the increase in protocols leveraging encryption is an effective counter-measure against some forms of censorship described in this document, but that thorough research on circumvention and encryption be left for another document. Moreover the censorship circumvention community has developed an area of research on "pluggable transports," which collects, documents and makes agile methods for obfuscating the on-path traffic of censorship circumvention tools such that it appears indistinguishable from other kinds of traffic {{Tor-2020}}. Those methods would benefit from future work in the internet standards community, too.
+
+Lastly the empirical examples demonstrate that censorship techniques can evolve quickly, and experience shows that this document can only be a point-in-time statement. Future work might extend this document with updates and new techniques described using a comparable methodology.
 
 Contributors {#Contributors}
 ============
