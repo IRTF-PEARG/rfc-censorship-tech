@@ -2354,8 +2354,8 @@ through the censor's country.
 
 Trade-offs: The impact to a network disconnection in a region is huge
 and absolute; the censor pays for absolute control over digital
-information by losing all the benefits the Internet brings; this
-rarely a long-term solution for any censor and is normally only used
+information by losing the benefits a globally-accessible Internet brings. Network disconnections are also politically expensive - citizens used to being able to access Internet platforms and services see such disconnections as a loss of civil liberty. 
+Network disconnection is rarely a long-term solution for any censor and is normally only used
 as a last resort in times of substantial unrest.
 
 Empirical Examples: Network Disconnections tend to only happen in
