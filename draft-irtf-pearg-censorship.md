@@ -1115,16 +1115,16 @@ informative:
     -
       name: Zhongjie Wang
       ins: Z. Wang
-    - 
+    -
       name: Yue Cao
       ins: Y. Cao
     -
       name: Zhiyun Qian
       ins: Z. Qian
-    - 
+    -
       name: Chengyu Song
       ins: C. Song
-    - 
+    -
       name: Srikanth V. Krishnamurthy
       ins: S. Krishnamurthy
     date: 2017
@@ -1136,25 +1136,25 @@ informative:
     -
       name: Zhongjie Wang
       ins: Z. Wang
-    - 
+    -
       name: Shitong Zhu
       ins: S. Zhu
-    - 
+    -
       name: Yue Cao
       ins: Y. Cao
     -
       name: Zhiyun Qian
       ins: Z. Qian
-    - 
+    -
       name: Chengyu Song
       ins: C. Song
-    - 
+    -
       name: Srikanth V. Krishnamurthy
       ins: S. Krishnamurthy
-    - 
+    -
       name: Kevin S. Chan
       ins: K. Chan
-    - 
+    -
       name: Tracy D. Braun
       ins: T. Braun
     date: 2020
@@ -1166,22 +1166,22 @@ informative:
     -
       name: Fangfan Li
       ins: F. Li
-    - 
+    -
       name: Abbas Razaghpanah
       ins: A. Razaghpanah
     -
       name: Arash Molavi Kakhki
       ins: A. Kakhki
-    - 
-      name: Arian Akhavan Niaki 
+    -
+      name: Arian Akhavan Niaki
       ins: A. Niaki
-    - 
+    -
       name: David Choffnes
       ins: D. Choffnes
-    - 
+    -
       name: Phillipa Gill
       ins: P. Gill
-    - 
+    -
       name: Alan Mislove
       ins: A. Mislove
     date: 2017
@@ -1193,13 +1193,13 @@ informative:
     -
       name: Kevin Bock
       ins: K. Bock
-    - 
+    -
       name: George Hughey
       ins: G. Hughey
-    - 
+    -
       name: Xiao Qiang
       ins: X. Qiang
-    - 
+    -
       name: Dave Levin
       ins: D. Levin
     date: 2019
@@ -1211,20 +1211,20 @@ informative:
     -
       name: Kevin Bock
       ins: K. Bock
-    - 
+    -
       name: Yair Fax
       ins: Y. Fax
     -
       name: Kyle Reese
       ins: K. Reese
-    - 
+    -
       name: Jasraj Singh
       ins: J. Singh
-    - 
+    -
       name: Dave Levin
       ins: D. Levin
     date: 2020
- 
+
   Bock-2020b:
     target: https://geneva.cs.umd.edu/posts/china-censors-esni/esni/
     title: "Exposing and Circumventing China's Censorship of ESNI"
@@ -1232,19 +1232,19 @@ informative:
     -
       name: Kevin Bock
       ins: K. Bock
-    - 
+    -
       name: iyouport
       ins: iyouport
     -
       name: Anonymous
       ins: Anonymous
-    - 
+    -
       name: Louis-Henri Merino
       ins: L. Merino
-    - 
+    -
       name: David Fifield
       ins: D. Fifield
-    - 
+    -
       name: Amir Houmansadr
       ins: A. Houmansadr
     -
@@ -1259,13 +1259,13 @@ informative:
     -
       name: Raymond Rampert
       ins: R. Rampert
-    - 
+    -
       name: Zachary Weinberg
       ins: Z. Weinberg
     -
       name: Diogo Barradas
       ins: D. Barradas
-    - 
+    -
       name: Nicolas Christin
       ins: N. Christin
     date: 2021
@@ -1277,7 +1277,7 @@ informative:
     -
       name: Jeffery Knockel
       ins: J. Knockel
-    - 
+    -
       name: Lotus Ruan
       ins: L. Ruan
     date: 2021
@@ -1289,13 +1289,13 @@ informative:
     -
       name: Kevin Bock
       ins: K. Bock
-    - 
+    -
       name: Pranav Bharadwaj
       ins: P. Bharadwaj
     -
       name: Jasraj Singh
       ins: J. Singh
-    - 
+    -
       name: Dave Levin
       ins: D. Levin
     date: 2021
@@ -1307,13 +1307,13 @@ informative:
     -
       name: Kevin Bock
       ins: K. Bock
-    - 
+    -
       name: Gabriel Naval
       ins: G. Naval
     -
       name: Kyle Reese
       ins: K. Reese
-    - 
+    -
       name: Dave Levin
       ins: D. Levin
     date: 2021
@@ -1325,7 +1325,7 @@ informative:
     -
       name: Sambhav Satija
       ins: S. Satija
-    - 
+    -
       name: Rahul Chatterjee
       ins: R. Chatterjee
     date: 2021
@@ -1337,10 +1337,10 @@ informative:
     -
       name: Kathrin Elmenhorst
       ins: K. Elmenhorst
-    - 
+    -
       name: Bertram Schuetz
       ins: B. Schuetz
-    - 
+    -
       name: Simone Basso
       ins: S. Basso
     -
@@ -1406,13 +1406,13 @@ Introduction {#intro}
 Censorship is where an entity in a position of power -- such as a
 government, organization, or individual -- suppresses communication
 that it considers objectionable, harmful, sensitive, politically
-incorrect or inconvenient {{WP-Def-2020}}. Although censors that engage in censorship
-must do so through legal, military, or
-other means, this document focuses largely on technical
-mechanisms used to achieve network censorship.
+incorrect or inconvenient {{WP-Def-2020}}.
+The decision to engage in censorship and the authority by which a censor
+acts are important topics, but this document focuses on the technical
+mechanisms that censors use.Although censors that engage in censorship
 
-This document describes technical mechanisms that censorship regimes
-around the world use for blocking or impairing Internet traffic.  See
+This document surveys specific techniques that have been employed to
+block, impair, and censor Internet traffic. See
 {{RFC7754}} for a discussion of Internet blocking and filtering in
 terms of implications for Internet architecture, rather than end-user
 access to content and services. There is also a growing field of
@@ -1462,7 +1462,7 @@ often occurs using Deep Packet Inspection to identify a forbidden protocol;
 IP blocking tends to take place using IP addresses in IPv4/IPv6 headers.
 Some censors also use the presence of certain keywords to enable more
 aggressive blocklists {{Rambert-2021}} or to be more permissive with
-content {{Knockel-2021}}. 
+content {{Knockel-2021}}.
 
 The mechanisms for building up these blocklists vary. Censors can purchase
 from private industry "content control" software, such as SmartFilter,
@@ -1557,7 +1557,7 @@ including, though not limited to, the following.
   service. Services have increasingly become focal points of
   censorship discussions, as well as the focus of discussions of moral
   imperatives to use censorship tools.
-  
+
 * Content sites: On the service side of communications lie many platforms that
   publish user-generated content require terms of service compliance with all content
   and user accounts in order to avoid intermediary liability for the web hosts.
@@ -1673,7 +1673,7 @@ Similar to HTTP, censors have deployed a variety of techniques towards
 censoring Transport Layer Security (TLS) (and by extension HTTPS). Most of
 these techniques relate to the Server Name Indication (SNI) field,
 including censoring SNI, Encrypted SNI, or omitted SNI. Censors can also
-censor HTTPS content via server certificates. 
+censor HTTPS content via server certificates.
 Note that TLS 1.3 acts as a security component of QUIC.
 
 
@@ -1684,10 +1684,10 @@ may be servers that host multiple "virtual servers" at a given network
 address, and the client will need to specify in the
 Client Hello message which domain name it seeks to connect to (so that
 the server can respond with the appropriate TLS certificate) using the
-Server Name Indication (SNI) TLS extension {{RFC6066}}. 
-The Client Hello message is unencrypted for TCP-based TLS. 
-When using QUIC, the Client Hello message is encrypted but its 
-confidentiality is not effectively protected because the initial encryption 
+Server Name Indication (SNI) TLS extension {{RFC6066}}.
+The Client Hello message is unencrypted for TCP-based TLS.
+When using QUIC, the Client Hello message is encrypted but its
+confidentiality is not effectively protected because the initial encryption
 keys are derived using a value that is visible on the wire. Since SNI is
 often sent in the clear (as are the cert fields sent in response),
 censors and filtering software can use it (and response cert fields)
@@ -1736,7 +1736,7 @@ filtering or blocking {{OONI-2018}} {{OONI-2019}} {{NA-SK-2019}}
 
 #### Encrypted SNI (ESNI) {#esni}
 
-With the data leakage present with the SNI field, a natural response is to 
+With the data leakage present with the SNI field, a natural response is to
 encrypt it, which is forthcoming in TLS 1.3 with Encrypted Client Hello
 (ECH).  Prior to ECH, the Encrypted SNI (ESNI) extension is available to
 prevent the data leakage caused by SNI, which encrypts only the SNI field.
@@ -1744,7 +1744,7 @@ Unfortunately, censors can target connections that use the ESNI extension
 specifically for censorship. This guarantees overblocking for the censor,
 but can be worth the cost if ESNI is not yet widely deployed within the
 country.  Encrypted Client Hello (ECH) is the emerging standard for protecting
-the entire TLS Client Hello, but it is not yet widely deployed. 
+the entire TLS Client Hello, but it is not yet widely deployed.
 
 Tradeoffs: The cost to censoring Encrypted SNI (ESNI) is significantly
 higher than SNI to a censor, as the censor can no longer target
@@ -1756,7 +1756,7 @@ Empirical Examples: In 2020, China began censoring all uses of Encrypted
 ESNI (ESNI) {{Bock-2020b}}, even for innocuous connections. The
 censorship mechanism for China's ESNI censorship differs from how
 China censors SNI-based connections, suggesting that new middleboxes
-were deployed specifically to target ESNI connections. 
+were deployed specifically to target ESNI connections.
 
 
 #### Omitted-SNI {#omitsni}
@@ -1764,11 +1764,11 @@ were deployed specifically to target ESNI connections.
 Researchers have observed that some clients omit the SNI extension
 entirely. This omitted-SNI approach limits the information available
 to a censor. Like with ESNI, censors can choose to block connections that
-omit the SNI, though this too risks over-blocking. 
+omit the SNI, though this too risks over-blocking.
 
 Tradeoffs: The approach of censoring all connections that omit the SNI field
 is guaranteed to over-block, though connections that omit the SNI field
-should be relatively rare in the wild. 
+should be relatively rare in the wild.
 
 Empirical Examples: In the past, researchers have observed censors in Russia
 blocking connections that omit the SNI field {{Bock-2020b}}.
@@ -1779,7 +1779,7 @@ blocking connections that omit the SNI field {{Bock-2020b}}.
 During the TLS handshake after the TLS Client Hello, the server will respond
 with the TLS certificate. This certificate also contains the domain
 the client is trying to access, creating another avenue that censors
-can use to perform censorship. This technique will not work in TLS 1.3, as the 
+can use to perform censorship. This technique will not work in TLS 1.3, as the
 certificate will be encrypted.
 
 Tradeoffs: Censoring based on the server certificate requires deep
@@ -1959,8 +1959,8 @@ overblocking and cannot deal with some services like Content
 Distribution Networks (CDN) that host content at hundreds or thousands
 of IP addresses. Despite these limitations, IP blocking is extremely
 effective because the user needs to proxy their traffic through
-another destination to circumvent this type of identification. 
-In addition, IP blocking is effective against all protocols above IP, e.g. 
+another destination to circumvent this type of identification.
+In addition, IP blocking is effective against all protocols above IP, e.g.
 TCP and QUIC.
 
 Port-blocking is generally not useful because many types of content
@@ -2023,7 +2023,7 @@ Censors have also used protocol identification in the past in an
 pre-vetted protocols to be used and blocking any unrecognized
 protocols {{Bock-2020}}. These protocol filtering approaches can also lead to
 over-blocking if the allowed lists of protocols is too small or
-incomplete, but can be cheap to implement, as many standard 'allowed' 
+incomplete, but can be cheap to implement, as many standard 'allowed'
 protocols are simple to identify (such as HTTP).
 
 Empirical Examples: Protocol identification can be easy to detect if
@@ -2037,7 +2037,7 @@ traffic management, such as the 2007 case where Comcast in the United
 States used RST injection to interrupt BitTorrent Traffic
 {{Winter-2012}}. In 2020, Iran deployed an allowlist protocol filter,
 which only allowed three protocols to be used (DNS, TLS, and HTTP) on
-specific ports and censored any connection it could not identify {{Bock-2020}}. 
+specific ports and censored any connection it could not identify {{Bock-2020}}.
 In 2022, Russia seemed to have used protocol identification to block most
 HTTP/3 connections {{Elmenhorst-2022}}.
 
@@ -2049,7 +2049,7 @@ punitive form of censorship whereby after a censor disrupts a forbidden
 connection, the censor continues to target subsequent connections, even if they
 are innocuous {{Bock-2021}}. Residual censorship can take many forms
 and often relies on the methods of technical interference described in the next
-section. 
+section.
 
 An important facet of residual censorship is precisely what the censor
 continues to block after censorship is initially triggered. There are three
@@ -2278,9 +2278,9 @@ connection; as each receiver thinks the other has dropped the
 connection, the session is terminated.
 
 QUIC is not vulnerable to these types of injection attacks once the
-connection has been setup. While QUIC implements a stateless reset mechanism, 
-such a reset is only accepted by a peer if the packet ends in a previously 
-issued stateless reset token which is hard to guess. 
+connection has been setup. While QUIC implements a stateless reset mechanism,
+such a reset is only accepted by a peer if the packet ends in a previously
+issued stateless reset token which is hard to guess.
 During the handshake, QUIC only provides effective protection
 against off-path attackers but is vulnerable to injection attacks by
 attackers that have parsed prior packets.
@@ -2354,7 +2354,7 @@ through the censor's country.
 
 Trade-offs: The impact to a network disconnection in a region is huge
 and absolute; the censor pays for absolute control over digital
-information by losing the benefits a globally-accessible Internet brings. Network disconnections are also politically expensive - citizens used to being able to access Internet platforms and services see such disconnections as a loss of civil liberty. 
+information by losing the benefits a globally-accessible Internet brings. Network disconnections are also politically expensive - citizens used to being able to access Internet platforms and services see such disconnections as a loss of civil liberty.
 Network disconnection is rarely a long-term solution for any censor and is normally only used
 as a last resort in times of substantial unrest.
 
@@ -2382,7 +2382,7 @@ internet shutdowns per year in 2016 and 2017 {{Dada-2017}}.
 
 More fine-grained and potentially wide-spread censorship can be achieved with BGP hijacking, which adversarially re-routes BGP IP prefixes incorrectly within a region and beyond. This restricts and effectively censors the correctly known location of information that flows into or out of a jurisdiction and will similarly prevent people from outside your jurisdiction from viewing content generated outside your jurisdiction as the adversarial route announcement propagates. The first can be achieved by an adversarial BGP announcement of incorrect routes that are not intended to leak beyond a jurisdiction, where the latter attacks traffic by deliberately introducing bogus BGP announcements that reach the global internet.
 
-Trade-offs: A global leak of a misrouted website can overwhelm an ISP if the website gets a lot of traffic. It is not a permanent solution because incorrect BGP routes that leak globally can be fixed, though within a jurisdiction only the ISP/IXP is in a position to correct them for local users. 
+Trade-offs: A global leak of a misrouted website can overwhelm an ISP if the website gets a lot of traffic. It is not a permanent solution because incorrect BGP routes that leak globally can be fixed, though within a jurisdiction only the ISP/IXP is in a position to correct them for local users.
 
 Empirical examples: In 2008 Pakistan Telecom censored Youtube at the request of the Pakistan government by changing its BGP routes for the website. The new routes were announced to the ISP's upstream providers and beyond. The entire Internet began directing Youtube routes to Pakistan Telecom and continued doing so for many hours. In 2018 nearly all Google services and Google cloud customers like Spotify all lost more than one hour of service after it lost control of several million of its IP addresses. Those IP prefixes were being misdirected to China Telecom, a Chinese government-owned ISP {{Google-2018}}}, in a manner similar to the BGP hijacking of US government and military websites by China Telecom in 2010. ISPs in both Russia (2022) and Myanmar (2021) have tried to hijack the same Twitter prefix more than once {{MANRS}}.
 
@@ -2439,12 +2439,12 @@ Often, censors implement multiple techniques in tandem, creating
 censors block the same content through multiple techniques (such as
 blocking a domain by DNS, IP blocking, and HTTP simultaneously), some deploy
 parallel systems to improve censorship reliability (such as deploying
-multiple different censorship systems to block the same domain), and others 
+multiple different censorship systems to block the same domain), and others
 can use complimentary systems to limit evasion (such as by blocking
 unwanted protocols entirely, forcing users to use other filtered protocols).
 
 Trade-offs: Censorship in depth can be attractive for censors to deploy,
-as it offers additional guarantees about censorship: even if someone evades 
+as it offers additional guarantees about censorship: even if someone evades
 one type of censorship, they may still be blocked by another. The main
 drawback to this approach is the cost to initial deployment, as it requires
 the system to deploy multiple censorship systems in tandem.
@@ -2453,7 +2453,7 @@ Empirical Examples: Censorship in depth is present in many large censoring
 nation states today. Researchers have observed China has deployed
 significant censorship in depth, often censoring the same resource across
 multiple protocols {{Chai-2019}}, {{Bock-2020b}} or deploying additional
-censorship systems to censor the same content and protocol {{Bock-2021b}}. 
+censorship systems to censor the same content and protocol {{Bock-2021b}}.
 Iran also has deployed a complimentary protocol filter to limit which
 protocols can be used on certain ports, forcing users to rely on protocols
 their censorship system can filter {{Bock-2020}}.
