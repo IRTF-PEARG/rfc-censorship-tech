@@ -1432,12 +1432,11 @@ the process by which censors determine what types of material they
 should censor, e.g., classifying pornographic websites as undesirable.
 Identification is the process by which censors classify specific
 traffic or traffic identifiers to be blocked or impaired, e.g.,
-deciding that webpages containing "sex" in an HTTP Header or that
-accept traffic through the URL wwww.sex.example are likely to be
+deciding that HTTP requests to the domain www.sex.example are likely to be
 undesirable.  Interference is the process by which censors intercede
 in communication and prevents access to censored materials by blocking
 access or impairing the connection, e.g., implementing a technical
-solution capable of identifying HTTP headers or URLs and ensuring they
+solution capable of identifying domains ensuring they
 are rendered wholly or partially inaccessible.
 
 
