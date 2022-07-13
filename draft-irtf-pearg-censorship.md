@@ -57,7 +57,7 @@ informative:
   RFC7858:
   I-D.ietf-tls-sni-encryption:
   I-D.ietf-tls-esni:
-  I-D.ietf-quic-transport:
+  QUIC: RFC9000
 
   RWB2020:
     target: https://rsf.org/en/2020-world-press-freedom-index-entering-decisive-decade-journalism-exacerbated-coronavirus
@@ -2284,7 +2284,7 @@ issued stateless reset token which is hard to guess.
 During the handshake, QUIC only provides effective protection
 against off-path attackers but is vulnerable to injection attacks by
 attackers that have parsed prior packets.
-(See {{I-D.ietf-quic-transport}} for more details.)
+See {{QUIC}} for more details.
 
 Trade-offs: Although ineffective against non-TCP protocols (QUIC, IPSec), RST Packet Injection has a few advantages that make it
 extremely popular as a technique employed for censorship. RST Packet Injection is
