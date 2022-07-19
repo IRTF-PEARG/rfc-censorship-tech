@@ -2349,7 +2349,7 @@ While it is perhaps the crudest of all techniques employed for censorship, there
 no more effective way of making sure undesirable information isn't
 allowed to propagate on the web than by shutting off the network. The
 network can be logically cut off in a region when a censoring body
-withdraws all of the Boarder Gateway Protocol (BGP) prefixes routing
+withdraws all of the Border Gateway Protocol (BGP) prefixes routing
 through the censor's country.
 
 Trade-offs: The impact to a network disconnection in a region is huge
