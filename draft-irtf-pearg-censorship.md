@@ -348,13 +348,10 @@ informative:
     -
       name: Kushagra Singh
       ins: K. Singh
-    -
-      name: Elonnai Hickok
-      ins: E. Hickok
     date: 2019
 
-  Singh-2019:
-    target: https://arxiv.org/abs/1912.08590
+  Singh-2020:
+    target: https://dl.acm.org/doi/abs/10.1145/3394231.3397891
     title: "How India Censors the Web"
     author:
     -
@@ -366,7 +363,7 @@ informative:
     -
       name: Varun Bansal
       ins: V. Bansal
-    date: 2019
+    date: 2020
 
   NA-SK-2019:
     target: https://www.newamerica.org/cybersecurity-initiative/c2b/c2b-log/analysis-south-koreas-sni-monitoring/
@@ -1731,7 +1728,7 @@ offer SNI-based filtering products {{Trustwave-2015}} {{Sophos-2015}}
 South Korea, Turkey, Turkmenistan, and the UAE all do widespread SNI
 filtering or blocking {{OONI-2018}} {{OONI-2019}} {{NA-SK-2019}}
 {{CitizenLab-2018}} {{Gatlan-2019}} {{Chai-2019}} {{Grover-2019}}
-{{Singh-2019}}. SNI blocking against QUIC traffic has been first observed in Russia in March 2022 {{Elmenhorst-2022}}.
+{{Singh-2020}}. SNI blocking against QUIC traffic has been first observed in Russia in March 2022 {{Elmenhorst-2022}}.
 
 
 #### Encrypted SNI (ESNI) {#esni}
