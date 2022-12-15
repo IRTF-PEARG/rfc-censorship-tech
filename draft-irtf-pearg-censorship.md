@@ -2458,7 +2458,7 @@ Non-Technical Interference {#nontechint}
 Manual Filtering {#manualfiltering}
 ----------------
 
-As the name implies, sometimes manpower is the easiest way to figure
+As the name implies, sometimes manual labor is the easiest way to figure
 out which content to block.  Manual Filtering differs from the common
 tactic of building up blocklists in that it doesn't necessarily target
 a specific IP or DNS, but instead removes or flags content.  Given the
