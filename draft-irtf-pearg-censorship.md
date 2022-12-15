@@ -1468,7 +1468,7 @@ aggressive blocklists {{Rambert-2021}} or to be more permissive with
 content {{Knockel-2021}}. 
 
 The mechanisms for building up these blocklists vary. Censors can purchase
-from private industry "content control" software, such as SmartFilter,
+from private industry "content control" software,
 which lets censors filter traffic from broad categories they would like to
 block, such as gambling or pornography {{Knight-2005}}. In these cases,
 these private services attempt to categorize every semi-questionable
@@ -1634,8 +1634,7 @@ Empirical Examples: Studies exploring censorship mechanisms have found
 evidence of HTTP header/ URL filtering in many countries, including
 Bangladesh, Bahrain, China, India, Iran, Malaysia, Pakistan, Russia,
 Saudi Arabia, South Korea, Thailand, and Turkey
-{{Verkamp-2012}} {{Nabi-2013}} {{Aryan-2012}}. Commercial technologies
-such as the McAfee SmartFilter and NetSweeper are often purchased by
+{{Verkamp-2012}} {{Nabi-2013}} {{Aryan-2012}}. Commercial technologies are often purchased by
 censors {{Dalek-2013}}.  These commercial technologies use a
 combination of HTTP Request Identification and Transport Header
 Identification to filter specific URLs. Dalek et al. and Jones et
