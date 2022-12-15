@@ -1460,7 +1460,7 @@ jurisdictions {{SIDN2020}}.
 There are typically a few types of blocklist elements: Keyword, domain
 name, protocol, or Internet Protocol (IP) address. Keyword and domain name
 blocking take place at the application level, e.g., HTTP; protocol blocking
-often occurs using Deep Packet Inspection to identify a forbidden protocol;
+often occurs using deep packet inspection to identify a forbidden protocol;
 IP blocking tends to take place using IP addresses in IPv4/IPv6 headers.
 Some censors also use the presence of certain keywords to enable more
 aggressive blocklists {{Rambert-2021}} or to be more permissive with
@@ -1720,8 +1720,8 @@ encrypt SNI.
 Tradeoffs: Some clients do not send the SNI extension (e.g., clients
 that only support versions of SSL and not TLS), rendering this method
 ineffective (see {{omitsni}}). In addition, this technique requires deep packet
-inspection techniques that can be computationally and
-infrastructurally expensive, especially when applied to QUIC where deep packet inspection requires key extraction and decryption of the Client Hello in order to read the SNI. Improper configuration of an SNI-based
+inspection (DPI) techniques that can be computationally and
+infrastructurally expensive, especially when applied to QUIC where DPI requires key extraction and decryption of the Client Hello in order to read the SNI. Improper configuration of an SNI-based
 block can result in significant overblocking, e.g., when a
 second-level domain like populardomain.example is inadvertently
 blocked. In the case of encrypted SNI, pressure to censor may
@@ -1784,8 +1784,7 @@ the client is trying to access, creating another avenue that censors
 can use to perform censorship. This technique will not work in TLS 1.3, as the 
 certificate will be encrypted.
 
-Tradeoffs: Censoring based on the server certificate requires deep
-packet inspection techniques that can be more computationally
+Tradeoffs: Censoring based on the server certificate requires DPI techniques that can be more computationally
 expensive compared to other methods. Additionally, the certificate is
 sent later in the TLS Handshake compared to the SNI field, forcing
 the censor to track the connection for longer.
@@ -1873,7 +1872,7 @@ organizers have also disassociated themselves from top players who
 expressed political opinions in relation to the 2019 Hong Kong
 protests {{Victor-2019}}. See also {{discon}}.
 
-### Deep Packet Inspection (DPI) Identification {#dpi}
+### DPI Identification {#dpi}
 
 DPI (deep packet inspection) technically is any kind of packet
 analysis beyond IP address and port number and has become
