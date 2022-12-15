@@ -1521,13 +1521,13 @@ including, though not limited to, the following.
   life by school-children, independent of broader society or
   government goals.
 
-* Content Distribution Networks (CDNs): CDNs seek to collapse network
+* Content Distribution Network (CDN): CDNs seek to collapse network
   topology in order to better locate content closer to the service's
   users. This reduces content transmission latency and improves quality
   of service. The CDN service's content
   servers, located "close" to the user in a network-sense, can be
   powerful points of control for censors, especially if the location
-  of CDN content repositories allow for easier interference.
+  of CDN repositories allow for easier interference.
 
 * Certificate Authorities (CAs) for Public-Key Infrastructures (PKIs):
   Authorities that issue cryptographically secured resources can be a
@@ -1948,8 +1948,8 @@ installing a specific route on a router (such as a /32 route for IPv4
 addresses and a /128 route for IPv6 addresses). However, due to
 limited flow table space, this cannot scale beyond a few thousand IPs
 at most. IP blocking is also relatively crude. It often leads to
-overblocking and cannot deal with some services like Content
-Distribution Networks (CDN) that host content at hundreds or thousands
+overblocking and cannot deal with some services like content
+distribution networks (CDN) that host content at hundreds or thousands
 of IP addresses. Despite these limitations, IP blocking is extremely
 effective because the user needs to proxy their traffic through
 another destination to circumvent this type of identification. 
