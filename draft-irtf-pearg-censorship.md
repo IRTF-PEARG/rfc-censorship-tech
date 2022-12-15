@@ -1395,7 +1395,7 @@ to make designers, implementers, and users of Internet protocols aware
 of the properties exploited and mechanisms used for censoring
 end-user access to information.  This document makes no suggestions on
 individual protocol considerations, and is purely informational,
-intended as a reference.
+intended as a reference. This document is a product of the Privacy Enhancement and Assessment Research Group (PEARG) in the IRTF.
 
 --- middle
 
@@ -1421,6 +1421,8 @@ academic study of censorship circumvention (see the review article of
 for protocol designers and implementers.
 
 Censorship circumvention also impacts the cost of implementation of a censorship measure and we include mentions of tradeoffs in relation to such costs in conjunction with each technical method identified below.
+
+This document represents the consensus of the Privacy Enhancement and Assessment Research Group (PEARG).
 
 Terminology {#terms}
 ===========
