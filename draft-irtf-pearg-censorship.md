@@ -646,10 +646,10 @@ informative:
     date: 2013
 
   Hepting-2011:
-    target: https://www.eff.org/cases/hepting
+    target: https://en.wikipedia.org/wiki/Hepting_v._AT%26T
     title: Hepting vs. AT&T
     author:
-      org: Electronic Frontier Foundation
+      org: Wikipedia
     date: 2011
 
   Hjelmvik-2010:
@@ -1915,7 +1915,7 @@ been accused of using targeted DPI, paired with DDoS, to identify and
 subsequently attack pro-opposition material {{Wagstaff-2013}}.  It
 also seems likely that organizations not so worried about blocking
 content in real-time could use DPI to sort and categorically search
-gathered traffic using technologies such as NarusInsight
+gathered traffic using technologies such as high-speed packet processing
 {{Hepting-2011}}.
 
 
