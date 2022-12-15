@@ -1378,6 +1378,15 @@ informative:
       name:
       ins:
     date: 2018
+    
+   ekr-2021:
+     target: https://educatedguesswork.org/posts/apple-csam-intro/
+     title: Overview of Apple's Client-side CSAM Scanning
+     author:
+     -
+       name: Eric Rescorla
+       ins: E. Rescorla
+     date: 2021
 
 --- abstract
 
@@ -1440,7 +1449,7 @@ Technical Prescription {#tech-prescrip}
 
 Prescription is the process of figuring out what censors would like to
 block {{Glanville-2008}}. Generally, censors aggregate information "to
-block" in blocklists or use real-time heuristic assessment of content
+block" in blocklists, databases of image hashes {{ekr-2021}}, or use real-time heuristic assessment of content
 {{Ding-1999}}. Some national networks are designed to more naturally
 serve as points of control {{Leyba-2019}}. There are also indications
 that online censors use probabilistic machine learning techniques
@@ -1472,6 +1481,8 @@ typically have ministries or organizations that maintain blocklists. Examples
 include the Ministry of Industry and Information Technology in China, Ministry of
 Culture and Islamic Guidance in Iran, and specific to copyright in France {{HADOPI-2020}}
 and across the EU for consumer protection law {{Reda-2017}}.
+
+Content-layer filtering of images and video require institutions or organizations to store hashes of images or videos to be blocked in databases, which can then be compared, with some degree of tolerance, to content that is sent, received or stored using centralized, content applications and services {{ekr-2021}}.
 
 
 Technical Identification {#tech-id}
@@ -1794,11 +1805,17 @@ incentivized to follow the content restriction preferences of agents
 external to the content distributor {{Boyle-1997}}. Due to the
 extensive reach of such censorship, we define content
 distributor as any service that provides utility to users, including
-everything from web sites to locally installed programs. A commonly
+everything from web sites to storage to locally installed programs.
+
+A commonly
 used method of instrumenting content distributors consists of keyword
 identification to detect restricted terms on their platform. Governments
 may provide the terms on such keyword lists. Alternatively, the content
-provider may be expected to come up with their own list. A different
+provider may be expected to come up with their own list.
+
+An increasingly common method of instrumeting content distribution consists of hash matching to detect and action images and videos known to be restricted either by governments, institutions, organizations or the distributor themselves {{ekr-2021}}.
+
+A different
 method of instrumenting content distributors consists of requiring a
 distributor to disassociate with some categories of users. See also
 {{notice}}.
@@ -2464,7 +2481,7 @@ tactic of building up blocklists in that it doesn't necessarily target
 a specific IP or DNS, but instead removes or flags content.  Given the
 imprecise nature of automatic filtering, manually sorting through
 content and flagging dissenting websites, blogs, articles and other
-media for filtration can be an effective technique.  This filtration
+media for filtration can be an effective technique on its own, or combined with other automated techniques of detection that are then followed by an action that would require manual confirmation. This filtration
 can occur on the Backbone/ISP level -- China's army of monitors is a
 good example {{BBC-2013b}} -- but more commonly manual filtering
 occurs on an institutional level.  Internet Content Providers such as
