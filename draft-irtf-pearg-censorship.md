@@ -869,14 +869,6 @@ informative:
       ins: I. Thomson
     date: 2012
 
-  Thomson-2012:
-    target: http://www.theregister.co.uk/2012/11/29/syria_internet_blackout/
-    title: Syria Cuts off Internet and Mobile Communication
-    author:
-      name: Iain Thomson
-      ins: I. Thomson
-    date: 2012
-
   BBC-2013b:
     target: http://www.bbc.com/news/world-asia-china-2439695
     title: China employs two million microblog monitors state media say
@@ -1591,7 +1583,7 @@ stack. Censors often focus on web traffic, so the relevant protocols
 tend to be filtered in predictable ways (see {{http-req}} and
 {{http-resp}}). For example, a subversive image might make it past a
 keyword filter. However, if later the image is deemed undesirable, a
-censor may then blacklist the provider site's IP address.
+censor may then blocklist the provider site's IP address.
 
 
 Application Layer {#app-layer}
