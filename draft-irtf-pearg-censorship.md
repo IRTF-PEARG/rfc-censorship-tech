@@ -1423,8 +1423,8 @@ for protocol designers and implementers.
 
 Censorship circumvention also impacts the cost of implementation of a censorship measure and we include mentions of tradeoffs in relation to such costs in conjunction with each technical method identified below.
 
-This document represents the consensus of the Privacy Enhancement and Assessment Research Group (PEARG).
-
+This document has seen extensive discussion and review in the IRTF Privacy Enhancement and Assessment Research Group (PEARG) and represents the consensus of that group. It is not an IETF product and is not a standard.
+    
 Terminology {#terms}
 ===========
 
