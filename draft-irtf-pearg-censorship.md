@@ -1,7 +1,7 @@
 ---
 title: A Survey of Worldwide Censorship Techniques
 abbrev: draft-irtf-pearg-censorship
-docname: draft-irtf-pearg-censorship-06
+docname: draft-irtf-pearg-censorship-08
 category: info
 
 ipr: trust200902
