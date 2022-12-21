@@ -1379,7 +1379,7 @@ informative:
       ins:
     date: 2018
     
-  ekr-2021:
+ ekr-2021:
      target: https://educatedguesswork.org/posts/apple-csam-intro/
      title: Overview of Apple's Client-side CSAM Scanning
      author:
