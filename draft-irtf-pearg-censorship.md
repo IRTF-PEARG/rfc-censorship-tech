@@ -49,80 +49,80 @@ normative:
 
 informative:
 
-  RFC0793:
-  RFC7754:
-  RFC7624:
-  RFC6066:
-  RFC8484:
-  RFC7858:
-  I-D.ietf-tls-sni-encryption:
-  I-D.ietf-tls-esni:
-  I-D.ietf-quic-transport:
+ RFC0793:
+ RFC7754:
+ RFC7624:
+ RFC6066:
+ RFC8484:
+ RFC7858:
+ I-D.ietf-tls-sni-encryption:
+ I-D.ietf-tls-esni:
+ I-D.ietf-quic-transport:
 
-  RWB2020:
+ RWB2020:
     target: https://rsf.org/en/2020-world-press-freedom-index-entering-decisive-decade-journalism-exacerbated-coronavirus
     title: "2020 World Press Freedom Index: Entering a decisive decade for journalism, exacerbated by coronavirus"
     author:
       org: Reporters Without Borders
     date: 2020
 
-  HADOPI-2020:
+ HADOPI-2020:
     target: https://www.hadopi.fr/en/node/3668
     title: "Présentation"
     author:
       org: Haute Autorité pour la Diffusion des oeuvres et la Protection des Droits sur Internet
     date: 2020
 
-  SSAC-109-2020:
+ SSAC-109-2020:
     target: https://www.icann.org/en/system/files/files/sac-109-en.pdf
     title: "SAC109: The Implications of DNS over HTTPS and DNS over TLS"
     author:
       org: ICANN Security and Stability Advisory Committee
     date: 2020
 
-  ICANN2012:
+ ICANN2012:
     target: https://www.icann.org/en/system/files/files/guidance-domain-seizures-07mar12-en.pdf
     title: "Guidance for Preparing Domain Name Orders, Seizures & Takedowns"
     author:
       org: ICANN Security and Stability Advisory Committee
     date: 2012
 
-  Tor-2020:
+ Tor-2020:
     target: https://2019.www.torproject.org/docs/pluggable-transports.html.en
     title: "Tor: Pluggable Transports"
     author:
       org: The Tor Project
     date: 2020
 
-  WP-Def-2020:
+ WP-Def-2020:
     target: https://en.wikipedia.org/w/index.php?title=Censorship&oldid=943938595
     title: "Censorship"
     author:
       org: Wikipedia contributors
     date: 2020
 
-  EC-gambling-2012:
+ EC-gambling-2012:
     target: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52012SC0345
     title: "Online gambling in the Internal Market"
     author:
       org: European Commission
     date: 2012
 
-  EC-gambling-2019:
+ EC-gambling-2019:
     target: https://ec.europa.eu/growth/content/evaluation-regulatory-tools-enforcing-online-gambling-rules-and-channelling-demand-towards-1_en
     title: "Evaluation of regulatory tools for enforcing online gambling rules and channeling demand towards controlled offers"
     author:
       org: European Commission
     date: 2019
 
-  EC-2012:
+ EC-2012:
     target: https://ec.europa.eu/information_society/newsroom/image/document/2017-4/consultation_summary_report_en_2010_42070.pdf
     title: "Summary of the results of the Public Consultation on the future of electronic commerce in the Internal Market and the implementation of the Directive on electronic commerce (2000/31/EC)"
     author:
       org: European Commission
     date: 2012
 
-  Bentham-1791:
+ Bentham-1791:
     target: https://www.google.com/books/edition/_/Ec4TAAAAQAAJ?hl=en
     title: "Panopticon Or the Inspection House"
     author:
@@ -130,7 +130,7 @@ informative:
       ins: J. Bentham
     date: 1791
 
-  Ellul-1973:
+ Ellul-1973:
     target: https://www.penguinrandomhouse.com/books/46234/propaganda-by-jacques-ellul/
     title: "Propaganda: The Formation of Men's Attitudes"
     author:
@@ -138,7 +138,7 @@ informative:
       ins: J. Ellul
     date: 1973
 
-  Reda-2017:
+ Reda-2017:
     target: https://juliareda.eu/2017/11/eu-website-blocking/
     title: "New EU law prescribes website blocking in the name of 'consumer protection'"
     author:
@@ -146,7 +146,7 @@ informative:
       ins: J. Reda
     date: 2017
 
-  Knight-2005:
+ Knight-2005:
     target: https://www.newscientist.com/article/dn7589-iranian-net-censorship-powered-by-us-technology/
     title: "Iranian net censorship powered by US technology"
     author:
@@ -154,7 +154,7 @@ informative:
       ins: W. Knight
     date: 2005
 
-  SIDN2020:
+ SIDN2020:
     target: https://labs.ripe.net/Members/giovane_moura/detecting-and-taking-down-fraudulent-webshops-at-a-cctld
     title: "Detecting and Taking Down Fraudulent Webshops at the .nl ccTLD"
     author:
@@ -162,7 +162,7 @@ informative:
       ins: G. Moura
     date: 2020
 
-  Cimpanu-2019:
+ Cimpanu-2019:
     target: https://www.zdnet.com/article/russia-to-disconnect-from-the-internet-as-part-of-a-planned-test/
     title: "Russia to disconnect from the internet as part of a planned test"
     author:
@@ -170,7 +170,7 @@ informative:
       ins: C. Cimpanu
     date: 2019
 
-  Hertel-2015:
+ Hertel-2015:
     target: https://www.sciencesetavenir.fr/high-tech/comment-les-autorites-peuvent-bloquer-un-site-internet_35828
     title: "Comment les autorités peuvent bloquer un site Internet"
     author:
@@ -178,7 +178,7 @@ informative:
       ins: O. Hertel
     date: 2015
 
-  Eneman-2010:
+ Eneman-2010:
     target: https://www.gu.se/forskning/publikation/?publicationId=96592
     title: "ISPs filtering of child abusive material: A critical reflection of its effectiveness"
     author:
@@ -186,7 +186,7 @@ informative:
       ins: M. Eneman
     date: 2010
 
-  Gatlan-2019:
+ Gatlan-2019:
     target: https://www.bleepingcomputer.com/news/security/south-korea-is-censoring-the-internet-by-snooping-on-sni-traffic/
     title: "South Korea is Censoring the Internet by Snooping on SNI Traffic"
     author:
@@ -194,7 +194,7 @@ informative:
       ins: S. Gatlan
     date: 2019
 
-  Lomas-2019:
+ Lomas-2019:
     target: https://techcrunch.com/2019/10/30/github-removes-tsunami-democratics-apk-after-a-takedown-order-from-spain/
     title: "Github removes Tsunami Democràtic’s APK after a takedown order from Spain"
     author:
@@ -202,7 +202,7 @@ informative:
       ins: N. Lomas
     date: 2019
 
-  Victor-2019:
+ Victor-2019:
     target: https://www.nytimes.com/2019/10/09/world/asia/blizzard-hearthstone-hong-kong.html
     title: "Blizzard Sets Off Backlash for Penalizing Hearthstone Gamer in Hong Kong"
     author:
@@ -210,7 +210,7 @@ informative:
       ins: D. Victor
     date: 2019
 
-  Glanville-2008:
+ Glanville-2008:
     target: http://www.theguardian.com/commentisfree/2008/nov/17/censorship-internet
     title: The Big Business of Net Censorship
     author:
@@ -218,7 +218,7 @@ informative:
       ins: J. Glanville
     date: 2008
 
-  EFF2017:
+ EFF2017:
     target: https://www.eff.org/files/2017/08/02/domain_registry_whitepaper.pdf
     title: "Which Internet registries offer the best protection for domain owners?"
     author:
@@ -236,7 +236,7 @@ informative:
       ins: V. Paxson
     date: 2017
 
-  Tschantz-2016:
+ Tschantz-2016:
     target: https://oaklandsok.github.io/papers/tschantz2016.pdf
     title: "SoK: Towards Grounding Censorship Circumvention in Empiricism"
     author:
@@ -254,7 +254,7 @@ informative:
       ins: V. Paxson
     date: 2016
 
-  Cao-2016:
+ Cao-2016:
     target: https://www.usenix.org/system/files/conference/usenixsecurity16/sec16_paper_cao.pdf
     title: "Off-Path TCP Exploits: Global Rate Limit Considered Dangerous"
     author:
@@ -278,7 +278,7 @@ informative:
       ins:  L. Marvel
     date: 2016
 
-  Leyba-2019:
+ Leyba-2019:
     target: https://forrest.biodesign.asu.edu/data/publications/2019-compass-chokepoints.pdf
     title: "Borders and Gateways: Measuring and Analyzing National AS Chokepoints"
     author:
@@ -299,7 +299,7 @@ informative:
       ins: S. Forrest
     date: 2019
 
-  Chai-2019:
+ Chai-2019:
     target: https://www.usenix.org/system/files/foci19-paper_chai_update.pdf
     title: "On the Importance of Encrypted-SNI (ESNI) to Censorship Circumvention"
     author:
@@ -314,7 +314,7 @@ informative:
       ins: A. Houmansadr
     date: 2019
 
-  Patil-2019:
+ Patil-2019:
     target: https://irtf.org/anrw/2019/anrw2019-final44-acmpaginated.pdf
     title: "What Can You Learn from an IP?"
     author:
@@ -326,7 +326,7 @@ informative:
       ins: N. Borisov
     date: 2019
 
-  Wright-2013:
+ Wright-2013:
     target: https://policyreview.info/articles/analysis/internet-filtering-trends-liberal-democracies-french-and-german-regulatory-debates
     title: "Internet filtering trends in liberal democracies: French and German regulatory debates"
     author:
@@ -338,7 +338,7 @@ informative:
       ins: Y. Breindl
     date: 2013
 
-  Grover-2019:
+ Grover-2019:
     target: https://cis-india.org/internet-governance/blog/reliance-jio-is-using-sni-inspection-to-block-websites
     title: "Reliance Jio is using SNI inspection to block websites"
     author:
@@ -353,7 +353,7 @@ informative:
       ins: E. Hickok
     date: 2019
 
-  Singh-2019:
+ Singh-2019:
     target: https://arxiv.org/abs/1912.08590
     title: "How India Censors the Web"
     author:
@@ -368,7 +368,7 @@ informative:
       ins: V. Bansal
     date: 2019
 
-  NA-SK-2019:
+ NA-SK-2019:
     target: https://www.newamerica.org/cybersecurity-initiative/c2b/c2b-log/analysis-south-koreas-sni-monitoring/
     title: "Analysis: South Korea's New Tool for Filtering Illegal Internet Content"
     author:
@@ -383,7 +383,7 @@ informative:
       ins: S. Nam
     date: 2019
 
-  CitizenLab-2018:
+ CitizenLab-2018:
     target: https://citizenlab.ca/2018/03/bad-traffic-sandvines-packetlogic-devices-deploy-government-spyware-turkey-syria/
     title: "Bad Traffic: Sandvine’s PacketLogic Devices Used to Deploy Government Spyware in Turkey and Redirect Egyptian Users to Affiliate Ads?"
     author:
@@ -407,7 +407,7 @@ informative:
       ins: R. Deibert
     date: 2018
 
-  OONI-2019:
+ OONI-2019:
     target: https://ooni.org/post/2019-china-wikipedia-blocking/
     title: "China is now blocking all language editions of Wikipedia"
     author:
@@ -422,7 +422,7 @@ informative:
       ins: M. Xynou
     date: 2019
 
-  OONI-2018:
+ OONI-2018:
     target: https://ooni.org/post/2018-iran-protests-pt2/
     title: "Iran Protests: DPI blocking of Instagram (Part 2)"
     author:
@@ -430,7 +430,7 @@ informative:
       ins: L. Evdokimov
     date: 2018
 
-  Dada-2017:
+ Dada-2017:
     target: https://www.accessnow.org/keepiton-shutdown-tracker/
     title: "Launching STOP: the #KeepItOn internet shutdown tracker"
     author:
@@ -442,7 +442,7 @@ informative:
       ins: P. Micek
     date: 2017
 
-  Verkamp-2012:
+ Verkamp-2012:
     target: https://www.usenix.org/system/files/conference/foci12/foci12-final1.pdf
     title: Inferring Mechanics of Web Censorship Around the World
     author:
@@ -454,7 +454,7 @@ informative:
       ins: M. Gupta
     date: 2012
 
-  Nabi-2013:
+ Nabi-2013:
     target: http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/12387-foci13-nabi.pdf
     title: The Anatomy of Web Censorship in Pakistan
     author:
@@ -462,7 +462,7 @@ informative:
       ins: Z. Nabi
     date: 2013
 
-  Tang-2016:
+ Tang-2016:
     target: https://www.cs.tufts.edu/comp/116/archive/fall2016/ctang.pdf
     title: In-depth analysis of the Great Firewall of China
     author:
@@ -470,7 +470,7 @@ informative:
       ins: C. Tang
     date: 2016
 
-  Aryan-2012:
+ Aryan-2012:
     target: https://jhalderm.com/pub/papers/iran-foci13.pdf
     title: "Internet Censorship in Iran: A First Look"
     author:
@@ -485,7 +485,7 @@ informative:
       ins: J.A. Halderman
     date: 2012
 
-  Husak-2016:
+ Husak-2016:
     target: https://link.springer.com/article/10.1186/s13635-016-0030-7
     title: HTTPS traffic analysis and client identification using passive SSL/TLS fingerprinting
     author:
@@ -503,7 +503,7 @@ informative:
       ins: P. Celeda
     date: 2016
 
-  Dalek-2013:
+ Dalek-2013:
     target: http://conferences.sigcomm.org/imc/2013/papers/imc112s-dalekA.pdf
     title: A Method for Identifying and Confirming the Use of URL Filtering Products for Censorship
     author:
@@ -511,7 +511,7 @@ informative:
       ins: J. Dalek
     date: 2013
 
-  Jones-2014:
+ Jones-2014:
     target: http://conferences2.sigcomm.org/imc/2014/papers/p299.pdf
     title: Automated Detection and Fingerprinting of Censorship Block Pages
     author:
@@ -519,7 +519,7 @@ informative:
       ins: B. Jones
     date: 2014
 
-  Crandall-2010:
+ Crandall-2010:
     target: http://www.cs.unm.edu/~crandall/icdcs2010.pdf
     title: "Empirical Study of a National-Scale Distributed Intrusion Detection System: Backbone-Level Filtering of HTML Responses in China"
     author:
@@ -527,7 +527,7 @@ informative:
       ins: J. Crandall
     date: 2010
 
-  Senft-2013:
+ Senft-2013:
     target: https://citizenlab.org/2013/11/asia-chats-analyzing-information-controls-privacy-asian-messaging-applications/
     title: "Asia Chats: Analyzing Information Controls and Privacy in Asian Messaging Applications"
     author:
@@ -535,7 +535,7 @@ informative:
       ins: A. Senft
     date: 2013
 
-  Rushe-2015:
+ Rushe-2015:
     target: http://www.theguardian.com/technology/2014/feb/11/bing-censors-chinese-language-search-results
     title: Bing censoring Chinese language search results for users in the US
     author:
@@ -543,7 +543,7 @@ informative:
       ins: D. Rushe
     date: 2013
 
-  Cheng-2010:
+ Cheng-2010:
     target: http://arstechnica.com/tech-policy/2010/06/google-tweaks-china-to-hong-kong-redirect-same-results/
     title: Google stops Hong Kong auto-redirect as China plays hardball
     author:
@@ -551,7 +551,7 @@ informative:
       ins: J. Cheng
     date: 2010
 
-  Boyle-1997:
+ Boyle-1997:
     target: https://scholarship.law.duke.edu/faculty_scholarship/619/
     title: "Foucault in Cyberspace: Surveillance, Sovereignty, and Hardwired Censors"
     author:
@@ -559,7 +559,7 @@ informative:
       ins: J. Boyle
     date: 1997
 
-  Whittaker-2013:
+ Whittaker-2013:
     target: http://www.zdnet.com/1168-keywords-skype-uses-to-censor-monitor-its-chinese-users-7000012328/
     title: 1,168 keywords Skype uses to censor, monitor its Chinese users
     author:
@@ -567,14 +567,14 @@ informative:
       ins: Z. Whittaker
     date: 2013
 
-  BBC-2013:
+ BBC-2013:
     target: http://www.bbc.com/news/uk-24980765
     title: Google and Microsoft agree steps to block abuse images
     author:
       org: BBC News
     date: 2013
 
-  Condliffe-2013:
+ Condliffe-2013:
     target: http://gizmodo.com/google-announces-massive-new-restrictions-on-child-abus-1466539163
     title: Google Announces Massive New Restrictions on Child Abuse Search Terms
     author:
@@ -582,7 +582,7 @@ informative:
       ins: J. Condliffe
     date: 2013
 
-  Zhu-2011:
+ Zhu-2011:
     target: http://arxiv.org/ftp/arxiv/papers/1107/1107.3794.pdf
     title: An Analysis of Chinese Search Engine Filtering
     author:
@@ -590,7 +590,7 @@ informative:
       ins: T. Zhu
     date: 2011
 
-  Wagner-2009:
+ Wagner-2009:
     target: http://advocacy.globalvoicesonline.org/wp-content/uploads/2009/06/deeppacketinspectionandinternet-censorship2.pdf
     title: "Deep Packet Inspection and Internet Censorship: International Convergence on an ‘Integrated Technology of Control'"
     author:
@@ -598,7 +598,7 @@ informative:
       ins: B. Wagner
     date: 2009
 
-  Porter-2010:
+ Porter-2010:
     target: http://www.symantec.com/connect/articles/perils-deep-packet-inspection
     title: The Perils of Deep Packet Inspection
     author:
@@ -606,7 +606,7 @@ informative:
       ins: T. Porter
     date: 2010
 
-  Clayton-2006:
+ Clayton-2006:
     target: http://link.springer.com/chapter/10.1007/11957454_2
     title: Ignoring the Great Firewall of China
     author:
@@ -614,14 +614,14 @@ informative:
       ins: R. Clayton
     date: 2006
 
-  Anonymous-2014:
+ Anonymous-2014:
     target: https://www.usenix.org/system/files/conference/foci14/foci14-anonymous.pdf
     title: Towards a Comprehensive Picture of the Great Firewall's DNS Censorship
     author:
       org: Anonymous
     date: 2014
 
-  Khattak-2013:
+ Khattak-2013:
     target: http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/12389-foci13-khattak.pdf
     title: Towards Illuminating a Censorship Monitor's Model to Facilitate Evasion
     author:
@@ -629,7 +629,7 @@ informative:
       ins: S. Khattak
     date: 2013
 
-  Wilde-2012:
+ Wilde-2012:
     target: https://blog.torproject.org/blog/knock-knock-knockin-bridges-doors
     title: Knock Knock Knockin' on Bridges Doors
     author:
@@ -637,7 +637,7 @@ informative:
       ins: T. Wilde
     date: 2012
 
-  Wagstaff-2013:
+ Wagstaff-2013:
     target: http://www.reuters.com/article/2013/05/04/uk-malaysia-election-online-idUKBRE94309G20130504
     title: In Malaysia, online election battles take a nasty turn
     author:
@@ -645,14 +645,14 @@ informative:
       ins: J. Wagstaff
     date: 2013
 
-  Hepting-2011:
+ Hepting-2011:
     target: https://en.wikipedia.org/wiki/Hepting_v._AT%26T
     title: Hepting vs. AT&T
     author:
       org: Wikipedia
     date: 2011
 
-  Hjelmvik-2010:
+ Hjelmvik-2010:
     target: https://www.iis.se/docs/hjelmvik_breaking.pdf
     title: Breaking and Improving Protocol Obfuscation
     author:
@@ -660,14 +660,14 @@ informative:
       ins: E. Hjelmvik
     date: 2010
 
-  Sandvine-2014:
+ Sandvine-2014:
     target: https://www.sandvine.com/downloads/general/technology/sandvine-technology-showcases/sandvine-technology-showcase-traffic-classification.pdf
     title: "Technology Showcase on Traffic Classification: Why Measurements and Freeform Policy Matter"
     author:
       org: Sandvine
     date: 2014
 
-  Winter-2012:
+ Winter-2012:
     target: http://arxiv.org/pdf/1204.0447v1.pdf
     title: How China is Blocking Tor
     author:
@@ -675,21 +675,21 @@ informative:
       ins: P. Winter
     date: 2012
 
-  Anonymous-2007:
+ Anonymous-2007:
     target: https://torrentfreak.com/how-to-bypass-comcast-bittorrent-throttling-071021
     title: How to Bypass Comcast's Bittorrent Throttling
     author:
       org: Anonymous
     date: 2012
 
-  Anonymous-2013:
+ Anonymous-2013:
     target: https://en.greatfire.org/blog/2013/jan/github-blocked-china-how-it-happened-how-get-around-it-and-where-it-will-take-us
     title: GitHub blocked in China - how it happened, how to get around it, and where it will take us
     author:
       org: Anonymous
     date: 2013
 
-  Ensafi-2013:
+ Ensafi-2013:
     target: http://arxiv.org/pdf/1312.5739v1.pdf
     title: Detecting Intentional Packet Drops on the Internet via TCP/IP Side Channels
     author:
@@ -697,7 +697,7 @@ informative:
       ins: R. Ensafi
     date: 2013
 
-  Weaver-2009:
+ Weaver-2009:
     target: http://www.icir.org/vern/papers/reset-injection.ndss09.pdf
     title: Detecting Forged TCP Packets
     author:
@@ -712,14 +712,14 @@ informative:
       ins: V. Paxson
     date: 2009
 
-  Netsec-2011:
+ Netsec-2011:
     target: https://nets.ec/TCP-RST_Injection
     title: TCP-RST Injection
     author:
       org: n3t2.3c
     date: 2011
 
-  Schoen-2007:
+ Schoen-2007:
     target: https://www.eff.org/deeplinks/2007/10/eff-tests-agree-ap-comcast-forging-packets-to-interfere
     title: "EFF tests agree with AP: Comcast is forging packets to interfere with user traffic"
     author:
@@ -727,7 +727,7 @@ informative:
       ins: S. Schoen
     date: 2007
 
-  VonLohmann-2008:
+ VonLohmann-2008:
     target: https://www.eff.org/deeplinks/2008/08/fcc-rules-against-comcast-bit-torrent-blocking
     title: FCC Rules Against Comcast for BitTorrent Blocking
     author:
@@ -735,7 +735,7 @@ informative:
       ins: F. VonLohmann
     date: 2008
 
-  Halley-2008:
+ Halley-2008:
     target: https://www.networkworld.com/article/2277316/tech-primers/tech-primers-how-dns-cache-poisoning-works.html
     title: How DNS cache poisoning works
     author:
@@ -743,7 +743,7 @@ informative:
       ins: B. Halley
     date: 2014
 
-  Zmijewski-2014:
+ Zmijewski-2014:
     target: https://blogs.oracle.com/internetintelligence/turkish-internet-censorship-takes-a-new-turn
     title: Turkish Internet Censorship Takes a New Turn
     author:
@@ -751,21 +751,21 @@ informative:
       ins: E. Zmijewski
     date: 2014
 
-  AFP-2014:
+ AFP-2014:
     target: http://www.businessinsider.com/chinas-internet-breakdown-reportedly-caused-by-censoring-tools-2014-1
     title: China Has Massive Internet Breakdown Reportedly Caused By Their Own Censoring Tools
     author:
       org: AFP
     date: 2014
 
-  Anon-SIGCOMM12:
+ Anon-SIGCOMM12:
     target: http://www.sigcomm.org/sites/default/files/ccr/papers/2012/July/2317307-2317311.pdf
     title: The Collateral Damage of Internet Censorship by DNS Injection
     author:
       org: Anonymous
     date: 2012
 
-  Albert-2011:
+ Albert-2011:
     target: https://opennet.net/blog/2011/06/dns-tampering-and-new-icann-gtld-rules
     title: DNS Tampering and the new ICANN gTLD Rules
     author:
@@ -773,14 +773,14 @@ informative:
       ins: K. Albert
     date: 2011
 
-  Wikip-DoS:
+ Wikip-DoS:
     target: https://en.wikipedia.org/w/index.php?title=Denial-of-service_attack&amp;oldid=710558258
     title: Denial of Service Attacks
     author:
       org: Wikipedia
     date: 2016
 
-  Schone-2014:
+ Schone-2014:
     target: http://www.nbcnews.com/feature/edward-snowden-interview/exclusive-snowden-docs-show-uk-spies-attacked-anonymous-hackers-n21361
     title: Snowden Docs Show UK Spies Attacked Anonymous, Hackers
     author:
@@ -798,14 +798,14 @@ informative:
       ins: G. Greenwald
     date: 2014
 
-  CERT-2000:
+ CERT-2000:
     target: http://www.cert.org/historical/advisories/CA-1996-21.cfm
     title: TCP SYN Flooding and IP Spoofing Attacks
     author:
       org: CERT
     date: 2000
 
-  Kravtsova-2012:
+ Kravtsova-2012:
     target: http://www.themoscowtimes.com/news/article/cyberattacks-disrupt-oppositions-election/470119.html
     title: Cyberattacks Disrupt Opposition's Election
     author:
@@ -813,7 +813,7 @@ informative:
       ins: Y. Kravtsova
     date: 2012
 
-  Villeneuve-2011:
+ Villeneuve-2011:
     target: http://access.opennet.net/wp-content/uploads/2011/12/accesscontested-chapter-08.pdf
     title: "Open Access: Chapter 8, Control and Resistance, Attacks on Burmese Opposition Media"
     author:
@@ -821,7 +821,7 @@ informative:
       ins: N. Villeneuve
     date: 2011
 
-  Orion-2013:
+ Orion-2013:
     target: http://www.theinquirer.net/inquirer/news/2287433/zimbabwe-election-hit-by-hacking-and-ddos-attacks
     title: Zimbabwe election hit by hacking and DDoS attacks
     author:
@@ -829,7 +829,7 @@ informative:
       ins: E. Orion
     date: 2013
 
-  Muncaster-2013:
+ Muncaster-2013:
     target: http://www.theregister.co.uk/2013/05/09/malaysia_fraud_elections_ddos_web_blocking/
     title: Malaysian election sparks web blocking/DDoS claims
     author:
@@ -837,7 +837,7 @@ informative:
       ins: P. Muncaster
     date: 2013
 
-  Dobie-2007:
+ Dobie-2007:
     target: http://news.bbc.co.uk/2/hi/asia-pacific/7016238.stm
     title: Junta tightens media screw
     author:
@@ -845,7 +845,7 @@ informative:
       ins: M. Dobie
     date: 2007
 
-  Heacock-2009:
+ Heacock-2009:
     target: https://opennet.net/blog/2009/07/china-shuts-down-internet-xinjiang-region-after-riots
     title: China Shuts Down Internet in Xinjiang Region After Riots
     author:
@@ -853,7 +853,7 @@ informative:
       ins: R. Heacock
     date: 2009
 
-  Cowie-2011:
+ Cowie-2011:
     target: https://archive.nanog.org/meetings/nanog51/presentations/Tuesday/LT-Cowie-Egypt%20Leaves%20The%20Internet.pdf
     title: Egypt Leaves the Internet
     author:
@@ -861,7 +861,7 @@ informative:
       ins: J. Cowie
     date: 2011
 
-  Thomson-2012:
+ Thomson-2012:
     target: http://www.theregister.co.uk/2012/11/29/syria_internet_blackout/
     title: Syria Cuts off Internet and Mobile Communication
     author:
@@ -869,14 +869,14 @@ informative:
       ins: I. Thomson
     date: 2012
 
-  BBC-2013b:
+ BBC-2013b:
     target: http://www.bbc.com/news/world-asia-china-2439695
     title: China employs two million microblog monitors state media say
     author:
       org: BBC
     date: 2013
 
-  Calamur-2013:
+ Calamur-2013:
     target: http://www.npr.org/blogs/thetwo-way/2013/11/29/247820503/prominent-egyptian-blogger-arrested
     title: Prominent Egyptian Blogger Arrested
     author:
@@ -884,14 +884,14 @@ informative:
       ins: K. Calamur
     date: 2013
 
-  AP-2012:
+ AP-2012:
     target: http://www.huffingtonpost.com/2012/12/03/sattar-beheshit-iran_n_2233125.html
     title: Sattar Beheshit, Iranian Blogger, Was Beaten In Prison According To Prosecutor
     author:
       org: Associated Press
     date: 2012
 
-  Hopkins-2011:
+ Hopkins-2011:
     target: http://readwrite.com/2011/03/03/communications_blocked_in_libya_this_week_in_onlin
     title: "Communications Blocked in Libya, Qatari Blogger Arrested: This Week in Online Tyranny"
     author:
@@ -899,14 +899,14 @@ informative:
       ins: C. Hopkins
     date: 2011
 
-  Guardian-2014:
+ Guardian-2014:
     target: http://www.theguardian.com/world/2014/apr/17/chinese-blogger-jailed-crackdown-internet-rumours-qin-zhihui
     title: Chinese blogger jailed under crackdown on 'internet rumours'
     author:
       org: The Gaurdian
     date: 2014
 
-  Bristow-2013:
+ Bristow-2013:
     target: http://news.bbc.co.uk/2/hi/asia-pacific/7783640.stm
     title: China's internet 'spin doctors‘
     author:
@@ -914,7 +914,7 @@ informative:
       ins: M. Bristow
     date: 2013
 
-  Fareed-2008:
+ Fareed-2008:
     target: http://www.theguardian.com/media/2008/sep/22/chinathemedia.marketingandpr
     title: China joins a turf war
     author:
@@ -922,7 +922,7 @@ informative:
       ins: M. Fareed
     date: 2008
 
-  Gao-2014:
+ Gao-2014:
     target: http://www.nytimes.com/2014/06/04/opinion/tiananmen-forgotten.html
     title: Tiananmen, Forgotten
     author:
@@ -930,7 +930,7 @@ informative:
       ins: H. Gao
     date: 2014
 
-  Murdoch-2011:
+ Murdoch-2011:
     target: http://access.opennet.net/wp-content/uploads/2011/12/accessdenied-chapter-3.pdf
     title: "Access Denied: Tools and Technology of Internet Filtering"
     author:
@@ -942,21 +942,21 @@ informative:
       ins: R. Anderson
     date: 2011
 
-  AFNIC-2013:
+ AFNIC-2013:
     target: http://www.afnic.fr/medias/documents/conseilscientifique/SC-consequences-of-DNS-based-Internet-filtering.pdf
     title: "Report of the AFNIC Scientific Council: Consequences of DNS-based Internet filtering"
     author:
       org: AFNIC
     date: 2013
 
-  ICANN-SSAC-2012:
+ ICANN-SSAC-2012:
     target: https://www.icann.org/en/system/files/files/sac-056-en.pdf
     title: "SAC 056: SSAC Advisory on Impacts of Content Blocking via the Domain Name System"
     author:
       org: ICANN Security and Stability Advisory Committee (SSAC)
     date: 2012
 
-  Ding-1999:
+ Ding-1999:
     target: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.132.3302&amp;rep=rep1&amp;type=pdf
     title: "Centralized Content-Based Web Filtering and Blocking: How Far Can It Go?"
     author:
@@ -974,21 +974,21 @@ informative:
       ins: C.L. Dong
     date: 1999
 
-  Trustwave-2015:
+ Trustwave-2015:
     target: https://www3.trustwave.com/software/8e6/hlp/r3000/files/1system_filter.html
     title: "Filter: SNI extension feature and HTTPS blocking"
     author:
       org: Trustwave
     date: 2015
 
-  Sophos-2015:
+ Sophos-2015:
     target: https://www.sophos.com/en-us/support/knowledgebase/115865.aspx
     title: Understanding Sophos Web Filtering
     author:
       org: Sophos
     date: 2015
 
-  Shbair-2015:
+ Shbair-2015:
     target: https://hal.inria.fr/hal-01202712/document
     title: Efficiently Bypassing SNI-based HTTPS Filtering
     author:
@@ -1006,14 +1006,14 @@ informative:
       ins: I. Chrisment
     date: 2015
 
-  RSF-2005:
+ RSF-2005:
     target: http://archives.rsf.org/print-blogs.php3?id_article=15013
     title: Technical ways to get around censorship
     author:
       org: Reporters Sans Frontieres
     date: 2005
 
-  Marczak-2015:
+ Marczak-2015:
     target: https://www.usenix.org/system/files/conference/foci15/foci15-paper-marczak.pdf
     title: An Analysis of China’s “Great Cannon”
     author:
@@ -1049,7 +1049,7 @@ informative:
       ins: V. Paxson
     date: 2015
 
-  Fifield-2015:
+ Fifield-2015:
     target: https://petsymposium.org/2015/papers/03_Fifield.pdf
     title: Blocking-resistant communication through domain fronting
     author:
@@ -1070,21 +1070,21 @@ informative:
       ins: V. Paxson
     date: 2015
 
-  Google-RTBF:
+ Google-RTBF:
     target: https://support.google.com/legal/contact/lr_eudpa?product=websearch
     title: Search removal request under data protection law in Europe
     author:
       org: Google, Inc.
     date: 2015
 
-  DMLP-512:
+ DMLP-512:
     target: http://www.dmlp.org/legal-guide/protecting-yourself-against-copyright-claims-based-user-content
     title: Protecting Yourself Against Copyright Claims Based on User Content
     author:
       org: Digital Media Law Project
     date: 2012
 
-  Kopel-2013:
+ Kopel-2013:
     target: http://dx.doi.org/doi:10.15779/Z384Q3M
     title: "Operation Seizing Our Sites: How the Federal Government is Taking Domain Names Without Prior Notice"
     author:
@@ -1092,7 +1092,7 @@ informative:
       ins: K. Kopel
     date: 2013
 
-  Bortzmeyer-2015:
+ Bortzmeyer-2015:
     target: https://labs.ripe.net/Members/stephane_bortzmeyer/dns-censorship-dns-lies-seen-by-atlas-probes
     title: "DNS Censorship (DNS Lies) As Seen By RIPE Atlas"
     author:
@@ -1100,7 +1100,7 @@ informative:
       ins: S. Bortzmeyer
     date: 2015
 
-  Wang-2017:
+ Wang-2017:
     target: https://www.cs.ucr.edu/~zhiyunq/pub/imc17_censorship_tcp.pdf
     title: "Your State is Not Mine: A Closer Look at Evading Stateful Internet Censorship"
     author:
@@ -1121,7 +1121,7 @@ informative:
       ins: S. Krishnamurthy
     date: 2017
 
-  Wang-2020:
+ Wang-2020:
     target: https://www.cs.ucr.edu/~zhiyunq/pub/ndss20_symtcp.pdf
     title: "SYMTCP: Eluding Stateful Deep Packet Inspection with Automated Discrepancy Discovery"
     author:
@@ -1151,7 +1151,7 @@ informative:
       ins: T. Braun
     date: 2020
 
-  Li-2017:
+ Li-2017:
     target: https://david.choffnes.com/pubs/liberate-imc17.pdf
     title: "lib•erate, (n) : A library for exposing (traffic-classification) rules and avoiding them efficiently"
     author:
@@ -1178,7 +1178,7 @@ informative:
       ins: A. Mislove
     date: 2017
 
-  Bock-2019:
+ Bock-2019:
     target: https://geneva.cs.umd.edu/papers/geneva_ccs19.pdf
     title: "Geneva: Evolving Censorship Evasion Strategies"
     author:
@@ -1196,7 +1196,7 @@ informative:
       ins: D. Levin
     date: 2019
 
-  Bock-2020:
+ Bock-2020:
     target: https://geneva.cs.umd.edu/papers/evading-censorship-in-depth.pdf
     title: "Detecting and Evading Censorship-in-Depth: A Case Study of Iran’s Protocol Filter"
     author:
@@ -1217,7 +1217,7 @@ informative:
       ins: D. Levin
     date: 2020
  
-  Bock-2020b:
+ Bock-2020b:
     target: https://geneva.cs.umd.edu/posts/china-censors-esni/esni/
     title: "Exposing and Circumventing China's Censorship of ESNI"
     author:
@@ -1244,7 +1244,7 @@ informative:
       ins: D. Levin
     date: 2020
 
-  Rambert-2021:
+ Rambert-2021:
     target: https://www.andrew.cmu.edu/user/nicolasc/publications/Rambert-WWW21.pdf
     title: "Chinese Wall or Swiss Cheese? Keyword filtering in the Great Firewall of China"
     author:
@@ -1262,7 +1262,7 @@ informative:
       ins: N. Christin
     date: 2021
 
-  Knockel-2021:
+ Knockel-2021:
     target: https://dl.acm.org/doi/10.1145/3473604.3474560
     title: "Measuring QQMail's automated email censorship in China"
     author:
@@ -1274,7 +1274,7 @@ informative:
       ins: L. Ruan
     date: 2021
 
-  Bock-2021:
+ Bock-2021:
     target: https://geneva.cs.umd.edu/papers/woot21-weaponizing-availability.pdf
     title: "Your Censor is My Censor: Weaponizing Censorship Infrastructure for Availability Attacks"
     author:
@@ -1292,7 +1292,7 @@ informative:
       ins: D. Levin
     date: 2021
 
-  Bock-2021b:
+ Bock-2021b:
     target: https://geneva.cs.umd.edu/papers/foci21.pdf
     title: "Even Censors Have a Backup: Examining China’s Double HTTPS Censorship Middleboxes"
     author:
@@ -1310,7 +1310,7 @@ informative:
       ins: D. Levin
     date: 2021
 
-  Satija-2021:
+ Satija-2021:
     target: https://sambhav.info/files/blindtls-foci21.pdf
     title: "BlindTLS: Circumventing TLS-based HTTPS censorship"
     author:
@@ -1322,7 +1322,7 @@ informative:
       ins: R. Chatterjee
     date: 2021
 
-  Elmenhorst-2021:
+ Elmenhorst-2021:
     target: https://dl.acm.org/doi/pdf/10.1145/3487552.3487836
     title: "Web Censorship Measurements of HTTP/3 over QUIC"
     author:
@@ -1340,7 +1340,7 @@ informative:
       ins: N. Aschenbruck
     date: 2021
 
-  Elmenhorst-2022:
+ Elmenhorst-2022:
     target: https://www.opentech.fund/news/a-quick-look-at-quic/
     title: "A Quick Look at QUIC Censorship"
     author:
@@ -1349,7 +1349,7 @@ informative:
       ins: K. Elmenhorst
     date: 2022
 
-  Gilad:
+ Gilad:
     target: https://doi.org/10.1145/2597173
     title: "Off-Path TCP Injection Attacks"
     author:
@@ -1361,7 +1361,7 @@ informative:
       ins: A. Herzberg
     date: 2014
 
-  MANRS:
+ MANRS:
     target: https://www.manrs.org/2022/03/lesson-learned-twitter-shored-up-its-routing-security/
     title: "Lesson Learned: Twitter Shored Up Its Routing Security"
     author:
@@ -1370,7 +1370,7 @@ informative:
       ins: A. Siddiqui
     date: 2022
 
-  Google-2018:
+ Google-2018:
     target: https://status.cloud.google.com/incident/cloud-networking/18018
     title: "Google Cloud Networking Incident #18018"
     author:
@@ -1379,7 +1379,7 @@ informative:
       ins:
     date: 2018
     
-   ekr-2021:
+  ekr-2021:
      target: https://educatedguesswork.org/posts/apple-csam-intro/
      title: Overview of Apple's Client-side CSAM Scanning
      author:
