@@ -31,8 +31,8 @@ author:
  -
     ins: B. Jones
     name: Ben Jones
-    organization: Princeton
-    email: bj6@cs.princeton.edu
+    organization: 
+    email: ben.jones.irtf@gmail.com
  -
     ins: N. Feamster
     name: Nick Feamster
