@@ -1438,7 +1438,7 @@ traffic or traffic identifiers to be blocked or impaired, e.g.,
 deciding that webpages containing "sex" in an HTTP Header or that
 accept traffic through the URL www.sex.example are likely to be
 undesirable.  Interference is the process by which censors intercede
-in communication and prevents access to censored materials by blocking
+in communication and prevent access to censored materials by blocking
 access or impairing the connection, e.g., implementing a technical
 solution capable of identifying HTTP headers or URLs and ensuring they
 are rendered wholly or partially inaccessible.
@@ -1454,7 +1454,7 @@ block" in blocklists, databases of image hashes {{ekr-2021}}, or use real-time h
 serve as points of control {{Leyba-2019}}. There are also indications
 that online censors use probabilistic machine learning techniques
 {{Tang-2016}}. Indeed, web crawling and machine learning techniques
-are an active research idea in the effort to identify content deemed
+are an active research area in the effort to identify content deemed
 as morally or commercially harmful to companies or consumers in some
 jurisdictions {{SIDN2020}}.
 
@@ -1472,7 +1472,7 @@ from private industry "content control" software,
 which lets censors filter traffic from broad categories they would like to
 block, such as gambling or pornography {{Knight-2005}}. In these cases,
 these private services attempt to categorize every semi-questionable
-website as to allow for meta-tag blocking. Similarly, they tune real-time
+website to allow for meta-tag blocking. Similarly, they tune real-time
 content heuristic systems to map their assessments onto categories of
 objectionable content.
 
@@ -1482,7 +1482,7 @@ include the Ministry of Industry and Information Technology in China, Ministry o
 Culture and Islamic Guidance in Iran, and specific to copyright in France {{HADOPI-2020}}
 and across the EU for consumer protection law {{Reda-2017}}.
 
-Content-layer filtering of images and video require institutions or organizations to store hashes of images or videos to be blocked in databases, which can then be compared, with some degree of tolerance, to content that is sent, received or stored using centralized, content applications and services {{ekr-2021}}.
+Content-layer filtering of images and video requires institutions or organizations to store hashes of images or videos to be blocked in databases, which can then be compared, with some degree of tolerance, to content that is sent, received or stored using centralized, content applications and services {{ekr-2021}}.
 
 
 Technical Identification {#tech-id}
@@ -1493,20 +1493,20 @@ Points of Control {#poc}
 -----------------
 
 Internet censorship takes place in all parts of the network
-topology. It may be implemented in the network itself (e.g. local loop
-or backhaul), on the services side of communication (e.g. web hosts,
+topology. It may be implemented in the network itself (e.g., local loop
+or backhaul), on the services side of communication (e.g., web hosts,
 cloud providers or content delivery networks), in the ancillary
-services eco-system (e.g. domain name system or certificate
-authorities) or on the end-client side (e.g. in an end-user device
+services eco-system (e.g., domain name system or certificate
+authorities) or on the end-client side (e.g., in an end-user device
 such as a smartphone, laptop or desktop or software executed on such
 devices).  An important aspect of pervasive technical interception is
 the necessity to rely on software or hardware to intercept the content
 the censor is interested in. There are various logical and physical
 points-of-control censors may use for interception mechanisms,
-including, though not limited to, the following.
+including, though not limited to, the following:
 
-* Internet Backbone: If a censor controls the gateways into a region,
-  they can filter undesirable traffic that is traveling into and out
+* Internet Backbone: If a censor controls the international gateways into a region,
+  those gateways can be used to filter undesirable traffic that is traveling into and out
   of the region by packet sniffing and port mirroring at the relevant
   exchange points. Censorship at this point of control is most
   effective at controlling the flow of information between a region
@@ -1547,7 +1547,7 @@ including, though not limited to, the following.
   Registries (RIRs) that issue Route Origination Authorizations (ROAs)
   to BGP operators can be forced to issue rogue certificates that may
   allow compromise, i.e., by allowing censorship software to engage in
-  identification and interference where not possible before. CAs may
+  identification and interference where it may not have been possible before. CAs may
   also be forced to revoke certificates. This may lead to adversarial
   traffic routing or TLS interception being allowed, or an otherwise
   rightful origin or destination point of traffic flows being unable
@@ -1556,7 +1556,7 @@ including, though not limited to, the following.
 * Services: Application service providers can be pressured,
   coerced, or legally required to censor specific content or data flows.
   Service providers naturally face incentives to maximize their
-  potential customer base and potential service shutdowns or legal
+  potential customer base, and potential service shutdowns or legal
   liability due to censorship efforts may seem much less attractive
   than potentially excluding content, users, or uses of their
   service. Services have increasingly become focal points of
@@ -1969,7 +1969,7 @@ distribution networks (CDN) that host content at hundreds or thousands
 of IP addresses. Despite these limitations, IP blocking is extremely
 effective because the user needs to proxy their traffic through
 another destination to circumvent this type of identification. 
-In addition, IP blocking is effective against all protocols above IP, e.g. 
+In addition, IP blocking is effective against all protocols above IP, e.g., 
 TCP and QUIC.
 
 Port-blocking is generally not useful because many types of content
@@ -2178,7 +2178,7 @@ validation). Note that an adversary seeking to merely block resolution
 can serve a DNSSEC record that doesn't validate correctly, assuming of
 course that the client/recursive resolver validates.
 
-Previously, techniques were used for e.g. censorship that relied on
+Previously, techniques were used for e.g., censorship that relied on
 DNS requests being passed in cleartext over port 53
 {{SSAC-109-2020}}. With the deployment of encrypted DNS (e.g.,
 DNS-over-HTTPS {{RFC8484}}) these requests are now increasingly passed
@@ -2270,7 +2270,7 @@ Firewall of China has been observed using packet dropping as one of its primary
 mechanisms of technical censorship {{Ensafi-2013}}. Iran has also used
 Packet Dropping as the mechanisms for throttling SSH
 {{Aryan-2012}}. These are but two examples of a ubiquitous censorship
-practice. Notably, packet dropping during the handshake or working connection is the only interference technique observed for QUIC traffic so far, e.g. in India, Iran, Russia and Uganda {{Elmenhorst-2021}}{{Elmenhorst-2022}}.
+practice. Notably, packet dropping during the handshake or working connection is the only interference technique observed for QUIC traffic so far, e.g., in India, Iran, Russia and Uganda {{Elmenhorst-2021}}{{Elmenhorst-2022}}.
 
 
 ### RST Packet Injection {#rst-inject}
